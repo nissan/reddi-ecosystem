@@ -3,7 +3,7 @@ asOf: 2026-08-26
 repositories:
   - id: ecosystem
     url: https://github.com/nissan/reddi-ecosystem
-    state: public-empty-awaiting-connector-access
+    state: active-public
     visibility: public
     canonicalFor:
       - portfolio roadmap and dependency graph

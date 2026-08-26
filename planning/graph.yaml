@@ -223,7 +223,7 @@ nodes:
     milestone: M1
     targetRepo: ecosystem
     githubProjection: implementation
-    status: blocked
+    status: in-progress
     priority: P0
     dependsOn: []
     ownerRole: repository administrator

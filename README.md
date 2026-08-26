@@ -75,9 +75,10 @@ certification, support, and service-level commitments. See
 
 ## Status
 
-Bootstrap is locally complete and validated. The public `nissan/reddi-ecosystem` repository
-exists; initial publication is waiting for the connected GitHub integration to be granted
-contents access to that newly created repository.
+The validated bootstrap is public at
+[`nissan/reddi-ecosystem`](https://github.com/nissan/reddi-ecosystem). Programme execution
+starts with M0 evidence recovery while the public control-plane baseline, CI, and GitHub
+issue projections are reconciled under M1.
 
 ## License
 
