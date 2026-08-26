@@ -1,0 +1,113 @@
+schemaVersion: 1
+timezone: Australia/Sydney
+planningAsOf: 2026-08-26
+milestones:
+  - id: M0
+    name: Evidence Recovery and Grant Truth
+    targetDate: 2026-09-11
+    intent: Establish what is actually complete, promised, deployed, published, and still owed.
+    exitCriteria:
+      - Every owned Reddi repository has an evidence-backed role, health, open-issue, release, and deployment snapshot.
+      - Conflicting Solana program IDs and environment claims are reconciled against canonical config and read-only chain evidence.
+      - AUDD issues 615-630 and the earlier May-July grant plan have promise/evidence/gap/owner/status rows.
+      - npm releases, integrations, workshops, users, transaction volume, and mainnet claims are measured, not inferred.
+      - A maintainer-approved remediation and grant-communication decision exists for every overdue or uncertain commitment.
+    prohibitedShortcuts:
+      - closing grant work because code exists without release evidence
+      - live/mainnet transactions undertaken merely to satisfy the audit
+
+  - id: M1
+    name: Programme Baseline and Governance
+    targetDate: 2026-09-25
+    dependsOn: [M0]
+    intent: Make the portfolio legible to humans, agents, contributors, grantors, and upstreams.
+    exitCriteria:
+      - Cross-repository graph, issue projector, labels, templates, ADR/RFC process, and CI linting are live.
+      - Open-source covenant, commercial boundary, upstream policy, security policy, and contributor journey are public.
+      - One current roadmap replaces conflicting portfolio narratives without replacing component canonical artifacts.
+      - A public status page distinguishes verified, partial, planned, blocked, superseded, and unknown claims.
+
+  - id: M2
+    name: ADL, RAP, and Arena Contract Convergence
+    targetDate: 2026-10-30
+    dependsOn: [M1]
+    intent: Freeze the portable seams required by all later Buzz, machine, and hosted work.
+    exitCriteria:
+      - ADL v0.2 import/profile, RAP job/receipt, identity binding, and payment adapter contracts are versioned and tested.
+      - Reddi Arena consumes canonical ADL without a local semantic fork and emits structured implementation findings.
+      - Dry-run and replay cover discovery through judgment and receipt without wallet or hosted dependencies.
+      - Solana/AUDD/x402 is one conforming adapter profile; at least one non-Solana or conventional-rail fixture proves neutrality.
+      - An Agent Bill of Materials/dependency view can be generated from an ADL definition and its deployment projection.
+
+  - id: M3
+    name: Reddi Arena for Buzz Proof
+    targetDate: 2026-12-11
+    dependsOn: [M2]
+    intent: Prove a community can discover agents, negotiate work, watch an Arena job, judge it, and inspect receipts inside Buzz.
+    exitCriteria:
+      - Sidecar-first integration runs against an upstream-compatible Buzz release.
+      - ADL definitions project to Buzz/Nostr without becoming canonical Buzz-only personas.
+      - RAP states map to existing Buzz job events or a documented extension with replay and versioning.
+      - Payment truth is reconciled outside Nostr; sensitive terms have an explicit encryption/privacy policy.
+      - Upstream discussions and generally useful patches are filed before a permanent fork decision.
+      - A public no-spend walkthrough and contributor setup are reproducible.
+
+  - id: M4
+    name: Reddi Pack for Omarchy Quattro Alpha
+    targetDate: 2027-01-29
+    dependsOn: [M2, M3]
+    intent: Let a hacker add the Reddi cockpit and services to an existing Quattro machine.
+    exitCriteria:
+      - Thin public Quattro plugin provides jobs, node health, Arena, approvals, and earnings/receipt views.
+      - Signed packages or a reproducible service bundle install RAP, Arena, Buzz integration, and narrow local APIs.
+      - Plugin cannot access signer keys; install, update, rollback, disable, and uninstall paths are tested.
+      - A threat model covers unsandboxed QML, package supply chain, local APIs, agent execution, and payment authority.
+      - Useful Omarchy fixes/docs are contributed upstream and branding does not imply endorsement.
+
+  - id: M5
+    name: Reddi Machine Developer Preview
+    targetDate: 2027-03-26
+    dependsOn: [M4]
+    intent: Produce a reproducible optional whole-machine development and participation environment.
+    exitCriteria:
+      - Supported x86_64 hardware matrix, reproducible provisioning, first-boot wizard, backup, recovery, and factory-reset path exist.
+      - Default onboarding is fixture/devnet/no-spend with explicit promotion gates.
+      - Nostr identity, agent identities, wallet binding, spend policy, relay mode, and recovery are explainable and testable.
+      - SBOM, signatures, provenance, update channel, rollback, and incident path are documented.
+      - Custom ISO versus stock Omarchy plus provisioning is resolved by evidence, not branding preference.
+
+  - id: M6
+    name: Lighthouse Hosted Services Alpha
+    targetDate: 2027-04-30
+    dependsOn: [M2, M3]
+    intent: Validate sustainable managed operations while preserving local and self-hosted parity.
+    exitCriteria:
+      - Managed relay/community, Arena, discovery/health index, evidence retention, and receipt search have explicit service boundaries.
+      - Tenant isolation, data ownership/export, observability, SLOs, abuse controls, and cost attribution are tested.
+      - Pricing and unit economics are based on measured workloads.
+      - OSS parity review proves no hosted dependency in the first local success path.
+      - Custody and regulated-payment functions remain excluded unless separately approved.
+
+  - id: M7
+    name: Community Season Zero and Builder Beta
+    targetDate: 2027-06-25
+    dependsOn: [M3, M4, M6]
+    intent: Grow a homebrew community across AI, Linux, Nostr, and blockchain through useful participation.
+    exitCriteria:
+      - Contributor ladder, office hours, public RFCs, starter issues, workshops, and upstream patch register are active.
+      - Season Zero runs with deterministic/no-spend and optional approved paid tracks clearly separated.
+      - At least three independent contributors complete reviewed changes and at least two external implementations submit conformance evidence.
+      - Community health measures include retention, review latency, upstream acceptance, documentation success, and contributor diversity.
+
+  - id: M8
+    name: Production and Economic Readiness
+    targetDate: 2027-09-24
+    dependsOn: [M5, M6, M7]
+    intent: Decide what can safely carry real users, real obligations, and approved real value.
+    exitCriteria:
+      - Independent security review and applicable smart-contract/payment audits are complete.
+      - Incident response, disputes/refunds, key recovery, data protection, service reliability, and financial reconciliation are exercised.
+      - Each chain, asset, and rail has an explicit production support state and operator runbook.
+      - Mainnet/live activation is a recorded human decision; marketing claims link to evidence.
+      - Revenue demonstrates a credible path to fund maintenance and staffing beyond grants.
+

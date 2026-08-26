@@ -1,0 +1,105 @@
+schemaVersion: 1
+asOf: 2026-08-26
+repositories:
+  - id: ecosystem
+    url: https://github.com/nissan/reddi-ecosystem
+    state: public-empty-awaiting-connector-access
+    visibility: public
+    canonicalFor:
+      - portfolio roadmap and dependency graph
+      - cross-repository architecture decisions
+      - grant evidence index and portfolio claim registry
+      - research provenance and prompt-foundry governance
+      - upstream/community/commercial covenants
+    mustNotOwn:
+      - ADL semantic definitions
+      - RAP implementation code
+      - Arena rules or implementation
+
+  - id: adl-lab
+    url: https://github.com/nissan/reddiagent-lab
+    state: active
+    visibility: public
+    canonicalFor:
+      - ADL specifications and schemas
+      - deterministic ADL conformance
+      - companion agent portability specifications
+      - provider and framework compatibility reports
+    observedEvidence:
+      - url: https://github.com/nissan/reddiagent-lab/blob/main/README.md
+        observation: ADL v0.2 is canonical; code Apache-2.0 and specifications/docs CC BY 4.0
+        checkedAt: 2026-08-26
+      - url: https://github.com/nissan/reddiagent-lab/blob/main/.github/AGENT-DEVELOPMENT-PROCESS.md
+        observation: issue/branch/worktree/review/research process is already defined
+        checkedAt: 2026-08-26
+
+  - id: rap
+    url: https://github.com/nissan/reddi-agent-protocol
+    state: active
+    visibility: public
+    canonicalFor:
+      - RAP state and receipt implementation
+      - payment, settlement, evidence, attestation, and reputation adapters
+      - Solana and Quasar proof implementation
+      - public packages, conformance, and hosted-service interfaces
+    observedEvidence:
+      - url: https://github.com/nissan/reddi-agent-protocol/blob/main/config/quasar/deployments.json
+        observation: four active Quasar devnet program IDs and a legacy Anchor reference are recorded
+        checkedAt: 2026-08-26
+      - url: https://github.com/nissan/reddi-agent-protocol/issues/615
+        observation: AUDD grant release programme and children 616-630 are open
+        checkedAt: 2026-08-26
+
+  - id: arena
+    url: https://github.com/nissan/reddi-arena
+    state: active
+    visibility: public
+    canonicalFor:
+      - Arena rules and weight classes
+      - deterministic competitive proof and replay
+      - ADL implementation pressure and findings
+      - game and judge UX
+    observedEvidence:
+      - url: https://github.com/nissan/reddi-arena/pull/38
+        observation: graph engineering introduced a 42-node graph and lint gate
+        checkedAt: 2026-08-26
+      - url: https://github.com/nissan/reddi-arena/pull/41
+        observation: 72 tests passed and findings were routed upstream
+        checkedAt: 2026-08-26
+
+  - id: buzz-upstream
+    url: https://github.com/block/buzz
+    state: external-upstream
+    visibility: public
+    canonicalFor:
+      - Buzz Nostr workspace and relay implementation
+    integrationPolicy: sidecar-first; upstream-generic-extension-second; fork-only-by-decision
+
+  - id: omarchy-upstream
+    url: https://github.com/basecamp/omarchy
+    state: external-upstream
+    visibility: public
+    canonicalFor:
+      - Omarchy distribution and Quattro shell
+    integrationPolicy: public plugin-and-package-first; branded image only after reproducibility gate
+
+plannedRepositories:
+  - id: buzz-integration
+    proposedUrl: https://github.com/nissan/reddi-buzz
+    creationGate: M3 architecture decision confirms code cannot live cleanly in existing repositories
+  - id: omarchy-pack
+    proposedUrl: https://github.com/nissan/reddi-omarchy
+    creationGate: M4 package boundary and upstream naming review complete
+  - id: lighthouse
+    proposedUrl: https://github.com/nissan/reddi-lighthouse
+    creationGate: M6 public interfaces and open-source parity covenant accepted
+
+synchronisation:
+  canonicalGraph: planning/graph.yaml
+  githubRole: collaboration projection and volatile execution state
+  rules:
+    - Component implementation issues remain in their canonical component repository.
+    - Ecosystem nodes link to existing issues rather than duplicating them.
+    - New cross-repository work begins here and is moved or linked when the execution repository is known.
+    - Status imported from GitHub never overwrites a human decision gate automatically.
+    - Every merged component PR triggers a dependency and milestone review here.

@@ -1,0 +1,67 @@
+schemaVersion: 1
+policy:
+  defaultStatus: experimental
+  promotionRequires: [held-out-eval, safety-eval, cost-latency-review, human-review, rollback-target]
+  optimizerCannotChange: [authority, human-gates, held-out-set, promotion-metrics, canonical-ownership]
+prompts:
+  - id: recovery-auditor
+    file: recovery-auditor.md
+    purpose: Recover actual portfolio state from reproducible evidence.
+    tools: [repository-read, issue-read, release-read, local-test, approved-public-web]
+  - id: research-scout
+    file: research-scout.md
+    purpose: Gather primary sources for one bounded research question.
+    tools: [approved-public-web, paper-read, repository-read]
+  - id: synthesis-framer
+    file: synthesis-framer.md
+    purpose: Convert evidence into options, experiments, and decisions without overclaiming.
+    tools: [repository-read]
+  - id: graph-planner
+    file: graph-planner.md
+    purpose: Produce a dependency-correct executable graph change.
+    tools: [repository-read, issue-read, graph-lint]
+  - id: issue-writer
+    file: issue-writer.md
+    purpose: Project a graph node into an implementation-ready issue.
+    tools: [repository-read, issue-read]
+  - id: node-executor
+    file: node-executor.md
+    purpose: Execute one bounded graph node and leave verifiable evidence.
+    tools: [repository-read-write, local-test]
+  - id: independent-auditor
+    file: independent-auditor.md
+    purpose: Attempt to falsify acceptance without modifying the candidate.
+    tools: [repository-read, local-test, approved-read-only-environment]
+  - id: retrospective
+    file: retrospective.md
+    purpose: Convert a completed or failed loop into durable system improvement.
+    tools: [repository-read, trace-summary-read]
+  - id: prompt-optimizer
+    file: prompt-optimizer.md
+    purpose: Generate and evaluate bounded prompt candidates with rollback.
+    tools: [sandbox-run, eval-run, result-read]
+  - id: agent-architect
+    file: agent-architect.md
+    purpose: Propose a portable ADL agent definition and Agent BOM through the canonical lab.
+    tools: [repository-read, schema-validate, eval-run]
+  - id: grant-auditor
+    file: grant-auditor.md
+    purpose: Reconcile promises, evidence, eligibility, gaps, and decisions.
+    tools: [repository-read, issue-read, approved-evidence-read]
+  - id: upstream-steward
+    file: upstream-steward.md
+    purpose: Find the lowest-maintenance reciprocal upstream integration path.
+    tools: [approved-public-web, upstream-repository-read, issue-read]
+  - id: community-builder
+    file: community-builder.md
+    purpose: Design inclusive, measurable, safe contributor programmes.
+    tools: [repository-read, approved-community-evidence-read]
+  - id: oss-parity-reviewer
+    file: oss-parity-reviewer.md
+    purpose: Prevent optional Lighthouse value from becoming protocol lock-in.
+    tools: [repository-read, product-surface-read]
+  - id: security-release-gate
+    file: security-release-gate.md
+    purpose: Decide whether a release claim is safe, reproducible, and accurately scoped.
+    tools: [repository-read, local-test, approved-read-only-environment]
+

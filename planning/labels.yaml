@@ -1,0 +1,34 @@
+schemaVersion: 1
+labels:
+  - {name: "type:epic", color: "5319e7", description: "Programme epic"}
+  - {name: "type:feature", color: "1d76db", description: "Outcome-sized feature"}
+  - {name: "type:task", color: "0e8a16", description: "Executable task"}
+  - {name: "type:research", color: "0052cc", description: "Evidence-producing research"}
+  - {name: "type:decision", color: "d93f0b", description: "Human or architecture decision"}
+  - {name: "type:upstream", color: "0366d6", description: "External upstream coordination"}
+  - {name: "type:grant", color: "fbca04", description: "Grant promise/evidence/remediation"}
+  - {name: "status:backlog", color: "ededed", description: "Not yet ready"}
+  - {name: "status:ready", color: "c2e0c6", description: "Dependencies satisfied"}
+  - {name: "status:claimed", color: "bfdadc", description: "Owner and footprint reserved"}
+  - {name: "status:in-progress", color: "0e8a16", description: "Execution underway"}
+  - {name: "status:in-review", color: "fbca04", description: "Awaiting independent review"}
+  - {name: "status:blocked", color: "b60205", description: "Cannot proceed without named gate"}
+  - {name: "status:done", color: "6f42c1", description: "Acceptance and evidence complete"}
+  - {name: "priority:p0", color: "b60205", description: "Critical/urgent"}
+  - {name: "priority:p1", color: "d93f0b", description: "High"}
+  - {name: "priority:p2", color: "fbca04", description: "Normal"}
+  - {name: "priority:p3", color: "c5def5", description: "Later"}
+  - {name: "area:grant", color: "fef2c0", description: "Grant obligations"}
+  - {name: "area:adl", color: "bfd4f2", description: "Agent Definition Language"}
+  - {name: "area:rap", color: "7057ff", description: "Reddi Agent Protocol"}
+  - {name: "area:arena", color: "f9d0c4", description: "Reddi Arena"}
+  - {name: "area:buzz-nostr", color: "d4c5f9", description: "Buzz and Nostr"}
+  - {name: "area:omarchy", color: "c2e0c6", description: "Omarchy and Quattro"}
+  - {name: "area:lighthouse", color: "006b75", description: "Hosted Lighthouse services"}
+  - {name: "area:community", color: "ffccdd", description: "Community and upstream health"}
+  - {name: "area:security", color: "ee0701", description: "Security, safety, privacy"}
+  - {name: "human-gate", color: "b60205", description: "Requires explicit human decision"}
+  - {name: "external-action", color: "d4c5f9", description: "Requires coordination outside code"}
+  - {name: "good-first-issue", color: "7057ff", description: "Suitable first contribution"}
+  - {name: "help-wanted", color: "008672", description: "Maintainer welcomes assistance"}
+  - {name: "research-reproduction", color: "0052cc", description: "Reproduce or challenge cited research and evidence"}

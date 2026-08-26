@@ -1,0 +1,297 @@
+schemaVersion: 1
+curatedAt: 2026-08-26
+policy:
+  primarySourcesPreferred: true
+  notes:
+    - A source informs a hypothesis or control; it does not prove that the control works for Reddi.
+    - Product posts are implementation reports, not independent scientific validation.
+    - Every adopted pattern requires a Reddi issue, experiment, ADR, or evaluated prompt change.
+
+sources:
+  - id: openai-harness-engineering
+    publisher: OpenAI
+    kind: engineering-post
+    published: 2026-02-11
+    url: https://openai.com/index/harness-engineering/
+    relevance: Repository knowledge as system of record, progressive disclosure, agent legibility, mechanical architecture enforcement, and humans steering outcomes.
+
+  - id: openai-self-improving-tax-agents
+    publisher: OpenAI
+    kind: engineering-post
+    published: 2026-05-27
+    url: https://openai.com/index/building-self-improving-tax-agents-with-codex/
+    relevance: Turn reviewed corrections into traces and evals, then feed measured failures back into the development loop.
+
+  - id: openai-paperbench
+    publisher: OpenAI
+    kind: benchmark
+    published: 2025-04-02
+    url: https://openai.com/index/paperbench/
+    relevance: Hierarchical rubrics and granular, evidence-backed scoring for long, complex outcomes.
+
+  - id: anthropic-effective-agents
+    publisher: Anthropic
+    kind: engineering-post
+    published: 2024-12-19
+    url: https://www.anthropic.com/engineering/building-effective-agents
+    relevance: Prefer simple composable workflows, add autonomy only when it creates measurable value, and preserve observability.
+
+  - id: anthropic-context-engineering
+    publisher: Anthropic
+    kind: engineering-post
+    published: 2025-09-29
+    url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+    relevance: Treat context as finite; use minimal high-signal instructions, just-in-time retrieval, structured notes, compaction, and selective multi-agent work.
+
+  - id: anthropic-long-running-harness
+    publisher: Anthropic
+    kind: engineering-post
+    published: 2025-11-26
+    url: https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+    relevance: Decompose long work, leave structured handoffs, preserve progress outside context, and verify features incrementally.
+
+  - id: anthropic-long-running-apps
+    publisher: Anthropic
+    kind: engineering-post
+    published: 2026-03-24
+    url: https://www.anthropic.com/engineering/harness-design-long-running-apps
+    relevance: Planner-generator-evaluator separation, tractable chunks, structured handoffs, and skeptical independent evaluation.
+
+  - id: anthropic-agent-evals
+    publisher: Anthropic
+    kind: engineering-post
+    published: 2026-01-09
+    url: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+    relevance: Evaluate final environment state, record transcripts and outcomes, combine deterministic and model/human graders, and test the harness-model pair.
+
+  - id: anthropic-multi-agent-research
+    publisher: Anthropic
+    kind: engineering-post
+    published: 2025-06-13
+    url: https://www.anthropic.com/engineering/multi-agent-research-system
+    relevance: Delegate independent breadth work with clear boundaries and outputs; scale effort to value and evaluate outcomes rather than one prescribed path.
+
+  - id: anthropic-agentic-misalignment
+    publisher: Anthropic
+    kind: research-report
+    published: 2025-06-20
+    url: https://www.anthropic.com/research/agentic-misalignment
+    relevance: High-autonomy access to sensitive information and irreversible tools needs bounded authority, human approval, and deliberate adversarial evaluation.
+
+  - id: anthropic-petri
+    publisher: Anthropic
+    kind: research-tool
+    published: 2026-05-07
+    url: https://www.anthropic.com/research/donating-open-source-petri
+    relevance: Separate simulated auditor and judge roles can test concerning behavior across provider models.
+
+  - id: google-adk-a2a-cross-language
+    publisher: Google Developers
+    kind: engineering-post
+    published: 2026-06-22
+    url: https://developers.googleblog.com/build-cross-language-multi-agent-team-with-google-agent-development-kit-and-a2a/
+    relevance: Heterogeneous agents can collaborate through protocol contracts, including deterministic validators implemented in a different language/runtime.
+
+  - id: google-adk-interactions
+    publisher: Google Developers
+    kind: engineering-post
+    published: 2025-12-11
+    url: https://developers.googleblog.com/en/building-agents-with-the-adk-and-the-new-interactions-api/
+    relevance: Separate agent framework concerns from model interaction APIs and preserve provider/runtime substitution.
+
+  - id: bytedance-seed18
+    publisher: ByteDance Seed
+    kind: model-report
+    published: 2026-03-24
+    url: https://arxiv.org/abs/2603.20633
+    relevance: Generalized agentic model evidence across reasoning, coding, computer use, and tool environments.
+
+  - id: bytedance-seed20
+    publisher: ByteDance Seed
+    kind: model-report
+    published: 2026-07-01
+    url: https://arxiv.org/abs/2607.00248
+    relevance: Current frontier agentic-model evidence; informs evaluation coverage without becoming a required provider.
+
+  - id: bytedance-ui-tars
+    publisher: ByteDance
+    kind: research-paper
+    published: 2025-01-21
+    url: https://arxiv.org/abs/2501.12326
+    relevance: Native GUI perception/action agents motivate visual-state evals, recoverability, and hostile-UI tests for Buzz and Quattro.
+
+  - id: bytedance-deer-flow
+    publisher: ByteDance
+    kind: source-repository
+    published: unknown
+    url: https://github.com/bytedance/deer-flow
+    relevance: Open long-horizon agent harness with subagents, memory, sandboxing, and skills; useful as a comparison implementation.
+
+  - id: zai-glm47
+    publisher: Z.ai
+    kind: model-post
+    published: 2025-12-22
+    url: https://z.ai/blog/glm-4.7
+    relevance: Agentic coding and tool-use model option; Z.ai/GLM is tracked independently from ByteDance.
+
+  - id: zai-scaling-pain
+    publisher: Z.ai
+    kind: engineering-post
+    published: unknown
+    url: https://z.ai/blog/scaling-pain
+    relevance: Long-context, high-concurrency agent workloads expose rare infrastructure failures; adapters need retries, idempotency, budgets, and provider health evidence.
+
+  - id: mistral-connectors
+    publisher: Mistral AI
+    kind: engineering-post
+    published: 2026-05-22
+    url: https://mistral.ai/news/connectors/
+    relevance: Standard and custom tool connectors, MCP/API integration, and human approval for consequential tool calls.
+
+  - id: mistral-function-calling
+    publisher: Mistral AI
+    kind: documentation
+    published: unknown
+    url: https://docs.mistral.ai/studio/agents/agent-tools/function-calling
+    relevance: Provider-specific function calling belongs behind the portable runtime/tool contract.
+
+  - id: xai-grok-build-open-source
+    publisher: xAI
+    kind: engineering-post
+    published: unknown
+    url: https://x.ai/news/grok-build-open-source
+    relevance: Open agent harnesses and extension systems provide comparison points for portable agent execution.
+
+  - id: xai-goal
+    publisher: xAI
+    kind: product-post
+    published: unknown
+    url: https://x.ai/news/introducing-goal
+    relevance: Long-running work needs visible plan/status, pause/resume, approval, and resumable state.
+
+  - id: xai-agent-dashboard
+    publisher: xAI
+    kind: product-post
+    published: unknown
+    url: https://x.ai/news/agent-dashboard
+    relevance: Operator surfaces should show agent state, evidence, cost, authority, and intervention controls.
+
+  - id: longhorizon-harness
+    publisher: arXiv
+    kind: research-paper
+    published: 2026-08-04
+    url: https://arxiv.org/abs/2608.01964
+    relevance: External verified task state and Manage-Execute-Audit roles for long-horizon work.
+
+  - id: agentflow-adg-abom
+    publisher: arXiv
+    kind: research-paper
+    published: 2026-07-02
+    url: https://arxiv.org/abs/2607.01640
+    relevance: Agent Dependency Graph and Agent Bill of Materials expose prompt-to-tool and transitive dependency risk.
+
+  - id: sepo
+    publisher: arXiv
+    kind: research-paper
+    published: 2026-06-04
+    url: https://arxiv.org/abs/2606.04465
+    relevance: Self-evolving prompt optimization motivates controlled candidate generation and evaluation.
+
+  - id: spear
+    publisher: arXiv
+    kind: research-paper
+    published: 2026-05-29
+    url: https://arxiv.org/abs/2605.26275
+    relevance: Sandbox prompt experiments, guard metrics, and rollback when a candidate regresses.
+
+  - id: gepa
+    publisher: arXiv
+    kind: research-paper
+    published: 2025-07-25
+    url: https://arxiv.org/abs/2507.19457
+    relevance: Reflective prompt evolution using execution feedback; candidates still require held-out and safety evaluation.
+
+  - id: dspy-optimizers
+    publisher: Stanford NLP
+    kind: documentation
+    published: unknown
+    url: https://github.com/stanfordnlp/dspy/blob/main/docs/docs/learn/optimization/optimizers.md
+    relevance: Programmatic prompt/module optimization provides a provider-neutral comparison for the prompt foundry.
+
+  - id: graph-of-thoughts
+    publisher: arXiv
+    kind: research-paper
+    published: 2023-08-18
+    url: https://arxiv.org/abs/2308.09687
+    relevance: Represent intermediate reasoning operations as a graph when dependencies, aggregation, or revision exceed a linear chain.
+
+  - id: adaptive-graph-of-thoughts
+    publisher: arXiv
+    kind: research-paper
+    published: 2025-02-07
+    url: https://arxiv.org/abs/2502.05078
+    relevance: Adapt graph topology to task state; graph expansion must remain budgeted and observable.
+
+  - id: cloudevents
+    publisher: CNCF
+    kind: specification
+    published: unknown
+    url: https://cloudevents.io/
+    relevance: Common event metadata and schema discipline for interoperable event-driven systems.
+
+  - id: buzz
+    publisher: Block
+    kind: source-repository
+    published: unknown
+    url: https://github.com/block/buzz
+    relevance: Canonical upstream for the Nostr-based workspace and the proposed Arena experience.
+
+  - id: buzz-architecture
+    publisher: Block
+    kind: architecture-document
+    published: unknown
+    url: https://github.com/block/buzz/blob/main/ARCHITECTURE.md
+    relevance: Determines supported integration seams and relay/community architecture.
+
+  - id: buzz-extension-request
+    publisher: Block
+    kind: upstream-issue
+    published: unknown
+    url: https://github.com/block/buzz/issues/2426
+    relevance: Tracks upstream extension/plugin demand; inspect before choosing a permanent fork.
+
+  - id: omarchy
+    publisher: Basecamp
+    kind: source-repository
+    published: unknown
+    url: https://github.com/basecamp/omarchy
+    relevance: Canonical upstream for the distribution used by the proposed Reddi Pack/Machine.
+
+  - id: omarchy-quattro-plugins
+    publisher: Basecamp
+    kind: documentation
+    published: unknown
+    url: https://github.com/basecamp/omarchy/blob/quattro/manual/32-shell-plugins.md
+    relevance: Defines the plugin surface and constrains the cockpit to thin, non-privileged QML integration.
+
+  - id: nostr-nips
+    publisher: Nostr community
+    kind: specification-repository
+    published: unknown
+    url: https://github.com/nostr-protocol/nips
+    relevance: Canonical event and relay protocol specifications; integration claims cite exact implemented NIPs.
+
+  - id: x402
+    publisher: Coinbase
+    kind: specification-repository
+    published: unknown
+    url: https://github.com/coinbase/x402
+    relevance: Initial HTTP payment challenge/response mechanism; it is not itself generic escrow.
+
+  - id: slsa
+    publisher: OpenSSF
+    kind: specification
+    published: unknown
+    url: https://slsa.dev/spec/v1.2/
+    relevance: Build provenance and supply-chain assurance for packages and machine distributions.
+

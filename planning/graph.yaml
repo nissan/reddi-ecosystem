@@ -1,0 +1,1695 @@
+schemaVersion: 1
+programme: Reddi Ecosystem
+asOf: 2026-08-26
+canonicalRule: This file owns cross-repository dependencies; component repositories own their implementation.
+dependencyEdgeTypes:
+  dependsOn: completion prerequisite between graph nodes
+  externalIssue: canonical component implementation or pre-existing work link
+  humanGates: non-automatable approval or external-authority prerequisite
+statusVocabulary: [ready, in-progress, blocked, planned, done, superseded]
+priorityVocabulary: [P0, P1, P2, P3]
+humanGates:
+  - repo-creation
+  - external-publication
+  - upstream-contact
+  - legal-or-grantor-communication
+  - privacy-publication
+  - live-payment
+  - mainnet
+  - signing-or-custody
+  - production-release
+  - paid-service-or-spend
+
+epics:
+  - id: E00
+    title: Evidence recovery and grant truth
+    milestone: M0
+    targetRepo: ecosystem
+    outcome: Every past commitment and current claim has governing text, reproducible evidence, gap, owner role, status, and decision.
+  - id: E01
+    title: Programme control plane and governance
+    milestone: M1
+    targetRepo: ecosystem
+    outcome: Humans and agents can navigate one dependency-correct public roadmap without displacing component truth.
+  - id: E02
+    title: Research intelligence and prompt foundry
+    milestone: M1
+    targetRepo: ecosystem
+    outcome: Research becomes evaluated prompts, agents, tools, experiments, and decisions through a reproducible improvement loop.
+  - id: E03
+    title: ADL portability and Agent Bill of Materials
+    milestone: M2
+    targetRepo: adl-lab
+    outcome: An agent and its deployed dependency/authority surface can be defined, projected, inspected, and tested without provider or product lock-in.
+  - id: E04
+    title: RAP lifecycle, events, and rail neutrality
+    milestone: M2
+    targetRepo: rap
+    outcome: The same economic work lifecycle and receipts operate across replaceable transports, chains, assets, and conventional payment rails.
+  - id: E05
+    title: Arena conformance, evaluation, and learning loops
+    milestone: M2
+    targetRepo: arena
+    outcome: Arena supplies deterministic and adversarial evidence that improves ADL and RAP without redefining either locally.
+  - id: E06
+    title: Reddi Arena for Buzz and Nostr
+    milestone: M3
+    targetRepo: ecosystem
+    outcome: A community can run and inspect a no-spend Arena lifecycle inside an upstream-compatible Buzz workspace.
+  - id: E07
+    title: Reddi Pack for Omarchy Quattro
+    milestone: M4
+    targetRepo: ecosystem
+    outcome: A hacker can safely add a thin Quattro cockpit and signed Reddi services to a supported Omarchy machine.
+  - id: E08
+    title: Reddi Machine distribution
+    milestone: M5
+    targetRepo: ecosystem
+    outcome: A reproducible, recoverable, secure whole-machine developer/node preview can be installed and maintained.
+  - id: E09
+    title: Lighthouse hosted services and sustainable revenue
+    milestone: M6
+    targetRepo: ecosystem
+    outcome: Optional managed operations deliver measurable value and revenue without making the open protocol dependent on them.
+  - id: E10
+    title: Homebrew community and upstream reciprocity
+    milestone: M7
+    targetRepo: ecosystem
+    outcome: Independent AI, Linux, Nostr, and blockchain contributors learn, build, operate, review, and contribute upstream.
+  - id: E11
+    title: Security, privacy, supply chain, and production readiness
+    milestone: M8
+    targetRepo: ecosystem
+    outcome: Releases and live economic claims are bounded, reproducible, recoverable, independently reviewed, and approved by humans.
+
+nodes:
+  - id: ECO-000
+    epic: E00
+    type: issue
+    title: Recover governing grant documents and amendments
+    milestone: M0
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: ready
+    priority: P0
+    dependsOn: []
+    ownerRole: programme lead
+    outcome: A source register distinguishes binding commitments, proposals, targets, amendments, and acceptance authorities.
+    acceptance:
+      - Every grant/target row links to authoritative governing text or is explicitly marked unavailable.
+      - Due dates, acceptance authority, amendments, confidentiality, and reporting obligations are extracted without interpretation drift.
+    subtasks:
+      - Inventory signed agreements, proposals, emails, reports, and amendments.
+      - Hash and register private originals without committing confidential content.
+      - Publish a privacy-safe derived commitment register for maintainer review.
+    evidenceExpected: [source register, document hashes, maintainer review]
+    humanGates: [legal-or-grantor-communication, external-publication]
+
+  - id: ECO-001
+    epic: E00
+    type: issue
+    title: Capture reproducible repository, release, package, deployment, and issue snapshots
+    milestone: M0
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: in-progress
+    priority: P0
+    dependsOn: []
+    ownerRole: release auditor
+    outcome: A dated evidence index describes the verifiable state of every owned Reddi repository.
+    acceptance:
+      - Default branch revisions, releases/tags, package metadata, CI/tests, deployments, open milestones, and material issues are captured.
+      - Each observation states what it proves, environment, timestamp, and reproducibility command or URL.
+    subtasks:
+      - Snapshot reddiagent-lab, reddi-agent-protocol, and reddi-arena.
+      - Re-run safe clean checks where dependencies are available.
+      - Register stale, contradictory, private, or inaccessible evidence as gaps.
+    evidenceExpected: [repository inventory, clean-check logs, release and deployment index]
+    humanGates: []
+
+  - id: ECO-002
+    epic: E00
+    type: issue
+    title: Verify adoption, npm, integration, workshop, user, and volume measures
+    milestone: M0
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-000, ECO-001]
+    ownerRole: evidence and analytics lead
+    outcome: Each quantitative August target has a precise definition, authoritative source, date window, exclusions, and calculated result.
+    acceptance:
+      - npm downloads, external projects, live integrations, workshop developers, eligible users, and transaction volume are independently calculable.
+      - Owned/test/demo/duplicate/refunded/non-eligible activity is visibly excluded.
+    subtasks:
+      - Define each numerator, denominator, date window, and deduplication rule.
+      - Export authoritative registry, analytics, event, integration, and rail evidence.
+      - Recalculate and obtain a second-person review.
+    evidenceExpected: [metric definitions, source exports, calculation workbook or script, reviewer sign-off]
+    humanGates: [privacy-publication]
+
+  - id: ECO-003
+    epic: E00
+    type: issue
+    title: Reconcile Solana and Quasar deployment identities and environment claims
+    milestone: M0
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-001]
+    ownerRole: Solana integration lead
+    outcome: One canonical deployment registry explains active, legacy, devnet, test, and any approved mainnet programs.
+    acceptance:
+      - Program IDs, source revisions, networks, upgrade authorities, deployment dates, and proof claims reconcile.
+      - MagicBlock PER, Quasar, legacy Anchor, and mainnet claims cannot be confused in docs or evidence exports.
+    subtasks:
+      - Validate canonical config against repository history and read-only chain observations.
+      - Classify every discovered program ID and remove or annotate stale documentation.
+      - Add a machine-checkable deployment registry test in RAP.
+    evidenceExpected: [RAP issue or PR, deployment registry, read-only verification log]
+    humanGates: [mainnet]
+
+  - id: ECO-004
+    epic: E00
+    type: issue
+    title: Reconcile May-July commitments, August targets, and AUDD release criteria
+    milestone: M0
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-000, ECO-002, ECO-003]
+    externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/615
+    ownerRole: grant auditor
+    outcome: Every commitment has a reviewed promise/evidence/gap/owner/status row and no outcome is inferred from backlog existence.
+    acceptance:
+      - "docs/grants/commitments.yaml is complete against recovered governing sources."
+      - RAP issues 615-630 are linked to, not duplicated, and their release evidence is evaluated separately.
+    subtasks:
+      - Run the grant-auditor prompt per commitment.
+      - Record contradictions, eligibility questions, and missing external evidence.
+      - Obtain programme, technical, and financial review.
+    evidenceExpected: [reviewed commitments ledger, exception list, review record]
+    humanGates: [legal-or-grantor-communication]
+
+  - id: ECO-005
+    epic: E00
+    type: issue
+    title: Approve remediation and grantor communication decision pack
+    milestone: M0
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-004]
+    ownerRole: programme sponsor
+    outcome: Humans decide which gaps to prove, remediate, renegotiate, disclose, or retire and on what dates.
+    acceptance:
+      - Every partial, blocked, or unknown material commitment has an explicit approved disposition.
+      - External wording separates verified delivery facts, limitations, and future forecasts.
+    subtasks:
+      - Prepare options with cost, risk, dependencies, and realistic dates.
+      - Obtain legal/grantor and maintainer approval as applicable.
+      - Record decisions and create only the approved remediation nodes.
+    evidenceExpected: [signed decision record, approved communication, updated graph]
+    humanGates: [legal-or-grantor-communication, external-publication, paid-service-or-spend]
+
+  - id: ECO-010
+    epic: E01
+    type: issue
+    title: Create and publish the public reddi-ecosystem repository
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P0
+    dependsOn: []
+    ownerRole: repository administrator
+    outcome: The locally validated programme control plane is public at nissan/reddi-ecosystem.
+    acceptance:
+      - Empty public repository exists under the selected owner and default branch protection/permissions are reviewed.
+      - Bootstrap files, history, CI, and links render correctly with no secrets or private grant material.
+    subtasks:
+      - Confirm the empty public GitHub repository and grant the connected GitHub integration contents access.
+      - Push validated bootstrap history and enable checks.
+      - Verify public clone, links, issue templates, and security contact.
+    evidenceExpected: [public repository URL, successful CI run, public-clone verification]
+    humanGates: [repo-creation, external-publication]
+
+  - id: ECO-011
+    epic: E01
+    type: issue
+    title: Enforce graph, research, grant, and prompt registry integrity in CI
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: in-progress
+    priority: P0
+    dependsOn: []
+    ownerRole: programme tooling maintainer
+    outcome: Invalid dependencies, stale links, malformed evidence, and unregistered prompts fail before merge.
+    acceptance:
+      - CI validates YAML, unique IDs, acyclic dependencies, canonical repos, milestone references, human gates, URLs, and prompt files.
+      - Unit tests cover cycles, orphans, unknown references, missing acceptance, and malformed research entries.
+    subtasks:
+      - Implement dependency graph linter and tests.
+      - Implement research/grant/prompt registry linting.
+      - Add GitHub Actions workflow and contributor command documentation.
+    evidenceExpected: [tools, unit tests, CI workflow]
+    humanGates: []
+
+  - id: ECO-012
+    epic: E01
+    type: issue
+    title: Generate stable GitHub issue projections from canonical graph nodes
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-011]
+    ownerRole: programme tooling maintainer
+    outcome: Maintainers can review and publish consistent epic/issue bodies without making GitHub the canonical dependency store.
+    acceptance:
+      - Generator produces deterministic epic and node Markdown with source IDs and content hashes.
+      - Projection distinguishes ecosystem implementation, cross-repo tracker, and existing component issue.
+    subtasks:
+      - Define generated-file contract and drift marker.
+      - Implement deterministic projector and snapshot tests.
+      - Document safe create/update/reconcile flow; never auto-close on imported state.
+    evidenceExpected: [projector, generated issue set, snapshot tests]
+    humanGates: [external-publication]
+
+  - id: ECO-013
+    epic: E01
+    type: issue
+    title: Establish ADR, RFC, claim, decision, and sync-log registers
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-011]
+    ownerRole: architecture steward
+    outcome: Consequential decisions, public claims, and divergence from plans remain discoverable and reviewable.
+    acceptance:
+      - Templates name authority, options, evidence, decision, consequences, expiry/review, and affected graph nodes.
+      - Claim register links every quantitative or production claim to dated evidence and audience.
+    subtasks:
+      - Add ADR/RFC and sync-log templates and indexes.
+      - Add claim registry schema and lint.
+      - Migrate material bootstrap decisions into records.
+    evidenceExpected: [templates, registers, lint tests]
+    humanGates: []
+
+  - id: ECO-014
+    epic: E01
+    type: issue
+    title: Publish evidence-backed programme status and roadmap views
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-004, ECO-012, ECO-013]
+    ownerRole: programme product lead
+    outcome: Contributors and grant stakeholders can see verified, partial, planned, blocked, superseded, and unknown work without optimistic inference.
+    acceptance:
+      - Status view is generated from reviewed graph/claim/commitment data with timestamps.
+      - Component implementation links resolve to canonical repositories and stale state is visibly marked.
+    subtasks:
+      - Define public versus private evidence redaction.
+      - Generate roadmap, critical path, grant, and upstream views.
+      - Run accessibility, clarity, and overclaim review.
+    evidenceExpected: [generated status pages, reviewer findings, public link]
+    humanGates: [privacy-publication, external-publication]
+
+  - id: ECO-015
+    epic: E01
+    type: issue
+    title: Operate merge-triggered and quarterly portfolio reviews
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-012, ECO-014]
+    ownerRole: programme lead
+    outcome: Component merges and elapsed time update dependencies, evidence freshness, priorities, and milestone forecasts.
+    acceptance:
+      - Review checklist covers parents, blockers, dependents, critical path, claims, grant evidence, and upstream duties.
+      - Review outputs are versioned and do not silently overwrite human gates.
+    subtasks:
+      - Define merge webhook/manual reconciliation flow.
+      - Add quarterly review schedule and stale-evidence report.
+      - Trial the loop on one merge from each owned component repository.
+    evidenceExpected: [review checklist, trial records, updated graph]
+    humanGates: []
+
+  - id: ECO-020
+    epic: E02
+    type: issue
+    title: Curate primary-source agent engineering research and decision mappings
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: in-progress
+    priority: P0
+    dependsOn: []
+    ownerRole: research steward
+    outcome: Current research is traceable to concrete Reddi controls, experiments, and open questions.
+    acceptance:
+      - Register covers selected OpenAI, Anthropic, Gemini/Google, ByteDance, Z.ai/GLM, Mistral, xAI, arXiv, Nostr, Buzz, Omarchy, event, and supply-chain sources.
+      - Synthesis labels vendor reports, papers, specifications, inference, and unvalidated Reddi hypothesis correctly.
+    subtasks:
+      - Capture exact primary URLs, dates, relevance, contradictions, and limitations.
+      - Map findings to graph/loop/event/context/eval/security controls.
+      - Obtain technical review and schedule freshness checks.
+    evidenceExpected: [SOURCES.yaml, synthesis, review record]
+    humanGates: []
+
+  - id: ECO-021
+    epic: E02
+    type: issue
+    title: Define prompt package, trace, dataset, and evaluation governance
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-020]
+    ownerRole: evaluation lead
+    outcome: Prompts are versioned, reproducible, privacy-safe artifacts with locked evaluation and rollback rules.
+    acceptance:
+      - Schema covers contract, context, tools, authority, data, metrics, baseline, candidate, reviewer, and rollback.
+      - Policy prevents training/held-out leakage, secret capture, hidden-reasoning storage, and optimizer self-approval.
+    subtasks:
+      - Define prompt/eval/trace manifests and redaction classes.
+      - Define dataset versioning, split, retention, consent, and contamination controls.
+      - Add schema validation and example package.
+    evidenceExpected: [schemas, policy, example, lint tests]
+    humanGates: [privacy-publication]
+
+  - id: ECO-022
+    epic: E02
+    type: issue
+    title: Baseline the role prompt catalog on representative programme tasks
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-021]
+    ownerRole: prompt foundry maintainer
+    outcome: Each bootstrap role has measured strengths, failures, cost, latency, and safe stop behavior.
+    acceptance:
+      - Every registered prompt has development, held-out, adversarial, and safety cases across at least two runtime/model profiles where practical.
+      - Results score final outcomes, unsupported claims, authority violations, cost, latency, and variance.
+    subtasks:
+      - Build representative fixtures from past Reddi work without leaking private data.
+      - Run baselines and independently review failures.
+      - Register regression cases and retain rollback versions.
+    evidenceExpected: [eval manifests, scored results, failure register]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-023
+    epic: E02
+    type: issue
+    title: Build sandboxed prompt candidate optimization with guard-metric rollback
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-021, ECO-022]
+    ownerRole: prompt foundry maintainer
+    outcome: Diagnosed failures can produce better prompt candidates without weakening authority, safety, or held-out integrity.
+    acceptance:
+      - Candidate generation cannot change permissions, gates, metrics, labels, or held-out sets.
+      - Promotion requires improvement on primary metrics, no guard regression, human review, versioning, and tested rollback.
+    subtasks:
+      - Implement baseline/candidate sandbox runner and budget limits.
+      - Add GEPA/SPEAR/SePO-inspired candidate adapters behind one evaluation contract.
+      - Test intentional task, safety, cost, and latency regressions.
+    evidenceExpected: [optimizer harness, evaluation record, rollback test]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-024
+    epic: E02
+    type: issue
+    title: Establish provider and runtime compatibility matrix
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-021]
+    ownerRole: agent portability lead
+    outcome: Base roles remain provider-neutral while documented overlays capture real model/tool differences.
+    acceptance:
+      - Matrix tests tool calling, structured output, context, retries, rate/concurrency behavior, cost and safe-stop behavior.
+      - Provider overlays cannot alter portable outcomes, effective authority, or evaluation criteria.
+    subtasks:
+      - Define capability rather than vendor-based test profiles.
+      - Run affordable fixtures across selected OpenAI, Anthropic, Gemini, ByteDance/GLM/Mistral/xAI-accessible profiles.
+      - Record unsupported/unknown claims without requiring every provider at launch.
+    evidenceExpected: [compatibility matrix, adapter records, conformance results]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-025
+    epic: E02
+    type: issue
+    title: Run periodic research-to-eval and failure-to-improvement loops
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P2
+    dependsOn: [ECO-023, ECO-024]
+    ownerRole: research steward
+    outcome: New research and observed failures change the system only through measured artifacts.
+    acceptance:
+      - Quarterly scan records added, rejected, contradicted, and superseded sources and resulting nodes.
+      - Production/CI failures are triaged into test, tool, context, prompt, architecture, or no-change decisions.
+    subtasks:
+      - Define source freshness and model-version watch rules.
+      - Add retrospective intake and evaluation backlog.
+      - Publish privacy-safe change notes and rejected-hypothesis log.
+    evidenceExpected: [review cadence, retrospectives, eval backlog]
+    humanGates: [external-publication]
+
+  - id: ECO-030
+    epic: E03
+    type: issue
+    title: Audit ADL v0.2 portability gaps against Buzz, Quattro, hosted, and multi-rail projections
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-020]
+    ownerRole: ADL specification steward
+    outcome: Environment-specific needs become conformance findings or canonical ADL proposals rather than local semantic forks.
+    acceptance:
+      - Gap matrix covers identity, capabilities, tools, events, memory, evidence, evaluation, budgets, authority, deployment, and recovery.
+      - Each gap is resolved as existing semantics, profile/extension, canonical proposal, or non-ADL concern.
+    subtasks:
+      - Run architecture scenarios through canonical ADL v0.2 schema/docs.
+      - File structured findings in reddiagent-lab with minimal reproducible examples.
+      - Record downstream workarounds only with expiry and upstream link.
+    evidenceExpected: [compatibility report, upstream issues, accepted classifications]
+    humanGates: []
+
+  - id: ECO-031
+    epic: E03
+    type: issue
+    title: Define and generate an Agent Bill of Materials and Dependency Graph
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-030]
+    ownerRole: ADL tooling maintainer
+    outcome: Operators can inspect the prompts, models, runtimes, tools, skills, connectors, data, policies, evaluators, and authorities that form an agent.
+    acceptance:
+      - Canonical schema represents direct/transitive dependency identity, version/digest, provenance, license, permission, and runtime discovery.
+      - Generator produces deterministic JSON plus a human-readable dependency graph and flags undeclared effective dependencies.
+    subtasks:
+      - Specify Agent BOM and dependency-edge types through ADL governance.
+      - Build generator and fixtures for local, Buzz, Quattro, and Lighthouse projections.
+      - Add prompt-to-tool and connector permission risk checks.
+    evidenceExpected: [canonical proposal, schema, generator, conformance tests]
+    humanGates: []
+
+  - id: ECO-032
+    epic: E03
+    type: issue
+    title: Version portable deployment projection and overlay contracts
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-030]
+    ownerRole: ADL specification steward
+    outcome: Provider, Buzz, Quattro, container, and hosted overlays can add configuration without changing portable identity or semantics.
+    acceptance:
+      - Overlay merge rules, forbidden overrides, version negotiation, provenance, and validation errors are canonical and tested.
+      - Round-trip/diff output exposes changes to capabilities, tools, budget, authority, evaluators, or identity.
+    subtasks:
+      - Define base/profile/deployment overlay precedence.
+      - Add positive and malicious override fixtures.
+      - Validate at least three materially different projections.
+    evidenceExpected: [ADL proposal, fixtures, conformance report]
+    humanGates: []
+
+  - id: ECO-033
+    epic: E03
+    type: issue
+    title: Add prompt, context, evaluation, and trace manifests to portable agent profiles
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P1
+    dependsOn: [ECO-021, ECO-030]
+    ownerRole: ADL evaluation steward
+    outcome: An agent definition names reproducible prompt/eval artifacts without embedding provider secrets or private traces.
+    acceptance:
+      - Manifest references version/digest, compatibility, data policy, metrics, baseline, and promotion state.
+      - Trace declaration records permitted summaries/provenance and prohibits secrets/hidden reasoning persistence.
+    subtasks:
+      - Map prompt-foundry schema to canonical ADL extension/profile rules.
+      - Add conforming and non-conforming fixtures.
+      - Test missing, stale, altered, and provider-overlay manifests.
+    evidenceExpected: [canonical profile, fixtures, validation results]
+    humanGates: [privacy-publication]
+
+  - id: ECO-034
+    epic: E03
+    type: issue
+    title: Make identity, budget, payment authority, and human gates explicit in ADL profiles
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-030]
+    ownerRole: identity and authority steward
+    outcome: Declared agent capability cannot be mistaken for signer, wallet, custody, spend, release, or publication authority.
+    acceptance:
+      - Profiles declare authority source, scope, limits, expiry, approval, revocation, recovery, and auditable decision evidence.
+      - Conformance rejects implicit wallet keys, unlimited spend, model-self-approval, and environment promotion.
+    subtasks:
+      - Define authority and human-gate vocabulary through ADL governance.
+      - Add no-spend/devnet/live/mainnet fixtures and fail-closed tests.
+      - Align RAP and deployment projection bindings.
+    evidenceExpected: [canonical proposal, threat-model review, conformance tests]
+    humanGates: [signing-or-custody, live-payment, mainnet]
+
+  - id: ECO-035
+    epic: E03
+    type: issue
+    title: Demonstrate multi-provider and multi-runtime ADL conformance
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P1
+    dependsOn: [ECO-031, ECO-032, ECO-033, ECO-034, ECO-024]
+    ownerRole: conformance lead
+    outcome: One portable agent produces equivalent declared outcomes and boundaries in heterogeneous runtimes.
+    acceptance:
+      - At least two materially different model providers/runtimes and one deterministic validator pass the same conformance pack.
+      - Differences are captured as capability/profile evidence, not hidden prompt branches.
+    subtasks:
+      - Select a no-spend task with deterministic outcome and tool use.
+      - Execute conformance matrix and compare Agent BOMs/effective authority.
+      - File specification and adapter findings in canonical repositories.
+    evidenceExpected: [conformance pack, run records, finding register]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-040
+    epic: E04
+    type: issue
+    title: Audit RAP core for transport, chain, asset, x402, and provider leakage
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-001]
+    externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/338
+    ownerRole: RAP protocol steward
+    outcome: Rail-specific concepts are isolated behind declared adapters and core lifecycle invariants are documented.
+    acceptance:
+      - Static/schema/test review identifies every Solana, AUDD, x402, Stripe, Nostr, and provider assumption in core paths.
+      - Each finding is accepted core semantics, adapter-specific, migration debt, or explicit non-goal with owner.
+    subtasks:
+      - Map core states, public types, packages, fixtures, docs, and receipt fields.
+      - Add architecture-boundary tests for prohibited imports/fields.
+      - Create canonical RAP child issues for confirmed leakage.
+    evidenceExpected: [RAP audit report, boundary tests, linked issues]
+    humanGates: []
+
+  - id: ECO-041
+    epic: E04
+    type: issue
+    title: Version the normalized payment and settlement adapter contract
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-040, ECO-034]
+    externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/338
+    ownerRole: RAP payments lead
+    outcome: Quote, authorize, submit, observe, settle, refund/reverse, reconcile, and redact work across materially different rails.
+    acceptance:
+      - Contract declares finality, custody, escrow, chargeback, refund, fees, idempotency, and offline-verification capabilities.
+      - Core states and receipts contain normalized fields while rail identifiers remain namespaced.
+    subtasks:
+      - Specify lifecycle and capability negotiation.
+      - Implement deterministic fake adapter and failure/replay tests.
+      - Review contract against Solana/AUDD/x402 and Stripe-style fixtures.
+    evidenceExpected: [RAP interface, ADR, tests, migration notes]
+    humanGates: [signing-or-custody]
+
+  - id: ECO-042
+    epic: E04
+    type: issue
+    title: Prove Solana, AUDD, and x402 as one conforming payment profile
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-003, ECO-041]
+    externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/621
+    ownerRole: Solana payments lead
+    outcome: Initial Solana/AUDD/x402 implementation passes the portable adapter and receipt suite without privileged core semantics.
+    acceptance:
+      - Quote/challenge, authority, proof validation, observation, settlement, refund where supported, receipt, and reconciliation pass in fixture/devnet mode.
+      - Wrong asset/network/payee/amount, expiry, replay, duplicate, partial, and unavailable-provider cases fail safely.
+    subtasks:
+      - Map existing middleware and programs to normalized adapter calls.
+      - Add canonical AUDD identifiers/config and receipt evidence fixtures.
+      - Run clean no-spend/devnet conformance and publish environment-scoped results.
+    evidenceExpected: [RAP PR, conformance log, devnet evidence pack]
+    humanGates: [live-payment, mainnet, signing-or-custody]
+
+  - id: ECO-043
+    epic: E04
+    type: issue
+    title: Prove rail neutrality with a materially different conventional or chain fixture
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-041]
+    ownerRole: payments portability lead
+    outcome: A second rail proves that x402, on-chain finality, wallet identity, and escrow are optional capabilities rather than RAP assumptions.
+    acceptance:
+      - Stripe-style fake provider or second-chain fixture completes the same job/receipt lifecycle without live account or charge.
+      - Capture/chargeback or alternative finality differences are expressed through capabilities and normalized observations.
+    subtasks:
+      - Select fixture by maximum semantic difference and minimum external dependency.
+      - Implement adapter and shared contract tests.
+      - Record core changes forced by the comparison and repeat Solana suite.
+    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR]
+    humanGates: [live-payment, paid-service-or-spend]
+
+  - id: ECO-044
+    epic: E04
+    type: issue
+    title: Define versioned RAP event envelopes, causality, idempotency, and replay
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-040]
+    ownerRole: event architecture lead
+    outcome: RAP state transitions interoperate across HTTP, Nostr, queues, and local replay without treating delivery as completion.
+    acceptance:
+      - Envelope covers event identity, source/type/subject/time, schema, correlation, causation, trace, authority, and redaction.
+      - Tests cover duplicate, out-of-order, delayed, missing, incompatible-version, and replayed events.
+    subtasks:
+      - Map RAP lifecycle events to CloudEvents-compatible metadata concepts.
+      - Define transactional publication/observation and consumer idempotency rules.
+      - Add transport-independent replay fixture and adapters.
+    evidenceExpected: [event schema, ADR, replay tests]
+    humanGates: []
+
+  - id: ECO-045
+    epic: E04
+    type: issue
+    title: Bind jobs, evidence, judgments, settlement observations, and receipts cryptographically
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-041, ECO-044]
+    ownerRole: receipts and evidence lead
+    outcome: A receipt is independently replayable and cannot confuse signed intent, transport event, evidence artifact, judge result, or rail truth.
+    acceptance:
+      - Canonical receipt commits to job/agreement, actors, evidence, rubric/judge, adapter observation, environment, and prior receipt/version.
+      - Verification detects missing, altered, replayed, stale, wrong-environment, and contradictory rail evidence.
+    subtasks:
+      - Define digest/canonicalization and version migration.
+      - Add fixtures across fake, Solana, and second-rail adapters.
+      - Integrate Arena judgment and dispute/refund states.
+    evidenceExpected: [receipt schema, verifier, cross-adapter fixtures]
+    humanGates: []
+
+  - id: ECO-046
+    epic: E04
+    type: issue
+    title: Deliver AUDD issues 615-630 through evidence-gated implementation
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-004, ECO-041, ECO-042, ECO-045]
+    externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/615
+    ownerRole: AUDD delivery lead
+    outcome: Existing RAP AUDD release nodes are implemented and audited without duplicating, inflating, or bypassing their eligibility gates.
+    acceptance:
+      - Technical issues 620-630 pass their tests and evidence requirements in declared environments.
+      - Eligible M1/M2/M3/activation evidence is evaluated separately from implementation completion and approved by the acceptance authority.
+    subtasks:
+      - Reconcile each existing issue with new adapter/event/receipt contracts.
+      - Execute safe fixture/devnet work and independent audits first.
+      - Request explicit approval for any live evidence run, participant activity, funding, or report.
+    evidenceExpected: [linked RAP PRs/issues, audit packs, grant acceptance records]
+    humanGates: [live-payment, mainnet, signing-or-custody, privacy-publication, legal-or-grantor-communication]
+
+  - id: ECO-050
+    epic: E05
+    type: issue
+    title: Enforce canonical ADL import and one-way Arena finding flow
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-030]
+    ownerRole: Arena maintainer
+    outcome: Arena consumes versioned canonical ADL and routes semantic pressure upstream without redefining it.
+    acceptance:
+      - CI detects vendored or locally mutated ADL semantics and records the canonical version/digest used by every run.
+      - Findings include minimal fixture, expected/observed behavior, impact, and upstream disposition.
+    subtasks:
+      - Audit current import, lock, fixtures, and finding register.
+      - Add canonicality and version-drift checks.
+      - Replay existing findings through the upstream intake process.
+    evidenceExpected: [Arena PR, canonicality tests, upstream finding records]
+    humanGates: []
+
+  - id: ECO-051
+    epic: E05
+    type: issue
+    title: Version Arena task, environment, outcome, rubric, and judge evidence
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-033, ECO-045, ECO-050]
+    ownerRole: Arena evaluation lead
+    outcome: A score can be reproduced from declared task state and evidence rather than trusting an agent transcript.
+    acceptance:
+      - Schema separates transcript/process, final environment outcome, deterministic checks, model/human judgments, and uncertainty.
+      - Rubric hierarchy links each scored criterion to evidence and judge identity/version.
+    subtasks:
+      - Define evaluation bundle and canonicalization.
+      - Migrate representative Arena fixtures and weights.
+      - Add disagreement, missing evidence, and judge-version tests.
+    evidenceExpected: [evaluation schema, migrated fixtures, verifier tests]
+    humanGates: []
+
+  - id: ECO-052
+    epic: E05
+    type: issue
+    title: Build deterministic replay and read-only independent audit mode
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-044, ECO-051]
+    ownerRole: Arena reliability lead
+    outcome: Completed Arena jobs can be reconstructed and audited without re-executing paid or irreversible actions.
+    acceptance:
+      - Replay uses versioned inputs/events/artifacts and reports nondeterminism or missing dependencies explicitly.
+      - Auditor has read-only tools, cannot mutate candidate evidence, and returns criterion-level pass/fail/unknown.
+    subtasks:
+      - Define replay bundle, clocks, randomness, provider, and external-observation handling.
+      - Implement replay and skeptical auditor role.
+      - Test tamper, absence, order, version drift, and unavailable-provider cases.
+    evidenceExpected: [replay harness, audit reports, negative tests]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-053
+    epic: E05
+    type: issue
+    title: Add adversarial authority, economic, privacy, and prompt-injection Arena tracks
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-034, ECO-041, ECO-051]
+    ownerRole: Arena safety lead
+    outcome: Agents are rewarded for safe refusal, escalation, and correct evidence under hostile economic and content conditions.
+    acceptance:
+      - Tracks cover goal conflict, secret requests, malicious tool/UI content, over-budget spend, wrong rail/environment, fake receipts, colluding judge, and replay.
+      - All monetary cases run with fixtures/no-spend unless a separate experiment is approved.
+    subtasks:
+      - Threat-model representative buyer, seller, judge, operator, and relay roles.
+      - Implement deterministic red-team fixtures and guard metrics.
+      - Run across provider/runtime profiles and record variance.
+    evidenceExpected: [threat model, Arena tracks, scored conformance report]
+    humanGates: [live-payment, mainnet, paid-service-or-spend]
+
+  - id: ECO-054
+    epic: E05
+    type: issue
+    title: Establish model, runtime, harness, and prompt tournament matrix
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P1
+    dependsOn: [ECO-024, ECO-051, ECO-052, ECO-053]
+    ownerRole: Arena research lead
+    outcome: Arena compares complete agent systems and exposes cost, latency, variance, safety, and dependency differences.
+    acceptance:
+      - Results name model/runtime/harness/prompt/tool/Agent-BOM versions and cannot be presented as model-only scores.
+      - Tournament budgets, sampling, uncertainty, contamination, and reproducibility rules are public.
+    subtasks:
+      - Select capability/weight classes and neutral fixtures.
+      - Run baseline matrix with fixed budgets and repeats.
+      - Publish limitations and raw privacy-safe result bundles.
+    evidenceExpected: [tournament spec, result bundles, analysis]
+    humanGates: [paid-service-or-spend, external-publication]
+
+  - id: ECO-055
+    epic: E05
+    type: issue
+    title: Close the Arena-to-ADL/RAP improvement and retrospective loop
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P1
+    dependsOn: [ECO-050, ECO-052, ECO-054]
+    ownerRole: cross-repository steward
+    outcome: Reproducible failures become canonical fixes, conformance cases, prompt candidates, or explicit no-change decisions.
+    acceptance:
+      - Finding register tracks owner repo, minimal reproduction, severity, disposition, issue/PR, release, and regression test.
+      - No Arena-local workaround remains without upstream link, expiry, and compatibility warning.
+    subtasks:
+      - Automate privacy-safe finding bundle generation.
+      - Trial one ADL, one RAP, and one prompt-foundry feedback cycle.
+      - Review parent/dependents after each integrated fix.
+    evidenceExpected: [finding register, three closed-loop examples, graph updates]
+    humanGates: []
+
+  - id: ECO-060
+    epic: E06
+    type: issue
+    title: Decide Buzz integration path through an upstream-aware architecture spike
+    milestone: M3
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-030, ECO-040, ECO-050]
+    ownerRole: Buzz integration lead
+    outcome: Maintainers select sidecar, generic extension, or fork using a tested seam and maintenance evidence.
+    acceptance:
+      - Spike maps Buzz architecture, relay/community model, Nostr job events, extension issue 2426, release cadence, license, marks, and patch burden.
+      - Sidecar-first prototype proves or falsifies the minimum no-spend flow before any fork decision.
+    subtasks:
+      - Reproduce an upstream Buzz development environment at a pinned revision.
+      - Trace persona/job/event/storage/UI extension seams and missing hooks.
+      - Write ADR with upstream discussion draft, rebase cost, and exit conditions.
+    evidenceExpected: [spike code, seam map, ADR, upstream draft]
+    humanGates: [upstream-contact, repo-creation]
+
+  - id: ECO-061
+    epic: E06
+    type: issue
+    title: Specify versioned RAP-to-Nostr mapping, identity binding, privacy, and relay trust
+    milestone: M3
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-034, ECO-044, ECO-060]
+    ownerRole: Nostr protocol lead
+    outcome: Nostr transports signed intent and observations without becoming payment proof, wallet authority, or the full private evidence store.
+    acceptance:
+      - Mapping names exact NIPs/event kinds, schemas, versioning, correlation, ordering, replay, deletion, encryption, metadata, and relay assumptions.
+      - Identity binding separates Nostr key, ADL agent identity, operator identity, and rail authority with rotation/recovery.
+    subtasks:
+      - Map existing Buzz job kinds to RAP states and document semantic mismatches.
+      - Design encrypted/redacted payload and off-event evidence references.
+      - Add multi-relay replay, deletion, impersonation, and stale-event fixtures.
+    evidenceExpected: [mapping spec, privacy/threat model, conformance fixtures]
+    humanGates: [privacy-publication]
+
+  - id: ECO-062
+    epic: E06
+    type: issue
+    title: Build the upstream-compatible Buzz sidecar proof
+    milestone: M3
+    targetRepo: buzz-integration
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-010, ECO-032, ECO-060, ECO-061]
+    ownerRole: Buzz integration maintainer
+    outcome: A pinned upstream Buzz can discover projected ADL agents and run the RAP no-spend lifecycle through a public sidecar.
+    acceptance:
+      - Sidecar imports canonical ADL projection, maps Nostr events, calls RAP through versioned APIs, and stores no signer secrets.
+      - Public setup completes discovery, offer/agreement, execution, evidence, judgment, and receipt with fixtures.
+    subtasks:
+      - Pass repository creation gate if a separate integration repository is approved.
+      - Implement projection, event mapping, local API, replay, and health surfaces.
+      - Add clean upstream-Buzz compatibility and fixture end-to-end tests.
+    evidenceExpected: [public integration repository or component PR, e2e log, Agent BOM]
+    humanGates: [repo-creation, external-publication]
+
+  - id: ECO-063
+    epic: E06
+    type: issue
+    title: Deliver Arena lifecycle, approval, evidence, and receipt UX in Buzz
+    milestone: M3
+    targetRepo: buzz-integration
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-051, ECO-062]
+    ownerRole: Buzz product lead
+    outcome: Humans can understand status, authority, cost/environment, evidence, judge result, dispute, and recovery inside Buzz.
+    acceptance:
+      - UI distinguishes proposal from authorization, event from settlement, demo/devnet/live, and success from unverifiable state.
+      - Interrupted, stale, duplicated, malicious-content, unavailable-service, and rejected-approval paths are recoverable.
+    subtasks:
+      - Prototype participant, operator, and judge journeys with accessible language.
+      - Add approval and payment-proof reconciliation views outside model-generated content.
+      - Run browser/visual-state and usability evaluation on all lifecycle states.
+    evidenceExpected: [UX spec, screenshots/video, accessibility and e2e results]
+    humanGates: [live-payment, external-publication]
+
+  - id: ECO-064
+    epic: E06
+    type: issue
+    title: Submit generic Buzz and Nostr improvements upstream
+    milestone: M3
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-060, ECO-062]
+    ownerRole: upstream steward
+    outcome: Generally useful tests, docs, fixes, or extension seams are offered upstream before Reddi carries permanent patches.
+    acceptance:
+      - Upstream register records prior discussion, contribution, response, revisions, license/notice, maintenance owner, and downstream fallback.
+      - Contributions are generic, scoped, respectful, tested, and do not impose grant dates or RAP semantics.
+    subtasks:
+      - Split upstream-generic work from Reddi-specific adapter code.
+      - Obtain approval and open discussions/issues/PRs under upstream rules.
+      - Track reviews, revise patches, and budget ongoing maintenance.
+    evidenceExpected: [upstream links, patch register, attribution records]
+    humanGates: [upstream-contact, external-publication]
+
+  - id: ECO-065
+    epic: E06
+    type: issue
+    title: Make and document the maintained Buzz fork decision if still necessary
+    milestone: M3
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P2
+    dependsOn: [ECO-063, ECO-064]
+    ownerRole: architecture sponsor
+    outcome: Any fork is a conscious maintained product commitment with exit strategy, never a default distribution shortcut.
+    acceptance:
+      - ADR proves sidecar and upstream extension insufficient and documents patch set, revision, sync/security cadence, owners, budget, marks, and exit.
+      - Public copy and packaging do not imply Block/Buzz endorsement.
+    subtasks:
+      - Quantify unresolved gaps and three-release maintenance cost.
+      - Obtain technical, community, legal/branding, and funding decisions.
+      - Create fork repository only if approved and seed the patch register.
+    evidenceExpected: [approved ADR or explicit no-fork decision, maintenance plan]
+    humanGates: [repo-creation, upstream-contact, paid-service-or-spend, external-publication]
+
+  - id: ECO-070
+    epic: E07
+    type: issue
+    title: Threat-model Omarchy, Quattro QML, local services, agents, wallets, and updates
+    milestone: M4
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-060]
+    ownerRole: Linux security lead
+    outcome: The package boundary assumes unsandboxed UI and prevents presentation code or agents from acquiring signing and host authority.
+    acceptance:
+      - Model covers malicious QML/content, local API abuse, agent code, package scripts, privilege, IPC, wallet/signing, updates, relay, and recovery.
+      - Controls name OS-enforced boundaries, not prompt instructions alone.
+    subtasks:
+      - Inventory Quattro plugin/service/package execution and trust boundaries.
+      - Define narrow authenticated local API and external signer pattern.
+      - Create abuse cases that gate packaging and plugin implementation.
+    evidenceExpected: [threat model, data-flow diagram, control/test backlog]
+    humanGates: [signing-or-custody]
+
+  - id: ECO-071
+    epic: E07
+    type: issue
+    title: Package signed, reproducible local RAP, Arena, Buzz, and authority services
+    milestone: M4
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-062, ECO-070, ECO-112]
+    ownerRole: Linux packaging lead
+    outcome: Versioned services install independently of QML with narrow APIs, no embedded secrets, provenance, update, rollback, and uninstall.
+    acceptance:
+      - Clean supported Omarchy installs produce an Agent/System BOM, verified signatures, bounded services, and fixture-first configuration.
+      - Upgrade, failed upgrade, rollback, disable, and uninstall preserve user data according to documented policy.
+    subtasks:
+      - Pass repository and package-format ADR gates.
+      - Build reproducible packages/services and local API contracts.
+      - Test lifecycle in clean virtual machines at pinned Omarchy revisions.
+    evidenceExpected: [packages, provenance, VM lifecycle tests, runbook]
+    humanGates: [repo-creation, production-release, signing-or-custody]
+
+  - id: ECO-072
+    epic: E07
+    type: issue
+    title: Build a thin public Quattro cockpit plugin
+    milestone: M4
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-063, ECO-070, ECO-071]
+    ownerRole: Quattro integration maintainer
+    outcome: Quattro exposes jobs, Arena, node health, approvals, earnings, receipts, updates, and recovery through narrow local APIs.
+    acceptance:
+      - QML holds no wallet keys, signer credentials, model secrets, install scripts, or privileged operations.
+      - Offline, stale, malicious payload, service failure, approval denial, and restart states are explicit and recoverable.
+    subtasks:
+      - Map shell bar/panel/overlay/menu/service surfaces to bounded UX.
+      - Implement typed/redacted API client and accessibility states.
+      - Run QML/static, visual, hostile-content, and end-to-end tests.
+    evidenceExpected: [plugin, screenshots/video, security and UX test results]
+    humanGates: [signing-or-custody]
+
+  - id: ECO-073
+    epic: E07
+    type: issue
+    title: Prove Reddi Pack install, update, rollback, backup, disable, and uninstall
+    milestone: M4
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-071, ECO-072]
+    ownerRole: release reliability lead
+    outcome: A hacker can experiment and recover without reinstalling the machine or losing identity/evidence unexpectedly.
+    acceptance:
+      - Automated matrix covers fresh install, repeat install, upgrade, interrupted update, rollback, backup/restore, disable, uninstall, and unsupported host.
+      - No-spend defaults and explicit live/signing promotion survive every lifecycle transition.
+    subtasks:
+      - Define supported host matrix and state/data ownership.
+      - Automate VM lifecycle/recovery suite.
+      - Run clean-reader/operator documentation test.
+    evidenceExpected: [matrix results, recovery artifacts, validated docs]
+    humanGates: [production-release]
+
+  - id: ECO-074
+    epic: E07
+    type: issue
+    title: Contribute generic Omarchy and Quattro improvements upstream
+    milestone: M4
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-070, ECO-072]
+    ownerRole: Omarchy upstream steward
+    outcome: Reddi improves plugin documentation, tests, safety, and extension ergonomics for the wider Omarchy community.
+    acceptance:
+      - Upstream register separates generic patches from downstream branding and services.
+      - Contributions follow upstream scope/style and include a maintenance response plan.
+    subtasks:
+      - Identify generic docs/tests/bugs/extensions during implementation.
+      - Obtain approval and submit under upstream rules.
+      - Track response, revisions, adoption, and downstream patch expiry.
+    evidenceExpected: [upstream links, patch register, contribution retrospective]
+    humanGates: [upstream-contact, external-publication]
+
+  - id: ECO-075
+    epic: E07
+    type: issue
+    title: Release and support Reddi Pack alpha
+    milestone: M4
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P1
+    dependsOn: [ECO-073, ECO-074, ECO-113]
+    ownerRole: Reddi Pack release manager
+    outcome: A signed alpha is reproducible, clearly unofficial, supportable, safe by default, and usable by external hackers.
+    acceptance:
+      - Release has provenance/SBOM, compatibility, limitations, security intake, support window, rollback, and no-spend walkthrough.
+      - At least three independent clean-machine trials complete with recorded friction and no critical unresolved findings.
+    subtasks:
+      - Run security/release gate and branding/license review.
+      - Recruit approved alpha testers and collect consented evidence.
+      - Triage findings and publish accurate alpha notes.
+    evidenceExpected: [signed release, three trial reports, release decision]
+    humanGates: [production-release, external-publication, upstream-contact]
+
+  - id: ECO-080
+    epic: E08
+    type: issue
+    title: Decide stock Omarchy provisioning versus custom Reddi Machine image
+    milestone: M5
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-073]
+    ownerRole: distribution architect
+    outcome: Distribution shape is selected by reproducibility, recovery, maintenance, security, and user value rather than branding preference.
+    acceptance:
+      - Experiment compares clean install, updates, rollback, hardware, upstream sync, image signing, support cost, and contributor experience.
+      - ADR includes three-release cost and an explicit trigger for revisiting the decision.
+    subtasks:
+      - Build minimal reproducible prototypes of viable shapes.
+      - Run the same lifecycle and security suite on each.
+      - Obtain technical, upstream/branding, support, and funding decision.
+    evidenceExpected: [experiment results, total-cost model, approved ADR]
+    humanGates: [paid-service-or-spend, upstream-contact, external-publication]
+
+  - id: ECO-081
+    epic: E08
+    type: issue
+    title: Build reproducible Reddi Machine provisioning and first-boot workflow
+    milestone: M5
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-075, ECO-080]
+    ownerRole: distribution maintainer
+    outcome: Supported hardware can reach a known local no-spend Reddi environment from documented media or provisioning.
+    acceptance:
+      - Build/provision process is pinned, reproducible, signed, non-secret, and emits an SBOM/provenance record.
+      - First boot explains local/hosted choice, identity, relay, agents, evidence, wallet binding, no-spend default, backup, and recovery.
+    subtasks:
+      - Implement selected image/provisioning pipeline.
+      - Build accessible first-boot wizard and fixture verification.
+      - Reproduce on independent builders and supported hardware/VMs.
+    evidenceExpected: [build pipeline, reproducibility records, first-boot tests]
+    humanGates: [production-release, signing-or-custody]
+
+  - id: ECO-082
+    epic: E08
+    type: issue
+    title: Implement machine identity, wallet binding, spend policy, and recovery boundaries
+    milestone: M5
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-034, ECO-070, ECO-081]
+    ownerRole: identity and wallet security lead
+    outcome: Machine, human, Nostr, agent, and wallet identities remain distinct, recoverable, and least-privileged.
+    acceptance:
+      - Default install works with no wallet; wallet/signing requires explicit external authority binding, limits, approval, revocation, and backup/recovery.
+      - Plugin, model, agent runtime, relay, and ordinary services cannot read signer secrets.
+    subtasks:
+      - Define identity/key lifecycle and external signer interfaces.
+      - Implement OS isolation, capability policies, and audit-safe approval records.
+      - Test compromise, loss, rotation, restore, revocation, and factory reset.
+    evidenceExpected: [identity design, isolation tests, recovery drill]
+    humanGates: [signing-or-custody, live-payment, mainnet]
+
+  - id: ECO-083
+    epic: E08
+    type: issue
+    title: Validate hardware, performance, offline, backup, and recovery matrix
+    milestone: M5
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P1
+    dependsOn: [ECO-081, ECO-082]
+    ownerRole: machine reliability lead
+    outcome: Support claims name hardware and network conditions that were actually exercised.
+    acceptance:
+      - Matrix covers supported x86_64 tiers, GPU/no-GPU, disk pressure, sleep/restart, offline/poor network, service crash, upgrade, backup/restore, and factory reset.
+      - Performance budgets include local models, relay, Arena, storage, and UI resource contention.
+    subtasks:
+      - Define support tiers and representative hardware/VM fixtures.
+      - Automate measurements and destructive recovery in disposable environments.
+      - Publish limitations and unsupported configurations.
+    evidenceExpected: [hardware matrix, performance results, recovery reports]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-084
+    epic: E08
+    type: issue
+    title: Operate signed update channels, provenance, rollback, and vulnerability response
+    milestone: M5
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-081, ECO-112, ECO-114]
+    ownerRole: distribution security lead
+    outcome: Machine components can be updated or rolled back safely and their source/build chain can be verified.
+    acceptance:
+      - Channels separate development/alpha/stable with signed metadata, expiry, pinning, phased rollout, pause, rollback, and compromised-key procedure.
+      - Vulnerability intake maps affected BOMs to users/operators without collecting unnecessary identity data.
+    subtasks:
+      - Implement metadata/provenance/signing pipeline and offline verification.
+      - Simulate corrupted update, expired metadata, compromised key, rollback, and emergency pause.
+      - Publish security/update support policy.
+    evidenceExpected: [update system, attack/recovery drills, policy]
+    humanGates: [signing-or-custody, production-release]
+
+  - id: ECO-085
+    epic: E08
+    type: issue
+    title: Release Reddi Machine developer preview
+    milestone: M5
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P1
+    dependsOn: [ECO-083, ECO-084, ECO-113]
+    ownerRole: distribution release manager
+    outcome: External hackers can install, inspect, build agents, run Arena/Buzz, update, and recover on supported machines.
+    acceptance:
+      - Preview release has reproducible artifacts, signatures, BOM/provenance, support matrix, first-success guide, backup/recovery, limitations, and incident path.
+      - Five independent trials cover at least two hardware tiers and feed tracked fixes/community documentation.
+    subtasks:
+      - Complete release, license/marks, privacy, and safety gates.
+      - Run approved preview programme and capture consented evidence.
+      - Publish accurate release notes and remediation backlog.
+    evidenceExpected: [preview artifacts, five trial reports, release decision]
+    humanGates: [production-release, external-publication, upstream-contact]
+
+  - id: ECO-090
+    epic: E09
+    type: issue
+    title: Define Lighthouse service boundaries and open-source parity contract
+    milestone: M6
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-041, ECO-045, ECO-060]
+    ownerRole: Lighthouse product architect
+    outcome: Paid value is explicitly operation, assurance, convenience, scale, or support while protocol outcomes remain self-hostable.
+    acceptance:
+      - Each service maps public protocol/API, local/self-host route, paid operational value, data/export/exit, and excluded custody/regulatory activity.
+      - First developer success and conformance run without Lighthouse and no proprietary format blocks migration.
+    subtasks:
+      - Define managed relay, Arena, discovery/health, evidence/receipt, update, support, and certification boundaries.
+      - Run OSS parity reviewer on each proposed capability.
+      - Approve repository/service split and public interfaces before implementation.
+    evidenceExpected: [service map, parity reviews, architecture ADR]
+    humanGates: [repo-creation, external-publication]
+
+  - id: ECO-091
+    epic: E09
+    type: issue
+    title: Build managed relay, community, Arena, and job orchestration alpha
+    milestone: M6
+    targetRepo: lighthouse
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-062, ECO-090, ECO-110]
+    ownerRole: Lighthouse platform lead
+    outcome: A tenant can operate a managed Buzz-compatible community and Arena without granting Lighthouse wallet custody.
+    acceptance:
+      - Tenant/community isolation, relay policy, job scheduling, quotas, abuse controls, evidence export, and operator intervention are tested.
+      - Signing/payment requests use external scoped authority and all live functionality remains separately gated.
+    subtasks:
+      - Pass repository creation and choose minimal deployment architecture.
+      - Implement managed control/data planes with local API compatibility.
+      - Run isolation, replay, outage, quota, abuse, and export tests.
+    evidenceExpected: [public interfaces, deployed test environment, isolation and e2e results]
+    humanGates: [repo-creation, paid-service-or-spend, production-release, signing-or-custody]
+
+  - id: ECO-092
+    epic: E09
+    type: issue
+    title: Build managed evidence retention, receipt search, and audit export
+    milestone: M6
+    targetRepo: lighthouse
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-045, ECO-090, ECO-113]
+    ownerRole: Lighthouse evidence lead
+    outcome: Customers can retain, find, verify, export, and delete permitted evidence without turning Lighthouse observations into payment truth.
+    acceptance:
+      - Content addressing, tenant isolation, provenance, retention, legal hold boundary, redaction, verification, export, deletion, and audit access are tested.
+      - Receipt search displays source/freshness/environment and reconciles rail truth through adapters.
+    subtasks:
+      - Define data classes, lifecycle, indexes, and portable export format.
+      - Implement evidence/receipt services and verification APIs.
+      - Exercise corruption, tamper, deletion, restore, cross-tenant, and stale-observation cases.
+    evidenceExpected: [data design, APIs, privacy/security test reports]
+    humanGates: [privacy-publication, production-release]
+
+  - id: ECO-093
+    epic: E09
+    type: issue
+    title: Establish Lighthouse observability, SLOs, cost attribution, and incident operations
+    milestone: M6
+    targetRepo: lighthouse
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-091, ECO-092, ECO-114]
+    ownerRole: Lighthouse reliability lead
+    outcome: Operators know tenant impact, cost, agent/tool behavior, evidence freshness, and safe intervention during failure.
+    acceptance:
+      - SLOs and dashboards cover availability, latency, replay lag, job outcomes, model/provider failures, evidence durability, cost, and abuse response.
+      - Incident drills test provider outage, relay storm, long-context/concurrency failure, compromised tenant, data error, and billing disagreement.
+    subtasks:
+      - Add traces/metrics/logs with redaction and tenant boundaries.
+      - Define error budgets, runbooks, on-call/notification, and status communication.
+      - Run game days and convert failures into regression cases.
+    evidenceExpected: [SLOs, dashboards, runbooks, game-day reports]
+    humanGates: [privacy-publication, paid-service-or-spend]
+
+  - id: ECO-094
+    epic: E09
+    type: issue
+    title: Validate Lighthouse pricing, unit economics, support load, and upstream return
+    milestone: M6
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-091, ECO-092, ECO-093]
+    ownerRole: commercial lead
+    outcome: Pricing scenarios reflect measured costs and allocate sustainable funding to maintenance, staffing, incidents, and critical upstream work.
+    acceptance:
+      - Model uses measured compute/model/storage/egress/relay/support/abuse/third-party cost by workload and includes incident reserve.
+      - Revenue claims separate hypotheses, letters of intent, trials, and paid retained customers.
+    subtasks:
+      - Instrument cost and support attribution without invasive customer telemetry.
+      - Model tiers, margins, capacity, grant transition, and upstream contribution.
+      - Validate willingness to pay through approved interviews or pilots.
+    evidenceExpected: [unit-economics model, measurement sources, approved validation report]
+    humanGates: [paid-service-or-spend, external-publication]
+
+  - id: ECO-095
+    epic: E09
+    type: issue
+    title: Release Lighthouse alpha with export and self-host parity evidence
+    milestone: M6
+    targetRepo: lighthouse
+    githubProjection: tracker
+    status: blocked
+    priority: P1
+    dependsOn: [ECO-090, ECO-093, ECO-094, ECO-113]
+    ownerRole: Lighthouse release manager
+    outcome: Approved alpha tenants receive reliable managed operations with clear limits, data exit, support, and no custody.
+    acceptance:
+      - Release passes security/privacy/parity gates and documents SLO, support, pricing, limitations, export/deletion, incident, and termination.
+      - A self-hosted fixture and Lighthouse tenant complete the same protocol conformance outcome.
+    subtasks:
+      - Complete legal/commercial/security and production release reviews.
+      - Run approved alpha onboarding and export/exit rehearsal.
+      - Publish accurate service docs and measured alpha retrospective.
+    evidenceExpected: [release decision, parity conformance, alpha and exit reports]
+    humanGates: [production-release, privacy-publication, paid-service-or-spend, external-publication]
+
+  - id: ECO-100
+    epic: E10
+    type: issue
+    title: Publish community governance, code of conduct, contributor ladder, and recognition policy
+    milestone: M7
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-010, ECO-013]
+    ownerRole: community steward
+    outcome: Contributors know how to participate, gain responsibility, report harm, appeal decisions, and become maintainers independent of payment/token ownership.
+    acceptance:
+      - Governance names roles, decisions, conduct/reporting, moderation, conflict, appeals, security boundary, recognition, succession, and paid contribution disclosure.
+      - Contributor ladder uses reviewed contributions and service, not registrations, holdings, or popularity.
+    subtasks:
+      - Draft governance and adopt a recognized code of conduct.
+      - Review accessibility, jurisdiction/time-zone inclusivity, moderation capacity, and privacy.
+      - Ratify and publish contact/response commitments.
+    evidenceExpected: [public policies, review record, named response roles]
+    humanGates: [external-publication]
+
+  - id: ECO-101
+    epic: E10
+    type: issue
+    title: Build no-spend first-success and cross-discipline contributor journeys
+    milestone: M7
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-035, ECO-063, ECO-075, ECO-100]
+    ownerRole: developer community lead
+    outcome: AI, Linux, Nostr, and blockchain hackers can start at their skill edge and complete a useful reviewed contribution.
+    acceptance:
+      - Journeys cover local ADL agent, RAP adapter fixture, Arena task/judge, Buzz integration, Quattro plugin, operator path, and upstream patch.
+      - Clean readers measure setup time, failure points, prerequisites, accessibility, and no-spend success.
+    subtasks:
+      - Define personas and skill bridges without assuming chain or Linux expertise.
+      - Create starter issues, fixtures, mentoring/review rota, and contribution evidence.
+      - Run at least five clean-reader trials and repair top friction.
+    evidenceExpected: [journey docs, starter backlog, five trial reports]
+    humanGates: [external-publication]
+
+  - id: ECO-102
+    epic: E10
+    type: issue
+    title: Operate office hours, RFCs, workshops, and homebrew machine nights
+    milestone: M7
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P1
+    dependsOn: [ECO-100, ECO-101]
+    ownerRole: community programme lead
+    outcome: Regular learning and design forums turn participants into returning builders and upstream contributors.
+    acceptance:
+      - Programme has approved schedule, facilitator/reviewer capacity, materials, consent/privacy, accessibility, no-spend defaults, safety, feedback, and follow-up issues.
+      - Metrics distinguish registration, attendance, hands-on completion, first contribution, review, return contribution, and retention.
+    subtasks:
+      - Design modular sessions across AI, Nostr, Linux, Arena, RAP, and payment fixtures.
+      - Obtain outreach/event/spend approvals and coordinate named partners.
+      - Publish privacy-safe materials/outcomes and convert friction into backlog.
+    evidenceExpected: [approved programme, materials, metric exports, retrospectives]
+    humanGates: [paid-service-or-spend, external-publication, privacy-publication, upstream-contact]
+
+  - id: ECO-103
+    epic: E10
+    type: issue
+    title: Run Arena Season Zero and independent implementation challenge
+    milestone: M7
+    targetRepo: arena
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-052, ECO-053, ECO-063, ECO-101, ECO-113]
+    ownerRole: Arena community lead
+    outcome: Builders operate agents and judges under transparent rules, reproduce results, and submit at least two independent conformance implementations.
+    acceptance:
+      - Season rules define fixtures/no-spend and any separately approved paid track, rubrics, anti-abuse, disputes, evidence, privacy, licensing, and publication.
+      - At least three independent contributors merge work and two external implementations submit valid conformance evidence.
+    subtasks:
+      - Publish RFC, sandbox, starter kits, judge/evidence, schedule, and dispute path.
+      - Run approved season with visible environment/authority labels.
+      - Audit results and upstream/spec findings before public claims.
+    evidenceExpected: [season artifacts, conformance submissions, audited results]
+    humanGates: [external-publication, privacy-publication, live-payment, paid-service-or-spend]
+
+  - id: ECO-104
+    epic: E10
+    type: issue
+    title: Establish transparent bounties and upstream maintenance return
+    milestone: M7
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P1
+    dependsOn: [ECO-004, ECO-094, ECO-100]
+    ownerRole: ecosystem funding steward
+    outcome: Grants and revenue fund scoped contributions, review, documentation, security, and critical upstream maintenance fairly and visibly.
+    acceptance:
+      - Policy defines eligibility, scope, acceptance, conflicts, disclosure, tax/legal handling, payment evidence, appeals, and no speculative work.
+      - Upstream allocation is budgeted using dependency criticality and maintainer engagement, not promotional value.
+    subtasks:
+      - Design bounty and upstream-fund policy with legal/financial review.
+      - Pilot only approved fixture-safe issues with review capacity.
+      - Publish privacy-safe allocation/outcome and retention evidence.
+    evidenceExpected: [approved policy, pilot records, upstream return report]
+    humanGates: [paid-service-or-spend, legal-or-grantor-communication, external-publication]
+
+  - id: ECO-105
+    epic: E10
+    type: issue
+    title: Measure community health, upstream reciprocity, and maintainer sustainability
+    milestone: M7
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-064, ECO-074, ECO-100, ECO-101]
+    ownerRole: community health lead
+    outcome: Programme decisions use durable participation and reciprocal contribution measures rather than vanity counts.
+    acceptance:
+      - Dashboard covers first success, return contribution, retention, review latency, issue age, maintainer concentration, independent implementations, operator health, upstream acceptance, and patch age.
+      - Metric definitions are privacy-aware, deduplicated, resistant to paid/bot inflation, and include limitations.
+    subtasks:
+      - Define events, consent, source, window, exclusions, and owners.
+      - Build privacy-safe local/exportable calculations.
+      - Review quarterly and create capacity or governance interventions.
+    evidenceExpected: [metric dictionary, calculation tests, quarterly report]
+    humanGates: [privacy-publication]
+
+  - id: ECO-110
+    epic: E11
+    type: issue
+    title: Maintain portfolio threat model and trust-boundary register
+    milestone: M8
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-013, ECO-034, ECO-040]
+    ownerRole: security architect
+    outcome: Threats across agent, tool, model, data, Nostr, Buzz, OS, package, hosted, identity, and payment planes have owners and testable controls.
+    acceptance:
+      - Register covers assets, actors, boundaries, threats, controls, residual risk, verification, owner, review date, and linked nodes.
+      - High-impact chains include prompt/content to tool, tool to signer, UI to local service, tenant to tenant, update to host, and event to financial claim.
+    subtasks:
+      - Consolidate component and product threat models without replacing them.
+      - Run structured abuse-case workshops and map controls/evals.
+      - Review on material architecture, dependency, and production changes.
+    evidenceExpected: [threat register, abuse cases, review log]
+    humanGates: [privacy-publication]
+
+  - id: ECO-111
+    epic: E11
+    type: issue
+    title: Enforce capability containment and human approval for consequential actions
+    milestone: M8
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-034, ECO-053, ECO-070, ECO-110]
+    ownerRole: agent safety lead
+    outcome: Effective agent authority is OS/service/policy-enforced, observable, revocable, and smaller than the data it can read.
+    acceptance:
+      - Capability broker enforces scoped tools/credentials, budgets, expiry, idempotency, environment, approval, revocation, and emergency stop.
+      - Tests prove prompts, Nostr/Buzz content, QML, agent self-preservation, or goal conflict cannot bypass gates.
+    subtasks:
+      - Compare declared ADL/Agent BOM authority with effective runtime permissions.
+      - Implement approval receipts and least-privilege capability boundaries.
+      - Run adversarial and recovery evaluations across local, Pack, and hosted profiles.
+    evidenceExpected: [capability design, enforcement tests, adversarial report]
+    humanGates: [signing-or-custody, live-payment, mainnet, production-release]
+
+  - id: ECO-112
+    epic: E11
+    type: issue
+    title: Establish dependency, SBOM, provenance, signing, and reproducible-build gates
+    milestone: M8
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-011, ECO-031, ECO-110]
+    ownerRole: supply-chain security lead
+    outcome: Source, packages, containers, plugins, machine artifacts, prompts, and Agent BOMs can be traced and verified before use.
+    acceptance:
+      - Release profiles define dependency policy, licenses/notices, vulnerability handling, secret scan, reproducible build, SLSA-aligned provenance, signatures, and key rotation.
+      - CI/release tests reject undeclared mutable dependencies, unverifiable artifacts, expired metadata, and prohibited licenses/secrets.
+    subtasks:
+      - Define artifact classes and assurance levels appropriate to risk.
+      - Implement BOM/provenance/signature generation and verification.
+      - Rehearse dependency compromise, signer rotation, and rebuild/rollback.
+    evidenceExpected: [policy, CI/release tooling, compromise drill]
+    humanGates: [signing-or-custody, production-release]
+
+  - id: ECO-113
+    epic: E11
+    type: issue
+    title: Establish privacy, evidence retention, consent, deletion, and public-claim gates
+    milestone: M8
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-013, ECO-061, ECO-110]
+    ownerRole: privacy and evidence lead
+    outcome: Traces, prompts, events, identities, payments, community metrics, and grant evidence are minimized and used for declared purposes.
+    acceptance:
+      - Data inventory defines source, purpose, lawful/consent basis, sensitivity, access, retention, deletion, export, redaction, residency, and incident handling.
+      - Public claims and eval datasets have provenance/consent, deduplication, audience, evidence link, and expiry/review.
+    subtasks:
+      - Classify data across local, Nostr, Arena, Pack/Machine, Lighthouse, community, and grants.
+      - Implement redaction/export/deletion tests and privacy-safe evidence packs.
+      - Obtain applicable legal/privacy and participant review.
+    evidenceExpected: [data register, tests, approved policy and notices]
+    humanGates: [privacy-publication, external-publication]
+
+  - id: ECO-114
+    epic: E11
+    type: issue
+    title: Exercise incident response, disputes, refunds, recovery, and public communication
+    milestone: M8
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-045, ECO-110, ECO-111, ECO-112, ECO-113]
+    ownerRole: incident commander
+    outcome: Maintainers can contain, investigate, reconcile, recover, remedy, and communicate cross-layer incidents without improvising authority.
+    acceptance:
+      - Runbooks cover compromised agent/tool/key/update, false receipt, payment dispute/refund, relay/host outage, privacy event, bad release, abuse, and grant/public-claim correction.
+      - Game days verify roles, contact paths, evidence preservation, pause/revoke/rollback, user remedy, and post-incident follow-up.
+    subtasks:
+      - Define severity, command, legal/upstream/provider coordination, and communication templates.
+      - Run table-top then technical drills without live loss.
+      - Convert findings into tests, tools, graph nodes, and reviewed runbooks.
+    evidenceExpected: [runbooks, drill reports, remediation nodes]
+    humanGates: [external-publication, legal-or-grantor-communication, live-payment, signing-or-custody]
+
+  - id: ECO-115
+    epic: E11
+    type: issue
+    title: Make evidence-backed production and economic readiness decision
+    milestone: M8
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-046, ECO-085, ECO-095, ECO-103, ECO-114]
+    ownerRole: programme sponsor
+    outcome: Humans explicitly decide what may carry real users, obligations, money, and public production claims by product, rail, asset, and environment.
+    acceptance:
+      - Decision pack covers independent security/payment review, conformance, reliability, incidents, disputes/refunds, recovery, privacy, support, unit economics, grants, and residual risk.
+      - Support matrix labels each chain/asset/rail/product experimental, devnet, controlled-live, production, deprecated, or unsupported with runbook and owner.
+    subtasks:
+      - Commission applicable independent audits and close critical findings.
+      - Reconcile technical readiness with legal, operational, financial, community, and grant obligations.
+      - Record scoped approvals/rejections, claim wording, monitoring, expiry, and rollback triggers.
+    evidenceExpected: [independent reports, support matrix, signed readiness decision]
+    humanGates: [production-release, live-payment, mainnet, signing-or-custody, legal-or-grantor-communication, external-publication]

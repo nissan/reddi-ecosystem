@@ -1,0 +1,188 @@
+schemaVersion: 1
+auditAsOf: 2026-08-26
+statusVocabulary: [verified, partial, planned, blocked, superseded, unknown]
+rules:
+  - existence of code is not release evidence
+  - issue creation is not delivery evidence
+  - devnet is not mainnet
+  - owned demos are not automatically external integrations
+  - test or synthetic volume is never grant-eligible volume
+  - no recovery task authorizes live spend, outreach, or publication
+
+commitments:
+  - id: GRANT-2026-01
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Harden the Solana implementation and establish an approved production-readiness path.
+    due: 2026-07-31
+    status: partial
+    evidence:
+      - Historical handoff reports 32/32 Anchor tests and 16/16 middleware tests; clean rerun pending.
+      - https://github.com/nissan/reddi-agent-protocol/blob/main/config/quasar/deployments.json
+    gaps:
+      - external audit and production-readiness decision
+      - exact relationship between legacy Anchor and active Quasar programs
+      - approved mainnet state
+    ownerRole: RAP maintainer
+
+  - id: GRANT-2026-02
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Publish complete documentation and examples.
+    due: 2026-07-31
+    status: unknown
+    evidence: []
+    gaps:
+      - enumerate promised documents/examples
+      - execute clean-reader journeys and link results
+    ownerRole: developer experience lead
+
+  - id: GRANT-2026-03
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Publish npm v1.0.
+    due: 2026-07-31
+    status: unknown
+    evidence:
+      - Repository root package was observed as private version 0.1.0; this neither proves nor disproves publication of scoped packages.
+    gaps:
+      - authoritative npm package names, versions, provenance, and publication dates
+      - supported API and compatibility statement
+    ownerRole: release manager
+
+  - id: GRANT-2026-04
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Deliver an ElizaOS plugin.
+    due: 2026-07-31
+    status: unknown
+    evidence: []
+    gaps: [canonical artifact, install test, upstream/community listing, maintained-owner decision]
+    ownerRole: integrations lead
+
+  - id: GRANT-2026-05
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Deliver a SendAI guide.
+    due: 2026-07-31
+    status: unknown
+    evidence: []
+    gaps: [canonical artifact, technical review, clean-reader verification]
+    ownerRole: developer experience lead
+
+  - id: GRANT-2026-06
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Complete an ODL pilot.
+    due: 2026-07-31
+    status: unknown
+    evidence: []
+    gaps: [pilot definition, counterpart confirmation, outcome evidence, privacy-safe report]
+    ownerRole: programme lead
+
+  - id: GRANT-2026-07
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Run a Superteam Australia workshop.
+    due: 2026-07-31
+    status: unknown
+    evidence: []
+    gaps: [event confirmation, attendance, completion measure, materials, feedback]
+    ownerRole: community lead
+
+  - id: GRANT-2026-08
+    source: May-July 2026 grant plan; governing document to recover
+    promise: Deliver Solana Agent Skills/developer tools and MagicBlock PER documentation.
+    due: 2026-07-31
+    status: unknown
+    evidence:
+      - Canonical deployment config states MagicBlock PER was not part of the final public-devnet proof claim.
+    gaps: [promised artifact list, current technical accuracy, upstream review, PER claim boundary]
+    ownerRole: Solana integration lead
+
+  - id: TARGET-2026-01
+    source: August 2026 success targets; governing document to recover
+    promise: Five or more external projects use the protocol.
+    due: 2026-08-31
+    status: unknown
+    evidence: []
+    gaps: [authoritative integration register, independent owner confirmations, reproducible RAP interactions]
+    measure: independent repository or service, independent owner confirmation, reproducible RAP interaction
+    ownerRole: ecosystem lead
+
+  - id: TARGET-2026-02
+    source: August 2026 success targets; governing document to recover
+    promise: Three or more live integrations.
+    due: 2026-08-31
+    status: unknown
+    evidence: []
+    gaps: [approved live-integration definition, environment-scoped service evidence, independent operator confirmation]
+    measure: externally reachable non-fixture integration completing the declared RAP path in its stated environment
+    ownerRole: integrations lead
+
+  - id: TARGET-2026-03
+    source: August 2026 success targets; governing document to recover
+    promise: Demonstrate mainnet USDG, AUDD, or SOL volume.
+    due: 2026-08-31
+    status: blocked
+    evidence: []
+    gaps: [exact target, lawful approval, authoritative ledger, reconciliation, privacy-safe publication]
+    humanGate: mainnet-and-live-spend
+    ownerRole: payment operations lead
+
+  - id: TARGET-2026-04
+    source: August 2026 success targets; governing document to recover
+    promise: Twenty or more workshop developers.
+    due: 2026-08-31
+    status: unknown
+    evidence: []
+    gaps: [event register, unique attendance evidence, hands-on completion evidence, consent and privacy basis]
+    measure: unique consenting attendees completing a defined hands-on step; registrations alone do not count
+    ownerRole: community lead
+
+  - id: TARGET-2026-05
+    source: August 2026 success targets; governing document to recover
+    promise: Five hundred or more npm weekly downloads.
+    due: 2026-08-31
+    status: unknown
+    evidence: []
+    gaps: [canonical public package names, official registry export, exact weekly date window]
+    measure: official registry weekly downloads for named public package(s), with exact date window
+    ownerRole: release manager
+
+  - id: AUDD-2026-M1
+    source: https://github.com/nissan/reddi-agent-protocol/issues/616
+    promise: AUDD initial-integration release gate for 2,500 AUDD.
+    due: unknown
+    status: planned
+    evidence:
+      - RAP issues 620-622 were open at 2026-08-26.
+    gaps: [bounded authority, AUDD x402 proof, approved end-to-end evidence package]
+    humanGate: live-payment-if-required
+    ownerRole: RAP payments lead
+
+  - id: AUDD-2026-M2
+    source: https://github.com/nissan/reddi-agent-protocol/issues/617
+    promise: AUDD transaction-volume release gate for 4,000 AUDD.
+    due: unknown
+    status: planned
+    evidence:
+      - RAP issues 623-625 were open at 2026-08-26.
+    gaps: [eligible 10000 AUDD volume, 50 completed cycles, live settlement/release/refund evidence]
+    humanGate: live-payment-and-grant-eligibility
+    ownerRole: RAP payments lead
+
+  - id: AUDD-2026-M3
+    source: https://github.com/nissan/reddi-agent-protocol/issues/618
+    promise: AUDD user-activation release gate for 4,000 AUDD.
+    due: unknown
+    status: planned
+    evidence:
+      - RAP issues 626-628 were open at 2026-08-26.
+    gaps: [250 eligible users, participation linkage, dashboard and evidence export]
+    humanGate: privacy-and-publication
+    ownerRole: product analytics lead
+
+  - id: AUDD-2026-EA
+    source: https://github.com/nissan/reddi-agent-protocol/issues/619
+    promise: Up to 4,000 AUDD ecosystem-activation support with safe technical controls.
+    due: unknown
+    status: planned
+    evidence:
+      - RAP issues 629-630 were open at 2026-08-26.
+    gaps: [activation-pool controls, workshop mode, approved non-coding activation plan]
+    humanGate: funding-outreach-and-event-approval
+    ownerRole: programme lead
