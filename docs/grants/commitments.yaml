@@ -1,5 +1,10 @@
 schemaVersion: 1
 auditAsOf: 2026-08-26
+lastAmendedAt: 2026-09-01
+dateSemantics:
+  auditAsOf: date of the last full audit sweep across every commitment.
+  lastAmendedAt: date of the most recent amendment to individual commitments; evidence
+    rows added after auditAsOf carry their own inline observation date.
 statusVocabulary: [verified, partial, planned, blocked, superseded, unknown]
 rules:
   - existence of code is not release evidence
