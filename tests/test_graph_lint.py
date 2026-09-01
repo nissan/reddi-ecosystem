@@ -149,6 +149,15 @@ class GraphLintTests(unittest.TestCase):
             )
         )
 
+    def test_comparison_standards_without_a_rail_role_are_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        for node in graph["nodes"]:
+            if node["id"] == "ECO-044":
+                self.assertIsNone(node.get("railRole"))
+                node["comparisonStandards"] = ["mpp", "ap2"]
+        errors = self._lint_with_graph(graph)
+        self.assertIn("ECO-044: comparisonStandards requires an explicit railRole", errors)
+
     def test_unknown_comparison_standard_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         for node in graph["nodes"]:

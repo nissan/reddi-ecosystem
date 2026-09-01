@@ -278,6 +278,10 @@ def lint(root: Path = ROOT) -> list[str]:
                 )
         standards = node.get("comparisonStandards")
         if standards is not None:
+            if rail_role is None:
+                errors.append(
+                    f"{node_id}: comparisonStandards requires an explicit railRole"
+                )
             if not isinstance(standards, list) or not standards:
                 errors.append(f"{node_id}: comparisonStandards must be a non-empty list")
             else:
