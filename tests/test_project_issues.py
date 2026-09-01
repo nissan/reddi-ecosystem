@@ -25,6 +25,13 @@ class IssueProjectionTests(unittest.TestCase):
                 with self.assertRaises(TypeError):
                     node_markdown(node, self._epics())
 
+    def test_node_markdown_rejects_falsy_malformed_human_gates(self):
+        for value in ("", {}, 0):
+            with self.subTest(value=value):
+                node = self._node(humanGates=value)
+                with self.assertRaises(TypeError):
+                    node_markdown(node, self._epics())
+
     def _node(self, **overrides):
         node = {
             "id": "ECO-999",
@@ -72,4 +79,3 @@ class IssueProjectionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

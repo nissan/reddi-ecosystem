@@ -45,6 +45,7 @@ def node_markdown(node: dict[str, Any], epics: dict[str, dict[str, Any]]) -> str
         f"[{item}](../nodes/{item}.md)"
         for item in string_list(node["dependsOn"], f"{node['id']}.dependsOn")
     ]
+    human_gates = string_list(node["humanGates"], f"{node['id']}.humanGates")
     external = node.get("externalIssue")
     source_hash = digest(node)
     lines = [
@@ -110,8 +111,8 @@ def node_markdown(node: dict[str, Any], epics: dict[str, dict[str, Any]]) -> str
         "## Human gates",
         "",
         (
-            bullets(node["humanGates"], field_name=f"{node['id']}.humanGates")
-            if node["humanGates"]
+            bullets(human_gates, field_name=f"{node['id']}.humanGates")
+            if human_gates
             else "- None beyond normal review."
         ),
         "",
@@ -218,4 +219,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
