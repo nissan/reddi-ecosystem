@@ -18,8 +18,9 @@ GitHub execution projections. Newest entries appear first.
 - Reconstructed the ECO-001 public GitHub/API snapshot for `reddi-ecosystem`,
   `reddiagent-lab`, `reddi-agent-protocol`, and `reddi-arena` in
   [`evidence/github/ECO-001-2026-08-31.md`](../evidence/github/ECO-001-2026-08-31.md),
-  retaining raw transcripts and adding a corrective 2026-09-01 primary-source transcript
-  for RAP root `package.json`, release-body claims, npm `web`, Omarchy, and x402 metadata.
+  retaining raw transcripts and adding corrective 2026-09-01 primary-source transcript
+  entries for RAP root `package.json`, release-body claims, npm `web`, Omarchy repository
+  metadata plus direct `manual/32-shell-plugins.md` contents, and x402 metadata.
 - `ECO-001` remains `in-progress`: the snapshot covers default branches, releases/tags,
   recent CI, branch-protection responses, milestones, open PRs, issue counts/status,
   GitHub deployment metadata, and explicit package-evidence gaps, but component clean
