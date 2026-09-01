@@ -92,16 +92,20 @@ def node_markdown(node: dict[str, Any], epics: dict[str, dict[str, Any]]) -> str
         ),
         "",
     ]
-    if node.get("evidenceProduced"):
-        lines += [
-            "## Produced evidence",
-            "",
-            bullets(
-                node["evidenceProduced"],
-                field_name=f"{node['id']}.evidenceProduced",
-            ),
-            "",
-        ]
+    if "evidenceProduced" in node:
+        evidence_produced = string_list(
+            node["evidenceProduced"], f"{node['id']}.evidenceProduced"
+        )
+        if evidence_produced:
+            lines += [
+                "## Produced evidence",
+                "",
+                bullets(
+                    evidence_produced,
+                    field_name=f"{node['id']}.evidenceProduced",
+                ),
+                "",
+            ]
     lines += [
         "## Human gates",
         "",
