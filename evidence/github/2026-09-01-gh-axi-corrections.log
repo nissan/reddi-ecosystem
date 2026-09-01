@@ -1,0 +1,130 @@
+# ECO-001 correction evidence for blocked-run replacement
+captured_at_utc: 2026-09-01T01:38:18Z
+tool: gh-axi 0.1.35; npm 11.19.0
+
+$ gh-axi api /repos/nissan/reddi-agent-protocol/contents/package.json\?ref=11311a407dcfb3f87a3793d3101b800374b45a91 --jq \{path\,sha\,download_url\,package:\(.content\|@base64d\|fromjson\|\{name\,version\,private\}\)\} --full
+download_url: "https://raw.githubusercontent.com/nissan/reddi-agent-protocol/11311a407dcfb3f87a3793d3101b800374b45a91/package.json"
+package:
+  name: web
+  private: true
+  version: 0.1.0
+path: package.json
+sha: bfa48eecb48c02244041714d67b2ebc8f4a712e5
+[exit 0]
+
+$ gh-axi api /repos/nissan/reddiagent-lab/releases/tags/v0.2.0-beta --jq \{id\,tag_name\,name\,draft\,prerelease\,author:.author.login\,target_commitish\,published_at\,created_at\,html_url\,body\} --full
+author: reddinft
+body: "\nFirst public release of ReddiAgent Lab — the open spec home for **ADL, the\nAgent Definition Language**: define an AI agent once (model envelope +\noperating harness + optional payment/reputation extension) and validate it\ndeterministically.\n\n## What's in this release\n\n**The spec**\n- [specs/ADL-v0.2.md](https://github.com/nissan/reddiagent-lab/blob/main/specs/ADL-v0.2.md) — canonical specification with a machine-checked field contract\n- [specs/ADL-v0.2.schema.json](https://github.com/nissan/reddiagent-lab/blob/main/specs/ADL-v0.2.schema.json) — JSON Schema (37 defs, closed vocabularies, fail-closed extensions)\n- 5-level conformance matrix; [migration guide from v0.1](https://github.com/nissan/reddiagent-lab/blob/main/docs/ADL-v0.1-to-v0.2-MIGRATION.md)\n- Browsable spec + downloadable bundle: [agent-protocol.reddi.tech/spec](https://agent-protocol.reddi.tech/spec)\n\n**Runnable proof — settlement is not success**\n- `scripts/rap_receipt_validator.py`: receipt-integrity validator enforcing 10 evidence layers against a 14-case threat model (replay, wrong-payee, paid-but-denied, authority misuse), grounded in USENIX Security 2026 findings (arXiv:2607.19545) that all 15 major x402 facilitators violated basic security rules. Hardened through three rounds of adversarial review (33 probes, fail-closed on every axis: type, value-domain incl. NaN/Infinity, unknown enums, malformed JSON).\n- `scripts/rap_receipt_integrity_benchmark.py`: the threat-model spec, cross-checked in CI so spec and implementation cannot drift.\n\n**Working examples of agent-to-agent paid delegation**\n- 16 validated examples including both sides of a paid delegation: a buyer (`payment-agent`) and three seller services (research / pricing / review) at conformance Level 3 — full payment authority contracts, receipts, reputation signals, dry-run rail only.\n- 20+ negative fixtures a correct validator must reject.\n\n**Tooling**\n- Conformance checker, diagnostics, provider compatibility reports (OpenAI/Anthropic/Gemini/Ollama/LangGraph), A2A Agent Card export, 222-test deterministic suite.\n\n## Proof in the wild: Reddi Arena\n\nThe spec is not just documents. **[Reddi Arena](https://github.com/nissan/reddi-arena)**\nis a competitive homebrew-bot arena built as a working proof use case for ADL\nv0.2 and the Reddi Agent Protocol — live at\n[reddi-arena-production.up.railway.app](https://reddi-arena-production.up.railway.app),\nand **accepting early-access waitlist signups now**.\n\nEvery game action is a protocol artifact: bots are ADL documents, weight classes\nare computed from the machine-readable declaration, league tiers are the five\nconformance levels, the mercenary power-up market is RAP discovery, and the\npurse is escrow + receipts on the honest dry-run rail (prizes are\nARENA-CREDIT). An arena full of adversarial players trying to get paid without\ndoing the work is a direct, continuous test of the protocol's core claim:\n**payment success is not work success.**\n\nBuilding the Arena against this beta already produced real spec findings — see\nbelow.\n\n## Help us build v0.3 — call for feedback\n\nRead [CONTRIBUTING.md](https://github.com/nissan/reddiagent-lab/blob/main/CONTRIBUTING.md).\nThe highest-value feedback is an **implementation report**: you tried to build\nagainst ADL and hit friction. File it with the\n[open-spec review template](https://github.com/nissan/reddiagent-lab/issues/new?template=open-spec-review.md)\nor start from [agent-protocol.reddi.tech/feedback](https://agent-protocol.reddi.tech/feedback).\n\nKnown open gaps we want challenged — already filed from Reddi Arena's\nimplementation experience and now anchoring the v0.3 backlog:\n\n- [#440](https://github.com/nissan/reddiagent-lab/issues/440) — **No price-discovery field**: `maxAmount` is a cap, not a quoted price; a marketplace card cannot say \"costs 20 per task\" in canonical ADL.\n- [#441](https://github.com/nissan/reddiagent-lab/issues/441) — **Currency enum excludes non-monetary units** (points, credits, in-game currencies).\n- [#389](https://github.com/nissan/reddiagent-lab/issues/389) — **Seller-side `charge` intents escape the authority envelope** (charge-side conformance enforcement + session caps), with ablation evidence attached.\n\nIf your implementation hits a wall the spec should have prevented, that report\nis a v0.3 design input.\n\nLicensing: Apache-2.0 (code), CC BY 4.0 (specs/docs). Live settlement and\nmainnet remain gated behind external audit.\n"
+created_at: "2026-08-17T13:21:55Z"
+draft: false
+html_url: "https://github.com/nissan/reddiagent-lab/releases/tag/v0.2.0-beta"
+id: 359959024
+name: ReddiAgent ADL v0.2.0-beta
+prerelease: true
+published_at: "2026-08-19T11:11:13Z"
+tag_name: v0.2.0-beta
+target_commitish: main
+[exit 0]
+
+$ gh-axi api /repos/nissan/reddi-agent-protocol/releases/tags/demo-videos-v1 --jq \{id\,tag_name\,name\,draft\,prerelease\,author:.author.login\,target_commitish\,published_at\,created_at\,html_url\,body\} --full
+author: reddinft
+body: "Three demo video variants:\n- demo-a-transaction.mp4 — Cinematic split-screen (90s)\n- demo-b-walkthrough.mp4 — General audience walkthrough (90s)\n- demo-c-protocol.mp4 — Technical protocol explainer (120s) ← PRIMARY"
+created_at: "2026-03-24T03:08:30Z"
+draft: false
+html_url: "https://github.com/nissan/reddi-agent-protocol/releases/tag/demo-videos-v1"
+id: 300504250
+name: Demo Videos v1
+prerelease: false
+published_at: "2026-03-24T04:56:32Z"
+tag_name: demo-videos-v1
+target_commitish: main
+[exit 0]
+
+$ gh-axi api /repos/nissan/reddi-agent-protocol/releases/tags/v1.0-tour --jq \{id\,tag_name\,name\,draft\,prerelease\,author:.author.login\,target_commitish\,published_at\,created_at\,html_url\,body\} --full
+author: reddinft
+body: Narrated walkthrough video for the Reddi Agent Protocol product tour.
+created_at: "2026-03-23T19:59:08Z"
+draft: false
+html_url: "https://github.com/nissan/reddi-agent-protocol/releases/tag/v1.0-tour"
+id: 300406301
+name: Product Tour Assets
+prerelease: false
+published_at: "2026-03-23T20:59:56Z"
+tag_name: v1.0-tour
+target_commitish: main
+[exit 0]
+
+$ gh-axi api /repos/omacom/omarchy --jq \{full_name\,html_url\,default_branch\,license:.license.spdx_id\,visibility\,private\,archived\,pushed_at\,updated_at\} --full
+archived: false
+default_branch: quattro
+full_name: omacom/omarchy
+html_url: "https://github.com/omacom/omarchy"
+license: MIT
+private: false
+pushed_at: "2026-08-31T19:43:23Z"
+updated_at: "2026-09-01T01:31:32Z"
+visibility: public
+[exit 0]
+
+$ gh-axi api /repos/basecamp/omarchy --jq \{full_name\,html_url\,default_branch\,license:.license.spdx_id\,visibility\,private\,archived\,pushed_at\,updated_at\} --full
+archived: false
+default_branch: quattro
+full_name: omacom/omarchy
+html_url: "https://github.com/omacom/omarchy"
+license: MIT
+private: false
+pushed_at: "2026-08-31T19:43:23Z"
+updated_at: "2026-09-01T01:31:32Z"
+visibility: public
+[exit 0]
+
+$ gh-axi api /repos/x402-foundation/x402 --jq \{full_name\,html_url\,description\,homepage\,default_branch\,license:.license.spdx_id\,pushed_at\,updated_at\,created_at\,archived\,fork\,parent:\(.parent.full_name\ //\ null\)\,source:\(.source.full_name\ //\ null\)\,open_issues_count\} --full
+archived: false
+created_at: "2025-02-21T01:17:52Z"
+default_branch: main
+description: A payments protocol for the internet. Built on HTTP.
+fork: false
+full_name: x402-foundation/x402
+homepage: "https://x402.org"
+html_url: "https://github.com/x402-foundation/x402"
+license: Apache-2.0
+open_issues_count: 478
+parent: null
+pushed_at: "2026-08-31T18:33:11Z"
+source: null
+updated_at: "2026-08-31T19:01:58Z"
+[exit 0]
+
+$ gh-axi api /repos/coinbase/x402 --jq \{full_name\,html_url\,description\,homepage\,default_branch\,license:.license.spdx_id\,pushed_at\,updated_at\,created_at\,archived\,fork\,parent:\(.parent.full_name\ //\ null\)\,source:\(.source.full_name\ //\ null\)\,open_issues_count\} --full
+archived: false
+created_at: "2026-04-02T16:51:03Z"
+default_branch: main
+description: A payments protocol for the internet. Built on HTTP.
+fork: true
+full_name: coinbase/x402
+homepage: "https://x402.org"
+html_url: "https://github.com/coinbase/x402"
+license: Apache-2.0
+open_issues_count: 166
+parent: x402-foundation/x402
+pushed_at: "2026-08-31T22:51:16Z"
+source: x402-foundation/x402
+updated_at: "2026-08-27T21:22:29Z"
+[exit 0]
+
+$ npm view web name version dist-tags time --json
+{
+  "name": "web",
+  "version": "0.0.2",
+  "dist-tags": {
+    "latest": "0.0.2"
+  },
+  "time": {
+    "created": "2012-09-13T05:12:45.210Z",
+    "modified": "2025-10-26T21:43:13.001Z",
+    "0.0.0": "2012-09-13T05:12:51.358Z",
+    "0.0.1": "2013-01-31T17:18:19.733Z",
+    "0.0.2": "2013-01-31T19:50:36.663Z"
+  }
+}
+[exit 0]

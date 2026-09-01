@@ -1,0 +1,95 @@
+# npm registry exploratory checks (non-GitHub package evidence)
+captured_during_utc: 2026-08-31T23:09:10Z-2026-08-31T23:11:14Z (summary-level capture window; exact per-command timestamps unrecorded)
+tool: npm view (exact npm version unrecorded in original capture; correction log records npm 11.19.0)
+note: these commands are exploratory package-name probes, not authoritative RAP package-publication evidence.
+
+$ npm view reddi-agent-protocol name version dist-tags time --json
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/reddi-agent-protocol - Not found
+npm error 404
+npm error 404  The requested resource 'reddi-agent-protocol@*' could not be found or you do not have permission to access it.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+{
+  "error": {
+    "code": "E404",
+    "summary": "Not Found - GET https://registry.npmjs.org/reddi-agent-protocol - Not found",
+    "detail": "The requested resource 'reddi-agent-protocol@*' could not be found or you do not have permission to access it.\n\nNote that you can also install from a\ntarball, folder, http url, or git url."
+  }
+}
+$ npm view @reddi/agent-protocol name version dist-tags time --json
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/@reddi%2fagent-protocol - Not found
+npm error 404
+npm error 404  The requested resource '@reddi/agent-protocol@*' could not be found or you do not have permission to access it.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+{
+  "error": {
+    "code": "E404",
+    "summary": "Not Found - GET https://registry.npmjs.org/@reddi%2fagent-protocol - Not found",
+    "detail": "The requested resource '@reddi/agent-protocol@*' could not be found or you do not have permission to access it.\n\nNote that you can also install from a\ntarball, folder, http url, or git url."
+  }
+}
+$ npm view @redditech/reddi-agent-protocol name version dist-tags time --json
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/@redditech%2freddi-agent-protocol - Not found
+npm error 404
+npm error 404  The requested resource '@redditech/reddi-agent-protocol@*' could not be found or you do not have permission to access it.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+{
+  "error": {
+    "code": "E404",
+    "summary": "Not Found - GET https://registry.npmjs.org/@redditech%2freddi-agent-protocol - Not found",
+    "detail": "The requested resource '@redditech/reddi-agent-protocol@*' could not be found or you do not have permission to access it.\n\nNote that you can also install from a\ntarball, folder, http url, or git url."
+  }
+}
+$ npm view @reddi/rap name version dist-tags time --json
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/@reddi%2frap - Not found
+npm error 404
+npm error 404  The requested resource '@reddi/rap@*' could not be found or you do not have permission to access it.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+{
+  "error": {
+    "code": "E404",
+    "summary": "Not Found - GET https://registry.npmjs.org/@reddi%2frap - Not found",
+    "detail": "The requested resource '@reddi/rap@*' could not be found or you do not have permission to access it.\n\nNote that you can also install from a\ntarball, folder, http url, or git url."
+  }
+}
+$ npm view @redditech/rap name version dist-tags time --json
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/@redditech%2frap - Not found
+npm error 404
+npm error 404  The requested resource '@redditech/rap@*' could not be found or you do not have permission to access it.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+{
+  "error": {
+    "code": "E404",
+    "summary": "Not Found - GET https://registry.npmjs.org/@redditech%2frap - Not found",
+    "detail": "The requested resource '@redditech/rap@*' could not be found or you do not have permission to access it.\n\nNote that you can also install from a\ntarball, folder, http url, or git url."
+  }
+}
+$ npm view web name version dist-tags time --json
+{
+  "name": "web",
+  "version": "0.0.2",
+  "dist-tags": {
+    "latest": "0.0.2"
+  },
+  "time": {
+    "created": "2012-09-13T05:12:45.210Z",
+    "modified": "2025-10-26T21:43:13.001Z",
+    "0.0.0": "2012-09-13T05:12:51.358Z",
+    "0.0.1": "2013-01-31T17:18:19.733Z",
+    "0.0.2": "2013-01-31T19:50:36.663Z"
+  }
+}

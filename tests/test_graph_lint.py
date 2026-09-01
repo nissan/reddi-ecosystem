@@ -38,6 +38,12 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertTrue(any("acceptance must contain" in error for error in errors))
 
+    def test_evidence_produced_scalar_is_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        graph["nodes"][0]["evidenceProduced"] = "evidence/github/ECO-001-2026-08-31.md"
+        errors = self._lint_with_graph(graph)
+        self.assertTrue(any("evidenceProduced must be a list" in error for error in errors))
+
     def _lint_with_graph(self, graph):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

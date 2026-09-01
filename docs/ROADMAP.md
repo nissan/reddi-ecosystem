@@ -27,6 +27,28 @@ M0 is the only urgent commitment path. Product proofs continue only where they d
 consume the evidence owners or require live value. Mainnet, signing/custody, public grant
 claims, outreach, and spend remain separate human gates.
 
+## Current M0 evidence posture — 2026-08-31
+
+ECO-001 now has a reproducible public GitHub snapshot at
+[`evidence/github/ECO-001-2026-08-31.md`](../evidence/github/ECO-001-2026-08-31.md).
+That snapshot records default-branch commits, GitHub releases/tags, recent CI,
+branch-protection responses, milestones, open PRs, issue counts/status, deployment
+API observations, explicit package-evidence gaps, and a 2026-09-01 corrective
+primary-source log for release-body, RAP root-package, npm `web`, Omarchy, and x402
+provenance details. It proves only those repository/API facts.
+
+M0 can next proceed with:
+
+- ECO-000 source recovery, keeping private grant materials out of this public repository;
+- ECO-002 quantitative measures once canonical package names, download windows,
+  integration definitions, user/workshop definitions, and privacy-safe exports exist;
+- ECO-003 Solana/Quasar identity reconciliation using RAP config and read-only chain evidence;
+- ECO-004 commitment-row audit using ECO-000 sources plus ECO-001/ECO-002/ECO-003 evidence.
+
+M0 remains blocked from claiming grant completion, adoption, package publication, live
+integration, mainnet readiness, production readiness, or eligible volume until those facts
+are proven by the relevant primary sources and approved human gates.
+
 ## Milestones and proof outcomes
 
 | Gate | Target | Programme proof | Principal epics |

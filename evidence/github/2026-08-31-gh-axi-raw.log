@@ -1,0 +1,923 @@
+# gh-axi raw evidence snapshot
+captured_at_utc: 2026-08-31T23:09:10Z
+tool: gh-axi 0.1.35
+
+## repo nissan/reddi-ecosystem
+$ gh-axi api /repos/nissan/reddi-ecosystem --jq ...
+archived: false
+default_branch: main
+full_name: nissan/reddi-ecosystem
+html_url: "https://github.com/nissan/reddi-ecosystem"
+license: Apache-2.0
+name: reddi-ecosystem
+open_issues_count: 20
+private: false
+pushed_at: "2026-08-26T14:31:55Z"
+updated_at: "2026-08-26T14:47:49Z"
+visibility: public
+$ gh-axi api /repos/nissan/reddi-ecosystem/branches/main --jq ...
+commit:
+  commit_date: "2026-08-26T14:31:48Z"
+  message: "docs: record verified public bootstrap"
+  sha: 7d41cc4646fa1377932ba490c9708b73f198360d
+  url: "https://github.com/nissan/reddi-ecosystem/commit/7d41cc4646fa1377932ba490c9708b73f198360d"
+name: main
+protected: false
+$ gh-axi api /repos/nissan/reddi-ecosystem/branches/main/protection --jq ...
+error: "gh: Branch not protected (HTTP 404)"
+code: UNKNOWN
+$ gh-axi release list -R nissan/reddi-ecosystem --limit 10
+count: 0
+releases: []
+help[2]:
+  Run `gh-axi release view <tag> -R nissan/reddi-ecosystem` to view details
+  Run `gh-axi release create <tag> --body-file <path> -R nissan/reddi-ecosystem` to create a release
+$ gh-axi api /repos/nissan/reddi-ecosystem/tags?per_page=10 --jq ...
+[]
+$ gh-axi workflow list -R nissan/reddi-ecosystem --limit 20
+count: 1
+workflows[1]{id,name,state,path}:
+  342993799,Validate programme control plane,active,.github/workflows/validate.yml
+help[2]:
+  Run `gh-axi workflow view <id> -R nissan/reddi-ecosystem` to view details
+  Run `gh-axi workflow run <id> -R nissan/reddi-ecosystem` to trigger a run
+$ gh-axi api /repos/nissan/reddi-ecosystem/actions/runs?per_page=10 --jq ...
+total_count: 3
+workflow_runs[3]{conclusion,created_at,display_title,event,head_branch,head_sha,html_url,id,name,status,updated_at}:
+  success,"2026-08-26T14:31:57Z","docs: record verified public bootstrap",push,main,7d41cc4646fa1377932ba490c9708b73f198360d,"https://github.com/nissan/reddi-ecosystem/actions/runs/32980864569",32980864569,Validate programme control plane,completed,"2026-08-26T14:32:13Z"
+  success,"2026-08-26T14:29:37Z","fix: reconcile public bootstrap and CI cache",push,main,384a89dabd543812cbabb034c678b974264b0fd2,"https://github.com/nissan/reddi-ecosystem/actions/runs/32980617673",32980617673,Validate programme control plane,completed,"2026-08-26T14:29:51Z"
+  failure,"2026-08-26T14:26:26Z","chore: bootstrap Reddi Ecosystem programme control plane",push,main,59fb4f3810c850b2bdca064ca0f52c9ee0507c4c,"https://github.com/nissan/reddi-ecosystem/actions/runs/32980292268",32980292268,Validate programme control plane,completed,"2026-08-26T14:26:37Z"
+$ gh-axi api /repos/nissan/reddi-ecosystem/milestones?state=all&per_page=100 --jq ...
+[]
+$ gh-axi api /repos/nissan/reddi-ecosystem/pulls?state=open&per_page=100 --jq ...
+[]
+$ gh-axi api /search/issues?q=repo:nissan/reddi-ecosystem+is:issue+state:open --jq ...
+open: 20
+$ gh-axi api /search/issues?q=repo:nissan/reddi-ecosystem+is:issue+state:closed --jq ...
+closed: 1
+$ gh-axi api /repos/nissan/reddi-ecosystem/issues?state=open&sort=updated&direction=desc&per_page=20 --jq ...
+[20]:
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/3"
+    labels: []
+    milestone: null
+    number: 3
+    state: open
+    title: "[E02] Research intelligence and prompt foundry"
+    updated_at: "2026-08-26T14:35:52Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/2"
+    labels: []
+    milestone: null
+    number: 2
+    state: open
+    title: "[E01] Programme control plane and governance"
+    updated_at: "2026-08-26T14:35:46Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/1"
+    labels: []
+    milestone: null
+    number: 1
+    state: open
+    title: "[E00] Evidence recovery and grant truth"
+    updated_at: "2026-08-26T14:35:41Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/21"
+    labels: []
+    milestone: null
+    number: 21
+    state: open
+    title: "[ECO-025] Run periodic research-to-eval and failure-to-improvement loops"
+    updated_at: "2026-08-26T14:35:24Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/20"
+    labels: []
+    milestone: null
+    number: 20
+    state: open
+    title: "[ECO-024] Establish provider and runtime compatibility matrix"
+    updated_at: "2026-08-26T14:35:19Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/19"
+    labels: []
+    milestone: null
+    number: 19
+    state: open
+    title: "[ECO-023] Build sandboxed prompt candidate optimization with guard-metric rollback"
+    updated_at: "2026-08-26T14:35:15Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/18"
+    labels: []
+    milestone: null
+    number: 18
+    state: open
+    title: "[ECO-022] Baseline the role prompt catalog on representative programme tasks"
+    updated_at: "2026-08-26T14:35:09Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/17"
+    labels: []
+    milestone: null
+    number: 17
+    state: open
+    title: "[ECO-021] Define prompt package, trace, dataset, and evaluation governance"
+    updated_at: "2026-08-26T14:35:04Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/16"
+    labels: []
+    milestone: null
+    number: 16
+    state: open
+    title: "[ECO-020] Curate primary-source agent engineering research and decision mappings"
+    updated_at: "2026-08-26T14:35:01Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/15"
+    labels: []
+    milestone: null
+    number: 15
+    state: open
+    title: "[ECO-015] Operate merge-triggered and quarterly portfolio reviews"
+    updated_at: "2026-08-26T14:34:45Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/14"
+    labels: []
+    milestone: null
+    number: 14
+    state: open
+    title: "[ECO-014] Publish evidence-backed programme status and roadmap views"
+    updated_at: "2026-08-26T14:34:41Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/13"
+    labels: []
+    milestone: null
+    number: 13
+    state: open
+    title: "[ECO-013] Establish ADR, RFC, claim, decision, and sync-log registers"
+    updated_at: "2026-08-26T14:34:35Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/12"
+    labels: []
+    milestone: null
+    number: 12
+    state: open
+    title: "[ECO-012] Generate stable GitHub issue projections from canonical graph nodes"
+    updated_at: "2026-08-26T14:34:31Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/11"
+    labels: []
+    milestone: null
+    number: 11
+    state: open
+    title: "[ECO-011] Enforce graph, research, grant, and prompt registry integrity in CI"
+    updated_at: "2026-08-26T14:34:27Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/9"
+    labels: []
+    milestone: null
+    number: 9
+    state: open
+    title: "[ECO-005] Approve remediation and grantor communication decision pack"
+    updated_at: "2026-08-26T14:33:46Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/8"
+    labels: []
+    milestone: null
+    number: 8
+    state: open
+    title: "[ECO-004] Reconcile May-July commitments, August targets, and AUDD release criteria"
+    updated_at: "2026-08-26T14:33:41Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/7"
+    labels: []
+    milestone: null
+    number: 7
+    state: open
+    title: "[ECO-003] Reconcile Solana and Quasar deployment identities and environment claims"
+    updated_at: "2026-08-26T14:33:36Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/6"
+    labels: []
+    milestone: null
+    number: 6
+    state: open
+    title: "[ECO-002] Verify adoption, npm, integration, workshop, user, and volume measures"
+    updated_at: "2026-08-26T14:33:32Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/5"
+    labels: []
+    milestone: null
+    number: 5
+    state: open
+    title: "[ECO-001] Capture reproducible repository, release, package, deployment, and issue snapshots"
+    updated_at: "2026-08-26T14:33:27Z"
+  - html_url: "https://github.com/nissan/reddi-ecosystem/issues/4"
+    labels: []
+    milestone: null
+    number: 4
+    state: open
+    title: "[ECO-000] Recover governing grant documents and amendments"
+    updated_at: "2026-08-26T14:33:20Z"
+
+## repo nissan/reddiagent-lab
+$ gh-axi api /repos/nissan/reddiagent-lab --jq ...
+archived: false
+default_branch: main
+full_name: nissan/reddiagent-lab
+html_url: "https://github.com/nissan/reddiagent-lab"
+license: Apache-2.0
+name: reddiagent-lab
+open_issues_count: 44
+private: false
+pushed_at: "2026-08-21T07:54:48Z"
+updated_at: "2026-08-21T07:55:09Z"
+visibility: public
+$ gh-axi api /repos/nissan/reddiagent-lab/branches/main --jq ...
+commit:
+  commit_date: "2026-08-21T07:54:48Z"
+  message: "Merge pull request #449 from nissan/claude/protocol-audit-signup-flow-k19szi\n\ndocs: add Superteam developer-group post to social pack"
+  sha: e9c8219b7024c2ebc4819e8731ebcd9e06964e6e
+  url: "https://github.com/nissan/reddiagent-lab/commit/e9c8219b7024c2ebc4819e8731ebcd9e06964e6e"
+name: main
+protected: false
+$ gh-axi api /repos/nissan/reddiagent-lab/branches/main/protection --jq ...
+error: "gh: Branch not protected (HTTP 404)"
+code: UNKNOWN
+$ gh-axi release list -R nissan/reddiagent-lab --limit 10
+count: 1
+releases[1]{tag,name,draft,prerelease,published}:
+  v0.2.0-beta,ReddiAgent ADL v0.2.0-beta,no,yes,12d ago
+help[2]:
+  Run `gh-axi release view <tag> -R nissan/reddiagent-lab` to view details
+  Run `gh-axi release create <tag> --body-file <path> -R nissan/reddiagent-lab` to create a release
+$ gh-axi api /repos/nissan/reddiagent-lab/tags?per_page=10 --jq ...
+[1]{commit,name,tarball_url,zipball_url}:
+  47d553366996efda07ccb8bcd6e6cde360f60260,v0.2.0-beta,"https://api.github.com/repos/nissan/reddiagent-lab/tarball/refs/tags/v0.2.0-beta","https://api.github.com/repos/nissan/reddiagent-lab/zipball/refs/tags/v0.2.0-beta"
+$ gh-axi workflow list -R nissan/reddiagent-lab --limit 20
+count: 2
+workflows[2]{id,name,state,path}:
+  337732022,Publish ADL v0.2.0-beta release,active,.github/workflows/publish-adl-beta-release.yml
+  311626626,Smoke and Snapshots,active,.github/workflows/smoke-snapshots.yml
+help[2]:
+  Run `gh-axi workflow view <id> -R nissan/reddiagent-lab` to view details
+  Run `gh-axi workflow run <id> -R nissan/reddiagent-lab` to trigger a run
+$ gh-axi api /repos/nissan/reddiagent-lab/actions/runs?per_page=10 --jq ...
+total_count: 561
+workflow_runs[10]{conclusion,created_at,display_title,event,head_branch,head_sha,html_url,id,name,status,updated_at}:
+  success,"2026-08-21T07:54:51Z",Merge pull request #449 from nissan/claude/protocol-audit-signup-flow…,push,main,e9c8219b7024c2ebc4819e8731ebcd9e06964e6e,"https://github.com/nissan/reddiagent-lab/actions/runs/32460743931",32460743931,Smoke and Snapshots,completed,"2026-08-21T07:57:52Z"
+  success,"2026-08-19T11:27:02Z","docs: add Superteam developer-group post to social pack",pull_request,claude/protocol-audit-signup-flow-k19szi,3fdca08cd25fd7bb2c2ed1239891d65ac40f4f40,"https://github.com/nissan/reddiagent-lab/actions/runs/32247631057",32247631057,Smoke and Snapshots,completed,"2026-08-19T11:30:17Z"
+  success,"2026-08-19T11:15:00Z",Merge pull request #448 from nissan/claude/protocol-audit-signup-flow…,push,main,5fd494b9d92002eef0832f99f95d19be8dd118b9,"https://github.com/nissan/reddiagent-lab/actions/runs/32246649955",32246649955,Smoke and Snapshots,completed,"2026-08-19T11:18:13Z"
+  success,"2026-08-19T11:12:02Z","ci: publish workflow for v0.2.0-beta release + STATUS publish log",pull_request,claude/protocol-audit-signup-flow-k19szi,f5ea137085bef24294b7825b2819dbe0fd487c45,"https://github.com/nissan/reddiagent-lab/actions/runs/32246411549",32246411549,Smoke and Snapshots,completed,"2026-08-19T11:15:02Z"
+  success,"2026-08-19T11:11:06Z","ci: one-shot workflow to publish the v0.2.0-beta draft release",push,claude/protocol-audit-signup-flow-k19szi,e42edf0c8f2ac9e2337f73d0921fe0d7918d7a89,"https://github.com/nissan/reddiagent-lab/actions/runs/32246335716",32246335716,Publish ADL v0.2.0-beta release,completed,"2026-08-19T11:11:16Z"
+  success,"2026-08-17T13:21:59Z",Merge pull request #447 from nissan/claude/protocol-audit-signup-flow…,push,main,47d553366996efda07ccb8bcd6e6cde360f60260,"https://github.com/nissan/reddiagent-lab/actions/runs/32034714969",32034714969,Smoke and Snapshots,completed,"2026-08-17T13:24:59Z"
+  success,"2026-08-16T12:54:09Z","docs: v0.2.0-beta release package — notes, runbook, announcement, social pack",pull_request,claude/protocol-audit-signup-flow-k19szi,ba7c58785a893cef7da623b3c8ce94be287316b1,"https://github.com/nissan/reddiagent-lab/actions/runs/31948310699",31948310699,Smoke and Snapshots,completed,"2026-08-16T12:56:39Z"
+  success,"2026-08-16T11:24:56Z",Merge pull request #442 from nissan/claude/attachments-roadmap-planni…,push,main,dd115de878f80e7d3344d31ff6ab72f6ed5ac32a,"https://github.com/nissan/reddiagent-lab/actions/runs/31944259411",31944259411,Smoke and Snapshots,completed,"2026-08-16T11:27:59Z"
+  success,"2026-08-16T11:19:55Z",Add lesson 11 capstone (Vault Duel / Reddi Arena) to the learning path,pull_request,claude/attachments-roadmap-planning-zwlt9p,b39f4ed17b8f6c34bc0783161a2c71de30908691,"https://github.com/nissan/reddiagent-lab/actions/runs/31944031590",31944031590,Smoke and Snapshots,completed,"2026-08-16T11:22:55Z"
+  success,"2026-08-01T07:28:47Z",Plan owner-reviewed local Buzz sandbox,pull_request,agent/buzz428-plan-20260801,d748db9c00168cb76d7fccf9dbcdc05385a87fe5,"https://github.com/nissan/reddiagent-lab/actions/runs/30689820148",30689820148,Smoke and Snapshots,completed,"2026-08-01T07:31:59Z"
+$ gh-axi api /repos/nissan/reddiagent-lab/milestones?state=all&per_page=100 --jq ...
+[]
+$ gh-axi api /repos/nissan/reddiagent-lab/pulls?state=open&per_page=100 --jq ...
+[1]{base,draft,head,html_url,number,state,title,updated_at}:
+  main,true,agent/buzz428-plan-20260801,"https://github.com/nissan/reddiagent-lab/pull/439",439,open,Plan owner-reviewed local Buzz sandbox,"2026-08-01T07:46:56Z"
+$ gh-axi api /search/issues?q=repo:nissan/reddiagent-lab+is:issue+state:open --jq ...
+open: 43
+$ gh-axi api /search/issues?q=repo:nissan/reddiagent-lab+is:issue+state:closed --jq ...
+closed: 269
+$ gh-axi api /repos/nissan/reddiagent-lab/issues?state=open&sort=updated&direction=desc&per_page=20 --jq ...
+[19]:
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/451"
+    labels: []
+    milestone: null
+    number: 451
+    state: open
+    title: "ADL v0.2: harness.observability.redaction.mode has no defined vocabulary or semantics"
+    updated_at: "2026-08-24T23:13:33Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/450"
+    labels: []
+    milestone: null
+    number: 450
+    state: open
+    title: "Spec finding F-012 (arena): conformance evidence is declared in two places, and downstream repos cannot reproduce checker verdicts"
+    updated_at: "2026-08-24T10:47:14Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/446"
+    labels: []
+    milestone: null
+    number: 446
+    state: open
+    title: "Open-spec review: policy.scope.type and paymentScope.type use different enums (Arena F-005)"
+    updated_at: "2026-08-16T12:43:39Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/445"
+    labels: []
+    milestone: null
+    number: 445
+    state: open
+    title: "Open-spec review: x402-dry-run is a rail, not a mode — safety is not checkable in one place (Arena F-003)"
+    updated_at: "2026-08-16T12:43:27Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/444"
+    labels: []
+    milestone: null
+    number: 444
+    state: open
+    title: "Open-spec review: unknown keys on tool objects validate silently — sideEffect typo case (Arena F-011)"
+    updated_at: "2026-08-16T12:42:54Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/443"
+    labels: []
+    milestone: null
+    number: 443
+    state: open
+    title: "Open-spec review: schema permits duplicate tool/function/skill ids (Arena F-010)"
+    updated_at: "2026-08-16T12:42:39Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/389"
+    labels[2]: "status:product-backlog","type:improvement"
+    milestone: null
+    number: 389
+    state: open
+    title: "ADL v0.3 intake: charge-side parity, price-discovery pointers, session caps, outputSchema"
+    updated_at: "2026-08-16T11:19:10Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/441"
+    labels: []
+    milestone: null
+    number: 441
+    state: open
+    title: "Open-spec review: currency enum excludes non-monetary units (Arena F-002)"
+    updated_at: "2026-08-16T11:18:53Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/440"
+    labels: []
+    milestone: null
+    number: 440
+    state: open
+    title: "Open-spec review: ADL v0.2 has no price-discovery field on seller-side intents (Arena F-007)"
+    updated_at: "2026-08-16T11:18:34Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/428"
+    labels[3]: "status:sprint-backlog","type:feature","integration:buzz"
+    milestone: null
+    number: 428
+    state: open
+    title: Implement and validate owner-reviewed local Buzz installation
+    updated_at: "2026-08-01T07:46:57Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/419"
+    labels[4]: planning,"status:sprint-backlog",epic,"integration:buzz"
+    milestone: null
+    number: 419
+    state: open
+    title: "Epic: Ship Buzz as an optional ADL/RAP marketplace target"
+    updated_at: "2026-08-01T07:07:23Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/420"
+    labels[4]: spec,"status:sprint-backlog",epic,"integration:buzz"
+    milestone: null
+    number: 420
+    state: open
+    title: "Swimlane epic: Buzz canonical ADL export and curation contract"
+    updated_at: "2026-08-01T07:07:21Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/421"
+    labels[4]: "status:sprint-backlog","type:feature",epic,"integration:buzz"
+    milestone: null
+    number: 421
+    state: open
+    title: "Swimlane epic: Owner-reviewed Buzz installation and local collaboration"
+    updated_at: "2026-07-31T10:07:34Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/386"
+    labels[2]: "status:sprint-backlog",epic
+    milestone: null
+    number: 386
+    state: open
+    title: "Epic: Community launch 2026-08-31"
+    updated_at: "2026-07-31T09:54:03Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/423"
+    labels[4]: planning,"status:product-backlog",epic,"integration:buzz"
+    milestone: null
+    number: 423
+    state: open
+    title: "Swimlane epic: Buzz integration validation, audit, and release readiness"
+    updated_at: "2026-07-31T09:53:24Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/422"
+    labels[4]: payments,"status:product-backlog",epic,"integration:buzz"
+    milestone: null
+    number: 422
+    state: open
+    title: "Swimlane epic: Buzz ↔ RAP request, payment, receipt, and reputation handoff"
+    updated_at: "2026-07-31T09:53:21Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/433"
+    labels[4]: planning,"status:product-backlog","type:feature","integration:buzz"
+    milestone: null
+    number: 433
+    state: open
+    title: Decide production-candidate go-live for the optional Buzz integration
+    updated_at: "2026-07-31T09:53:05Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/432"
+    labels[4]: spec,"status:product-backlog","type:improvement","integration:buzz"
+    milestone: null
+    number: 432
+    state: open
+    title: Prepare Buzz/RAP security audit and release-freeze packet
+    updated_at: "2026-07-31T09:53:03Z"
+  - html_url: "https://github.com/nissan/reddiagent-lab/issues/431"
+    labels[4]: payments,"status:product-backlog","type:feature","integration:buzz"
+    milestone: null
+    number: 431
+    state: open
+    title: Run bounded Solana devnet feedback cohort for the optional Buzz integration
+    updated_at: "2026-07-31T09:53:00Z"
+
+## repo nissan/reddi-agent-protocol
+$ gh-axi api /repos/nissan/reddi-agent-protocol --jq ...
+archived: false
+default_branch: main
+full_name: nissan/reddi-agent-protocol
+html_url: "https://github.com/nissan/reddi-agent-protocol"
+license: MIT
+name: reddi-agent-protocol
+open_issues_count: 53
+private: false
+pushed_at: "2026-08-28T08:03:20Z"
+updated_at: "2026-08-27T10:00:46Z"
+visibility: public
+$ gh-axi api /repos/nissan/reddi-agent-protocol/branches/main --jq ...
+commit:
+  commit_date: "2026-08-27T09:56:07Z"
+  message: "Merge pull request #645 from nissan/claude/protocol-audit-signup-flow-k19szi\n\nMirror guard, escrow durability, and the corrected C-4 record (C-4 still OPEN)"
+  sha: 11311a407dcfb3f87a3793d3101b800374b45a91
+  url: "https://github.com/nissan/reddi-agent-protocol/commit/11311a407dcfb3f87a3793d3101b800374b45a91"
+name: main
+protected: false
+$ gh-axi api /repos/nissan/reddi-agent-protocol/branches/main/protection --jq ...
+error: "gh: Branch not protected (HTTP 404)"
+code: UNKNOWN
+$ gh-axi release list -R nissan/reddi-agent-protocol --limit 10
+count: 2
+releases[2]{tag,name,draft,prerelease,published}:
+  demo-videos-v1,Demo Videos v1,no,no,5mo ago
+  v1.0-tour,Product Tour Assets,no,no,5mo ago
+help[2]:
+  Run `gh-axi release view <tag> -R nissan/reddi-agent-protocol` to view details
+  Run `gh-axi release create <tag> --body-file <path> -R nissan/reddi-agent-protocol` to create a release
+$ gh-axi api /repos/nissan/reddi-agent-protocol/tags?per_page=10 --jq ...
+[2]{commit,name,tarball_url,zipball_url}:
+  eca9c5274e2f6f9e87d35bcbaf18866d6a15c7f6,v1.0-tour,"https://api.github.com/repos/nissan/reddi-agent-protocol/tarball/refs/tags/v1.0-tour","https://api.github.com/repos/nissan/reddi-agent-protocol/zipball/refs/tags/v1.0-tour"
+  451746dad086c56c737c30d355c8465e1777b104,demo-videos-v1,"https://api.github.com/repos/nissan/reddi-agent-protocol/tarball/refs/tags/demo-videos-v1","https://api.github.com/repos/nissan/reddi-agent-protocol/zipball/refs/tags/demo-videos-v1"
+$ gh-axi workflow list -R nissan/reddi-agent-protocol --limit 20
+count: 11
+workflows[11]{id,name,state,path}:
+  335488780,Anchor Program Tests,active,.github/workflows/anchor-program-tests.yml
+  263093865,BDD Bucket Sweep Confidence,active,.github/workflows/bdd-bucket-sweep-confidence.yml
+  263085506,BDD Feature Index Guard,active,.github/workflows/bdd-index-guard.yml
+  335488779,E2E Funnel (Playwright),active,.github/workflows/e2e-funnel.yml
+  266810932,Integration Lane (Nightly Artifacts),active,.github/workflows/integration-lane-nightly.yml
+  335488781,Jest (lib suites),active,.github/workflows/jest.yml
+  271690868,Quasar Program Tests,active,.github/workflows/quasar-program-tests.yml
+  271595350,Quasar Readiness Guard,active,.github/workflows/quasar-readiness-guard.yml
+  307158161,RAP Package Publication Guard,active,.github/workflows/rap-package-guard.yml
+  264858484,Source Conformance Matrix,active,.github/workflows/source-conformance-matrix.yml
+  265237748,Surfpool Acceptance (manual),active,.github/workflows/surfpool-acceptance-manual.yml
+help[2]:
+  Run `gh-axi workflow view <id> -R nissan/reddi-agent-protocol` to view details
+  Run `gh-axi workflow run <id> -R nissan/reddi-agent-protocol` to trigger a run
+$ gh-axi api /repos/nissan/reddi-agent-protocol/actions/runs?per_page=10 --jq ...
+total_count: 1572
+workflow_runs[10]{conclusion,created_at,display_title,event,head_branch,head_sha,html_url,id,name,status,updated_at}:
+  success,"2026-08-30T22:12:58Z",Integration Lane (Nightly Artifacts),schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33338535092",33338535092,Integration Lane (Nightly Artifacts),completed,"2026-08-30T22:14:38Z"
+  success,"2026-08-30T21:56:26Z",BDD Bucket Sweep Confidence,schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33337770690",33337770690,BDD Bucket Sweep Confidence,completed,"2026-08-30T21:57:49Z"
+  success,"2026-08-29T22:06:17Z",Integration Lane (Nightly Artifacts),schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33277738840",33277738840,Integration Lane (Nightly Artifacts),completed,"2026-08-29T22:07:40Z"
+  success,"2026-08-29T21:51:08Z",BDD Bucket Sweep Confidence,schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33277118043",33277118043,BDD Bucket Sweep Confidence,completed,"2026-08-29T21:52:45Z"
+  success,"2026-08-29T02:35:28Z",Integration Lane (Nightly Artifacts),schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33229335326",33229335326,Integration Lane (Nightly Artifacts),completed,"2026-08-29T02:37:06Z"
+  success,"2026-08-29T02:20:49Z",BDD Bucket Sweep Confidence,schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33228718033",33228718033,BDD Bucket Sweep Confidence,completed,"2026-08-29T02:22:27Z"
+  success,"2026-08-28T08:03:56Z","Mainnet & live-production readiness assessment — not ready, 4 blocking gates",pull_request,claude/protocol-audit-signup-flow-k19szi,5d48debc0caa576a89c1150ffcbccf0983c96558,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33153848008",33153848008,Jest (lib suites),completed,"2026-08-28T08:05:20Z"
+  success,"2026-08-28T08:03:56Z","Mainnet & live-production readiness assessment — not ready, 4 blocking gates",pull_request,claude/protocol-audit-signup-flow-k19szi,5d48debc0caa576a89c1150ffcbccf0983c96558,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33153847955",33153847955,E2E Funnel (Playwright),completed,"2026-08-28T08:07:45Z"
+  success,"2026-08-28T03:54:28Z",Integration Lane (Nightly Artifacts),schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33140255734",33140255734,Integration Lane (Nightly Artifacts),completed,"2026-08-28T03:56:06Z"
+  success,"2026-08-28T03:37:40Z",BDD Bucket Sweep Confidence,schedule,main,11311a407dcfb3f87a3793d3101b800374b45a91,"https://github.com/nissan/reddi-agent-protocol/actions/runs/33139445122",33139445122,BDD Bucket Sweep Confidence,completed,"2026-08-28T03:39:21Z"
+$ gh-axi api /repos/nissan/reddi-agent-protocol/milestones?state=all&per_page=100 --jq ...
+[]
+$ gh-axi api /repos/nissan/reddi-agent-protocol/pulls?state=open&per_page=100 --jq ...
+[1]{base,draft,head,html_url,number,state,title,updated_at}:
+  main,false,claude/protocol-audit-signup-flow-k19szi,"https://github.com/nissan/reddi-agent-protocol/pull/646",646,open,"Mainnet & live-production readiness assessment — not ready, 4 blocking gates","2026-08-28T08:04:45Z"
+$ gh-axi api /search/issues?q=repo:nissan/reddi-agent-protocol+is:issue+state:open --jq ...
+open: 52
+$ gh-axi api /search/issues?q=repo:nissan/reddi-agent-protocol+is:issue+state:closed --jq ...
+closed: 164
+$ gh-axi api /repos/nissan/reddi-agent-protocol/issues?state=open&sort=updated&direction=desc&per_page=20 --jq ...
+[19]:
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/338"
+    labels[3]: epic,product-roadmap,dependency-map
+    milestone: null
+    number: 338
+    state: open
+    title: "[Epic] Payment rail neutrality and adapter strategy"
+    updated_at: "2026-07-26T06:59:58Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/370"
+    labels[9]: epic,product-roadmap,dependency-map,onboarding-assistant,mcp-api,audd,solana-rails,agent-stack-fixture,static-analysis
+    milestone: null
+    number: 370
+    state: open
+    title: "[Epic] AI analyser onboarding assistant for RAP-compatible marketplace supply"
+    updated_at: "2026-07-26T06:59:44Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/340"
+    labels[5]: task,product-roadmap,needs-roadmap-review,dependency-map,onboarding-assistant
+    milestone: null
+    number: 340
+    state: open
+    title: "[Process] Revisit roadmap and issue dependencies after every PR merge"
+    updated_at: "2026-07-26T06:58:11Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/631"
+    labels[8]: epic,product-roadmap,dependency-map,oss-core,agent-stack-fixture,static-analysis,maf,v0.2
+    milestone: null
+    number: 631
+    state: open
+    title: "[Epic] Microsoft Agent Framework adapter and ADL v0.2 compatibility"
+    updated_at: "2026-07-26T03:41:43Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/615"
+    labels[4]: epic,product-roadmap,dependency-map,audd
+    milestone: null
+    number: 615
+    state: open
+    title: "[Epic] AUDD grant release criteria delivery program"
+    updated_at: "2026-07-26T03:41:42Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/635"
+    labels: []
+    milestone: null
+    number: 635
+    state: open
+    title: "[Task] Compile Ecosystem Activation evidence packet for AUDD release request"
+    updated_at: "2026-07-26T03:41:14Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/634"
+    labels: []
+    milestone: null
+    number: 634
+    state: open
+    title: "[Task] Compile M3 User Activation evidence packet for AUDD release request"
+    updated_at: "2026-07-26T03:41:13Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/633"
+    labels: []
+    milestone: null
+    number: 633
+    state: open
+    title: "[Task] Compile M2 Transaction Volume evidence packet for AUDD release request"
+    updated_at: "2026-07-26T03:41:12Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/632"
+    labels: []
+    milestone: null
+    number: 632
+    state: open
+    title: "[Task] Compile M1 Initial Integration evidence packet for AUDD release request"
+    updated_at: "2026-07-26T03:41:11Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/619"
+    labels[4]: epic,dependency-map,audd,frontend
+    milestone: null
+    number: 619
+    state: open
+    title: "[Epic] AUDD Ecosystem Activation technical support"
+    updated_at: "2026-07-20T01:57:33Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/618"
+    labels[5]: epic,dependency-map,audd,frontend,product-ui
+    milestone: null
+    number: 618
+    state: open
+    title: "[Epic] AUDD M3 User Activation release gate"
+    updated_at: "2026-07-20T01:57:32Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/617"
+    labels[4]: epic,dependency-map,audd,solana-rails
+    milestone: null
+    number: 617
+    state: open
+    title: "[Epic] AUDD M2 Transaction Volume release gate"
+    updated_at: "2026-07-20T01:57:31Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/616"
+    labels[4]: epic,dependency-map,audd,solana-rails
+    milestone: null
+    number: 616
+    state: open
+    title: "[Epic] AUDD M1 Initial Integration release gate"
+    updated_at: "2026-07-20T01:57:30Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/630"
+    labels[4]: feature,audd,frontend,product-ui
+    milestone: null
+    number: 630
+    state: open
+    title: "[Feature] Workshop/demo-safe AUDD workflow mode"
+    updated_at: "2026-07-20T01:56:02Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/629"
+    labels[3]: feature,audd,solana-rails
+    milestone: null
+    number: 629
+    state: open
+    title: "[Feature] Controlled AUDD activation-pool technical controls"
+    updated_at: "2026-07-20T01:56:00Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/628"
+    labels[4]: feature,audd,frontend,product-ui
+    milestone: null
+    number: 628
+    state: open
+    title: "[Feature] AUDD grant dashboard and milestone evidence export"
+    updated_at: "2026-07-20T01:55:59Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/627"
+    labels[4]: feature,audd,frontend,product-ui
+    milestone: null
+    number: 627
+    state: open
+    title: "[Feature] AUDD-enabled workflow participation tracking"
+    updated_at: "2026-07-20T01:55:57Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/626"
+    labels[4]: feature,audd,frontend,product-ui
+    milestone: null
+    number: 626
+    state: open
+    title: "[Feature] Activated-user metric and identity-safe deduplication"
+    updated_at: "2026-07-20T01:55:56Z"
+  - html_url: "https://github.com/nissan/reddi-agent-protocol/issues/625"
+    labels[3]: feature,audd,solana-rails
+    milestone: null
+    number: 625
+    state: open
+    title: "[Feature] Live settlement, escrow release, and refund evidence harness"
+    updated_at: "2026-07-20T01:55:54Z"
+
+## repo nissan/reddi-arena
+$ gh-axi api /repos/nissan/reddi-arena --jq ...
+archived: false
+default_branch: main
+full_name: nissan/reddi-arena
+html_url: "https://github.com/nissan/reddi-arena"
+license: null
+name: reddi-arena
+open_issues_count: 35
+private: false
+pushed_at: "2026-08-25T22:02:36Z"
+updated_at: "2026-08-25T22:03:10Z"
+visibility: public
+$ gh-axi api /repos/nissan/reddi-arena/branches/main --jq ...
+commit:
+  commit_date: "2026-08-25T22:02:35Z"
+  message: "planning: codify the independent-review-gate playbook (promotable template)\n\nCapture the fresh-context-review-before-merge workflow as a self-contained\nplaybook (planning/prompts/40-independent-review-gate.md): the rule, the loop,\nthe reviewer's adversarial charge, anti-patterns, and the wave evidence that\njustifies it — the gate caught a BLOCKER on #67 (the invocation-cap bypass) and\na MAJOR on #70 (the silent-forfeit-on-typo), both of which shipped green.\nCross-referenced from 10-node-executor.md.\n\nMarked pilot-local: promotion to reddi-agent-protocol / reddiagent-lab is gated\nbehind the 2026-08-31 launch per the GE03 ADR — do not copy upstream before\nthen.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017SQfpPUchAUv3RVtbBBJYp"
+  sha: 3c9755e9f00983bddbf1133800a4248ee2c95ffc
+  url: "https://github.com/nissan/reddi-arena/commit/3c9755e9f00983bddbf1133800a4248ee2c95ffc"
+name: main
+protected: false
+$ gh-axi api /repos/nissan/reddi-arena/branches/main/protection --jq ...
+error: "gh: Branch not protected (HTTP 404)"
+code: UNKNOWN
+$ gh-axi release list -R nissan/reddi-arena --limit 10
+count: 0
+releases: []
+help[2]:
+  Run `gh-axi release view <tag> -R nissan/reddi-arena` to view details
+  Run `gh-axi release create <tag> --body-file <path> -R nissan/reddi-arena` to create a release
+$ gh-axi api /repos/nissan/reddi-arena/tags?per_page=10 --jq ...
+[]
+$ gh-axi workflow list -R nissan/reddi-arena --limit 20
+count: 1
+workflows[1]{id,name,state,path}:
+  335553282,tests,active,.github/workflows/tests.yml
+help[2]:
+  Run `gh-axi workflow view <id> -R nissan/reddi-arena` to view details
+  Run `gh-axi workflow run <id> -R nissan/reddi-arena` to trigger a run
+$ gh-axi api /repos/nissan/reddi-arena/actions/runs?per_page=10 --jq ...
+total_count: 118
+workflow_runs[10]{conclusion,created_at,display_title,event,head_branch,head_sha,html_url,id,name,status,updated_at}:
+  success,"2026-08-25T22:02:38Z","planning: codify the independent-review-gate playbook (promotable tem…",push,main,3c9755e9f00983bddbf1133800a4248ee2c95ffc,"https://github.com/nissan/reddi-arena/actions/runs/32904186834",32904186834,tests,completed,"2026-08-25T22:02:56Z"
+  success,"2026-08-25T22:02:34Z","planning: codify the independent-review-gate playbook (promotable template)",pull_request,docs/review-gate-playbook,62d3fc3590c2ccac44f41d5d1f08a9d5cf4fed89,"https://github.com/nissan/reddi-arena/actions/runs/32904180310",32904180310,tests,completed,"2026-08-25T22:02:57Z"
+  success,"2026-08-25T22:01:01Z","docs: re-verify BALANCE-REPORT against the post-remediation engine",push,main,1e5b69a0ddd9091323a704994fec0e15fd7e173e,"https://github.com/nissan/reddi-arena/actions/runs/32904047522",32904047522,tests,completed,"2026-08-25T22:01:21Z"
+  success,"2026-08-25T22:00:55Z","docs: re-verify BALANCE-REPORT against the post-remediation engine",pull_request,docs/balance-reverify,f5e949c1bba5d66338d02218b709e57f553f6e29,"https://github.com/nissan/reddi-arena/actions/runs/32904039186",32904039186,tests,completed,"2026-08-25T22:01:18Z"
+  success,"2026-08-24T23:36:57Z","GE02: validate --existing type, balance epic title, tighten evidence/…",push,main,5fdeb92d38a20bd3872b4598e88bbdf96487baa8,"https://github.com/nissan/reddi-arena/actions/runs/32790131783",32790131783,tests,completed,"2026-08-24T23:37:14Z"
+  success,"2026-08-24T23:36:40Z","GE02: sync the graph's epic/dependency relations to GitHub",pull_request,node/GE02-github-relations,2ee1806c63ed4876b35b6b08db0e7ab3b6274e49,"https://github.com/nissan/reddi-arena/actions/runs/32790111880",32790111880,tests,completed,"2026-08-24T23:36:57Z"
+  success,"2026-08-24T23:30:26Z","GE02: sync the graph's epic/dependency relations to GitHub",pull_request,node/GE02-github-relations,10bb2cca1f3b1ec79e11e39662bd41ce6ea8da59,"https://github.com/nissan/reddi-arena/actions/runs/32789645104",32789645104,tests,completed,"2026-08-24T23:30:45Z"
+  success,"2026-08-24T23:19:38Z","emit: fail closed on a recognized mode with no declared fields (revie…",push,main,7c40ef1448844b35ea2a70b34b8963efe48e5fdf,"https://github.com/nissan/reddi-arena/actions/runs/32788826647",32788826647,tests,completed,"2026-08-24T23:19:59Z"
+  success,"2026-08-24T23:19:19Z","emit: honor the declared redaction mode (audit T10)",pull_request,fix/redaction-modes,d667c29c9fb456d13435eb58386b9cb48ef7e9d7,"https://github.com/nissan/reddi-arena/actions/runs/32788802761",32788802761,tests,completed,"2026-08-24T23:19:38Z"
+  success,"2026-08-24T23:15:10Z","emit: honor the declared redaction mode (audit T10)",pull_request,fix/redaction-modes,564619b750a2d28e4971efd2442844f68a19b95c,"https://github.com/nissan/reddi-arena/actions/runs/32788492493",32788492493,tests,completed,"2026-08-24T23:15:27Z"
+$ gh-axi api /repos/nissan/reddi-arena/milestones?state=all&per_page=100 --jq ...
+[]
+$ gh-axi api /repos/nissan/reddi-arena/pulls?state=open&per_page=100 --jq ...
+[]
+$ gh-axi api /search/issues?q=repo:nissan/reddi-arena+is:issue+state:open --jq ...
+open: 35
+$ gh-axi api /search/issues?q=repo:nissan/reddi-arena+is:issue+state:closed --jq ...
+closed: 19
+$ gh-axi api /repos/nissan/reddi-arena/issues?state=open&sort=updated&direction=desc&per_page=20 --jq ...
+[20]:
+  - html_url: "https://github.com/nissan/reddi-arena/issues/92"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 92
+    state: open
+    title: "Epic E16: F3, F4  [SL-F P0]"
+    updated_at: "2026-08-24T23:27:10Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/91"
+    labels[3]: epic,graph-epic,status-struck
+    milestone: null
+    number: 91
+    state: open
+    title: "Epic E15: F1, F2  [SL-F P4]"
+    updated_at: "2026-08-24T23:27:07Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/90"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 90
+    state: open
+    title: "Epic E14: E3I, E4I  [SL-E P2]"
+    updated_at: "2026-08-24T23:27:03Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/89"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 89
+    state: open
+    title: "Epic E13: E1I, E2I  [SL-E P1]"
+    updated_at: "2026-08-24T23:26:59Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/88"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 88
+    state: open
+    title: "Epic E12: D3, D4  [SL-D P3]"
+    updated_at: "2026-08-24T23:26:57Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/87"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 87
+    state: open
+    title: "Epic E11: D1, D2  [SL-D P2]"
+    updated_at: "2026-08-24T23:26:53Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/86"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 86
+    state: open
+    title: "Epic E10: C8, C9  [SL-C P3]"
+    updated_at: "2026-08-24T23:26:43Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/85"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 85
+    state: open
+    title: "Epic E09: C5, C6, C7  [SL-C P2]"
+    updated_at: "2026-08-24T23:26:40Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/84"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 84
+    state: open
+    title: "Epic E08: C3, C4  [SL-C P2]"
+    updated_at: "2026-08-24T23:26:37Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/83"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 83
+    state: open
+    title: "Epic E07: C1, C2  [SL-C P2]"
+    updated_at: "2026-08-24T23:26:35Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/82"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 82
+    state: open
+    title: "Epic E06: B6, B7  [SL-B P1]"
+    updated_at: "2026-08-24T23:26:30Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/81"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 81
+    state: open
+    title: "Epic E05: B4, B5  [SL-B P1]"
+    updated_at: "2026-08-24T23:26:20Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/80"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 80
+    state: open
+    title: "Epic E04: B1, B2, B3  [SL-B P1]"
+    updated_at: "2026-08-24T23:26:18Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/79"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 79
+    state: open
+    title: "Epic E03: A7, A8  [SL-A P1]"
+    updated_at: "2026-08-24T23:26:14Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/78"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 78
+    state: open
+    title: "Epic E02: A4, A5, A6  [SL-A P0]"
+    updated_at: "2026-08-24T23:26:11Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/77"
+    labels[2]: epic,graph-epic
+    milestone: null
+    number: 77
+    state: open
+    title: "Epic E01: A1, A2, A3  [SL-A P0]"
+    updated_at: "2026-08-24T23:24:24Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/34"
+    labels[4]: "lane:SL-F","phase:P4","epic:E15","status:struck"
+    milestone: null
+    number: 34
+    state: open
+    title: F2 — Assemble the external tester evidence packet
+    updated_at: "2026-08-16T11:06:49Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/33"
+    labels[4]: "lane:SL-F","phase:P4","epic:E15","status:struck"
+    milestone: null
+    number: 33
+    state: open
+    title: F1 — Project eligible match results to localnet then devnet
+    updated_at: "2026-08-16T11:06:45Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/32"
+    labels[4]: "phase:P2","status:parked","lane:SL-E","epic:E14"
+    milestone: null
+    number: 32
+    state: open
+    title: "E4I — Abuse, harm and content handling for player-authored bots"
+    updated_at: "2026-08-16T11:06:39Z"
+  - html_url: "https://github.com/nissan/reddi-arena/issues/31"
+    labels[4]: "phase:P2","status:parked","lane:SL-E","epic:E14"
+    milestone: null
+    number: 31
+    state: open
+    title: E3I — Contain cross-competitor prompt injection
+    updated_at: "2026-08-16T11:06:35Z"
+
+## user packages
+$ gh-axi api /users/nissan/packages?package_type=npm&per_page=100 --jq ...
+error: Insufficient permissions for this action
+code: FORBIDDEN
+$ gh-axi api /users/nissan/packages?package_type=container&per_page=100 --jq ...
+error: Insufficient permissions for this action
+code: FORBIDDEN
+$ gh-axi api /users/nissan/packages?package_type=rubygems&per_page=100 --jq ...
+error: Insufficient permissions for this action
+code: FORBIDDEN
+$ gh-axi api /users/nissan/packages?package_type=maven&per_page=100 --jq ...
+error: Insufficient permissions for this action
+code: FORBIDDEN
+$ gh-axi api /users/nissan/packages?package_type=nuget&per_page=100 --jq ...
+error: Insufficient permissions for this action
+code: FORBIDDEN
+## upstream canonical checks
+$ gh-axi api /repos/omacom/omarchy --jq ...
+archived: false
+default_branch: quattro
+full_name: omacom/omarchy
+html_url: "https://github.com/omacom/omarchy"
+license: MIT
+private: false
+pushed_at: "2026-08-31T19:43:23Z"
+updated_at: "2026-08-31T23:09:21Z"
+visibility: public
+$ gh-axi api /repos/basecamp/omarchy --jq ...
+archived: false
+default_branch: quattro
+full_name: omacom/omarchy
+html_url: "https://github.com/omacom/omarchy"
+license: MIT
+private: false
+pushed_at: "2026-08-31T19:43:23Z"
+updated_at: "2026-08-31T23:09:21Z"
+visibility: public
+$ gh-axi api /repos/x402-foundation/x402 --jq ...
+archived: false
+default_branch: main
+full_name: x402-foundation/x402
+html_url: "https://github.com/x402-foundation/x402"
+license: Apache-2.0
+private: false
+pushed_at: "2026-08-31T18:33:11Z"
+updated_at: "2026-08-31T19:01:58Z"
+visibility: public
+$ gh-axi api /repos/coinbase/x402 --jq ...
+archived: false
+default_branch: main
+full_name: coinbase/x402
+html_url: "https://github.com/coinbase/x402"
+license: Apache-2.0
+private: false
+pushed_at: "2026-08-31T22:51:16Z"
+updated_at: "2026-08-27T21:22:29Z"
+visibility: public
+## deployment API checks
+$ gh-axi api /repos/nissan/reddi-ecosystem/deployments?per_page=20 --jq ...
+[]
+$ gh-axi api /repos/nissan/reddiagent-lab/deployments?per_page=20 --jq ...
+[]
+$ gh-axi api /repos/nissan/reddi-agent-protocol/deployments?per_page=20 --jq ...
+[20]{created_at,description,environment,id,ref,sha,statuses_url,task,updated_at,url}:
+  "2026-08-28T08:04:27Z",null,Preview – reddi-agent-protocol,6137815591,5d48debc0caa576a89c1150ffcbccf0983c96558,5d48debc0caa576a89c1150ffcbccf0983c96558,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6137815591/statuses",deploy,"2026-08-28T08:04:44Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6137815591"
+  "2026-08-27T09:57:17Z",null,Production – reddi-agent-protocol,6120491407,11311a407dcfb3f87a3793d3101b800374b45a91,11311a407dcfb3f87a3793d3101b800374b45a91,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6120491407/statuses",deploy,"2026-08-27T09:57:31Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6120491407"
+  "2026-08-26T21:20:38Z",null,Preview – reddi-agent-protocol,6112227159,49594be4a40b3d0d91a4b71a3c1246a15ccdd4cc,49594be4a40b3d0d91a4b71a3c1246a15ccdd4cc,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6112227159/statuses",deploy,"2026-08-26T21:20:58Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6112227159"
+  "2026-08-26T14:51:03Z",null,Preview – reddi-agent-protocol,6106362766,63ca04564b0293cf72f8e02b4675566ee31f20c4,63ca04564b0293cf72f8e02b4675566ee31f20c4,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6106362766/statuses",deploy,"2026-08-26T14:51:13Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6106362766"
+  "2026-08-26T14:46:33Z",null,Preview – reddi-agent-protocol,6106277529,78398e588f614d55e4ebbdb10ba27b2879ab25cd,78398e588f614d55e4ebbdb10ba27b2879ab25cd,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6106277529/statuses",deploy,"2026-08-26T14:46:58Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6106277529"
+  "2026-08-26T06:14:36Z",null,Preview – reddi-agent-protocol,6098241270,6ae4754490248062f41b66cc7fcb56d7b52058fd,6ae4754490248062f41b66cc7fcb56d7b52058fd,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6098241270/statuses",deploy,"2026-08-26T06:14:43Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6098241270"
+  "2026-08-26T06:12:41Z",null,Preview – reddi-agent-protocol,6098217597,d1ce8d3acbee18155ef973bf1c641d2219b2d148,d1ce8d3acbee18155ef973bf1c641d2219b2d148,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6098217597/statuses",deploy,"2026-08-26T06:12:48Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6098217597"
+  "2026-08-26T06:04:49Z",null,Production – reddi-agent-protocol,6098120010,68df6e4cf43d593e8bbbbd59e682d1f2d8368924,68df6e4cf43d593e8bbbbd59e682d1f2d8368924,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6098120010/statuses",deploy,"2026-08-26T06:05:08Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6098120010"
+  "2026-08-25T22:48:10Z",null,Preview – reddi-agent-protocol,6093546428,f37f35354ea9ac416f61153e328f0d41d41c94aa,f37f35354ea9ac416f61153e328f0d41d41c94aa,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6093546428/statuses",deploy,"2026-08-25T22:48:18Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6093546428"
+  "2026-08-25T22:05:27Z",null,Production – reddi-agent-protocol,6092974682,887f41bc518ea21c59ed10fa1a64b331bb9ca011,887f41bc518ea21c59ed10fa1a64b331bb9ca011,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6092974682/statuses",deploy,"2026-08-25T22:05:33Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6092974682"
+  "2026-08-25T10:17:11Z",null,Preview – reddi-agent-protocol,6081053935,2c9e4e3c4ddbc7c61a369b94808233d66876a01e,2c9e4e3c4ddbc7c61a369b94808233d66876a01e,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6081053935/statuses",deploy,"2026-08-25T10:17:19Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6081053935"
+  "2026-08-25T04:16:39Z",null,Production – reddi-agent-protocol,6076348776,3a0093118d9c7e69f30443d8a44aab9e932162de,3a0093118d9c7e69f30443d8a44aab9e932162de,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6076348776/statuses",deploy,"2026-08-25T04:16:46Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6076348776"
+  "2026-08-24T22:48:37Z",null,Preview – reddi-agent-protocol,6072893776,36d56561f148ded42ef3245a7c563a6fb74092b6,36d56561f148ded42ef3245a7c563a6fb74092b6,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6072893776/statuses",deploy,"2026-08-24T22:48:43Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6072893776"
+  "2026-08-24T22:45:54Z",null,Preview – reddi-agent-protocol,6072861378,78eb5ba9fdf1c46b90d3cb0a50d1f1f5867f31c5,78eb5ba9fdf1c46b90d3cb0a50d1f1f5867f31c5,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6072861378/statuses",deploy,"2026-08-24T22:46:07Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6072861378"
+  "2026-08-24T16:18:03Z",null,Preview – reddi-agent-protocol,6066728629,89c1e0cd4e0f425e0cc9008bfe573ac1020faba1,89c1e0cd4e0f425e0cc9008bfe573ac1020faba1,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6066728629/statuses",deploy,"2026-08-24T16:18:16Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/6066728629"
+  "2026-08-16T23:35:32Z",null,Production – reddi-agent-protocol,5936631289,ee39cdfb93181484a9055c46011fa922d5e513d5,ee39cdfb93181484a9055c46011fa922d5e513d5,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5936631289/statuses",deploy,"2026-08-16T23:35:53Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5936631289"
+  "2026-08-16T12:55:03Z",null,Preview – reddi-agent-protocol,5931169416,d97f14a4c21a383fd6ab8002cc1de79efef5ab3f,d97f14a4c21a383fd6ab8002cc1de79efef5ab3f,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5931169416/statuses",deploy,"2026-08-16T12:55:13Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5931169416"
+  "2026-08-16T10:57:01Z",null,Production – reddi-agent-protocol,5930227381,1eae15ee07cd4cca79a8ac693c1d35298ee4bce4,1eae15ee07cd4cca79a8ac693c1d35298ee4bce4,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5930227381/statuses",deploy,"2026-08-16T10:57:36Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5930227381"
+  "2026-08-16T10:53:58Z",null,Preview – reddi-agent-protocol,5930205403,e958d5045a3fdcad9c8a194152a077f67b9b7e88,e958d5045a3fdcad9c8a194152a077f67b9b7e88,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5930205403/statuses",deploy,"2026-08-16T10:54:21Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5930205403"
+  "2026-08-16T10:43:13Z",null,Production – reddi-agent-protocol,5930128261,71682b7c5b52fcba2017c7ca04c40058fe7f6225,71682b7c5b52fcba2017c7ca04c40058fe7f6225,"https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5930128261/statuses",deploy,"2026-08-16T10:43:17Z","https://api.github.com/repos/nissan/reddi-agent-protocol/deployments/5930128261"
+$ gh-axi api /repos/nissan/reddi-arena/deployments?per_page=20 --jq ...
+[]
+## latest deployment status checks
+$ gh-axi api /repos/nissan/reddi-agent-protocol/deployments/6120491407/statuses --jq ...
+[2]{created_at,description,environment,environment_url,html_url,id,log_url,state,updated_at}:
+  "2026-08-27T09:57:31Z",Deployment has completed,Production – reddi-agent-protocol,"https://reddi-agent-protocol-8fe9x7s0r.vercel.app",null,17402563040,"https://reddi-agent-protocol-8fe9x7s0r.vercel.app",success,"2026-08-27T09:57:31Z"
+  "2026-08-27T09:57:19Z",Deployment has completed,Production – reddi-agent-protocol,"https://reddi-agent-protocol-ngbde1oyp-redditech-9397fd33.vercel.app",null,17402556198,"https://reddi-agent-protocol-ngbde1oyp-redditech-9397fd33.vercel.app",success,"2026-08-27T09:57:19Z"
+$ gh-axi api /repos/nissan/reddi-agent-protocol/deployments/6137815591/statuses --jq ...
+[2]{created_at,description,environment,environment_url,html_url,id,log_url,state,updated_at}:
+  "2026-08-28T08:04:44Z",Deployment has completed,Preview – reddi-agent-protocol,"https://reddi-agent-protocol-jmba25u19.vercel.app",null,17450836189,"https://reddi-agent-protocol-jmba25u19.vercel.app",success,"2026-08-28T08:04:44Z"
+  "2026-08-28T08:04:29Z",Deployment has completed,Preview – reddi-agent-protocol,"https://reddi-agent-protocol-qv32ha002-redditech-9397fd33.vercel.app",null,17450827982,"https://reddi-agent-protocol-qv32ha002-redditech-9397fd33.vercel.app",success,"2026-08-28T08:04:29Z"
+## RAP package-publication guard recent runs
+$ gh-axi api /repos/nissan/reddi-agent-protocol/actions/workflows/307158161/runs?per_page=10 --jq ...
+total_count: 21
+workflow_runs[10]{conclusion,created_at,display_title,event,head_branch,head_sha,html_url,id,name,status,updated_at}:
+  success,"2026-07-16T14:22:51Z","feat(diagnostics): source-aware ranking explainability + supervisor diagnostics read model (#344)",pull_request,feat/344-ranking-explainability,6393c3e561357c5a1cc9cc02bc3fe8ba98f7cc1b,"https://github.com/nissan/reddi-agent-protocol/actions/runs/29506320904",29506320904,RAP Package Publication Guard,completed,"2026-07-16T14:24:11Z"
+  success,"2026-07-16T13:35:12Z","feat(reputation): attestation/reputation bridge for Quasar and off-chain listings (#394)",pull_request,feat/394-attestation-reputation-bridge,339e5675cd0feb3eed056d4b45f612987f23efde,"https://github.com/nissan/reddi-agent-protocol/actions/runs/29502820329",29502820329,RAP Package Publication Guard,completed,"2026-07-16T13:36:45Z"
+  success,"2026-07-06T14:13:41Z","feat(quasar): reputation instruction intent fixture gate (#443)",pull_request,feat/443-quasar-reputation-intent-gate,2144a2bc90a5d48b0b920cfa58d45c390606aeff,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28798077939",28798077939,RAP Package Publication Guard,completed,"2026-07-06T14:15:01Z"
+  success,"2026-07-06T13:58:15Z","feat(paid-workflow): evidence pack + copy-boundary regression gate (#501)",pull_request,feat/501-copy-boundary-gate,1c17b47ff17e0324dfc1f595a3e0a4c540f7b44e,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28797053513",28797053513,RAP Package Publication Guard,completed,"2026-07-06T13:59:25Z"
+  success,"2026-07-06T13:10:55Z","feat(agent-protocol): repo explorer evidence manifest for static fixture ingestion (#470)",pull_request,feat/470-repo-explorer-evidence-manifest,ecfe2423682516b7213bbb3bf864c5cc0ae88d92,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28793995354",28793995354,RAP Package Publication Guard,completed,"2026-07-06T13:11:27Z"
+  success,"2026-07-06T11:05:59Z","feat(release): per-package LICENSE files + v0.1.0 release notes (#449 §5 follow-ups)",pull_request,feat/449-license-release-notes,1bf932dae49a6ca0f89ca5ddd78d113902d0e995,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28787012622",28787012622,RAP Package Publication Guard,completed,"2026-07-06T11:06:31Z"
+  success,"2026-07-06T10:03:17Z","feat(conformance): public v0.1 quickstart + consolidated conformance suite (#353)",pull_request,feat/353-public-quickstart-conformance,2ad72080058f0c0b8e4f8cf7b8de78812b195075,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28783631044",28783631044,RAP Package Publication Guard,completed,"2026-07-06T10:03:50Z"
+  success,"2026-07-06T09:04:06Z","feat(conformance): source/trust conformance matrix for auth.md and ARD metadata (#450)",pull_request,feat/450-source-trust-conformance-matrix,612f062f1250509a5a00f3f877335eda852a5041,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28780216722",28780216722,RAP Package Publication Guard,completed,"2026-07-06T09:04:37Z"
+  success,"2026-07-06T08:05:41Z","feat(release): RAP v0.1 release checklist + package artifact guard (#449)",pull_request,feat/449-v01-release-checklist,4cc0a24b4a54cf4ec4ee3c99683a0ef66f417765,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28777034225",28777034225,RAP Package Publication Guard,completed,"2026-07-06T08:06:07Z"
+  success,"2026-07-06T06:11:50Z","feat(ap2): harden AP2 mandate ingestion adapter + policy-gate/receipt binding (#563)",pull_request,feat/563-ap2-ingestion-hardening,b444f2253bec1680ac4fd5c2ce60991995876f30,"https://github.com/nissan/reddi-agent-protocol/actions/runs/28771609480",28771609480,RAP Package Publication Guard,completed,"2026-07-06T06:12:21Z"
