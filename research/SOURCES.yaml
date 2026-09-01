@@ -12,6 +12,7 @@ policy:
     - Product posts are implementation reports, not independent scientific validation.
     - Every adopted pattern requires a Reddi issue, experiment, ADR, or evaluated prompt change.
     - The 2026-08-31 market/technical refresh updates sequencing only through Solana/AUDD-first graph and roadmap changes; external standards remain comparison inputs until accepted implementation evidence exists.
+    - Every source location is an exact https deep link, except that a source with no publicly resolvable URL is registered as `repo:<path>` pointing at an in-repository evidence record that carries its provenance, access date, digest, and cited excerpts, so a fresh clone can still check it.
 
 sources:
   - id: reddi-market-technical-refresh-2026-08-31

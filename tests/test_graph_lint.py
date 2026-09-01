@@ -126,14 +126,15 @@ class GraphLintTests(unittest.TestCase):
     def test_any_comparison_fixture_must_follow_the_acceptance_pack(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
-        nodes["ECO-070"] = {
-            "id": "ECO-070",
+        self.assertNotIn("ECO-999", nodes)
+        nodes["ECO-999"] = {
+            "id": "ECO-999",
             "railRole": "comparison-fixture",
             "comparisonStandards": ["mpp"],
             "dependsOn": ["ECO-041"],
         }
         errors = lint_obligation_sequence(nodes)
-        self.assertIn("ECO-070: missing required dependency ECO-047", errors)
+        self.assertIn("ECO-999: missing required dependency ECO-047", errors)
 
     def test_first_rail_profile_requires_the_first_implementation_role(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
