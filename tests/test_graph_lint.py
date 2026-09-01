@@ -44,6 +44,16 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertTrue(any("evidenceProduced must be a list" in error for error in errors))
 
+    def test_projected_list_field_with_non_string_element_is_rejected(self):
+        for field in ("acceptance", "subtasks", "evidenceExpected"):
+            with self.subTest(field=field):
+                graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+                graph["nodes"][0][field] = graph["nodes"][0][field] + [42]
+                errors = self._lint_with_graph(graph)
+                self.assertTrue(
+                    any(f"{field} must contain only strings" in error for error in errors)
+                )
+
     def _lint_with_graph(self, graph):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
