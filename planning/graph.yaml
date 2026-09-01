@@ -1,6 +1,11 @@
 schemaVersion: 1
 programme: Reddi Ecosystem
 asOf: 2026-08-26
+lastAmendedAt: 2026-09-01
+dateSemantics:
+  asOf: date of the last full sweep across every node.
+  lastAmendedAt: date of the most recent amendment to individual nodes; nodes amended
+    after asOf carry their own inline evidence dates.
 canonicalRule: This file owns cross-repository dependencies; component repositories own their implementation.
 dependencyEdgeTypes:
   dependsOn: completion prerequisite between graph nodes
