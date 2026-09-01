@@ -274,7 +274,8 @@ sources:
     published: unknown
     url: https://github.com/omacom/omarchy/blob/quattro/manual/32-shell-plugins.md
     previousUrl: https://github.com/basecamp/omarchy/blob/quattro/manual/32-shell-plugins.md
-    relevance: Defines the plugin surface and constrains the cockpit to thin, non-privileged QML integration; previous Basecamp path retained as redirect/history context.
+    urlVerification: inferred-from-repository-redirect
+    relevance: Defines the plugin surface and constrains the cockpit to thin, non-privileged QML integration; previous Basecamp path retained as redirect/history context. Only the repository-level redirect and the `quattro` default branch were checked on 2026-08-31; the `manual/32-shell-plugins.md` path segment was rewritten by inference from that redirect and was not independently fetched, and the plugin-surface content claim is carried forward from the earlier Basecamp reference rather than re-verified.
 
   - id: nostr-nips
     publisher: Nostr community
