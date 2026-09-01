@@ -1,5 +1,10 @@
 schemaVersion: 1
 curatedAt: 2026-08-26
+lastAmendedAt: 2026-09-01
+dateSemantics:
+  curatedAt: date of the last full sweep across every source entry.
+  lastAmendedAt: date of the most recent amendment to individual entries; entries re-verified
+    after curatedAt carry their own inline check date in `relevance`.
 policy:
   primarySourcesPreferred: true
   notes:
