@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -109,7 +110,7 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
         "reconcile",
         "redact",
     ):
-        if method not in adapter_text:
+        if not re.search(rf"\b{re.escape(method)}\b", adapter_text):
             errors.append(f"ECO-041: adapter contract must cover {method}")
 
     first_text = text_for(nodes["ECO-042"], ("title", "outcome", "acceptance"))
