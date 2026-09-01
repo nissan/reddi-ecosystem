@@ -78,30 +78,26 @@ class GraphLintTests(unittest.TestCase):
     def test_payment_adapter_contract_methods_are_required(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
-        nodes["ECO-041"]["acceptance"] = [
-            item.replace("refund_or_reverse", "remedy")
-            for item in nodes["ECO-041"]["acceptance"]
-        ]
-        nodes["ECO-041"]["outcome"] = nodes["ECO-041"]["outcome"].replace(
-            "refund/reverse", "remedy"
-        )
+        nodes["ECO-041"]["adapterMethods"].remove("refund_or_reverse")
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-041: adapter contract must cover refund_or_reverse", errors)
 
-    def test_adapter_contract_method_is_not_satisfied_by_a_longer_word(self):
+    def test_adapter_contract_method_is_not_inferred_from_prose(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
         nodes["ECO-041"]["acceptance"] = [
-            item.replace("redact", "remove") for item in nodes["ECO-041"]["acceptance"]
+            "Contract excludes redact; redact is unsupported."
         ]
-        nodes["ECO-041"]["outcome"] = nodes["ECO-041"]["outcome"].replace(
-            "redact", "remove"
-        )
-        self.assertTrue(
-            any("redaction" in subtask for subtask in nodes["ECO-041"]["subtasks"])
-        )
+        nodes["ECO-041"]["adapterMethods"].remove("redact")
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-041: adapter contract must cover redact", errors)
+
+    def test_invalid_dependency_shape_returns_diagnostics(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-042"]["dependsOn"] = None
+        errors = self._lint_with_graph(graph)
+        self.assertIn("ECO-042: dependsOn must be a list", errors)
 
     def test_first_implementation_role_must_stay_on_eco042(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))

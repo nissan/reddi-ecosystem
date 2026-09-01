@@ -72,6 +72,9 @@ def node_markdown(node: dict[str, Any], epics: dict[str, dict[str, Any]]) -> str
     if node.get("comparisonStandards"):
         joined = ", ".join(f"`{item}`" for item in node["comparisonStandards"])
         lines.append(f"- Comparison standards: {joined}")
+    if node.get("adapterMethods"):
+        joined = ", ".join(f"`{item}`" for item in node["adapterMethods"])
+        lines.append(f"- Adapter methods: {joined}")
     if external:
         lines.append(f"- Existing canonical issue: {external}")
     lines += [
