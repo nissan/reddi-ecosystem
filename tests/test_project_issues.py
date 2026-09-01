@@ -14,6 +14,18 @@ class IssueProjectionTests(unittest.TestCase):
             bullets("evidence/github/ECO-001-2026-08-31.md")
 
     def test_node_markdown_rejects_scalar_depends_on(self):
+        node = self._node(dependsOn="ECO-000")
+        with self.assertRaises(TypeError):
+            node_markdown(node, self._epics())
+
+    def test_node_markdown_rejects_falsy_malformed_evidence_produced(self):
+        for value in ("", {}, 0):
+            with self.subTest(value=value):
+                node = self._node(evidenceProduced=value)
+                with self.assertRaises(TypeError):
+                    node_markdown(node, self._epics())
+
+    def _node(self, **overrides):
         node = {
             "id": "ECO-999",
             "title": "Example",
@@ -24,16 +36,18 @@ class IssueProjectionTests(unittest.TestCase):
             "status": "ready",
             "priority": "P1",
             "ownerRole": "agent",
-            "dependsOn": "ECO-000",
+            "dependsOn": [],
             "outcome": "Example outcome.",
             "subtasks": ["do the thing"],
             "acceptance": ["thing is done"],
             "evidenceExpected": ["a command transcript"],
             "humanGates": [],
         }
-        epics = {"EPIC-1": {"title": "Example epic"}}
-        with self.assertRaises(TypeError):
-            node_markdown(node, epics)
+        node.update(overrides)
+        return node
+
+    def _epics(self):
+        return {"EPIC-1": {"title": "Example epic"}}
 
     def test_generation_is_deterministic(self):
         with tempfile.TemporaryDirectory() as directory:

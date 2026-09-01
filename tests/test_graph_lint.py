@@ -38,11 +38,23 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertTrue(any("acceptance must contain" in error for error in errors))
 
-    def test_evidence_produced_scalar_is_rejected(self):
+    def test_evidence_produced_malformed_values_are_rejected(self):
+        for value in ("", {}, 0):
+            with self.subTest(value=value):
+                graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+                graph["nodes"][0]["evidenceProduced"] = value
+                errors = self._lint_with_graph(graph)
+                self.assertTrue(
+                    any("evidenceProduced must be a list" in error for error in errors)
+                )
+
+    def test_evidence_produced_non_string_elements_are_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
-        graph["nodes"][0]["evidenceProduced"] = "evidence/github/ECO-001-2026-08-31.md"
+        graph["nodes"][0]["evidenceProduced"] = ["valid", 42]
         errors = self._lint_with_graph(graph)
-        self.assertTrue(any("evidenceProduced must be a list" in error for error in errors))
+        self.assertTrue(
+            any("evidenceProduced must contain only strings" in error for error in errors)
+        )
 
     def test_projected_list_field_with_non_string_element_is_rejected(self):
         for field in ("acceptance", "subtasks", "evidenceExpected"):
