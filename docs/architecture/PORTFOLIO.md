@@ -24,7 +24,7 @@ Rails and operations
   Solana/AUDD first | x402/MPP/AP2 fixtures | other chains/assets | Stripe/fiat | local | self-hosted | Lighthouse
 ```
 
-The first concrete payment implementation and acceptance-evidence path uses Solana rails with AUDD payments because it is tied to the current Solana Superteam Australia and AUDD obligations. x402, MPP, AP2, Buzz, Nostr, and Omarchy Quattro remain projection, comparison, or later-adapter surfaces. None of those products may become a required semantic primitive in ADL or RAP.
+The first concrete payment implementation and acceptance-evidence path uses Solana rails with AUDD payments because it is tied to the current Solana Superteam Australia and AUDD obligations. x402, MPP, AP2, Buzz, Nostr, and Omarchy Quattro remain projection, comparison, or later-adapter surfaces. Being first buys Solana and AUDD no exemption: none of these products, Solana and AUDD included, may become a required semantic primitive in ADL or RAP.
 
 ## Canonical ownership
 

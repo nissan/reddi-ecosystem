@@ -38,7 +38,7 @@ Known starting points on 2026-08-26, amended by the ECO-001 public GitHub snapsh
 
 1. ADL remains the canonical portable definition; Buzz personas and machine packages are projections.
 2. RAP observes and coordinates economic state; payment rails settle value.
-3. Solana rails with AUDD payments are the first concrete payment implementation and acceptance-evidence path because they carry the current Superteam Australia and AUDD obligations.
+3. Solana rails with AUDD payments are the first concrete payment implementation and acceptance-evidence path because they carry the current Superteam Australia and AUDD obligations; being first makes them initial adapters, not permanent protocol assumptions.
 4. x402, MPP, AP2, Stripe, and future chains, tokens, stablecoins, or conventional rails use the same adapter contracts as comparison fixtures and later adapters, not permanent protocol assumptions.
 5. A Nostr event is a signed command or observation, not proof that money moved.
 6. Quattro plugins never hold wallet keys and never become the privileged runtime.

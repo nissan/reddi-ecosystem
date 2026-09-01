@@ -1,7 +1,7 @@
 schemaVersion: 1
 auditAsOf: 2026-08-26
 lastAmendedAt: 2026-09-01
-ledgerRevisedAt: 2026-08-31
+ledgerRevisedAt: 2026-09-01
 dateSemantics:
   auditAsOf: date of the last full audit sweep across every commitment.
   lastAmendedAt: date of the most recent amendment to individual commitments; evidence
@@ -175,8 +175,9 @@ commitments:
       - RAP issues 620-622 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issue 615 as open at 2026-08-31; issues 620-622 fall
         outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
-    gaps: [bounded authority, Solana/AUDD quote-authorize-submit-observe-settle-refund-or-reverse-reconcile-redact evidence, AUDD x402 proof as recorded in the governing text, approved end-to-end evidence package, re-read of issue 616 to confirm or retire the x402 proof obligation]
-    acceptanceArtifacts: [RAP issue/PR links, issue 616 governing-text re-read record, Solana/AUDD fixture-devnet evidence, receipt and reconciliation export, refund-or-reversal evidence where applicable, x402 proof or a recorded grantor retirement of that obligation, redaction review, acceptance authority decision]
+      - Issue 616 governing text re-read at 2026-09-01: the x402 challenge/response obligation stands, and the evidence package must include transaction signature(s), non-secret wallet authority metadata, x402 challenge/response transcript, Langfuse trace refs, and an operator runbook, with mock/devnet/controlled-live/mainnet state distinguished.
+    gaps: [bounded authority, Solana/AUDD quote-authorize-submit-observe-settle-refund-or-reverse-reconcile-redact evidence, AUDD x402 proof as recorded in the governing text, approved end-to-end evidence package, Langfuse audit trail and trace refs, transaction signatures and non-secret wallet authority metadata, operator runbook]
+    acceptanceArtifacts: [RAP issue/PR links, issue 616 governing-text re-read record, Solana/AUDD fixture-devnet evidence, transaction signature(s), non-secret wallet authority metadata, x402 challenge/response transcript, Langfuse trace refs and audit trail, operator runbook, mock/devnet/controlled-live/mainnet state declaration, receipt and reconciliation export, refund-or-reversal evidence where applicable, redaction review, acceptance authority decision]
     humanGate: live-payment-if-required
     ownerRole: RAP payments lead
 
@@ -189,8 +190,9 @@ commitments:
       - RAP issues 623-625 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615 and 625 as open at 2026-08-31; issues 623-624
         fall outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
-    gaps: [eligible 10000 AUDD volume, 50 completed cycles, live settlement/release/refund evidence, operator approval for any real spend or mainnet activity]
-    acceptanceArtifacts: [eligible-activity definition, primary rail records, receipt/reconciliation export, refund-or-reversal evidence where applicable, exclusion log for synthetic or owned demo activity]
+      - Issue 617 governing text re-read at 2026-09-01: volume counts only through x402 integration, and the evidence pack must prove volume, cycle count, settlement, escrow release, and refund behavior without exposing secrets or private user data.
+    gaps: [eligible 10000 AUDD volume verified through x402 integration, 50 completed autonomous payment cycles, live settlement/escrow-release/refund evidence, application-event to on-chain settlement reconciliation, operator approval for any real spend or mainnet activity]
+    acceptanceArtifacts: [eligible-activity definition, primary rail records, volume verifier reconciliation of application events to on-chain AUDD settlement records, completed-cycle count evidence, settlement and escrow-release evidence, receipt/reconciliation export, refund-or-reversal evidence where applicable, exclusion log for synthetic or owned demo activity]
     humanGate: live-payment-and-grant-eligibility
     ownerRole: RAP payments lead
 
@@ -202,8 +204,9 @@ commitments:
     evidence:
       - RAP issues 626-628 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615, 626, 627, and 628 as open at 2026-08-31.
-    gaps: [250 eligible users, participation linkage, dashboard and evidence export, consent/privacy basis and exclusion of synthetic users]
-    acceptanceArtifacts: [eligible-user definition, privacy-safe participation evidence, dashboard export, redaction review, acceptance authority decision]
+      - Issue 618 governing text re-read at 2026-09-01: activation metrics must be deduplicated, auditable, privacy-aware, and dashboard-visible, with a data export sufficient for a milestone report.
+    gaps: [250 eligible users, identity-safe deduplication, participation linkage to payment/workflow events, dashboard and milestone-report export, consent/privacy basis and exclusion of synthetic users]
+    acceptanceArtifacts: [eligible-user definition, identity-safe deduplication record, privacy-safe participation evidence linking activation to payment/workflow events, dashboard export, milestone-report data export, redaction review, acceptance authority decision]
     humanGate: privacy-and-publication
     ownerRole: product analytics lead
 
@@ -215,7 +218,8 @@ commitments:
     evidence:
       - RAP issues 629-630 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615, 629, and 630 as open at 2026-08-31.
-    gaps: [activation-pool controls, workshop mode, approved non-coding activation plan, Superteam Australia communication and funding approvals]
-    acceptanceArtifacts: [activation controls, workshop/evidence plan, approved communication record, funding/spend approval if used]
+      - Issue 619 governing text re-read at 2026-09-01: activation-pool mechanics need explicit caps, allocation records, user/workflow linkage, refund/expiry behavior, and non-secret audit logs, and non-coding outreach stays outside the GitHub scope.
+    gaps: [activation-pool caps and allocation records, refund/expiry behavior, non-secret audit logs, workshop/demo-safe mode without uncontrolled spend or key exposure, approved non-coding activation plan, Superteam Australia communication and funding approvals]
+    acceptanceArtifacts: [activation-pool caps and allocation records, user/workflow linkage, refund/expiry behavior evidence, non-secret audit logs, workshop/evidence plan, exported activation metrics for event and case-study reporting, approved communication record, funding/spend approval if used]
     humanGate: funding-outreach-and-event-approval
     ownerRole: programme lead

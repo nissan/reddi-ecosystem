@@ -266,8 +266,20 @@ def lint(root: Path = ROOT) -> list[str]:
         if rail_profile is not None and rail_profile not in rail_profiles:
             errors.append(f"{node_id}: unknown railProfile {rail_profile}")
         standards = node.get("comparisonStandards")
-        if standards is not None and (not isinstance(standards, list) or not standards):
-            errors.append(f"{node_id}: comparisonStandards must be a non-empty list")
+        if standards is not None:
+            if not isinstance(standards, list) or not standards:
+                errors.append(f"{node_id}: comparisonStandards must be a non-empty list")
+            else:
+                for standard in standards:
+                    if standard not in rail_profiles:
+                        errors.append(
+                            f"{node_id}: unknown comparisonStandards entry {standard}"
+                        )
+                    elif standard == REQUIRED_FIRST_RAIL_PROFILE:
+                        errors.append(
+                            f"{node_id}: {REQUIRED_FIRST_RAIL_PROFILE} is the first "
+                            "implementation profile, not a comparison standard"
+                        )
         external = node.get("externalIssue")
         if external and not str(external).startswith("https://github.com/"):
             errors.append(f"{node_id}: externalIssue must be an https GitHub URL")
