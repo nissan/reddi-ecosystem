@@ -29,6 +29,11 @@ GitHub execution projections. Newest entries appear first.
   source repository for new roadmap references while preserving `coinbase/x402` as an
   active development fork/provenance reference. No separate transfer/succession
   announcement was captured.
+- Footprint divergence: the increment also adds a `Maintaining this file` section to
+  `AGENTS.md` and a two-line `CLAUDE.md` that imports it, so Claude-family sessions read the
+  same operating contract as every other agent instead of an unmaintained second copy. This is
+  outside the ECO-001 evidence footprint declared above and is recorded here as an accepted
+  divergence; it changes agent instructions only and no graph, evidence, or grant semantics.
 - No GitHub issues, milestones, labels, releases, packages, deployments, live payments,
   mainnet actions, or other remote state were created or modified for this increment.
 

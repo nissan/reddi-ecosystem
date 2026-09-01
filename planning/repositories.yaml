@@ -16,8 +16,8 @@ repositories:
       - RAP implementation code
       - Arena rules or implementation
     observedEvidence:
-      - url: https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md
-        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections.
+      - path: evidence/github/ECO-001-2026-08-31.md
+        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections. In-repository artifact; it has no published URL until the ECO-001 branch is merged.
         checkedAt: 2026-09-01
 
   - id: adl-lab
@@ -30,8 +30,8 @@ repositories:
       - companion agent portability specifications
       - provider and framework compatibility reports
     observedEvidence:
-      - url: https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md
-        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections.
+      - path: evidence/github/ECO-001-2026-08-31.md
+        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections. In-repository artifact; it has no published URL until the ECO-001 branch is merged.
         checkedAt: 2026-09-01
       - url: https://github.com/nissan/reddiagent-lab/blob/main/README.md
         observation: ADL v0.2 is canonical; code Apache-2.0 and specifications/docs CC BY 4.0
@@ -50,8 +50,8 @@ repositories:
       - Solana and Quasar proof implementation
       - public packages, conformance, and hosted-service interfaces
     observedEvidence:
-      - url: https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md
-        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections.
+      - path: evidence/github/ECO-001-2026-08-31.md
+        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections. In-repository artifact; it has no published URL until the ECO-001 branch is merged.
         checkedAt: 2026-09-01
       - url: https://github.com/nissan/reddi-agent-protocol/blob/main/config/quasar/deployments.json
         observation: four active Quasar devnet program IDs and a legacy Anchor reference are recorded
@@ -70,8 +70,8 @@ repositories:
       - ADL implementation pressure and findings
       - game and judge UX
     observedEvidence:
-      - url: https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md
-        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections.
+      - path: evidence/github/ECO-001-2026-08-31.md
+        observation: ECO-001 captured public GitHub state for default branch, release/tag, CI, branch protection, milestone, PR, issue, deployment, package-evidence gaps, and 2026-09-01 package/release/upstream corrections. In-repository artifact; it has no published URL until the ECO-001 branch is merged.
         checkedAt: 2026-09-01
       - url: https://github.com/nissan/reddi-arena/pull/38
         observation: graph engineering introduced a 42-node graph and lint gate

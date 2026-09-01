@@ -134,6 +134,8 @@ def lint(root: Path = ROOT) -> list[str]:
             value = node.get(list_field)
             if not isinstance(value, list) or len(value) < minimum:
                 errors.append(f"{node_id}: {list_field} must contain at least {minimum} items")
+            elif any(not isinstance(item, str) for item in value):
+                errors.append(f"{node_id}: {list_field} must contain only strings")
         for optional_list_field in ("evidenceProduced",):
             if optional_list_field in node:
                 value = node.get(optional_list_field)
