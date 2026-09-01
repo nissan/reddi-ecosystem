@@ -83,6 +83,7 @@ def require_dependency(
 
 
 REQUIRED_COMPARISON_STANDARDS = ("mpp", "ap2", "x402")
+REQUIRED_FIRST_RAIL_PROFILE = "solana-audd"
 
 
 def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
@@ -133,6 +134,12 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
             "exactly one node may declare railRole first-implementation, found "
             + (", ".join(declared_first) or "none")
         )
+    for node_id in declared_first:
+        if nodes[node_id].get("railProfile") != REQUIRED_FIRST_RAIL_PROFILE:
+            errors.append(
+                f"{node_id}: first-implementation railProfile must be "
+                f"{REQUIRED_FIRST_RAIL_PROFILE}"
+            )
     standards = nodes["ECO-043"].get("comparisonStandards")
     if not isinstance(standards, list):
         errors.append("ECO-043: comparisonStandards must be a list")
@@ -162,6 +169,7 @@ def lint(root: Path = ROOT) -> list[str]:
     priorities = set(graph.get("priorityVocabulary", []))
     human_gates = set(graph.get("humanGates", []))
     rail_roles = set(graph.get("railRoleVocabulary", []))
+    rail_profiles = set(graph.get("railProfileVocabulary", []))
     epics_list = graph.get("epics", [])
     nodes_list = graph.get("nodes", [])
 
@@ -254,6 +262,9 @@ def lint(root: Path = ROOT) -> list[str]:
         rail_role = node.get("railRole")
         if rail_role is not None and rail_role not in rail_roles:
             errors.append(f"{node_id}: unknown railRole {rail_role}")
+        rail_profile = node.get("railProfile")
+        if rail_profile is not None and rail_profile not in rail_profiles:
+            errors.append(f"{node_id}: unknown railProfile {rail_profile}")
         standards = node.get("comparisonStandards")
         if standards is not None and (not isinstance(standards, list) or not standards):
             errors.append(f"{node_id}: comparisonStandards must be a non-empty list")

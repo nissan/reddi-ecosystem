@@ -2,6 +2,7 @@ schemaVersion: 1
 programme: Reddi Ecosystem
 asOf: 2026-08-26
 lastAmendedAt: 2026-09-01
+sequencingRevisedAt: 2026-08-31
 dateSemantics:
   asOf: date of the last full sweep across every node.
   lastAmendedAt: date of the most recent amendment to individual nodes; nodes amended
@@ -14,6 +15,7 @@ dependencyEdgeTypes:
 statusVocabulary: [ready, in-progress, blocked, planned, done, superseded]
 priorityVocabulary: [P0, P1, P2, P3]
 railRoleVocabulary: [rail-neutral-core, first-implementation, comparison-fixture]
+railProfileVocabulary: [solana-audd, mpp, ap2, x402, stripe-style, second-chain, deterministic-fake]
 humanGates:
   - repo-creation
   - external-publication
@@ -682,6 +684,7 @@ nodes:
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/621
     ownerRole: Solana payments lead
     railRole: first-implementation
+    railProfile: solana-audd
     outcome: The first concrete payment implementation runs on Solana rails with AUDD payments and passes the portable adapter and receipt suite without privileged core semantics.
     acceptance:
       - Solana/AUDD quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior passes in fixture/devnet mode with canonical AUDD identifiers, network, payee, authority, environment, and fee policy.

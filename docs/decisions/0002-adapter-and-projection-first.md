@@ -2,6 +2,7 @@
 
 - Status: accepted direction; contracts remain M2 work
 - Date: 2026-08-26
+- Amended: 2026-08-31
 - Decision owner: programme steward
 - Review: M2 convergence gate
 
@@ -19,3 +20,6 @@ Nostr events are signed intent/observation, not payment truth. x402 is a payment
 
 The obligation-first proof takes longer than hard-coding a cross-standard demo, but it creates acceptance evidence for the actual Solana/AUDD commitments while preserving executable evidence of portability. Adapter capability negotiation, normalized receipts, identity binding, and projection diff/conformance are critical-path work rather than later cleanup.
 
+## Amendment log
+
+- 2026-08-31: the Decision previously required the initial stack to pass the same public contracts as a materially different payment fixture concurrently. It now requires the Solana/AUDD implementation to pass adapter, receipt, and Arena evidence contracts first, with the materially different fixture following that obligation evidence. The Context and Consequences sections were restated to match; no other ADR is superseded.
