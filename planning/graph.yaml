@@ -780,7 +780,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-004, ECO-041, ECO-042, ECO-045]
+    dependsOn: [ECO-004, ECO-005, ECO-041, ECO-042, ECO-045]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/615
     ownerRole: AUDD delivery lead
     outcome: Existing RAP AUDD release nodes are implemented on the Solana/AUDD-first path and audited without duplicating, inflating, or bypassing their eligibility gates.
@@ -789,12 +789,13 @@ nodes:
       - Eligible M1/M2/M3/activation evidence is evaluated separately from implementation completion and approved by the acceptance authority before grant claims or communication.
       - No synthetic activity, owned demo traffic, unsupported mainnet claim, or unapproved live payment is counted as Superteam Australia or AUDD acceptance evidence.
       - Standards evidence that ECO-004 confirmed a governing text still requires, such as the AUDD-2026-M1 x402 proof, is produced here as no-spend fixture/devnet evidence or cited as retired by the ECO-005 disposition, so no AUDD obligation reaches ECO-047 without an owner.
+      - Each release gate's evidence package contains every artifact its governing issue names in the commitments ledger acceptanceArtifacts row, including observability and audit-trail references, transaction signatures, non-secret authority metadata, and operator runbooks, or records each missing artifact as a gap with a named owner.
     subtasks:
       - Reconcile each existing issue with new adapter/event/receipt contracts, RAP readiness findings, and commitment-led evidence rows.
       - Deliver or cite the retirement of any obligation-required standards evidence confirmed by ECO-004 and ECO-005 before the acceptance binder is packaged.
       - Execute safe fixture/devnet work, receipt/reconciliation exports, redaction checks, and independent audits first.
       - Request explicit approval for any live evidence run, participant activity, funding, signing, custody, deployment, publication, or report.
-    evidenceExpected: [linked RAP PRs/issues, audit packs, receipt and reconciliation exports, grant acceptance records]
+    evidenceExpected: [linked RAP PRs/issues, audit packs, receipt and reconciliation exports, observability and audit-trail references, operator runbooks, grant acceptance records]
     humanGates: [live-payment, mainnet, signing-or-custody, privacy-publication, legal-or-grantor-communication, paid-service-or-spend, production-release, external-publication]
 
   - id: ECO-047
