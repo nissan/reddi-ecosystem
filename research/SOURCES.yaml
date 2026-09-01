@@ -334,6 +334,34 @@ sources:
     url: https://github.com/modelcontextprotocol/modelcontextprotocol/tree/main/docs/specification/2026-07-28
     relevance: MCP server discovery, stateless protocol, and tool/task changes inform ADL projections and no-spend comparison fixtures.
 
+  - id: acp
+    publisher: Agentic Commerce Protocol (OpenAI and Stripe)
+    kind: specification-repository
+    published: unknown
+    url: https://github.com/agentic-commerce-protocol/agentic-commerce-protocol
+    relevance: Beta Apache-2.0 buyer/agent/business purchase protocol named by ECO-041 as a comparison fixture, not a first Reddi implementation path.
+
+  - id: ucp
+    publisher: Universal Commerce Protocol
+    kind: specification-repository
+    published: unknown
+    url: https://github.com/Universal-Commerce-Protocol/ucp
+    relevance: Checkout, identity-linking, order, and payment-token-exchange semantics named by ECO-041 as a comparison fixture alongside ACP.
+
+  - id: w3c-vc-data-model-2
+    publisher: W3C
+    kind: specification
+    published: 2025-05-15
+    url: https://www.w3.org/TR/vc-data-model-2.0/
+    relevance: W3C Recommendation underpinning the ECO-045 selective-disclosure comparison; verifiable-credential semantics stay a comparison, not required RAP receipt core.
+
+  - id: sd-jwt-vc
+    publisher: IETF OAuth Working Group
+    kind: internet-draft
+    published: 2025-07-07
+    url: https://www.ietf.org/archive/id/draft-ietf-oauth-sd-jwt-vc-10.html
+    relevance: Selective-disclosure JWT credential draft that ECO-045 maps against redaction classes; draft status means it cannot be cited as a settled standard.
+
   - id: rap-mainnet-readiness-646
     publisher: Redditech / nissan
     kind: upstream-pull-request

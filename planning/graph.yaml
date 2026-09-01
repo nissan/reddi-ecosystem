@@ -714,7 +714,7 @@ nodes:
       - Implement adapter and shared contract tests with deterministic fake or sandbox inputs only.
       - Record core changes forced by the comparison, repeat the Solana/AUDD suite, and re-stamp or reopen the ECO-047 binder when contract or receipt semantics change.
     evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR, repeated Solana/AUDD suite, ECO-047 binder re-stamp or reopen record]
-    humanGates: [live-payment, paid-service-or-spend, external-publication]
+    humanGates: [legal-or-grantor-communication, privacy-publication, live-payment, paid-service-or-spend, external-publication]
 
   - id: ECO-044
     epic: E04
