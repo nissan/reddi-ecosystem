@@ -197,8 +197,10 @@ nodes:
     acceptance:
       - "docs/grants/commitments.yaml is complete against recovered governing sources."
       - RAP issues 615-630 are linked to, not duplicated, and their release evidence is evaluated separately.
+      - Each AUDD release obligation, including the AUDD-2026-M1 x402 proof, is confirmed or recorded as retired against its governing issue text rather than against programme sequencing preference.
     subtasks:
       - Run the grant-auditor prompt per commitment.
+      - Re-read the AUDD issue 615-619 governing text and record each obligation's current standing as evidence.
       - Record contradictions, eligibility questions, and missing external evidence.
       - Obtain programme, technical, and financial review.
     evidenceExpected: [reviewed commitments ledger, exception list, review record]
@@ -662,7 +664,7 @@ nodes:
     outcome: Quote, authorize, submit, observe, settle, refund/reverse, reconcile, and redact work across materially different rails while preserving Solana/AUDD as the first implementation path.
     acceptance:
       - Contract declares quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior plus finality, custody, escrow, chargeback, refund, fees, idempotency, environment, redaction, and offline-verification capabilities.
-      - Core states and receipts contain normalized fields while Solana, AUDD, x402, MPP/AP2, Stripe-style, and later rail identifiers remain namespaced.
+      - Core states and receipts contain normalized job/agreement, actors, authority basis, environment, and redaction-class fields while Solana, AUDD, x402, MPP/AP2, Stripe-style, and later rail identifiers remain namespaced.
       - Signer and custody boundaries keep keys and payment credentials outside prompts, Nostr/Buzz, Quattro, generated evidence, and hosted dashboards.
     subtasks:
       - Specify lifecycle, capability negotiation, authority basis, and redaction classes.
@@ -689,7 +691,7 @@ nodes:
     acceptance:
       - Solana/AUDD quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior passes in fixture/devnet mode with canonical AUDD identifiers, network, payee, authority, environment, and fee policy.
       - Wrong asset/network/payee/amount, expiry, replay, duplicate, partial, unavailable-provider, unsupported-refund, and redaction cases fail safely without live spend.
-      - Fixture/devnet receipts populate the ECO-041 normalized receipt fields for job/agreement, actors, Arena evidence, judge/rubric, environment, and redaction class with the Solana/AUDD observation namespaced; canonical digest, versioning, and prior-receipt binding stay ECO-045's contract and are verified there rather than redefined here.
+      - Fixture/devnet receipts populate the ECO-041 normalized receipt fields for job/agreement, actors, authority basis, environment, and redaction class with the Solana/AUDD observation namespaced; Arena-evidence and judge/rubric binding plus canonical digest, versioning, and prior-receipt binding stay ECO-045's contract and are verified there rather than redefined here.
       - Operator-controlled live progression is documented but remains blocked behind signing/custody, live-payment, mainnet, deployment, spend, and publication gates.
     subtasks:
       - Map existing RAP middleware, Solana programs, and deployment registry entries to normalized adapter calls.
@@ -786,8 +788,10 @@ nodes:
       - Technical issues 620-630 pass their tests and evidence requirements in declared fixture/devnet or separately approved live environments.
       - Eligible M1/M2/M3/activation evidence is evaluated separately from implementation completion and approved by the acceptance authority before grant claims or communication.
       - No synthetic activity, owned demo traffic, unsupported mainnet claim, or unapproved live payment is counted as Superteam Australia or AUDD acceptance evidence.
+      - Standards evidence that ECO-004 confirmed a governing text still requires, such as the AUDD-2026-M1 x402 proof, is produced here as no-spend fixture/devnet evidence or cited as retired by the ECO-005 disposition, so no AUDD obligation reaches ECO-047 without an owner.
     subtasks:
       - Reconcile each existing issue with new adapter/event/receipt contracts, RAP readiness findings, and commitment-led evidence rows.
+      - Deliver or cite the retirement of any obligation-required standards evidence confirmed by ECO-004 and ECO-005 before the acceptance binder is packaged.
       - Execute safe fixture/devnet work, receipt/reconciliation exports, redaction checks, and independent audits first.
       - Request explicit approval for any live evidence run, participant activity, funding, signing, custody, deployment, publication, or report.
     evidenceExpected: [linked RAP PRs/issues, audit packs, receipt and reconciliation exports, grant acceptance records]
@@ -807,7 +811,7 @@ nodes:
     outcome: Privacy-safe acceptance artifacts for Superteam Australia and AUDD obligations are reviewed before broader MPP/AP2/x402 or no-spend public demonstrations can be promoted.
     acceptance:
       - Evidence pack maps each Superteam Australia and AUDD obligation to governing text, RAP issue/PR, environment, adapter-contract and receipt version, quote/authorize/submit/observe/settle/refund-or-reverse/reconcile/redact evidence, receipt, Arena conformance result, audit finding, gap, and owner.
-      - Live, mainnet, volume, user, workshop, funding, signing, custody, deployment, publication, and grantor-communication claims are either backed by approved primary evidence or explicitly remain blocked/unknown.
+      - Live, mainnet, volume, user, workshop, funding, signing, custody, deployment, publication, and grantor-communication claims are either backed by approved primary evidence or explicitly remain blocked/unknown, and every obligation left blocked/unknown names the node that owns closing it and its approved disposition.
       - Legal/grantor communication drafts separate completed implementation evidence, devnet/test evidence, limitations, remediation forecasts, and pending human gates.
     subtasks:
       - Assemble the Solana/AUDD acceptance binder from RAP, Arena, grant ledger, deployment registry, and audit artifacts.
