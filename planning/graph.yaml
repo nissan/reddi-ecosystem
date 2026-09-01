@@ -644,7 +644,7 @@ nodes:
     subtasks:
       - Map core states, public types, packages, fixtures, docs, receipt fields, and readiness issues.
       - Add architecture-boundary tests for prohibited imports/fields and unapproved signing/live/mainnet paths.
-      - Create canonical RAP child issues for confirmed leakage and readiness gaps.
+      - Create canonical RAP child issues for confirmed leakage and readiness gaps, including one for the SPL account-layout work that no existing AUDD issue 615-630 covers.
     evidenceExpected: [RAP audit report, readiness finding import, boundary tests, linked issues]
     humanGates: []
 
@@ -690,7 +690,7 @@ nodes:
     outcome: The first concrete payment implementation runs on Solana rails with AUDD payments and passes the portable adapter and receipt suite without privileged core semantics.
     acceptance:
       - Solana/AUDD quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior passes in fixture/devnet mode with canonical AUDD identifiers, network, payee, authority, environment, and fee policy.
-      - AUDD is an SPL token, so the SPL mint, token-account, transfer, account-struct, and PDA-layout work the escrow programs and their TypeScript mirrors need is scoped, landed, and re-audited here rather than assumed to be adapter configuration over the existing SOL-only escrow.
+      - AUDD is an SPL token, so the SPL mint, token-account, transfer, account-struct, and PDA-layout work the escrow programs and their TypeScript mirrors need is scoped, landed, and re-audited here rather than assumed to be adapter configuration over the existing SOL-only escrow; issue 621 covers only the x402 challenge/response slice, so this work lands under the canonical RAP issue ECO-040 opens for it.
       - Any fee policy the adapter reports is backed by an implemented on-chain mechanism or is declared absent, so no fee is claimed that only exists in fixtures.
       - Wrong asset/network/payee/amount, expiry, replay, duplicate, partial, unavailable-provider, unsupported-refund, and redaction cases fail safely without live spend.
       - Fixture/devnet receipts populate the ECO-041 normalized receipt fields for job/agreement, actors, authority basis, environment, and redaction class with the Solana/AUDD observation namespaced; Arena-evidence and judge/rubric binding plus canonical digest, versioning, and prior-receipt binding stay ECO-045's contract and are verified there rather than redefined here.

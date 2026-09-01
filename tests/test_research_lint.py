@@ -29,16 +29,42 @@ class ResearchLintTests(unittest.TestCase):
             "GRANT-2026-01: acceptanceArtifacts must be a non-empty list", errors
         )
 
+    def test_non_https_non_file_source_location_is_rejected(self):
+        research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
+        research["sources"][0]["url"] = "ftp://example.invalid/paper.pdf"
+        errors = self._lint_with_research(research)
+        self.assertTrue(
+            any("source URL must use https or file" in error for error in errors)
+        )
+
+    def test_internal_file_source_location_is_accepted(self):
+        research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
+        research["sources"][0]["url"] = "file:///srv/reports/report.md"
+        errors = self._lint_with_research(research)
+        self.assertEqual([], errors)
+
+    def _lint_with_research(self, research):
+        return self._lint_with(research=research)
+
     def _lint_with_grants(self, grants):
+        return self._lint_with(grants=grants)
+
+    def _lint_with(self, research=None, grants=None):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             shutil.copytree(ROOT / "prompts", root / "prompts")
             (root / "research").mkdir()
-            shutil.copy(ROOT / "research/SOURCES.yaml", root / "research/SOURCES.yaml")
             (root / "docs/grants").mkdir(parents=True)
-            (root / "docs/grants/commitments.yaml").write_text(
-                yaml.safe_dump(grants, sort_keys=False), encoding="utf-8"
-            )
+            for relative, replacement in (
+                ("research/SOURCES.yaml", research),
+                ("docs/grants/commitments.yaml", grants),
+            ):
+                if replacement is None:
+                    shutil.copy(ROOT / relative, root / relative)
+                else:
+                    (root / relative).write_text(
+                        yaml.safe_dump(replacement, sort_keys=False), encoding="utf-8"
+                    )
             return lint(root)
 
 

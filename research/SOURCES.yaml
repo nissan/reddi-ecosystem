@@ -14,6 +14,13 @@ policy:
     - The 2026-08-31 market/technical refresh updates sequencing only through Solana/AUDD-first graph and roadmap changes; external standards remain comparison inputs until accepted implementation evidence exists.
 
 sources:
+  - id: reddi-market-technical-refresh-2026-08-31
+    publisher: Redditech internal research
+    kind: internal-report
+    published: 2026-08-31
+    url: file:///home/nissan/Projects/Redditech/data/reddi-market-technical-refresh/report.md
+    relevance: Driving artifact for the 2026-08-31 sequencing refresh; not publicly resolvable, so claims taken from it are re-checked against the external primary sources it cites. Its assumption table rates Solana/AUDD/x402 as a valid but weakened sole critical technical proof and recommends a second materially different fixture earlier, which ADR-0002's 2026-09-01 amendment log records as knowingly overridden.
+
   - id: openai-harness-engineering
     publisher: OpenAI
     kind: engineering-post
