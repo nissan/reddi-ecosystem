@@ -41,6 +41,8 @@ def find_cycle(nodes: dict[str, dict[str, Any]]) -> list[str] | None:
         visiting.add(node_id)
         path.append(node_id)
         for dependency in nodes[node_id].get("dependsOn", []):
+            if not isinstance(dependency, str):
+                continue
             if dependency in nodes:
                 cycle = walk(dependency)
                 if cycle:
@@ -146,6 +148,8 @@ def lint(root: Path = ROOT) -> list[str]:
         dependencies = node.get("dependsOn", [])
         if not isinstance(dependencies, list):
             errors.append(f"{node_id}: dependsOn must be a list")
+        elif any(not isinstance(dependency, str) for dependency in dependencies):
+            errors.append(f"{node_id}: dependsOn must contain only strings")
         else:
             for dependency in dependencies:
                 if dependency == node_id:
@@ -155,6 +159,8 @@ def lint(root: Path = ROOT) -> list[str]:
         gates = node.get("humanGates", [])
         if not isinstance(gates, list):
             errors.append(f"{node_id}: humanGates must be a list")
+        elif any(not isinstance(gate, str) for gate in gates):
+            errors.append(f"{node_id}: humanGates must contain only strings")
         else:
             for gate in gates:
                 if gate not in human_gates:
@@ -189,4 +195,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

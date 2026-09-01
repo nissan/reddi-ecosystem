@@ -32,6 +32,22 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertTrue(any("unknown human gate" in error for error in errors))
 
+    def test_dependency_non_string_elements_are_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        graph["nodes"][0]["dependsOn"] = [[]]
+        errors = self._lint_with_graph(graph)
+        self.assertTrue(
+            any("dependsOn must contain only strings" in error for error in errors)
+        )
+
+    def test_human_gate_non_string_elements_are_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        graph["nodes"][0]["humanGates"] = [{}]
+        errors = self._lint_with_graph(graph)
+        self.assertTrue(
+            any("humanGates must contain only strings" in error for error in errors)
+        )
+
     def test_missing_acceptance_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         graph["nodes"][0]["acceptance"] = []
@@ -83,4 +99,3 @@ class GraphLintTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
