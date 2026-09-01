@@ -11,6 +11,7 @@ policy:
     - A source informs a hypothesis or control; it does not prove that the control works for Reddi.
     - Product posts are implementation reports, not independent scientific validation.
     - Every adopted pattern requires a Reddi issue, experiment, ADR, or evaluated prompt change.
+    - The 2026-08-31 market/technical refresh updates sequencing only through Solana/AUDD-first graph and roadmap changes; external standards remain comparison inputs until accepted implementation evidence exists.
 
 sources:
   - id: openai-harness-engineering
@@ -298,10 +299,51 @@ sources:
     activeForkUrl: https://github.com/coinbase/x402
     relevance: Initial HTTP payment challenge/response mechanism; it is not itself generic escrow. GitHub API metadata checked on 2026-09-01 reports coinbase/x402 as an active fork with parent/source x402-foundation/x402; no separate succession announcement was captured, so conclusions beyond that fork/source relationship are inference.
 
+  - id: x402-foundation-launch
+    publisher: x402 Foundation / Linux Foundation
+    kind: announcement
+    published: 2026-07-14
+    url: https://x402.org/linux-foundation-announces-operational-launch-of-x402-foundation-to-standardize-internet-native-payments-for-ai-agents-and-applications/
+    relevance: Confirms x402 governance and multi-rail scope for standards comparison without making it the first Reddi implementation path.
+
+  - id: mpp
+    publisher: Machine Payments Protocol
+    kind: specification-site
+    published: unknown
+    url: https://paymentauth.org/
+    relevance: Provides MPP payment-auth, charge/session/subscription/discovery, Solana, Stripe, card, stablecoin, and x402-compatible semantics for later RAP adapter comparison fixtures.
+
+  - id: ap2
+    publisher: Google Agentic Commerce
+    kind: specification-repository
+    published: unknown
+    url: https://github.com/google-agentic-commerce/AP2
+    relevance: Mandate, authorization, receipt, and security model to compare against RAP authority and receipt contracts without replacing Solana/AUDD obligation sequencing.
+
+  - id: a2a
+    publisher: A2A Project
+    kind: specification-repository
+    published: unknown
+    url: https://github.com/a2aproject/A2A
+    relevance: Agent Card, task, idempotency, auth-required, and input-required concepts inform ADL/RAP projection fixtures.
+
+  - id: mcp-spec
+    publisher: Model Context Protocol
+    kind: specification-repository
+    published: 2026-07-28
+    url: https://github.com/modelcontextprotocol/modelcontextprotocol/tree/main/docs/specification/2026-07-28
+    relevance: MCP server discovery, stateless protocol, and tool/task changes inform ADL projections and no-spend comparison fixtures.
+
+  - id: rap-mainnet-readiness-646
+    publisher: Redditech / nissan
+    kind: upstream-pull-request
+    published: 2026-08-28
+    url: https://github.com/nissan/reddi-agent-protocol/pull/646
+    relevance: Current RAP readiness work concludes mainnet/live production is not ready and names blocking gates; ecosystem sequencing treats it as a constraint for Solana/AUDD implementation, audit, custody, and grant evidence, not as completed readiness.
+
   - id: slsa
     publisher: OpenSSF
     kind: specification
     published: unknown
     url: https://slsa.dev/spec/v1.2/
     relevance: Build provenance and supply-chain assurance for packages and machine distributions.
-

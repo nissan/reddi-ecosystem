@@ -622,7 +622,7 @@ nodes:
   - id: ECO-040
     epic: E04
     type: issue
-    title: Audit RAP core for transport, chain, asset, x402, and provider leakage
+    title: Audit RAP core for transport, chain, asset, standards, and provider leakage
     milestone: M2
     targetRepo: rap
     githubProjection: tracker
@@ -631,15 +631,16 @@ nodes:
     dependsOn: [ECO-001]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/338
     ownerRole: RAP protocol steward
-    outcome: Rail-specific concepts are isolated behind declared adapters and core lifecycle invariants are documented.
+    outcome: Rail-specific and standards-specific concepts are isolated behind declared adapters and current RAP readiness evidence is treated as a constraint, not completion.
     acceptance:
-      - Static/schema/test review identifies every Solana, AUDD, x402, Stripe, Nostr, and provider assumption in core paths.
+      - Static/schema/test review identifies every Solana, AUDD, x402, MPP, AP2, Stripe, Nostr, provider, signer, and custody assumption in core paths.
+      - Current RAP readiness findings, including any live/mainnet-not-ready evidence, are imported as blockers or non-goals before implementation claims are made.
       - Each finding is accepted core semantics, adapter-specific, migration debt, or explicit non-goal with owner.
     subtasks:
-      - Map core states, public types, packages, fixtures, docs, and receipt fields.
-      - Add architecture-boundary tests for prohibited imports/fields.
-      - Create canonical RAP child issues for confirmed leakage.
-    evidenceExpected: [RAP audit report, boundary tests, linked issues]
+      - Map core states, public types, packages, fixtures, docs, receipt fields, and readiness issues.
+      - Add architecture-boundary tests for prohibited imports/fields and unapproved signing/live/mainnet paths.
+      - Create canonical RAP child issues for confirmed leakage and readiness gaps.
+    evidenceExpected: [RAP audit report, readiness finding import, boundary tests, linked issues]
     humanGates: []
 
   - id: ECO-041
@@ -654,21 +655,22 @@ nodes:
     dependsOn: [ECO-040, ECO-034]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/338
     ownerRole: RAP payments lead
-    outcome: Quote, authorize, submit, observe, settle, refund/reverse, reconcile, and redact work across materially different rails.
+    outcome: Quote, authorize, submit, observe, settle, refund/reverse, reconcile, and redact work across materially different rails while preserving Solana/AUDD as the first implementation path.
     acceptance:
-      - Contract declares finality, custody, escrow, chargeback, refund, fees, idempotency, and offline-verification capabilities.
-      - Core states and receipts contain normalized fields while rail identifiers remain namespaced.
+      - Contract declares quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior plus finality, custody, escrow, chargeback, refund, fees, idempotency, environment, redaction, and offline-verification capabilities.
+      - Core states and receipts contain normalized fields while Solana, AUDD, x402, MPP/AP2, Stripe-style, and later rail identifiers remain namespaced.
+      - Signer and custody boundaries keep keys and payment credentials outside prompts, Nostr/Buzz, Quattro, generated evidence, and hosted dashboards.
     subtasks:
-      - Specify lifecycle and capability negotiation.
+      - Specify lifecycle, capability negotiation, authority basis, and redaction classes.
       - Implement deterministic fake adapter and failure/replay tests.
-      - Review contract against Solana/AUDD/x402 and Stripe-style fixtures.
-    evidenceExpected: [RAP interface, ADR, tests, migration notes]
+      - Review contract against Solana/AUDD first, then x402, MPP, AP2 mandates/receipts, ACP/UCP, and Stripe-style fixtures as comparisons.
+    evidenceExpected: [RAP interface, ADR, tests, migration notes, standards comparison matrix]
     humanGates: [signing-or-custody]
 
   - id: ECO-042
     epic: E04
     type: issue
-    title: Prove Solana, AUDD, and x402 as one conforming payment profile
+    title: Implement the Solana/AUDD-first payment adapter and evidence profile
     milestone: M2
     targetRepo: rap
     githubProjection: tracker
@@ -677,38 +679,41 @@ nodes:
     dependsOn: [ECO-003, ECO-041]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/621
     ownerRole: Solana payments lead
-    outcome: Initial Solana/AUDD/x402 implementation passes the portable adapter and receipt suite without privileged core semantics.
+    outcome: The first concrete payment implementation runs on Solana rails with AUDD payments and passes the portable adapter and receipt suite without privileged core semantics.
     acceptance:
-      - Quote/challenge, authority, proof validation, observation, settlement, refund where supported, receipt, and reconciliation pass in fixture/devnet mode.
-      - Wrong asset/network/payee/amount, expiry, replay, duplicate, partial, and unavailable-provider cases fail safely.
+      - Solana/AUDD quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior passes in fixture/devnet mode with canonical AUDD identifiers, network, payee, authority, environment, and fee policy.
+      - Wrong asset/network/payee/amount, expiry, replay, duplicate, partial, unavailable-provider, unsupported-refund, and redaction cases fail safely without live spend.
+      - Receipts bind job/agreement, actors, Arena evidence, judge/rubric, Solana/AUDD observation, environment, redaction class, and prior receipt/version.
+      - Operator-controlled live progression is documented but remains blocked behind signing/custody, live-payment, mainnet, deployment, spend, and publication gates.
     subtasks:
-      - Map existing middleware and programs to normalized adapter calls.
-      - Add canonical AUDD identifiers/config and receipt evidence fixtures.
-      - Run clean no-spend/devnet conformance and publish environment-scoped results.
-    evidenceExpected: [RAP PR, conformance log, devnet evidence pack]
-    humanGates: [live-payment, mainnet, signing-or-custody]
+      - Map existing RAP middleware, Solana programs, and deployment registry entries to normalized adapter calls.
+      - Add canonical AUDD identifiers/config and fixture/devnet receipt evidence for happy, failure, refund/reversal, reconciliation, and redaction paths.
+      - Run clean no-spend/devnet conformance and export environment-scoped results without claiming live/mainnet acceptance.
+    evidenceExpected: [RAP PR, conformance log, devnet evidence pack, receipt fixtures, redaction review]
+    humanGates: [live-payment, mainnet, signing-or-custody, production-release, paid-service-or-spend, external-publication]
 
   - id: ECO-043
     epic: E04
     type: issue
-    title: Prove rail neutrality with a materially different conventional or chain fixture
+    title: After Solana/AUDD acceptance, prove rail neutrality with a materially different fixture
     milestone: M2
     targetRepo: rap
     githubProjection: tracker
     status: planned
     priority: P0
-    dependsOn: [ECO-041]
+    dependsOn: [ECO-047]
     ownerRole: payments portability lead
-    outcome: A second rail proves that x402, on-chain finality, wallet identity, and escrow are optional capabilities rather than RAP assumptions.
+    outcome: A later no-spend MPP/AP2/x402/Stripe-style or second-chain fixture proves that on-chain finality, wallet identity, mandates, payment challenges, and escrow are optional capabilities rather than RAP assumptions.
     acceptance:
-      - Stripe-style fake provider or second-chain fixture completes the same job/receipt lifecycle without live account or charge.
-      - Capture/chargeback or alternative finality differences are expressed through capabilities and normalized observations.
+      - MPP/AP2/x402/Stripe-style fake provider or second-chain fixture completes the same job/receipt lifecycle without live account, production account, live charge, or grant-eligible volume claim.
+      - Capture/chargeback, mandate, challenge/response, refund, or alternative finality differences are expressed through capabilities and normalized observations.
+      - The comparison repeats Solana/AUDD contract tests and proves no later standard displaced the first obligation-driven implementation.
     subtasks:
-      - Select fixture by maximum semantic difference and minimum external dependency.
-      - Implement adapter and shared contract tests.
-      - Record core changes forced by the comparison and repeat Solana suite.
-    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR]
-    humanGates: [live-payment, paid-service-or-spend]
+      - Select fixture by maximum semantic difference, standards relevance, and minimum external dependency after ECO-047 evidence is packaged.
+      - Implement adapter and shared contract tests with deterministic fake or sandbox inputs only.
+      - Record core changes forced by the comparison and repeat the Solana/AUDD suite.
+    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR, repeated Solana/AUDD suite]
+    humanGates: [live-payment, paid-service-or-spend, external-publication]
 
   - id: ECO-044
     epic: E04
@@ -745,19 +750,20 @@ nodes:
     ownerRole: receipts and evidence lead
     outcome: A receipt is independently replayable and cannot confuse signed intent, transport event, evidence artifact, judge result, or rail truth.
     acceptance:
-      - Canonical receipt commits to job/agreement, actors, evidence, rubric/judge, adapter observation, environment, and prior receipt/version.
-      - Verification detects missing, altered, replayed, stale, wrong-environment, and contradictory rail evidence.
+      - Canonical receipt commits to job/agreement, actors, evidence, rubric/judge, adapter observation, environment, redaction class, and prior receipt/version.
+      - Verification detects missing, altered, replayed, stale, wrong-environment, contradictory rail evidence, and redaction-policy violations.
+      - AP2 mandate/receipt, W3C VC/SD-JWT selective-disclosure, x402 challenge, and MPP/Stripe-style receipt concepts are mapped as comparisons without becoming required core semantics.
     subtasks:
-      - Define digest/canonicalization and version migration.
-      - Add fixtures across fake, Solana, and second-rail adapters.
-      - Integrate Arena judgment and dispute/refund states.
-    evidenceExpected: [receipt schema, verifier, cross-adapter fixtures]
+      - Define digest/canonicalization, version migration, and redaction verification.
+      - Add fixtures across fake, Solana/AUDD, and later MPP/AP2/x402 or second-rail adapters.
+      - Integrate Arena judgment, dispute, refund/reversal, and grant-acceptance evidence references.
+    evidenceExpected: [receipt schema, verifier, cross-adapter fixtures, AP2 and selective-disclosure comparison]
     humanGates: []
 
   - id: ECO-046
     epic: E04
     type: issue
-    title: Deliver AUDD issues 615-630 through evidence-gated implementation
+    title: Deliver AUDD issues 615-630 through evidence-gated Solana/AUDD implementation
     milestone: M2
     targetRepo: rap
     githubProjection: tracker
@@ -766,16 +772,40 @@ nodes:
     dependsOn: [ECO-004, ECO-041, ECO-042, ECO-045]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/615
     ownerRole: AUDD delivery lead
-    outcome: Existing RAP AUDD release nodes are implemented and audited without duplicating, inflating, or bypassing their eligibility gates.
+    outcome: Existing RAP AUDD release nodes are implemented on the Solana/AUDD-first path and audited without duplicating, inflating, or bypassing their eligibility gates.
     acceptance:
-      - Technical issues 620-630 pass their tests and evidence requirements in declared environments.
-      - Eligible M1/M2/M3/activation evidence is evaluated separately from implementation completion and approved by the acceptance authority.
+      - Technical issues 620-630 pass their tests and evidence requirements in declared fixture/devnet or separately approved live environments.
+      - Eligible M1/M2/M3/activation evidence is evaluated separately from implementation completion and approved by the acceptance authority before grant claims or communication.
+      - No synthetic activity, owned demo traffic, unsupported mainnet claim, or unapproved live payment is counted as Superteam Australia or AUDD acceptance evidence.
     subtasks:
-      - Reconcile each existing issue with new adapter/event/receipt contracts.
-      - Execute safe fixture/devnet work and independent audits first.
-      - Request explicit approval for any live evidence run, participant activity, funding, or report.
-    evidenceExpected: [linked RAP PRs/issues, audit packs, grant acceptance records]
-    humanGates: [live-payment, mainnet, signing-or-custody, privacy-publication, legal-or-grantor-communication]
+      - Reconcile each existing issue with new adapter/event/receipt contracts, RAP readiness findings, and commitment-led evidence rows.
+      - Execute safe fixture/devnet work, receipt/reconciliation exports, redaction checks, and independent audits first.
+      - Request explicit approval for any live evidence run, participant activity, funding, signing, custody, deployment, publication, or report.
+    evidenceExpected: [linked RAP PRs/issues, audit packs, receipt and reconciliation exports, grant acceptance records]
+    humanGates: [live-payment, mainnet, signing-or-custody, privacy-publication, legal-or-grantor-communication, paid-service-or-spend, production-release, external-publication]
+
+  - id: ECO-047
+    epic: E04
+    type: issue
+    title: Package Superteam Australia and AUDD acceptance evidence before public cross-standard proof
+    milestone: M2
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-005, ECO-046, ECO-052]
+    ownerRole: grant evidence lead
+    outcome: Privacy-safe acceptance artifacts for Superteam Australia and AUDD obligations are reviewed before broader MPP/AP2/x402 or no-spend public demonstrations can be promoted.
+    acceptance:
+      - Evidence pack maps each Superteam Australia and AUDD obligation to governing text, RAP issue/PR, environment, quote/authorize/submit/observe/settle/refund-or-reverse/reconcile/redact evidence, receipt, Arena conformance result, audit finding, gap, and owner.
+      - Live, mainnet, volume, user, workshop, funding, signing, custody, deployment, publication, and grantor-communication claims are either backed by approved primary evidence or explicitly remain blocked/unknown.
+      - Legal/grantor communication drafts separate completed implementation evidence, devnet/test evidence, limitations, remediation forecasts, and pending human gates.
+    subtasks:
+      - Assemble the Solana/AUDD acceptance binder from RAP, Arena, grant ledger, deployment registry, and audit artifacts.
+      - Run independent evidence and redaction review without generating synthetic activity or new live transactions.
+      - Obtain explicit human approvals before any external grant communication, public proof promotion, live progression, spend, signing/custody, deployment, or mainnet statement.
+    evidenceExpected: [acceptance binder, redaction log, independent evidence review, approved or blocked communication record]
+    humanGates: [legal-or-grantor-communication, privacy-publication, live-payment, mainnet, signing-or-custody, paid-service-or-spend, production-release, external-publication]
 
   - id: ECO-050
     epic: E05
@@ -918,12 +948,12 @@ nodes:
     githubProjection: implementation
     status: planned
     priority: P0
-    dependsOn: [ECO-030, ECO-040, ECO-050]
+    dependsOn: [ECO-030, ECO-040, ECO-047, ECO-050]
     ownerRole: Buzz integration lead
-    outcome: Maintainers select sidecar, generic extension, or fork using a tested seam and maintenance evidence.
+    outcome: Maintainers select sidecar, generic extension, or fork using a tested seam and maintenance evidence after the Solana/AUDD obligation evidence path is packaged.
     acceptance:
       - Spike maps Buzz architecture, relay/community model, Nostr job events, extension issue 2426, release cadence, license, marks, and patch burden.
-      - Sidecar-first prototype proves or falsifies the minimum no-spend flow before any fork decision.
+      - Sidecar-first prototype proves or falsifies the minimum no-spend flow before any fork decision and does not precede or replace Superteam Australia/AUDD acceptance evidence.
     subtasks:
       - Reproduce an upstream Buzz development environment at a pinned revision.
       - Trace persona/job/event/storage/UI extension seams and missing hooks.

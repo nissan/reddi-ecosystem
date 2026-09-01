@@ -40,6 +40,14 @@ GitHub execution projections. Newest entries appear first.
 - No GitHub issues, milestones, labels, releases, packages, deployments, live payments,
   mainnet actions, or other remote state were created or modified for this increment.
 
+## 2026-08-31 — Solana/AUDD-first obligation sequencing refresh
+
+- Claimed executable node: `ECO-014` planning/status refresh, with an approved captain-scoped waiver to update prerequisite graph and roadmap artifacts before ECO-004/ECO-012 are complete because this change prevents incorrect downstream sequencing.
+- Expected footprint: `README.md`, `docs/ROADMAP.md`, `docs/architecture/PORTFOLIO.md`, `docs/architecture/ADAPTER-BOUNDARIES.md`, `docs/decisions/0002-adapter-and-projection-first.md`, `docs/grants/AUDIT-2026-08.md`, `docs/grants/commitments.yaml`, `planning/graph.yaml`, `planning/milestones.yaml`, `planning/repositories.yaml`, `research/SOURCES.yaml`, `tools/graph_lint.py`, `tests/test_graph_lint.py`, and regenerated `planning/issues/**` projections.
+- Divergence from the 2026-08-26 plan: the broad no-spend cross-standard public proof no longer runs in parallel with or before the obligation path. The graph now requires Solana rails with AUDD payments, RAP readiness import, receipt/Arena evidence, AUDD issue 615-630 delivery, and a Superteam Australia/AUDD acceptance binder before MPP/AP2/x402-style public comparison proofs.
+- Non-goals: no ADL semantic changes, no RAP implementation code, no GitHub issue mutation, no external communication, no spend, no signing/custody, no deployment, no live/mainnet claim, and no assertion that acceptance evidence already exists.
+- Follow-up nodes: `ECO-047` packages privacy-safe acceptance evidence and communication gates; `ECO-043` and `ECO-060` now depend on it before broader no-spend rail-neutral/Buzz demonstrations.
+
 ## 2026-08-26 — Public bootstrap and first CI diagnosis
 
 - Human gates `repo-creation` and `external-publication` were satisfied by the repository

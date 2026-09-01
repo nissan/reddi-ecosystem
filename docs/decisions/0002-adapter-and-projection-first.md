@@ -7,23 +7,15 @@
 
 ## Context
 
-The initial proof uses Solana, AUDD, x402, Nostr/Buzz, and Omarchy Quattro, while the product
-must support other chains, assets/tokens, payment protocols, Stripe-style rails, model providers,
-runtimes, clients, and operating environments over time.
+The first concrete payment implementation and acceptance-evidence profile uses Solana rails with AUDD payments for Solana Superteam Australia and AUDD obligations, while the product must support x402, MPP, AP2, other chains, assets/tokens, payment protocols, Stripe-style rails, model providers, runtimes, clients, and operating environments over time.
 
 ## Decision
 
-ADL defines the portable agent. RAP defines the portable economic-work lifecycle. Environment
-products and providers are adapters or projections. The initial stack must pass the same public
-contracts as a materially different payment fixture and at least two runtime/model profiles.
+ADL defines the portable agent. RAP defines the portable economic-work lifecycle. Environment products and providers are adapters or projections. The Solana/AUDD implementation must pass public adapter, receipt, and Arena evidence contracts first; a materially different no-spend payment fixture and at least two runtime/model profiles then prove neutrality without displacing that obligation-driven sequence.
 
-Nostr events are signed intent/observation, not payment truth. x402 is a payment challenge and
-response mechanism, not generic escrow. Stripe-style authorization/capture is not assumed to
-have on-chain finality. Quattro QML is presentation code and never holds signer secrets.
+Nostr events are signed intent/observation, not payment truth. x402 is a payment challenge and response mechanism, not generic escrow. MPP/AP2/ACP/UCP are standards inputs and later adapter/comparison profiles, not first-delivery substitutions. Stripe-style authorization/capture is not assumed to have on-chain finality. Quattro QML is presentation code and never holds signer secrets.
 
 ## Consequences
 
-The initial proof takes longer than hard-coding a vertical demo, but it creates executable
-evidence of portability. Adapter capability negotiation, normalized receipts, identity binding,
-and projection diff/conformance are critical-path work rather than later cleanup.
+The obligation-first proof takes longer than hard-coding a cross-standard demo, but it creates acceptance evidence for the actual Solana/AUDD commitments while preserving executable evidence of portability. Adapter capability negotiation, normalized receipts, identity binding, and projection diff/conformance are critical-path work rather than later cleanup.
 
