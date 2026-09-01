@@ -95,6 +95,24 @@ class GraphLintTests(unittest.TestCase):
             errors,
         )
 
+    def test_first_implementation_must_declare_the_solana_audd_rail(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-042"]["railProfile"] = "mpp"
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn(
+            "ECO-042: first-implementation railProfile must be solana-audd", errors
+        )
+
+    def test_first_implementation_without_rail_profile_is_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        del nodes["ECO-042"]["railProfile"]
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn(
+            "ECO-042: first-implementation railProfile must be solana-audd", errors
+        )
+
     def test_comparison_standards_must_cover_required_standards(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}

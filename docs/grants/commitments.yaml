@@ -1,6 +1,7 @@
 schemaVersion: 1
 auditAsOf: 2026-08-26
 lastAmendedAt: 2026-09-01
+ledgerRevisedAt: 2026-08-31
 dateSemantics:
   auditAsOf: date of the last full audit sweep across every commitment.
   lastAmendedAt: date of the most recent amendment to individual commitments; evidence
@@ -15,6 +16,7 @@ rules:
   - no recovery task authorizes live spend, outreach, or publication
   - Solana rails with AUDD payments are the first concrete payment implementation and acceptance-evidence profile for Solana Superteam Australia and AUDD obligations
   - x402, MPP, AP2, ACP/UCP, Stripe-style, and other standards remain comparison fixtures or later adapters until the Solana/AUDD acceptance pack is reviewed
+  - programme sequencing rules never retire or soften a recorded grantor obligation; an obligation row changes only when a re-read of its governing text is recorded as evidence
 
 commitments:
   - id: GRANT-2026-01
@@ -173,8 +175,8 @@ commitments:
       - RAP issues 620-622 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issue 615 as open at 2026-08-31; issues 620-622 fall
         outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
-    gaps: [bounded authority, AUDD x402 proof, Solana/AUDD quote-authorize-submit-observe-settle-refund-or-reverse-reconcile-redact evidence, approved end-to-end evidence package, x402 comparison boundary if still required by governing text]
-    acceptanceArtifacts: [RAP issue/PR links, Solana/AUDD fixture-devnet evidence, receipt and reconciliation export, refund-or-reversal evidence where applicable, redaction review, acceptance authority decision]
+    gaps: [bounded authority, Solana/AUDD quote-authorize-submit-observe-settle-refund-or-reverse-reconcile-redact evidence, AUDD x402 proof as recorded in the governing text, approved end-to-end evidence package, re-read of issue 616 to confirm or retire the x402 proof obligation]
+    acceptanceArtifacts: [RAP issue/PR links, issue 616 governing-text re-read record, Solana/AUDD fixture-devnet evidence, receipt and reconciliation export, refund-or-reversal evidence where applicable, x402 proof or a recorded grantor retirement of that obligation, redaction review, acceptance authority decision]
     humanGate: live-payment-if-required
     ownerRole: RAP payments lead
 

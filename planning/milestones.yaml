@@ -1,6 +1,7 @@
 schemaVersion: 1
 timezone: Australia/Sydney
 planningAsOf: 2026-08-26
+sequencingRevisedAt: 2026-08-31
 milestones:
   - id: M0
     name: Evidence Recovery and Grant Truth
