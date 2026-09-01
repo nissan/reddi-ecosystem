@@ -82,6 +82,9 @@ def require_dependency(
         errors.append(f"{node_id}: missing required dependency {dependency}")
 
 
+REQUIRED_COMPARISON_STANDARDS = ("mpp", "ap2", "x402")
+
+
 def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
     """Enforce captain-approved Solana/AUDD-first sequencing."""
     errors: list[str] = []
@@ -113,12 +116,30 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
         if not re.search(rf"\b{re.escape(method)}\b", adapter_text):
             errors.append(f"ECO-041: adapter contract must cover {method}")
 
-    first_text = text_for(nodes["ECO-042"], ("title", "outcome", "acceptance"))
-    if "solana/audd" not in first_text or "first" not in first_text:
-        errors.append("ECO-042: must remain the Solana/AUDD-first implementation node")
-    later_text = text_for(nodes["ECO-043"], ("title", "outcome", "acceptance", "subtasks"))
-    if not all(term in later_text for term in ("mpp", "ap2", "x402")):
-        errors.append("ECO-043: later neutrality proof must retain MPP/AP2/x402 comparison scope")
+    for node_id, role in (
+        ("ECO-041", "rail-neutral-core"),
+        ("ECO-042", "first-implementation"),
+        ("ECO-043", "comparison-fixture"),
+    ):
+        if nodes[node_id].get("railRole") != role:
+            errors.append(f"{node_id}: railRole must be {role}")
+    declared_first = sorted(
+        node_id
+        for node_id, node in nodes.items()
+        if node.get("railRole") == "first-implementation"
+    )
+    if declared_first != ["ECO-042"]:
+        errors.append(
+            "exactly one node may declare railRole first-implementation, found "
+            + (", ".join(declared_first) or "none")
+        )
+    standards = nodes["ECO-043"].get("comparisonStandards")
+    if not isinstance(standards, list):
+        errors.append("ECO-043: comparisonStandards must be a list")
+    else:
+        for standard in REQUIRED_COMPARISON_STANDARDS:
+            if standard not in standards:
+                errors.append(f"ECO-043: comparisonStandards must include {standard}")
     return errors
 
 
@@ -140,6 +161,7 @@ def lint(root: Path = ROOT) -> list[str]:
     statuses = set(graph.get("statusVocabulary", []))
     priorities = set(graph.get("priorityVocabulary", []))
     human_gates = set(graph.get("humanGates", []))
+    rail_roles = set(graph.get("railRoleVocabulary", []))
     epics_list = graph.get("epics", [])
     nodes_list = graph.get("nodes", [])
 
@@ -229,6 +251,12 @@ def lint(root: Path = ROOT) -> list[str]:
             for gate in gates:
                 if gate not in human_gates:
                     errors.append(f"{node_id}: unknown human gate {gate}")
+        rail_role = node.get("railRole")
+        if rail_role is not None and rail_role not in rail_roles:
+            errors.append(f"{node_id}: unknown railRole {rail_role}")
+        standards = node.get("comparisonStandards")
+        if standards is not None and (not isinstance(standards, list) or not standards):
+            errors.append(f"{node_id}: comparisonStandards must be a non-empty list")
         external = node.get("externalIssue")
         if external and not str(external).startswith("https://github.com/"):
             errors.append(f"{node_id}: externalIssue must be an https GitHub URL")

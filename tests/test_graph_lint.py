@@ -83,6 +83,36 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-041: adapter contract must cover redact", errors)
 
+    def test_first_implementation_role_must_stay_on_eco042(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-042"]["railRole"] = "comparison-fixture"
+        nodes["ECO-043"]["railRole"] = "first-implementation"
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-042: railRole must be first-implementation", errors)
+        self.assertIn(
+            "exactly one node may declare railRole first-implementation, found ECO-043",
+            errors,
+        )
+
+    def test_comparison_standards_must_cover_required_standards(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-043"]["comparisonStandards"] = [
+            item for item in nodes["ECO-043"]["comparisonStandards"] if item != "x402"
+        ]
+        self.assertIn("x402", nodes["ECO-043"]["outcome"])
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-043: comparisonStandards must include x402", errors)
+
+    def test_unknown_rail_role_is_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        for node in graph["nodes"]:
+            if node["id"] == "ECO-041":
+                node["railRole"] = "solana-only"
+        errors = self._lint_with_graph(graph)
+        self.assertTrue(any("unknown railRole solana-only" in error for error in errors))
+
     def test_missing_acceptance_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         graph["nodes"][0]["acceptance"] = []

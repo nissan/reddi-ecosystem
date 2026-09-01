@@ -13,6 +13,7 @@ dependencyEdgeTypes:
   humanGates: non-automatable approval or external-authority prerequisite
 statusVocabulary: [ready, in-progress, blocked, planned, done, superseded]
 priorityVocabulary: [P0, P1, P2, P3]
+railRoleVocabulary: [rail-neutral-core, first-implementation, comparison-fixture]
 humanGates:
   - repo-creation
   - external-publication
@@ -655,6 +656,7 @@ nodes:
     dependsOn: [ECO-040, ECO-034]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/338
     ownerRole: RAP payments lead
+    railRole: rail-neutral-core
     outcome: Quote, authorize, submit, observe, settle, refund/reverse, reconcile, and redact work across materially different rails while preserving Solana/AUDD as the first implementation path.
     acceptance:
       - Contract declares quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior plus finality, custody, escrow, chargeback, refund, fees, idempotency, environment, redaction, and offline-verification capabilities.
@@ -679,11 +681,12 @@ nodes:
     dependsOn: [ECO-003, ECO-041]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/621
     ownerRole: Solana payments lead
+    railRole: first-implementation
     outcome: The first concrete payment implementation runs on Solana rails with AUDD payments and passes the portable adapter and receipt suite without privileged core semantics.
     acceptance:
       - Solana/AUDD quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior passes in fixture/devnet mode with canonical AUDD identifiers, network, payee, authority, environment, and fee policy.
       - Wrong asset/network/payee/amount, expiry, replay, duplicate, partial, unavailable-provider, unsupported-refund, and redaction cases fail safely without live spend.
-      - Receipts bind job/agreement, actors, Arena evidence, judge/rubric, Solana/AUDD observation, environment, redaction class, and prior receipt/version.
+      - Fixture/devnet receipts populate the ECO-041 normalized receipt fields for job/agreement, actors, Arena evidence, judge/rubric, environment, and redaction class with the Solana/AUDD observation namespaced; canonical digest, versioning, and prior-receipt binding stay ECO-045's contract and are verified there rather than redefined here.
       - Operator-controlled live progression is documented but remains blocked behind signing/custody, live-payment, mainnet, deployment, spend, and publication gates.
     subtasks:
       - Map existing RAP middleware, Solana programs, and deployment registry entries to normalized adapter calls.
@@ -703,6 +706,8 @@ nodes:
     priority: P0
     dependsOn: [ECO-047]
     ownerRole: payments portability lead
+    railRole: comparison-fixture
+    comparisonStandards: [mpp, ap2, x402, stripe-style, second-chain]
     outcome: A later no-spend MPP/AP2/x402/Stripe-style or second-chain fixture proves that on-chain finality, wallet identity, mandates, payment challenges, and escrow are optional capabilities rather than RAP assumptions.
     acceptance:
       - MPP/AP2/x402/Stripe-style fake provider or second-chain fixture completes the same job/receipt lifecycle without live account, production account, live charge, or grant-eligible volume claim.

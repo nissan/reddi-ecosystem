@@ -22,13 +22,13 @@ payment product.
 
 A payment adapter must expose at least:
 
-1. `quote` — price, AUDD asset/currency identifier, Solana network/rail or later rail, payee, expiry, fee policy, and environment;
+1. `quote` — price, asset/currency identifier, network/rail, payee, expiry, fee policy, and environment;
 2. `authorize` — user- or operator-policy-approved authority, limits, idempotency key, approval evidence, and explicit no-spend/devnet/live/mainnet scope;
 3. `submit` — rail-specific operation without logging secrets or allowing model output to become authorization;
-4. `observe` — authoritative status read from the rail/provider, including read-only Solana transaction/account observations for the first profile;
+4. `observe` — authoritative status read from the rail/provider, including read-only transaction or account observations where the rail exposes them;
 5. `settle` — finality/capture semantics, canonical rail reference, and declared environment;
 6. `refund_or_reverse` — supported remedy, compensating transaction or provider reversal, unsupported-state reason, and resulting state;
-7. `reconcile` — bind rail records to job, agreement, Arena evidence, acceptance authority, and receipt;
+7. `reconcile` — bind rail records to job, agreement, Arena evidence, authority basis, and receipt;
 8. `redact` — evidence safe for the intended audience, preserving verifiability while removing secrets, personal data, and sensitive grant/payment details.
 
 The normalized state machine must accommodate at least:
