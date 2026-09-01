@@ -274,7 +274,9 @@ def lint(root: Path = ROOT) -> list[str]:
                 if gate not in human_gates:
                     errors.append(f"{node_id}: unknown human gate {gate}")
         rail_role = node.get("railRole")
-        if rail_role is not None and rail_role not in rail_roles:
+        if rail_role is not None and (
+            not isinstance(rail_role, str) or rail_role not in rail_roles
+        ):
             errors.append(f"{node_id}: unknown railRole {rail_role}")
         rail_profile = node.get("railProfile")
         standards = node.get("comparisonStandards")
@@ -286,7 +288,7 @@ def lint(root: Path = ROOT) -> list[str]:
             if value is not None and rail_role is None:
                 errors.append(f"{node_id}: {field} requires an explicit railRole")
         if rail_profile is not None:
-            if rail_profile not in rail_profiles:
+            if not isinstance(rail_profile, str) or rail_profile not in rail_profiles:
                 errors.append(f"{node_id}: unknown railProfile {rail_profile}")
             elif (
                 rail_profile == REQUIRED_FIRST_RAIL_PROFILE
@@ -301,7 +303,7 @@ def lint(root: Path = ROOT) -> list[str]:
                 errors.append(f"{node_id}: comparisonStandards must be a non-empty list")
             else:
                 for standard in standards:
-                    if standard not in rail_profiles:
+                    if not isinstance(standard, str) or standard not in rail_profiles:
                         errors.append(
                             f"{node_id}: unknown comparisonStandards entry {standard}"
                         )
