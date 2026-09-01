@@ -1,5 +1,10 @@
 schemaVersion: 1
-asOf: 2026-09-01
+asOf: 2026-08-26
+lastAmendedAt: 2026-09-01
+dateSemantics:
+  asOf: date of the last full sweep across every repository entry.
+  lastAmendedAt: date of the most recent amendment to individual entries; evidence
+    rows added after asOf carry their own inline checkedAt date.
 repositories:
   - id: ecosystem
     url: https://github.com/nissan/reddi-ecosystem
@@ -90,10 +95,15 @@ repositories:
 
   - id: omarchy-upstream
     url: https://github.com/omacom/omarchy
+    previousUrl: https://github.com/basecamp/omarchy
     state: external-upstream
     visibility: public
     canonicalFor:
       - Omarchy distribution and Quattro shell
+    observedEvidence:
+      - path: evidence/github/ECO-001-2026-08-31.md
+        observation: the GitHub repository API returned full_name omacom/omarchy for both /repos/omacom/omarchy and /repos/basecamp/omarchy, so basecamp/omarchy is a historical redirect reference and omacom/omarchy is canonical for new references. In-repository artifact; it has no published URL until the ECO-001 branch is merged.
+        checkedAt: 2026-09-01
     integrationPolicy: public plugin-and-package-first; branded image only after reproducibility gate
 
 plannedRepositories:

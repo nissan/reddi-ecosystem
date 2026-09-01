@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.project_issues import ROOT, bullets, generate
+from tools.project_issues import ROOT, bullets, generate, node_markdown
 
 
 class IssueProjectionTests(unittest.TestCase):
@@ -12,6 +12,28 @@ class IssueProjectionTests(unittest.TestCase):
     def test_bullets_rejects_scalar_evidence_produced_values(self):
         with self.assertRaises(TypeError):
             bullets("evidence/github/ECO-001-2026-08-31.md")
+
+    def test_node_markdown_rejects_scalar_depends_on(self):
+        node = {
+            "id": "ECO-999",
+            "title": "Example",
+            "epic": "EPIC-1",
+            "milestone": "M0",
+            "targetRepo": "ecosystem",
+            "githubProjection": "issue",
+            "status": "ready",
+            "priority": "P1",
+            "ownerRole": "agent",
+            "dependsOn": "ECO-000",
+            "outcome": "Example outcome.",
+            "subtasks": ["do the thing"],
+            "acceptance": ["thing is done"],
+            "evidenceExpected": ["a command transcript"],
+            "humanGates": [],
+        }
+        epics = {"EPIC-1": {"title": "Example epic"}}
+        with self.assertRaises(TypeError):
+            node_markdown(node, epics)
 
     def test_generation_is_deterministic(self):
         with tempfile.TemporaryDirectory() as directory:

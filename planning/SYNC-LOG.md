@@ -10,9 +10,11 @@ GitHub execution projections. Newest entries appear first.
   `planning/`, focused validation changes under `tools/` and `tests/`, and narrow status
   references in README, roadmap, grant audit, repository registry, and research sources.
 - Started replacement branch `fm/ecosystem-m0-republication` from clean current
-  `origin/main` at `7d41cc4646fa1377932ba490c9708b73f198360d`; current main matched the
-  preserved base, so no concurrent authoritative Solana/AUDD registry, graph, grant, or
-  upstream-URL changes had to be overwritten. Preserved commit `edf81be` and no-mistakes
+  `origin/main` at `7d41cc4646fa1377932ba490c9708b73f198360d`; that name was never
+  published because the local gate refused it as a non-fast-forward, so this head is
+  published on `fm/ecosystem-m0-republication-v2` instead, with no remote branch forced
+  or rewritten. Current main matched the preserved base, so no concurrent authoritative
+  Solana/AUDD registry, graph, grant, or upstream-URL changes had to be overwritten. Preserved commit `edf81be` and no-mistakes
   run `01M1D1TQF1P8V6PSENE45K4FGX` remain read-only evidence and were not reset, deleted,
   or continued.
 - Reconstructed the ECO-001 public GitHub/API snapshot for `reddi-ecosystem`,
