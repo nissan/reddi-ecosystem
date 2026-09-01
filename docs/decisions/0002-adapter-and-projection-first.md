@@ -2,7 +2,7 @@
 
 - Status: accepted direction; contracts remain M2 work
 - Date: 2026-08-26
-- Amended: 2026-08-31
+- Amended: 2026-08-31, 2026-09-01
 - Decision owner: programme steward
 - Review: M2 convergence gate
 
