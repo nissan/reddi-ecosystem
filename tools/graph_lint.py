@@ -121,9 +121,6 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
         for method in REQUIRED_ADAPTER_METHODS:
             if method not in adapter_methods:
                 errors.append(f"ECO-041: adapter contract must cover {method}")
-        for method in adapter_methods:
-            if method not in REQUIRED_ADAPTER_METHODS:
-                errors.append(f"ECO-041: unknown adapter method {method}")
 
     for node_id, role in (
         ("ECO-041", "rail-neutral-core"),
@@ -281,6 +278,7 @@ def lint(root: Path = ROOT) -> list[str]:
             errors.append(f"{node_id}: unknown railRole {rail_role}")
         rail_profile = node.get("railProfile")
         standards = node.get("comparisonStandards")
+        adapter_methods = node.get("adapterMethods")
         for field, value in (
             ("railProfile", rail_profile),
             ("comparisonStandards", standards),
@@ -312,6 +310,13 @@ def lint(root: Path = ROOT) -> list[str]:
                             f"{node_id}: {REQUIRED_FIRST_RAIL_PROFILE} is the first "
                             "implementation profile, not a comparison standard"
                         )
+        if "adapterMethods" in node:
+            if not isinstance(adapter_methods, list) or not adapter_methods:
+                errors.append(f"{node_id}: adapterMethods must be a non-empty list")
+            else:
+                for method in adapter_methods:
+                    if method not in REQUIRED_ADAPTER_METHODS:
+                        errors.append(f"{node_id}: unknown adapter method {method}")
         external = node.get("externalIssue")
         if external and not str(external).startswith("https://github.com/"):
             errors.append(f"{node_id}: externalIssue must be an https GitHub URL")

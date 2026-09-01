@@ -92,6 +92,13 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-041: adapter contract must cover redact", errors)
 
+    def test_unknown_adapter_method_is_rejected_on_any_node(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-044"]["adapterMethods"] = ["pay"]
+        errors = self._lint_with_graph(graph)
+        self.assertIn("ECO-044: unknown adapter method pay", errors)
+
     def test_invalid_dependency_shape_returns_diagnostics(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
