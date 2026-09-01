@@ -99,6 +99,15 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertIn("ECO-044: unknown adapter method pay", errors)
 
+    def test_duplicate_adapter_method_is_rejected_on_any_node(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-041"]["adapterMethods"].append("quote")
+        nodes["ECO-044"]["adapterMethods"] = ["quote", "quote"]
+        errors = self._lint_with_graph(graph)
+        self.assertIn("ECO-041: duplicate adapter method quote", errors)
+        self.assertIn("ECO-044: duplicate adapter method quote", errors)
+
     def test_invalid_dependency_shape_returns_diagnostics(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
