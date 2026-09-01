@@ -13,6 +13,12 @@ class ResearchLintTests(unittest.TestCase):
     def test_registries_are_valid(self):
         self.assertEqual([], lint(ROOT))
 
+    def test_stale_registry_schema_version_is_rejected(self):
+        grants = copy.deepcopy(load(ROOT / "docs/grants/commitments.yaml"))
+        grants["schemaVersion"] = 1
+        errors = self._lint_with_grants(grants)
+        self.assertIn("docs/grants/commitments.yaml: schemaVersion must be 2", errors)
+
     def test_commitment_without_acceptance_artifacts_is_rejected(self):
         grants = copy.deepcopy(load(ROOT / "docs/grants/commitments.yaml"))
         del grants["commitments"][0]["acceptanceArtifacts"]

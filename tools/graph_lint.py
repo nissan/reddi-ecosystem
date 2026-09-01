@@ -272,6 +272,13 @@ def lint(root: Path = ROOT) -> list[str]:
         if rail_role is not None and rail_role not in rail_roles:
             errors.append(f"{node_id}: unknown railRole {rail_role}")
         rail_profile = node.get("railProfile")
+        standards = node.get("comparisonStandards")
+        for field, value in (
+            ("railProfile", rail_profile),
+            ("comparisonStandards", standards),
+        ):
+            if value is not None and rail_role is None:
+                errors.append(f"{node_id}: {field} requires an explicit railRole")
         if rail_profile is not None:
             if rail_profile not in rail_profiles:
                 errors.append(f"{node_id}: unknown railProfile {rail_profile}")
@@ -283,12 +290,7 @@ def lint(root: Path = ROOT) -> list[str]:
                     f"{node_id}: railProfile {REQUIRED_FIRST_RAIL_PROFILE} requires "
                     "railRole first-implementation"
                 )
-        standards = node.get("comparisonStandards")
         if standards is not None:
-            if rail_role is None:
-                errors.append(
-                    f"{node_id}: comparisonStandards requires an explicit railRole"
-                )
             if not isinstance(standards, list) or not standards:
                 errors.append(f"{node_id}: comparisonStandards must be a non-empty list")
             else:

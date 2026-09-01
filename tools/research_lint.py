@@ -14,6 +14,11 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO_LOCATION_PREFIX = "repo:"
+EXPECTED_REGISTRY_SCHEMA_VERSIONS = {
+    "research/SOURCES.yaml": 2,
+    "prompts/catalog.yaml": 1,
+    "docs/grants/commitments.yaml": 2,
+}
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -40,6 +45,15 @@ def lint(root: Path = ROOT) -> list[str]:
         grants = load(root / "docs/grants/commitments.yaml")
     except (OSError, ValueError, yaml.YAMLError) as exc:
         return [str(exc)]
+
+    for relative, registry in (
+        ("research/SOURCES.yaml", research),
+        ("prompts/catalog.yaml", prompts),
+        ("docs/grants/commitments.yaml", grants),
+    ):
+        expected = EXPECTED_REGISTRY_SCHEMA_VERSIONS[relative]
+        if registry.get("schemaVersion") != expected:
+            errors.append(f"{relative}: schemaVersion must be {expected}")
 
     sources = research.get("sources", [])
     source_ids = [item.get("id") for item in sources]
