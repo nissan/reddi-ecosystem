@@ -24,7 +24,7 @@ marketing claim is accepted as complete merely because an artifact or issue exis
 Each claim is classified as `verified`, `partial`, `planned`, `blocked`, `superseded`,
 or `unknown`, with a reproducible evidence reference.
 
-Known starting points on 2026-08-26:
+Known starting points on 2026-08-26, amended by the ECO-001 public GitHub snapshot captured on 2026-08-31 and corrected on 2026-09-01:
 
 | Repository | Canonical responsibility | Audited starting observation |
 |---|---|---|
@@ -32,7 +32,7 @@ Known starting points on 2026-08-26:
 | [nissan/reddi-agent-protocol](https://github.com/nissan/reddi-agent-protocol) | RAP implementation, receipts, payment/trust adapters, Solana/Quasar proofs | Public; large active product and grant backlog; live/mainnet paths remain approval-gated |
 | [nissan/reddi-arena](https://github.com/nissan/reddi-arena) | Arena proof, conformance pressure, competitive environment | Public; at least 72 tests and a 42-node graph were evidenced in merged PRs by 2026-08-16 |
 | [block/buzz](https://github.com/block/buzz) | Upstream Nostr workspace used by the proposed Buzz integration | External Apache-2.0 upstream; integration strategy must minimise permanent fork tax |
-| [basecamp/omarchy](https://github.com/basecamp/omarchy) | Upstream Linux distribution and Quattro shell | External MIT upstream; Quattro plugins are an optional cockpit, not the RAP runtime |
+| [omacom/omarchy](https://github.com/omacom/omarchy) | Upstream Linux distribution and Quattro shell | External MIT upstream; `basecamp/omarchy` resolves as historical/redirect context; Quattro plugins are an optional cockpit, not the RAP runtime |
 
 ## Non-negotiable architecture boundaries
 
@@ -56,6 +56,8 @@ Known starting points on 2026-08-26:
 - `prompts/` contains composable role and loop prompts; prompts are versioned and evaluated artifacts.
 - `docs/grants/` separates promises, evidence, gaps, and remediation decisions.
 - `docs/community/` records upstream-first and community-building commitments.
+
+The current ECO-001 evidence increment is recorded in [`evidence/github/ECO-001-2026-08-31.md`](evidence/github/ECO-001-2026-08-31.md). It is a public GitHub/API snapshot with a corrective primary-source log and explicit gap record; it does not claim grant completion, package publication, adoption, live integration, mainnet readiness, or production readiness.
 
 Run the portfolio checks with:
 

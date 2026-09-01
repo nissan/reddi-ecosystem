@@ -26,7 +26,11 @@ def digest(item: dict[str, Any]) -> str:
     return hashlib.sha256(raw.encode()).hexdigest()[:16]
 
 
-def bullets(items: list[str], checkbox: bool = False) -> str:
+def bullets(items: Any, checkbox: bool = False, field_name: str = "items") -> str:
+    if not isinstance(items, list):
+        raise TypeError(f"{field_name} must be a list")
+    if any(not isinstance(item, str) for item in items):
+        raise TypeError(f"{field_name} must contain only strings")
     prefix = "- [ ]" if checkbox else "-"
     return "\n".join(f"{prefix} {item}" for item in items) or "- None"
 
@@ -61,19 +65,43 @@ def node_markdown(node: dict[str, Any], epics: dict[str, dict[str, Any]]) -> str
         "",
         "## Tasks and subtasks",
         "",
-        bullets(node["subtasks"], checkbox=True),
+        bullets(
+            node["subtasks"], checkbox=True, field_name=f"{node['id']}.subtasks"
+        ),
         "",
         "## Acceptance criteria",
         "",
-        bullets(node["acceptance"], checkbox=True),
+        bullets(
+            node["acceptance"], checkbox=True, field_name=f"{node['id']}.acceptance"
+        ),
         "",
         "## Required evidence",
         "",
-        bullets(node["evidenceExpected"], checkbox=True),
+        bullets(
+            node["evidenceExpected"],
+            checkbox=True,
+            field_name=f"{node['id']}.evidenceExpected",
+        ),
         "",
+    ]
+    if node.get("evidenceProduced"):
+        lines += [
+            "## Produced evidence",
+            "",
+            bullets(
+                node["evidenceProduced"],
+                field_name=f"{node['id']}.evidenceProduced",
+            ),
+            "",
+        ]
+    lines += [
         "## Human gates",
         "",
-        bullets(node["humanGates"]) if node["humanGates"] else "- None beyond normal review.",
+        (
+            bullets(node["humanGates"], field_name=f"{node['id']}.humanGates")
+            if node["humanGates"]
+            else "- None beyond normal review."
+        ),
         "",
         "## Non-goals and completion",
         "",

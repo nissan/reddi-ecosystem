@@ -125,6 +125,8 @@ nodes:
       - Re-run safe clean checks where dependencies are available.
       - Register stale, contradictory, private, or inaccessible evidence as gaps.
     evidenceExpected: [repository inventory, clean-check logs, release and deployment index]
+    evidenceProduced:
+      - evidence/github/ECO-001-2026-08-31.md records a reproducible public GitHub snapshot for reddi-ecosystem, reddiagent-lab, reddi-agent-protocol, and reddi-arena, plus corrective primary-source package/release/upstream logs and explicit package/export and clean-rerun gaps.
     humanGates: []
 
   - id: ECO-002

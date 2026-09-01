@@ -41,7 +41,8 @@ commitments:
     due: 2026-07-31
     status: unknown
     evidence:
-      - Repository root package was observed as private version 0.1.0; this neither proves nor disproves publication of scoped packages.
+      - Repository root package was observed through the GitHub contents API as private package `web` version 0.1.0; this neither proves nor disproves publication of scoped packages.
+      - https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md records the RAP root package metadata, inaccessible GitHub Packages listing, exploratory npm-name gaps, and the unrelated public npm `web@0.0.2` result.
     gaps:
       - authoritative npm package names, versions, provenance, and publication dates
       - supported API and compatibility statement
@@ -150,6 +151,7 @@ commitments:
     status: planned
     evidence:
       - RAP issues 620-622 were open at 2026-08-26.
+      - https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md records RAP issue 615 and AUDD child work as still open in the public GitHub snapshot.
     gaps: [bounded authority, AUDD x402 proof, approved end-to-end evidence package]
     humanGate: live-payment-if-required
     ownerRole: RAP payments lead
@@ -161,6 +163,7 @@ commitments:
     status: planned
     evidence:
       - RAP issues 623-625 were open at 2026-08-26.
+      - https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md records RAP issue 615 and AUDD child work as still open in the public GitHub snapshot.
     gaps: [eligible 10000 AUDD volume, 50 completed cycles, live settlement/release/refund evidence]
     humanGate: live-payment-and-grant-eligibility
     ownerRole: RAP payments lead
@@ -172,6 +175,7 @@ commitments:
     status: planned
     evidence:
       - RAP issues 626-628 were open at 2026-08-26.
+      - https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md records RAP issue 615 and AUDD child work as still open in the public GitHub snapshot.
     gaps: [250 eligible users, participation linkage, dashboard and evidence export]
     humanGate: privacy-and-publication
     ownerRole: product analytics lead
@@ -183,6 +187,7 @@ commitments:
     status: planned
     evidence:
       - RAP issues 629-630 were open at 2026-08-26.
+      - https://github.com/nissan/reddi-ecosystem/blob/main/evidence/github/ECO-001-2026-08-31.md records RAP issue 615 and AUDD child work as still open in the public GitHub snapshot.
     gaps: [activation-pool controls, workshop mode, approved non-coding activation plan]
     humanGate: funding-outreach-and-event-approval
     ownerRole: programme lead

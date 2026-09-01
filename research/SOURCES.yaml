@@ -261,18 +261,20 @@ sources:
     relevance: Tracks upstream extension/plugin demand; inspect before choosing a permanent fork.
 
   - id: omarchy
-    publisher: Basecamp
+    publisher: Omacom
     kind: source-repository
     published: unknown
-    url: https://github.com/basecamp/omarchy
-    relevance: Canonical upstream for the distribution used by the proposed Reddi Pack/Machine.
+    url: https://github.com/omacom/omarchy
+    previousUrl: https://github.com/basecamp/omarchy
+    relevance: Canonical upstream for the distribution used by the proposed Reddi Pack/Machine; the previous Basecamp URL resolved to omacom/omarchy when checked on 2026-08-31.
 
   - id: omarchy-quattro-plugins
-    publisher: Basecamp
+    publisher: Omacom
     kind: documentation
     published: unknown
-    url: https://github.com/basecamp/omarchy/blob/quattro/manual/32-shell-plugins.md
-    relevance: Defines the plugin surface and constrains the cockpit to thin, non-privileged QML integration.
+    url: https://github.com/omacom/omarchy/blob/quattro/manual/32-shell-plugins.md
+    previousUrl: https://github.com/basecamp/omarchy/blob/quattro/manual/32-shell-plugins.md
+    relevance: Defines the plugin surface and constrains the cockpit to thin, non-privileged QML integration; previous Basecamp path retained as redirect/history context.
 
   - id: nostr-nips
     publisher: Nostr community
@@ -282,11 +284,12 @@ sources:
     relevance: Canonical event and relay protocol specifications; integration claims cite exact implemented NIPs.
 
   - id: x402
-    publisher: Coinbase
+    publisher: x402 Foundation
     kind: specification-repository
     published: unknown
-    url: https://github.com/coinbase/x402
-    relevance: Initial HTTP payment challenge/response mechanism; it is not itself generic escrow.
+    url: https://github.com/x402-foundation/x402
+    activeForkUrl: https://github.com/coinbase/x402
+    relevance: Initial HTTP payment challenge/response mechanism; it is not itself generic escrow. GitHub API metadata checked on 2026-09-01 reports coinbase/x402 as an active fork with parent/source x402-foundation/x402; no separate succession announcement was captured, so conclusions beyond that fork/source relationship are inference.
 
   - id: slsa
     publisher: OpenSSF

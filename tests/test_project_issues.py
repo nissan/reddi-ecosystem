@@ -2,12 +2,16 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.project_issues import ROOT, generate
+from tools.project_issues import ROOT, bullets, generate
 
 
 class IssueProjectionTests(unittest.TestCase):
     def test_checked_in_projections_are_current(self):
         self.assertEqual([], generate(ROOT, check=True))
+
+    def test_bullets_rejects_scalar_evidence_produced_values(self):
+        with self.assertRaises(TypeError):
+            bullets("evidence/github/ECO-001-2026-08-31.md")
 
     def test_generation_is_deterministic(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -36,7 +36,7 @@ of those products may become a required semantic primitive in ADL or RAP.
 | Arena rules, fixtures, judges, replay | `nissan/reddi-arena` | cross-product milestone view |
 | Programme milestones, grant truth, cross-repo graph | `nissan/reddi-ecosystem` | canonical |
 | Buzz behavior and Nostr workspace | `block/buzz` upstream | patch/register/integration view |
-| Omarchy and Quattro shell | `basecamp/omarchy` upstream | patch/register/package view |
+| Omarchy and Quattro shell | `omacom/omarchy` upstream | patch/register/package view; `basecamp/omarchy` is historical/redirect context |
 
 An ecosystem issue may coordinate component work, but its implementation issue must
 live in the canonical component repository. Links are dependencies; copied issue text
