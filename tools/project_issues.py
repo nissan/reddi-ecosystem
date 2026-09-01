@@ -64,6 +64,11 @@ def node_markdown(node: dict[str, Any], epics: dict[str, dict[str, Any]]) -> str
         f"- Owner role: {node['ownerRole']}",
         f"- Dependencies: {', '.join(dependency_links) if dependency_links else 'none'}",
     ]
+    if node.get("railRole"):
+        lines.append(f"- Rail role: `{node['railRole']}`")
+    if node.get("comparisonStandards"):
+        joined = ", ".join(f"`{item}`" for item in node["comparisonStandards"])
+        lines.append(f"- Comparison standards: {joined}")
     if external:
         lines.append(f"- Existing canonical issue: {external}")
     lines += [
