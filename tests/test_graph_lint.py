@@ -223,6 +223,29 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertTrue(any("unknown railRole solana-only" in error for error in errors))
 
+    def test_malformed_rail_field_types_return_diagnostics(self):
+        cases = (
+            ("railRole", [], "ECO-041: unknown railRole []"),
+            ("railProfile", [], "ECO-042: unknown railProfile []"),
+            (
+                "comparisonStandards",
+                [[]],
+                "ECO-043: unknown comparisonStandards entry []",
+            ),
+        )
+        for field, value, expected in cases:
+            with self.subTest(field=field):
+                graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+                nodes = {node["id"]: node for node in graph["nodes"]}
+                node_id = {
+                    "railRole": "ECO-041",
+                    "railProfile": "ECO-042",
+                    "comparisonStandards": "ECO-043",
+                }[field]
+                nodes[node_id][field] = value
+                errors = self._lint_with_graph(graph)
+                self.assertIn(expected, errors)
+
     def test_missing_acceptance_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         graph["nodes"][0]["acceptance"] = []
