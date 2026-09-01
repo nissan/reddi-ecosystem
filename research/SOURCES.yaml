@@ -370,6 +370,20 @@ sources:
     url: https://www.ietf.org/archive/id/draft-ietf-oauth-sd-jwt-vc-10.html
     relevance: Selective-disclosure JWT credential draft that ECO-045 maps against redaction classes; draft status means it cannot be cited as a settled standard.
 
+  - id: audd-issuer-networks
+    publisher: AUDD Digital (AUDC Pty Ltd)
+    kind: documentation
+    published: unknown
+    url: https://www.audd.digital/faq/
+    relevance: Issuer statement of the networks AUDD is deployed on, naming Solana alongside Ethereum, Stellar, XRPL, Hedera, XDC, BASE, and Redbelly, and linking the official Solana address AUDDttiEpCydTm7joUMbYddm72jAWXZnCpPZtDoxqBSw; it is the issuer-side basis for ECO-042 planning Solana/AUDD settlement as token work rather than SOL-only escrow configuration.
+
+  - id: audd-solana-mint
+    publisher: Solana mainnet-beta chain state
+    kind: chain-record
+    published: unknown
+    url: https://explorer.solana.com/address/AUDDttiEpCydTm7joUMbYddm72jAWXZnCpPZtDoxqBSw
+    relevance: The mint account the issuer FAQ links, read at 2026-09-01, is owned by the SPL Token program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA with 6 decimals and is a classic SPL mint rather than Token-2022. This is the primary evidence for the ECO-042 premise that SPL mint, token-account, transfer, account-struct, and PDA-layout work is in scope; the canonical identifiers ECO-042 must configure are still its own subtask, not settled here.
+
   - id: rap-mainnet-readiness-646
     publisher: Redditech / nissan
     kind: upstream-pull-request

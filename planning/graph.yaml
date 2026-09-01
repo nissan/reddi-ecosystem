@@ -14,7 +14,7 @@ dependencyEdgeTypes:
   humanGates: non-automatable approval or external-authority prerequisite
 railFieldTypes:
   railRole: side of the rail-neutrality boundary a node sits on; exactly one node may declare first-implementation, and every comparison-fixture node must depend on the ECO-047 acceptance pack
-  railProfile: concrete rail the node implements; solana-audd is reserved for the single first-implementation node
+  railProfile: concrete rail the node implements; requires an explicit railRole and solana-audd is reserved for the single first-implementation node
   comparisonStandards: rails a node contract-tests as comparison fixtures; requires an explicit railRole and never lists the first-implementation profile
 statusVocabulary: [ready, in-progress, blocked, planned, done, superseded]
 priorityVocabulary: [P0, P1, P2, P3]
