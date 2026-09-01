@@ -263,8 +263,17 @@ def lint(root: Path = ROOT) -> list[str]:
         if rail_role is not None and rail_role not in rail_roles:
             errors.append(f"{node_id}: unknown railRole {rail_role}")
         rail_profile = node.get("railProfile")
-        if rail_profile is not None and rail_profile not in rail_profiles:
-            errors.append(f"{node_id}: unknown railProfile {rail_profile}")
+        if rail_profile is not None:
+            if rail_profile not in rail_profiles:
+                errors.append(f"{node_id}: unknown railProfile {rail_profile}")
+            elif (
+                rail_profile == REQUIRED_FIRST_RAIL_PROFILE
+                and rail_role != "first-implementation"
+            ):
+                errors.append(
+                    f"{node_id}: railProfile {REQUIRED_FIRST_RAIL_PROFILE} requires "
+                    "railRole first-implementation"
+                )
         standards = node.get("comparisonStandards")
         if standards is not None:
             if not isinstance(standards, list) or not standards:
