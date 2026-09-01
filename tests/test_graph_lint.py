@@ -5,7 +5,7 @@ from pathlib import Path
 
 import yaml
 
-from tools.graph_lint import ROOT, find_cycle, lint, load_yaml
+from tools.graph_lint import ROOT, find_cycle, lint, lint_obligation_sequence, load_yaml
 
 
 class GraphLintTests(unittest.TestCase):
@@ -47,6 +47,26 @@ class GraphLintTests(unittest.TestCase):
         self.assertTrue(
             any("humanGates must contain only strings" in error for error in errors)
         )
+
+    def test_solana_audd_sequence_is_required_before_cross_standard_proof(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-043"]["dependsOn"] = ["ECO-041"]
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-043: missing required dependency ECO-047", errors)
+
+    def test_payment_adapter_contract_methods_are_required(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-041"]["acceptance"] = [
+            item.replace("refund_or_reverse", "remedy")
+            for item in nodes["ECO-041"]["acceptance"]
+        ]
+        nodes["ECO-041"]["outcome"] = nodes["ECO-041"]["outcome"].replace(
+            "refund/reverse", "remedy"
+        )
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-041: adapter contract must cover refund_or_reverse", errors)
 
     def test_missing_acceptance_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))

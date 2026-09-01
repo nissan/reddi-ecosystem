@@ -1,6 +1,6 @@
 # End-to-end programme roadmap
 
-Planning baseline: 2026-08-26. Dates are planning targets, not grantor-approved deadline
+Planning baseline: 2026-08-26; sequencing refresh: 2026-08-31. Dates are planning targets, not grantor-approved deadline
 changes or public delivery promises. The canonical milestone gates are in
 `planning/milestones.yaml`; the canonical executable backlog is `planning/graph.yaml`.
 
@@ -23,9 +23,24 @@ flowchart LR
   M7 --> M8
 ```
 
-M0 is the only urgent commitment path. Product proofs continue only where they do not
-consume the evidence owners or require live value. Mainnet, signing/custody, public grant
-claims, outreach, and spend remain separate human gates.
+M0 is the only urgent recovery path until the evidence ledger is truthful. The first concrete payment implementation and acceptance evidence after M0 runs on Solana rails with AUDD payments because the captain's active obligations are to Solana Superteam Australia and the AUDD release gates. Product proofs continue only where they do not consume evidence owners, confuse grant truth, or require live value. Mainnet, signing/custody, public grant claims, outreach, deployment, and spend remain separate human gates.
+
+## Captain obligation-driven sequencing
+
+The accepted strategy remains portable: ADL and RAP core contracts are rail-neutral, and x402, MPP, AP2, ACP/UCP, Stripe-style rails, and later chains are comparison fixtures or later adapters. Sequencing is not neutrality. The first implementation and acceptance-evidence profile must satisfy the existing Solana/AUDD obligations before Reddi spends attention on a public cross-standard no-spend proof that would be easier to explain but would not discharge those obligations.
+
+Executable order:
+
+1. **Recover M0 truth:** ECO-000 through ECO-004 recover governing grant text, repository/release/deployment snapshots, Solana/Quasar identities, adoption/volume definitions, and AUDD issue 615-630 gaps. ECO-005 prepares human-approved remediation and grant communication decisions.
+2. **Constrain RAP readiness:** ECO-040 imports current RAP readiness findings, including any evidence that mainnet/live paths are not ready, and isolates Solana, AUDD, x402, MPP/AP2, Nostr, provider, and custody assumptions behind adapters.
+3. **Freeze the adapter contract:** ECO-041 versions quote, authorize, submit, observe, settle, refund-or-reverse, reconcile, and redact semantics with explicit custody, finality, fee, refund, chargeback, idempotency, redaction, and offline-verification capabilities.
+4. **Implement Solana/AUDD first:** ECO-042 maps current RAP middleware/programs to Solana/AUDD adapter behavior, adds canonical AUDD/devnet/test fixtures, produces receipts and rail observations, and proves negative cases without live spend.
+5. **Bind receipts and Arena evidence:** ECO-045 plus ECO-051/ECO-052 bind job/agreement, actors, Arena evidence, judge/rubric, Solana/AUDD observation, environment, redaction class, and receipt version into replayable audit artifacts.
+6. **Deliver and audit AUDD nodes:** ECO-046 reconciles RAP issues 615-630 to the new contract and records implementation, test, devnet, and independent audit evidence without claiming eligible volume, users, live settlement, or grant acceptance before evidence exists.
+7. **Prepare acceptance and communication pack:** ECO-047 packages privacy-safe Superteam Australia/AUDD evidence, exception lists, operator approvals, and grant communication drafts behind legal/grantor/publication gates.
+8. **Only then broaden public proofs:** ECO-043 and later Buzz/community nodes run the no-spend cross-standard proof against deterministic fake and MPP/AP2/x402/Stripe-style fixtures to demonstrate neutrality without displacing the Solana/AUDD first implementation.
+
+No step authorizes synthetic activity, unapproved live transactions, mainnet claims, publication, or grantor communication.
 
 ## Current M0 evidence posture — 2026-08-31
 
@@ -55,8 +70,8 @@ are proven by the relevant primary sources and approved human gates.
 |---|---:|---|---|
 | M0 Evidence Recovery and Grant Truth | 11 Sep 2026 | Every May–July commitment, August target, and AUDD gate has governing text, evidence, gap, owner role, and approved disposition | E00 |
 | M1 Programme Baseline and Governance | 25 Sep 2026 | Public control-plane repo, validated graph/projections, research/prompt governance, claim/status views, open-source and community covenants | E01–E02 |
-| M2 ADL/RAP/Arena Contract Convergence | 30 Oct 2026 | Portable ADL projection and Agent BOM, rail-neutral RAP lifecycle/events/receipts, multi-runtime conformance, deterministic Arena replay | E03–E05 |
-| M3 Reddi Arena for Buzz Proof | 11 Dec 2026 | Upstream-compatible sidecar proves no-spend discovery-through-receipt flow with Nostr privacy/trust and usable lifecycle UX | E06 |
+| M2 ADL/RAP/Arena Contract Convergence | 30 Oct 2026 | Portable ADL projection and Agent BOM, rail-neutral RAP lifecycle/events/receipts, first Solana/AUDD implementation and acceptance pack, then contract-tested MPP/AP2/x402 comparison fixtures, multi-runtime conformance, deterministic Arena replay | E03–E05 |
+| M3 Reddi Arena for Buzz Proof | 11 Dec 2026 | After Solana/AUDD acceptance evidence is packaged, upstream-compatible sidecar proves no-spend discovery-through-receipt flow with Nostr privacy/trust and usable lifecycle UX | E06 |
 | M4 Reddi Pack for Omarchy Quattro Alpha | 29 Jan 2027 | Signed services and thin keyless QML cockpit install, update, roll back, disable, and uninstall on supported Omarchy | E07 |
 | M5 Reddi Machine Developer Preview | 26 Mar 2027 | Evidence chooses provisioning/image shape; reproducible first boot, identity/wallet boundary, hardware matrix, updates and recovery work | E08 |
 | M6 Lighthouse Hosted Services Alpha | 30 Apr 2027 | Managed relay/Arena/evidence operations meet isolation/SLO/export/OSS-parity gates and have measured unit economics | E09 |
@@ -92,14 +107,11 @@ Three branches proceed with explicit join gates:
 
 1. **ADL branch:** portability gap -> Agent BOM/dependency graph -> projections ->
    prompt/eval/authority profiles -> multi-runtime conformance.
-2. **RAP branch:** leakage audit -> payment adapter -> Solana/AUDD/x402 plus second rail ->
-   event/replay contract -> evidence/judgment/settlement receipt binding.
+2. **RAP branch:** leakage/readiness audit -> normalized payment adapter -> Solana/AUDD first implementation -> receipt and Arena evidence binding -> AUDD issue 615-630 audit/acceptance pack -> MPP/AP2/x402/Stripe-style comparison fixture.
 3. **Arena branch:** canonical ADL -> evaluation bundle -> replay/audit -> adversarial tracks ->
    provider/runtime matrix -> upstream findings loop.
 
-Only after those branches join does the Buzz branch build the public sidecar and lifecycle
-UX. This prevents Buzz/Nostr event shapes, Solana identifiers, or a single model provider
-from becoming accidental ADL/RAP semantics.
+Only after those branches join and the Solana/AUDD acceptance pack exists does the Buzz branch build the public no-spend sidecar and lifecycle UX. This prevents Buzz/Nostr event shapes, Solana identifiers, MPP/AP2/x402 commerce concepts, or a single model provider from becoming accidental ADL/RAP semantics.
 
 ## 2027 productization sequence
 

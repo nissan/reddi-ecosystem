@@ -21,11 +21,10 @@ Replaceable adapters
   identity | event transport | storage | model/runtime | evidence | payment | reputation
                          |
 Rails and operations
-  Solana/AUDD/x402 | other chains/assets | Stripe/fiat | local | self-hosted | Lighthouse
+  Solana/AUDD first | x402/MPP/AP2 fixtures | other chains/assets | Stripe/fiat | local | self-hosted | Lighthouse
 ```
 
-The first proof may use Buzz, Nostr, Solana, AUDD, x402, and Omarchy Quattro. None
-of those products may become a required semantic primitive in ADL or RAP.
+The first concrete payment implementation and acceptance-evidence path uses Solana rails with AUDD payments because it is tied to the current Solana Superteam Australia and AUDD obligations. x402, MPP, AP2, Buzz, Nostr, and Omarchy Quattro remain projection, comparison, or later-adapter surfaces. None of those products may become a required semantic primitive in ADL or RAP.
 
 ## Canonical ownership
 
@@ -82,4 +81,3 @@ The graph blocks irreversible choices until evidence supports an ADR for:
 - payment adapter contract and receipt normalization;
 - hosted data boundaries and custody exclusion;
 - licensing, names, marks, and distribution terms.
-

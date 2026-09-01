@@ -13,6 +13,8 @@ rules:
   - owned demos are not automatically external integrations
   - test or synthetic volume is never grant-eligible volume
   - no recovery task authorizes live spend, outreach, or publication
+  - Solana rails with AUDD payments are the first concrete payment implementation and acceptance-evidence profile for Solana Superteam Australia and AUDD obligations
+  - x402, MPP, AP2, ACP/UCP, Stripe-style, and other standards remain comparison fixtures or later adapters until the Solana/AUDD acceptance pack is reviewed
 
 commitments:
   - id: GRANT-2026-01
@@ -86,7 +88,7 @@ commitments:
     due: 2026-07-31
     status: unknown
     evidence: []
-    gaps: [event confirmation, attendance, completion measure, materials, feedback]
+    gaps: [event confirmation, attendance, completion measure, materials, feedback, relationship between workshop obligations and Solana/AUDD acceptance evidence]
     ownerRole: community lead
 
   - id: GRANT-2026-08
@@ -158,7 +160,8 @@ commitments:
       - RAP issues 620-622 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issue 615 as open at 2026-08-31; issues 620-622 fall
         outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
-    gaps: [bounded authority, AUDD x402 proof, approved end-to-end evidence package]
+    gaps: [bounded authority, AUDD x402 proof, Solana/AUDD quote-authorize-submit-observe-settle-reconcile-redact evidence, approved end-to-end evidence package, x402 comparison boundary if still required by governing text]
+    acceptanceArtifacts: [RAP issue/PR links, Solana/AUDD fixture-devnet evidence, receipt and reconciliation export, redaction review, acceptance authority decision]
     humanGate: live-payment-if-required
     ownerRole: RAP payments lead
 
@@ -171,7 +174,8 @@ commitments:
       - RAP issues 623-625 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615 and 625 as open at 2026-08-31; issues 623-624
         fall outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
-    gaps: [eligible 10000 AUDD volume, 50 completed cycles, live settlement/release/refund evidence]
+    gaps: [eligible 10000 AUDD volume, 50 completed cycles, live settlement/release/refund evidence, operator approval for any real spend or mainnet activity]
+    acceptanceArtifacts: [eligible-activity definition, primary rail records, receipt/reconciliation export, refund-or-reversal evidence where applicable, exclusion log for synthetic or owned demo activity]
     humanGate: live-payment-and-grant-eligibility
     ownerRole: RAP payments lead
 
@@ -183,7 +187,8 @@ commitments:
     evidence:
       - RAP issues 626-628 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615, 626, 627, and 628 as open at 2026-08-31.
-    gaps: [250 eligible users, participation linkage, dashboard and evidence export]
+    gaps: [250 eligible users, participation linkage, dashboard and evidence export, consent/privacy basis and exclusion of synthetic users]
+    acceptanceArtifacts: [eligible-user definition, privacy-safe participation evidence, dashboard export, redaction review, acceptance authority decision]
     humanGate: privacy-and-publication
     ownerRole: product analytics lead
 
@@ -195,6 +200,7 @@ commitments:
     evidence:
       - RAP issues 629-630 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615, 629, and 630 as open at 2026-08-31.
-    gaps: [activation-pool controls, workshop mode, approved non-coding activation plan]
+    gaps: [activation-pool controls, workshop mode, approved non-coding activation plan, Superteam Australia communication and funding approvals]
+    acceptanceArtifacts: [activation controls, workshop/evidence plan, approved communication record, funding/spend approval if used]
     humanGate: funding-outreach-and-event-approval
     ownerRole: programme lead

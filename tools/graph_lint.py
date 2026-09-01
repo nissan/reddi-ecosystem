@@ -59,6 +59,68 @@ def find_cycle(nodes: dict[str, dict[str, Any]]) -> list[str] | None:
     return None
 
 
+def text_for(item: dict[str, Any], fields: tuple[str, ...]) -> str:
+    parts: list[str] = []
+    for field in fields:
+        value = item.get(field)
+        if isinstance(value, list):
+            parts.extend(str(entry) for entry in value)
+        elif value is not None:
+            parts.append(str(value))
+    return "\n".join(parts).lower()
+
+
+def require_dependency(
+    errors: list[str], nodes: dict[str, dict[str, Any]], node_id: str, dependency: str
+) -> None:
+    node = nodes.get(node_id)
+    if not node:
+        errors.append(f"missing required planning node {node_id}")
+        return
+    if dependency not in node.get("dependsOn", []):
+        errors.append(f"{node_id}: missing required dependency {dependency}")
+
+
+def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
+    """Enforce captain-approved Solana/AUDD-first sequencing."""
+    errors: list[str] = []
+    for node_id in ("ECO-041", "ECO-042", "ECO-043", "ECO-046", "ECO-047"):
+        if node_id not in nodes:
+            errors.append(f"missing required planning node {node_id}")
+    if errors:
+        return errors
+
+    require_dependency(errors, nodes, "ECO-042", "ECO-003")
+    require_dependency(errors, nodes, "ECO-042", "ECO-041")
+    require_dependency(errors, nodes, "ECO-046", "ECO-042")
+    require_dependency(errors, nodes, "ECO-047", "ECO-046")
+    require_dependency(errors, nodes, "ECO-043", "ECO-047")
+    if "ECO-060" in nodes:
+        require_dependency(errors, nodes, "ECO-060", "ECO-047")
+
+    adapter_text = text_for(nodes["ECO-041"], ("outcome", "acceptance", "subtasks"))
+    for method in (
+        "quote",
+        "authorize",
+        "submit",
+        "observe",
+        "settle",
+        "refund_or_reverse",
+        "reconcile",
+        "redact",
+    ):
+        if method not in adapter_text:
+            errors.append(f"ECO-041: adapter contract must cover {method}")
+
+    first_text = text_for(nodes["ECO-042"], ("title", "outcome", "acceptance"))
+    if "solana/audd" not in first_text or "first" not in first_text:
+        errors.append("ECO-042: must remain the Solana/AUDD-first implementation node")
+    later_text = text_for(nodes["ECO-043"], ("title", "outcome", "acceptance", "subtasks"))
+    if not all(term in later_text for term in ("mpp", "ap2", "x402")):
+        errors.append("ECO-043: later neutrality proof must retain MPP/AP2/x402 comparison scope")
+    return errors
+
+
 def lint(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     try:
@@ -92,6 +154,7 @@ def lint(root: Path = ROOT) -> list[str]:
 
     epics = {item.get("id"): item for item in epics_list if item.get("id")}
     nodes = {item.get("id"): item for item in nodes_list if item.get("id")}
+    errors.extend(lint_obligation_sequence(nodes))
     children: dict[str, list[str]] = defaultdict(list)
 
     for epic_id, epic in epics.items():
