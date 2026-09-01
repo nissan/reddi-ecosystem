@@ -99,7 +99,9 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
     require_dependency(errors, nodes, "ECO-042", "ECO-041")
     require_dependency(errors, nodes, "ECO-046", "ECO-042")
     require_dependency(errors, nodes, "ECO-047", "ECO-046")
-    require_dependency(errors, nodes, "ECO-043", "ECO-047")
+    for node_id, node in sorted(nodes.items()):
+        if node.get("railRole") == "comparison-fixture":
+            require_dependency(errors, nodes, node_id, "ECO-047")
     if "ECO-060" in nodes:
         require_dependency(errors, nodes, "ECO-060", "ECO-047")
 

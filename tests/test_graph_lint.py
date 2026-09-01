@@ -123,6 +123,18 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-043: comparisonStandards must include x402", errors)
 
+    def test_any_comparison_fixture_must_follow_the_acceptance_pack(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-070"] = {
+            "id": "ECO-070",
+            "railRole": "comparison-fixture",
+            "comparisonStandards": ["mpp"],
+            "dependsOn": ["ECO-041"],
+        }
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-070: missing required dependency ECO-047", errors)
+
     def test_first_rail_profile_requires_the_first_implementation_role(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         for node in graph["nodes"]:

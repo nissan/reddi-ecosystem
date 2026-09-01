@@ -13,6 +13,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO_LOCATION_PREFIX = "repo:"
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -49,8 +50,17 @@ def lint(root: Path = ROOT) -> list[str]:
             if field not in source or source[field] in (None, ""):
                 errors.append(f"{source_id}: missing source field {field}")
         location = str(source.get("url", ""))
-        if not location.startswith(("https://", "file:///")):
-            errors.append(f"{source_id}: source URL must use https or file")
+        if location.startswith(REPO_LOCATION_PREFIX):
+            relative = location[len(REPO_LOCATION_PREFIX):]
+            target = (root / relative).resolve()
+            if not target.is_file() or root.resolve() not in target.parents:
+                errors.append(
+                    f"{source_id}: {location} must name a file inside the repository"
+                )
+        elif not location.startswith("https://"):
+            errors.append(
+                f"{source_id}: source URL must use https or {REPO_LOCATION_PREFIX}"
+            )
 
     catalog = prompts.get("prompts", [])
     prompt_ids = [item.get("id") for item in catalog]

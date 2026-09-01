@@ -9,7 +9,7 @@ changes or public delivery promises. The canonical milestone gates are in
 ```mermaid
 flowchart LR
   M0["M0 Evidence recovery\n11 Sep 2026"] --> M1["M1 Programme baseline\n25 Sep 2026"]
-  M1 --> M2["M2 ADL/RAP/Arena convergence\n30 Oct 2026"]
+  M1 --> M2["M2 ADL/RAP/Arena convergence\n30 Oct 2026 (un-rebaselined)"]
   M2 --> M3["M3 Arena for Buzz proof\n11 Dec 2026"]
   M3 --> M4["M4 Quattro Pack alpha\n29 Jan 2027"]
   M4 --> M5["M5 Reddi Machine preview\n26 Mar 2027"]
