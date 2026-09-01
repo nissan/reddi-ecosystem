@@ -12,6 +12,12 @@ class GraphLintTests(unittest.TestCase):
     def test_repository_graph_is_valid(self):
         self.assertEqual([], lint(ROOT))
 
+    def test_graph_schema_version_is_required(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        graph["schemaVersion"] = 1
+        errors = self._lint_with_graph(graph)
+        self.assertIn("planning/graph.yaml: schemaVersion must be 2", errors)
+
     def test_cycle_is_found(self):
         nodes = {
             "A": {"dependsOn": ["B"]},

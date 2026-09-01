@@ -3,6 +3,7 @@
 These files are deterministic projections of `planning/graph.yaml`. The graph is canonical.
 Do not edit generated files by hand.
 
+- Graph schema version: 2
 - 12 epics
 - 74 issues
 
