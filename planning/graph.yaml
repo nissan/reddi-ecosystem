@@ -688,7 +688,7 @@ nodes:
     githubProjection: tracker
     status: planned
     priority: P0
-    dependsOn: [ECO-003, ECO-041]
+    dependsOn: [ECO-003, ECO-004, ECO-041]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/621
     ownerRole: Solana payments lead
     railRole: first-implementation
