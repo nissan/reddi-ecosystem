@@ -14,7 +14,11 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_GRAPH_SCHEMA_VERSION = 2
+EXPECTED_REGISTRY_SCHEMA_VERSIONS = {
+    "planning/graph.yaml": 2,
+    "planning/milestones.yaml": 2,
+    "planning/repositories.yaml": 2,
+}
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -162,11 +166,14 @@ def lint(root: Path = ROOT) -> list[str]:
     except (OSError, ValueError, yaml.YAMLError) as exc:
         return [str(exc)]
 
-    if graph.get("schemaVersion") != EXPECTED_GRAPH_SCHEMA_VERSION:
-        errors.append(
-            "planning/graph.yaml: schemaVersion must be "
-            f"{EXPECTED_GRAPH_SCHEMA_VERSION}"
-        )
+    for relative, registry in (
+        ("planning/graph.yaml", graph),
+        ("planning/milestones.yaml", milestones_data),
+        ("planning/repositories.yaml", repositories_data),
+    ):
+        expected = EXPECTED_REGISTRY_SCHEMA_VERSIONS[relative]
+        if registry.get("schemaVersion") != expected:
+            errors.append(f"{relative}: schemaVersion must be {expected}")
 
     milestones = {item.get("id") for item in milestones_data.get("milestones", [])}
     repositories = {

@@ -18,6 +18,13 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertIn("planning/graph.yaml: schemaVersion must be 2", errors)
 
+    def test_stale_planning_registry_schema_version_is_rejected(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        milestones = copy.deepcopy(load_yaml(ROOT / "planning/milestones.yaml"))
+        milestones["schemaVersion"] = 1
+        errors = self._lint_with_graph(graph, milestones=milestones)
+        self.assertIn("planning/milestones.yaml: schemaVersion must be 2", errors)
+
     def test_cycle_is_found(self):
         nodes = {
             "A": {"dependsOn": ["B"]},
@@ -240,15 +247,23 @@ class GraphLintTests(unittest.TestCase):
                     any(f"{field} must contain only strings" in error for error in errors)
                 )
 
-    def _lint_with_graph(self, graph):
+    def _lint_with_graph(self, graph, milestones=None):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "planning").mkdir()
-            for name in ("milestones.yaml", "repositories.yaml"):
-                (root / "planning" / name).write_text(
-                    (ROOT / "planning" / name).read_text(encoding="utf-8"),
-                    encoding="utf-8",
-                )
+            for name, replacement in (
+                ("milestones.yaml", milestones),
+                ("repositories.yaml", None),
+            ):
+                if replacement is None:
+                    (root / "planning" / name).write_text(
+                        (ROOT / "planning" / name).read_text(encoding="utf-8"),
+                        encoding="utf-8",
+                    )
+                else:
+                    (root / "planning" / name).write_text(
+                        yaml.safe_dump(replacement, sort_keys=False), encoding="utf-8"
+                    )
             (root / "planning/graph.yaml").write_text(
                 yaml.safe_dump(graph, sort_keys=False), encoding="utf-8"
             )
