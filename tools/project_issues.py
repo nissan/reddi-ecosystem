@@ -14,6 +14,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_GRAPH_SCHEMA_VERSION = 2
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -162,6 +163,11 @@ def epic_markdown(epic: dict[str, Any], nodes: list[dict[str, Any]]) -> str:
 
 def generate(root: Path = ROOT, check: bool = False) -> list[str]:
     graph = load(root / "planning/graph.yaml")
+    if graph.get("schemaVersion") != EXPECTED_GRAPH_SCHEMA_VERSION:
+        return [
+            "planning/graph.yaml: schemaVersion must be "
+            f"{EXPECTED_GRAPH_SCHEMA_VERSION}"
+        ]
     output = root / "planning/issues"
     expected: dict[Path, str] = {}
     epics = {item["id"]: item for item in graph["epics"]}
@@ -178,6 +184,7 @@ def generate(root: Path = ROOT, check: bool = False) -> list[str]:
         "These files are deterministic projections of `planning/graph.yaml`. The graph is canonical.",
         "Do not edit generated files by hand.",
         "",
+        f"- Graph schema version: {graph['schemaVersion']}",
         f"- {len(epics)} epics",
         f"- {len(graph['nodes'])} issues",
         "",

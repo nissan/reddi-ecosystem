@@ -14,6 +14,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_GRAPH_SCHEMA_VERSION = 2
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -160,6 +161,12 @@ def lint(root: Path = ROOT) -> list[str]:
         repositories_data = load_yaml(root / "planning/repositories.yaml")
     except (OSError, ValueError, yaml.YAMLError) as exc:
         return [str(exc)]
+
+    if graph.get("schemaVersion") != EXPECTED_GRAPH_SCHEMA_VERSION:
+        errors.append(
+            "planning/graph.yaml: schemaVersion must be "
+            f"{EXPECTED_GRAPH_SCHEMA_VERSION}"
+        )
 
     milestones = {item.get("id") for item in milestones_data.get("milestones", [])}
     repositories = {

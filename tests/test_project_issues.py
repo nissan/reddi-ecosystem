@@ -56,6 +56,23 @@ class IssueProjectionTests(unittest.TestCase):
     def _epics(self):
         return {"EPIC-1": {"title": "Example epic"}}
 
+    def test_checked_in_projection_names_graph_schema_version(self):
+        readme = (ROOT / "planning/issues/README.md").read_text(encoding="utf-8")
+        self.assertIn("- Graph schema version: 2", readme)
+
+    def test_generator_rejects_unsupported_graph_schema_version(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "planning").mkdir()
+            graph = (ROOT / "planning/graph.yaml").read_text(encoding="utf-8")
+            (root / "planning/graph.yaml").write_text(
+                graph.replace("schemaVersion: 2", "schemaVersion: 1", 1),
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                ["planning/graph.yaml: schemaVersion must be 2"], generate(root)
+            )
+
     def test_generation_is_deterministic(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
