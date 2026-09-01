@@ -160,8 +160,8 @@ commitments:
       - RAP issues 620-622 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issue 615 as open at 2026-08-31; issues 620-622 fall
         outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
-    gaps: [bounded authority, AUDD x402 proof, Solana/AUDD quote-authorize-submit-observe-settle-reconcile-redact evidence, approved end-to-end evidence package, x402 comparison boundary if still required by governing text]
-    acceptanceArtifacts: [RAP issue/PR links, Solana/AUDD fixture-devnet evidence, receipt and reconciliation export, redaction review, acceptance authority decision]
+    gaps: [bounded authority, AUDD x402 proof, Solana/AUDD quote-authorize-submit-observe-settle-refund-or-reverse-reconcile-redact evidence, approved end-to-end evidence package, x402 comparison boundary if still required by governing text]
+    acceptanceArtifacts: [RAP issue/PR links, Solana/AUDD fixture-devnet evidence, receipt and reconciliation export, refund-or-reversal evidence where applicable, redaction review, acceptance authority decision]
     humanGate: live-payment-if-required
     ownerRole: RAP payments lead
 

@@ -708,11 +708,12 @@ nodes:
       - MPP/AP2/x402/Stripe-style fake provider or second-chain fixture completes the same job/receipt lifecycle without live account, production account, live charge, or grant-eligible volume claim.
       - Capture/chargeback, mandate, challenge/response, refund, or alternative finality differences are expressed through capabilities and normalized observations.
       - The comparison repeats Solana/AUDD contract tests and proves no later standard displaced the first obligation-driven implementation.
+      - Any core, adapter-contract, or receipt change forced by the comparison re-runs the Solana/AUDD suite and re-stamps the ECO-047 acceptance binder against the new contract and receipt version before that binder or any grantor communication derived from it is relied upon again.
     subtasks:
       - Select fixture by maximum semantic difference, standards relevance, and minimum external dependency after ECO-047 evidence is packaged.
       - Implement adapter and shared contract tests with deterministic fake or sandbox inputs only.
-      - Record core changes forced by the comparison and repeat the Solana/AUDD suite.
-    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR, repeated Solana/AUDD suite]
+      - Record core changes forced by the comparison, repeat the Solana/AUDD suite, and re-stamp or reopen the ECO-047 binder when contract or receipt semantics change.
+    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR, repeated Solana/AUDD suite, ECO-047 binder re-stamp or reopen record]
     humanGates: [live-payment, paid-service-or-spend, external-publication]
 
   - id: ECO-044
@@ -797,7 +798,7 @@ nodes:
     ownerRole: grant evidence lead
     outcome: Privacy-safe acceptance artifacts for Superteam Australia and AUDD obligations are reviewed before broader MPP/AP2/x402 or no-spend public demonstrations can be promoted.
     acceptance:
-      - Evidence pack maps each Superteam Australia and AUDD obligation to governing text, RAP issue/PR, environment, quote/authorize/submit/observe/settle/refund-or-reverse/reconcile/redact evidence, receipt, Arena conformance result, audit finding, gap, and owner.
+      - Evidence pack maps each Superteam Australia and AUDD obligation to governing text, RAP issue/PR, environment, adapter-contract and receipt version, quote/authorize/submit/observe/settle/refund-or-reverse/reconcile/redact evidence, receipt, Arena conformance result, audit finding, gap, and owner.
       - Live, mainnet, volume, user, workshop, funding, signing, custody, deployment, publication, and grantor-communication claims are either backed by approved primary evidence or explicitly remain blocked/unknown.
       - Legal/grantor communication drafts separate completed implementation evidence, devnet/test evidence, limitations, remediation forecasts, and pending human gates.
     subtasks:

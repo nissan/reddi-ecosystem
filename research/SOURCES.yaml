@@ -337,7 +337,7 @@ sources:
   - id: rap-mainnet-readiness-646
     publisher: Redditech / nissan
     kind: upstream-pull-request
-    published: 2026-08-28
+    published: unknown
     url: https://github.com/nissan/reddi-agent-protocol/pull/646
     relevance: Current RAP readiness work concludes mainnet/live production is not ready and names blocking gates; ecosystem sequencing treats it as a constraint for Solana/AUDD implementation, audit, custody, and grant evidence, not as completed readiness.
 

@@ -68,6 +68,21 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-041: adapter contract must cover refund_or_reverse", errors)
 
+    def test_adapter_contract_method_is_not_satisfied_by_a_longer_word(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-041"]["acceptance"] = [
+            item.replace("redact", "remove") for item in nodes["ECO-041"]["acceptance"]
+        ]
+        nodes["ECO-041"]["outcome"] = nodes["ECO-041"]["outcome"].replace(
+            "redact", "remove"
+        )
+        self.assertTrue(
+            any("redaction" in subtask for subtask in nodes["ECO-041"]["subtasks"])
+        )
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-041: adapter contract must cover redact", errors)
+
     def test_missing_acceptance_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         graph["nodes"][0]["acceptance"] = []
