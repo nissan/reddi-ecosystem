@@ -69,7 +69,10 @@ def lint(root: Path = ROOT) -> list[str]:
     errors.extend(duplicate_errors("commitment", commitment_ids))
     for commitment in commitments:
         commitment_id = commitment.get("id", "<missing-commitment-id>")
-        for field in ("source", "promise", "due", "status", "evidence", "gaps", "ownerRole"):
+        for field in (
+            "source", "promise", "due", "status", "evidence", "gaps",
+            "acceptanceArtifacts", "ownerRole",
+        ):
             if field not in commitment or commitment[field] is None:
                 errors.append(f"{commitment_id}: missing commitment field {field}")
         if commitment.get("status") not in statuses:
@@ -78,6 +81,11 @@ def lint(root: Path = ROOT) -> list[str]:
             errors.append(f"{commitment_id}: evidence must be a list")
         if not isinstance(commitment.get("gaps"), list):
             errors.append(f"{commitment_id}: gaps must be a list")
+        artifacts = commitment.get("acceptanceArtifacts")
+        if artifacts is not None and (not isinstance(artifacts, list) or not artifacts):
+            errors.append(
+                f"{commitment_id}: acceptanceArtifacts must be a non-empty list"
+            )
     return sorted(errors)
 
 
