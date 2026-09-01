@@ -105,6 +105,7 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
         return errors
 
     require_dependency(errors, nodes, "ECO-042", "ECO-003")
+    require_dependency(errors, nodes, "ECO-042", "ECO-004")
     require_dependency(errors, nodes, "ECO-042", "ECO-041")
     require_dependency(errors, nodes, "ECO-046", "ECO-042")
     require_dependency(errors, nodes, "ECO-047", "ECO-046")
