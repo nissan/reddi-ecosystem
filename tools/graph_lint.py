@@ -316,9 +316,14 @@ def lint(root: Path = ROOT) -> list[str]:
             if not isinstance(adapter_methods, list) or not adapter_methods:
                 errors.append(f"{node_id}: adapterMethods must be a non-empty list")
             else:
+                valid_methods = []
                 for method in adapter_methods:
                     if method not in REQUIRED_ADAPTER_METHODS:
                         errors.append(f"{node_id}: unknown adapter method {method}")
+                    elif isinstance(method, str):
+                        valid_methods.append(method)
+                for method in duplicates(valid_methods):
+                    errors.append(f"{node_id}: duplicate adapter method {method}")
         external = node.get("externalIssue")
         if external and not str(external).startswith("https://github.com/"):
             errors.append(f"{node_id}: externalIssue must be an https GitHub URL")
