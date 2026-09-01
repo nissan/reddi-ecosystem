@@ -45,12 +45,20 @@ class ResearchLintTests(unittest.TestCase):
             any("source URL must use https or repo:" in error for error in errors)
         )
 
-    def test_repo_source_location_must_resolve_inside_the_repository(self):
+    def test_existing_file_beside_the_repository_is_rejected(self):
         research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
-        research["sources"][0]["url"] = "repo:../outside/report.md"
+        research["sources"][0]["url"] = f"repo:../{self.SIBLING_NAME}"
         errors = self._lint_with_research(research)
         self.assertTrue(
-            any("must name a file inside the repository" in error for error in errors)
+            any("resolves outside the repository" in error for error in errors)
+        )
+
+    def test_symlink_escaping_the_repository_is_rejected(self):
+        research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
+        research["sources"][0]["url"] = "repo:research/linked-report.md"
+        errors = self._lint_with_research(research, symlink_escape=True)
+        self.assertTrue(
+            any("resolves outside the repository" in error for error in errors)
         )
 
     def test_repo_source_location_must_exist(self):
@@ -58,18 +66,23 @@ class ResearchLintTests(unittest.TestCase):
         research["sources"][0]["url"] = "repo:research/does-not-exist.md"
         errors = self._lint_with_research(research)
         self.assertTrue(
-            any("must name a file inside the repository" in error for error in errors)
+            any("does not name an existing file" in error for error in errors)
         )
 
-    def _lint_with_research(self, research):
-        return self._lint_with(research=research)
+    SIBLING_NAME = "outside-report.md"
+
+    def _lint_with_research(self, research, symlink_escape=False):
+        return self._lint_with(research=research, symlink_escape=symlink_escape)
 
     def _lint_with_grants(self, grants):
         return self._lint_with(grants=grants)
 
-    def _lint_with(self, research=None, grants=None):
+    def _lint_with(self, research=None, grants=None, symlink_escape=False):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            outside = Path(directory) / self.SIBLING_NAME
+            outside.write_text("real file beside the checkout\n", encoding="utf-8")
+            root = Path(directory) / "repo"
+            root.mkdir()
             shutil.copytree(ROOT / "prompts", root / "prompts")
             shutil.copytree(ROOT / "research", root / "research")
             (root / "docs/grants").mkdir(parents=True)
@@ -83,6 +96,8 @@ class ResearchLintTests(unittest.TestCase):
                     (root / relative).write_text(
                         yaml.safe_dump(replacement, sort_keys=False), encoding="utf-8"
                     )
+            if symlink_escape:
+                (root / "research/linked-report.md").symlink_to(outside)
             return lint(root)
 
 
