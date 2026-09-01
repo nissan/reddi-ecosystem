@@ -29,19 +29,37 @@ class ResearchLintTests(unittest.TestCase):
             "GRANT-2026-01: acceptanceArtifacts must be a non-empty list", errors
         )
 
-    def test_non_https_non_file_source_location_is_rejected(self):
+    def test_non_https_non_repo_source_location_is_rejected(self):
         research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
         research["sources"][0]["url"] = "ftp://example.invalid/paper.pdf"
         errors = self._lint_with_research(research)
         self.assertTrue(
-            any("source URL must use https or file" in error for error in errors)
+            any("source URL must use https or repo:" in error for error in errors)
         )
 
-    def test_internal_file_source_location_is_accepted(self):
+    def test_absolute_local_path_source_location_is_rejected(self):
         research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
         research["sources"][0]["url"] = "file:///srv/reports/report.md"
         errors = self._lint_with_research(research)
-        self.assertEqual([], errors)
+        self.assertTrue(
+            any("source URL must use https or repo:" in error for error in errors)
+        )
+
+    def test_repo_source_location_must_resolve_inside_the_repository(self):
+        research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
+        research["sources"][0]["url"] = "repo:../outside/report.md"
+        errors = self._lint_with_research(research)
+        self.assertTrue(
+            any("must name a file inside the repository" in error for error in errors)
+        )
+
+    def test_repo_source_location_must_exist(self):
+        research = copy.deepcopy(load(ROOT / "research/SOURCES.yaml"))
+        research["sources"][0]["url"] = "repo:research/does-not-exist.md"
+        errors = self._lint_with_research(research)
+        self.assertTrue(
+            any("must name a file inside the repository" in error for error in errors)
+        )
 
     def _lint_with_research(self, research):
         return self._lint_with(research=research)
@@ -53,7 +71,7 @@ class ResearchLintTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             shutil.copytree(ROOT / "prompts", root / "prompts")
-            (root / "research").mkdir()
+            shutil.copytree(ROOT / "research", root / "research")
             (root / "docs/grants").mkdir(parents=True)
             for relative, replacement in (
                 ("research/SOURCES.yaml", research),
