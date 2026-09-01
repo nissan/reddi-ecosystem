@@ -53,6 +53,7 @@ Known starting points on 2026-08-26, amended by the ECO-001 public GitHub snapsh
 - `planning/repositories.yaml` records canonical ownership and synchronisation rules.
 - `planning/issues/` contains publishable issue specifications generated from the graph.
 - `research/` records primary-source evidence and implications, never vendor-news summaries alone.
+- `evidence/` holds dated evidence indexes and the raw capture transcripts they cite.
 - `prompts/` contains composable role and loop prompts; prompts are versioned and evaluated artifacts.
 - `docs/grants/` separates promises, evidence, gaps, and remediation decisions.
 - `docs/community/` records upstream-first and community-building commitments.
