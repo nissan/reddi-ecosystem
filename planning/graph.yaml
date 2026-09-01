@@ -16,6 +16,7 @@ railFieldTypes:
   railRole: side of the rail-neutrality boundary a node sits on; ECO-042 is the captain-approved first-implementation node and the only node that may declare first-implementation, while every comparison-fixture node must depend on the ECO-047 acceptance pack
   railProfile: concrete rail the node implements; requires an explicit railRole and solana-audd is reserved for the single first-implementation node
   comparisonStandards: rails a node contract-tests as comparison fixtures; requires an explicit railRole and never lists the first-implementation profile
+  adapterMethods: normalized payment adapter operations; ECO-041 must declare the complete supported vocabulary structurally rather than relying on prose mentions
 statusVocabulary: [ready, in-progress, blocked, planned, done, superseded]
 priorityVocabulary: [P0, P1, P2, P3]
 railRoleVocabulary: [rail-neutral-core, first-implementation, comparison-fixture]
@@ -665,6 +666,7 @@ nodes:
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/338
     ownerRole: RAP payments lead
     railRole: rail-neutral-core
+    adapterMethods: [quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, redact]
     outcome: Quote, authorize, submit, observe, settle, refund/reverse, reconcile, and redact work across materially different rails while preserving Solana/AUDD as the first implementation path.
     acceptance:
       - Contract declares quote, authorize, submit, observe, settle, refund_or_reverse, reconcile, and redact behavior plus finality, custody, escrow, chargeback, refund, fees, idempotency, environment, redaction, and offline-verification capabilities.

@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -46,7 +45,10 @@ def find_cycle(nodes: dict[str, dict[str, Any]]) -> list[str] | None:
             return None
         visiting.add(node_id)
         path.append(node_id)
-        for dependency in nodes[node_id].get("dependsOn", []):
+        dependencies = nodes[node_id].get("dependsOn", [])
+        if not isinstance(dependencies, list):
+            dependencies = []
+        for dependency in dependencies:
             if not isinstance(dependency, str):
                 continue
             if dependency in nodes:
@@ -65,17 +67,6 @@ def find_cycle(nodes: dict[str, dict[str, Any]]) -> list[str] | None:
     return None
 
 
-def text_for(item: dict[str, Any], fields: tuple[str, ...]) -> str:
-    parts: list[str] = []
-    for field in fields:
-        value = item.get(field)
-        if isinstance(value, list):
-            parts.extend(str(entry) for entry in value)
-        elif value is not None:
-            parts.append(str(value))
-    return "\n".join(parts).lower()
-
-
 def require_dependency(
     errors: list[str], nodes: dict[str, dict[str, Any]], node_id: str, dependency: str
 ) -> None:
@@ -83,12 +74,25 @@ def require_dependency(
     if not node:
         errors.append(f"missing required planning node {node_id}")
         return
-    if dependency not in node.get("dependsOn", []):
+    dependencies = node.get("dependsOn")
+    if not isinstance(dependencies, list):
+        return
+    if dependency not in dependencies:
         errors.append(f"{node_id}: missing required dependency {dependency}")
 
 
 REQUIRED_COMPARISON_STANDARDS = ("mpp", "ap2", "x402")
 REQUIRED_FIRST_RAIL_PROFILE = "solana-audd"
+REQUIRED_ADAPTER_METHODS = (
+    "quote",
+    "authorize",
+    "submit",
+    "observe",
+    "settle",
+    "refund_or_reverse",
+    "reconcile",
+    "redact",
+)
 
 
 def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
@@ -110,19 +114,16 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
     if "ECO-060" in nodes:
         require_dependency(errors, nodes, "ECO-060", "ECO-047")
 
-    adapter_text = text_for(nodes["ECO-041"], ("outcome", "acceptance", "subtasks"))
-    for method in (
-        "quote",
-        "authorize",
-        "submit",
-        "observe",
-        "settle",
-        "refund_or_reverse",
-        "reconcile",
-        "redact",
-    ):
-        if not re.search(rf"\b{re.escape(method)}\b", adapter_text):
-            errors.append(f"ECO-041: adapter contract must cover {method}")
+    adapter_methods = nodes["ECO-041"].get("adapterMethods")
+    if not isinstance(adapter_methods, list):
+        errors.append("ECO-041: adapterMethods must be a list")
+    else:
+        for method in REQUIRED_ADAPTER_METHODS:
+            if method not in adapter_methods:
+                errors.append(f"ECO-041: adapter contract must cover {method}")
+        for method in adapter_methods:
+            if method not in REQUIRED_ADAPTER_METHODS:
+                errors.append(f"ECO-041: unknown adapter method {method}")
 
     for node_id, role in (
         ("ECO-041", "rail-neutral-core"),
