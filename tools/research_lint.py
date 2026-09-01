@@ -48,8 +48,9 @@ def lint(root: Path = ROOT) -> list[str]:
         for field in ("publisher", "kind", "published", "url", "relevance"):
             if field not in source or source[field] in (None, ""):
                 errors.append(f"{source_id}: missing source field {field}")
-        if not str(source.get("url", "")).startswith("https://"):
-            errors.append(f"{source_id}: source URL must use https")
+        location = str(source.get("url", ""))
+        if not location.startswith(("https://", "file:///")):
+            errors.append(f"{source_id}: source URL must use https or file")
 
     catalog = prompts.get("prompts", [])
     prompt_ids = [item.get("id") for item in catalog]

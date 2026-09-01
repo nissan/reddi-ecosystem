@@ -31,6 +31,7 @@ milestones:
   - id: M2
     name: ADL, RAP, and Arena Contract Convergence
     targetDate: 2026-10-30
+    targetDateBasis: Set before the 2026-09-01 RAP readiness re-read and not re-estimated against the SPL mint/token-account/PDA-layout rewrite, mirror updates, and re-audit that ECO-042 now carries. Treat it as an un-rebaselined planning target until a maintainer records a new date.
     dependsOn: [M1]
     intent: Freeze the portable seams required by all later Buzz, machine, and hosted work.
     exitCriteria:
@@ -41,6 +42,9 @@ milestones:
       - x402, MPP, AP2, and conventional-rail semantics are compared as fixtures and later adapters without displacing the Solana/AUDD obligation path.
       - At least one non-Solana or conventional-rail fixture is planned and contract-tested after the Solana/AUDD acceptance pack so neutrality is proven without making later standards the first implementation.
       - An Agent Bill of Materials/dependency view can be generated from an ADL definition and its deployment projection.
+    prohibitedShortcuts:
+      - claiming the gate without the SPL account-layout work and the re-audit that layout change invalidates
+      - re-baselining the gate by narrowing the Solana/AUDD implementation scope instead of by a recorded date decision
 
   - id: M3
     name: Reddi Arena for Buzz Proof
