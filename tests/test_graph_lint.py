@@ -123,6 +123,20 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-043: comparisonStandards must include x402", errors)
 
+    def test_first_rail_profile_requires_the_first_implementation_role(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        for node in graph["nodes"]:
+            if node["id"] == "ECO-043":
+                node["railProfile"] = "solana-audd"
+        errors = self._lint_with_graph(graph)
+        self.assertTrue(
+            any(
+                "ECO-043: railProfile solana-audd requires railRole"
+                " first-implementation" in error
+                for error in errors
+            )
+        )
+
     def test_unknown_comparison_standard_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         for node in graph["nodes"]:
