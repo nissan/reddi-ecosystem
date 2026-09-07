@@ -44,10 +44,14 @@ Known starting points on 2026-08-26, amended by the ECO-001 public GitHub snapsh
 6. Quattro plugins never hold wallet keys and never become the privileged runtime.
 7. Local and self-hosted success cannot require Lighthouse services.
 8. Mainnet, custody, live spend, and external publication remain explicit human gates.
+9. OpenClaw, Firstmate, and Hermes are replaceable reference runtime targets; compatibility
+   requires a pinned version and passing conformance evidence, not architectural similarity.
 
 ## How work is organised
 
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) is the human-readable end-to-end roadmap and critical path.
+- [`docs/architecture/RUNTIME-INTEROPERABILITY-RECONCILIATION-2026-09-06.md`](docs/architecture/RUNTIME-INTEROPERABILITY-RECONCILIATION-2026-09-06.md)
+  records the OpenClaw, Firstmate, Hermes, and Buzz coverage audit and current non-claims.
 - `planning/graph.yaml` is the canonical cross-repository execution graph.
 - `planning/milestones.yaml` defines outcome gates and planning targets.
 - `planning/repositories.yaml` records canonical ownership and synchronisation rules.

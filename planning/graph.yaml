@@ -462,16 +462,16 @@ nodes:
     githubProjection: implementation
     status: planned
     priority: P1
-    dependsOn: [ECO-021]
+    dependsOn: [ECO-021, ECO-026]
     ownerRole: agent portability lead
     outcome: Base roles remain provider-neutral while documented overlays capture real model/tool differences.
     acceptance:
-      - Matrix tests tool calling, structured output, context, retries, rate/concurrency behavior, cost and safe-stop behavior.
+      - Matrix tests tool calling, structured output, context, retries, rate/concurrency behavior, cost, safe-stop behavior, delegation, recovery, evidence provenance, and effective isolation.
       - Provider overlays cannot alter portable outcomes, effective authority, or evaluation criteria.
     subtasks:
-      - Define capability rather than vendor-based test profiles.
-      - Run affordable fixtures across selected OpenAI, Anthropic, Gemini, ByteDance/GLM/Mistral/xAI-accessible profiles.
-      - Record unsupported/unknown claims without requiring every provider at launch.
+      - Define capability rather than vendor-based test profiles and publish exact tested version ranges.
+      - Run affordable fixtures across selected model providers and OpenClaw, Firstmate, Hermes, and a deterministic mock runtime.
+      - Record supported, experimental, unsupported, and unknown claims without requiring every provider or runtime at launch.
     evidenceExpected: [compatibility matrix, adapter records, conformance results]
     humanGates: [paid-service-or-spend]
 
@@ -496,6 +496,29 @@ nodes:
       - Publish privacy-safe change notes and rejected-hypothesis log.
     evidenceExpected: [review cadence, retrospectives, eval backlog]
     humanGates: [external-publication]
+
+  - id: ECO-026
+    epic: E02
+    type: issue
+    title: Audit OpenClaw, Firstmate, Hermes, and Buzz runtime integration seams
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: in-progress
+    priority: P0
+    dependsOn: [ECO-020]
+    ownerRole: runtime interoperability lead
+    outcome: Named runtime compatibility claims are replaced by primary-source mappings, pinned version ranges, explicit trust boundaries, and testable adapter findings.
+    acceptance:
+      - Audit maps identity, orchestration, delegation, sessions, memory, skills, plugins, tools, isolation, recovery, evidence, approvals, and upgrade surfaces for OpenClaw, Firstmate, Hermes, and Buzz.
+      - Every compatibility claim names an exact tested version or revision and a conformance level; untested project-name compatibility is prohibited.
+      - Findings distinguish collaboration workspace, durable agent runtime, coding-crew distribution, model harness, and RAP economic protocol responsibilities.
+    subtasks:
+      - Pin primary repositories, documentation, releases, licenses, and relevant extension seams for each upstream.
+      - Map each upstream to the proposed runtime adapter operations and record missing, unstable, or unsafe seams.
+      - File canonical ADL, RAP, Arena, security, and packaging follow-up nodes without copying upstream implementation semantics into the portable core.
+    evidenceExpected: [runtime integration audit, source register, compatibility claim policy, follow-up graph changes]
+    humanGates: []
 
   - id: ECO-030
     epic: E03
@@ -616,7 +639,7 @@ nodes:
     githubProjection: tracker
     status: planned
     priority: P1
-    dependsOn: [ECO-031, ECO-032, ECO-033, ECO-034, ECO-024]
+    dependsOn: [ECO-031, ECO-032, ECO-033, ECO-034, ECO-024, ECO-036, ECO-048]
     ownerRole: conformance lead
     outcome: One portable agent produces equivalent declared outcomes and boundaries in heterogeneous runtimes.
     acceptance:
@@ -628,6 +651,28 @@ nodes:
       - File specification and adapter findings in canonical repositories.
     evidenceExpected: [conformance pack, run records, finding register]
     humanGates: [paid-service-or-spend]
+
+  - id: ECO-036
+    epic: E03
+    type: issue
+    title: Version the portable runtime execution profile and projection contract
+    milestone: M2
+    targetRepo: adl-lab
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-024, ECO-030, ECO-032, ECO-034]
+    ownerRole: ADL runtime projection steward
+    outcome: ADL declares execution requirements and preferences without embedding OpenClaw, Firstmate, Hermes, Buzz, or model-harness semantics in portable identity.
+    acceptance:
+      - Canonical profile expresses required capabilities, preferred/fallback runtime, isolation, delegation depth/concurrency, budgets, evidence, approval, cancellation, recovery, and version negotiation.
+      - OpenClaw, Firstmate, Hermes, deterministic mock, and Buzz collaboration projections validate through overlays whose differences are visible in Agent BOM and authority diffs.
+    subtasks:
+      - Define runtime capability vocabulary and required-versus-preferred negotiation rules.
+      - Add positive, missing-capability, malicious-override, version-drift, and round-trip fixtures.
+      - File projection findings through ADL governance and publish migration rules.
+    evidenceExpected: [ADL proposal, JSON schemas, projection fixtures, conformance report]
+    humanGates: []
 
   - id: ECO-040
     epic: E04
@@ -830,6 +875,73 @@ nodes:
     evidenceExpected: [acceptance binder, redaction log, independent evidence review, approved or blocked communication record]
     humanGates: [legal-or-grantor-communication, privacy-publication, live-payment, mainnet, signing-or-custody, paid-service-or-spend, production-release, external-publication]
 
+  - id: ECO-048
+    epic: E04
+    type: issue
+    title: Version the RAP runtime adapter contract and deterministic mock
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-036, ECO-040, ECO-044]
+    ownerRole: RAP runtime interoperability lead
+    outcome: Any runtime can execute RAP jobs through one capability-negotiated lifecycle while evidence and settlement semantics remain runtime-neutral.
+    acceptance:
+      - Contract versions discover, prepare, dispatch, observe, message, cancel, collect, verify, attest, settle, and recover operations with normalized errors and idempotency.
+      - Deterministic mock passes success, denial, timeout, duplicate, out-of-order, cancellation, crash/recovery, malformed-evidence, and unsupported-capability tests.
+    subtasks:
+      - Specify adapter capabilities, lifecycle mapping, correlation/causation identifiers, and safe-stop semantics.
+      - Implement a no-network/no-spend mock and shared contract-test kit.
+      - Bind runtime, harness, session, delegation, tool, artifact, verifier, and environment provenance into RAP evidence.
+    evidenceExpected: [RAP interface, deterministic mock, contract tests, versioning ADR]
+    humanGates: []
+
+  - id: ECO-049
+    epic: E04
+    type: issue
+    title: Prove the OpenClaw Gateway reference runtime adapter
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-026, ECO-048]
+    ownerRole: OpenClaw integration lead
+    outcome: A pinned OpenClaw release executes and recovers a no-spend RAP job through public Gateway, plugin, session, and subagent seams.
+    acceptance:
+      - Adapter maps Gateway and agent identities, parent/subagent sessions, underlying harness provenance, tools, artifacts, approvals, cancellation, and restart reconciliation without private-memory leakage.
+      - Clean isolated installation passes the shared adapter suite and reports exact OpenClaw version, configuration digest, sandbox/effective permissions, limitations, and upstream compatibility status.
+    subtasks:
+      - Build the RAP plugin and Gateway adapter against a pinned stable tag.
+      - Add Codex-backed and built-in-harness fixtures plus parent/subagent lineage and interruption recovery.
+      - Threat-model host-default tools, non-main sandbox policy, plugin secrets, channels, and Gateway exposure.
+    evidenceExpected: [RAP adapter PR, pinned environment, contract-test record, threat model, recovery log]
+    humanGates: [paid-service-or-spend]
+
+  - id: ECO-057
+    epic: E04
+    type: issue
+    title: Prove Firstmate coding-crew and Hermes durable-agent adapters
+    milestone: M2
+    targetRepo: rap
+    githubProjection: tracker
+    status: planned
+    priority: P1
+    dependsOn: [ECO-026, ECO-048, ECO-049]
+    ownerRole: reference runtime integration lead
+    outcome: Two contrasting runtimes execute the same RAP contract through supervised coding delivery and durable profile, memory, skill, and gateway paths.
+    acceptance:
+      - Firstmate proof binds captain/first-mate/crewmate lineage, ship/scout task, worktree, commit/PR/report, verification, cancellation, and restart state to RAP evidence.
+      - Hermes proof binds profile/Bot identity, session/subagent lineage, skills/tools, memory policy, gateway, approvals, cancellation, and restart state without treating a profile as a sandbox.
+      - Each adapter independently passes applicable shared tests at a pinned revision or release and can be disabled without changing RAP core or portable ADL.
+    subtasks:
+      - Run a read-only Firstmate scout pilot before permitting a ship-task integration proof.
+      - Build isolated Hermes test homes and explicit external shared-memory fixtures.
+      - Record upstream seams, missing capabilities, expiring workarounds, and contribution candidates.
+    evidenceExpected: [Firstmate adapter record, Hermes adapter record, contract-test logs, recovery reports, upstream finding register]
+    humanGates: [paid-service-or-spend, upstream-contact]
+
   - id: ECO-050
     epic: E05
     type: issue
@@ -961,6 +1073,28 @@ nodes:
       - Review parent/dependents after each integrated fix.
     evidenceExpected: [finding register, three closed-loop examples, graph updates]
     humanGates: []
+
+  - id: ECO-058
+    epic: E05
+    type: issue
+    title: Publish cross-runtime Arena conformance levels and canonical scenarios
+    milestone: M2
+    targetRepo: arena
+    githubProjection: tracker
+    status: planned
+    priority: P0
+    dependsOn: [ECO-035, ECO-048, ECO-049, ECO-057, ECO-051, ECO-052, ECO-053]
+    ownerRole: runtime conformance lead
+    outcome: Runtime support is a reproducible capability claim rather than a project-name assertion.
+    acceptance:
+      - Levels cover describe, execute, observe, verify, settle, and recover; each result names runtime revision, adapter version, ADL/RAP versions, Agent BOM, effective authority, fixtures, and limitations.
+      - Scenarios cover single and parallel work, planner/worker/verifier, human approval, failure/retry, cancellation/refund, crash/recovery, malicious evidence, privacy leakage, and dispute.
+    subtasks:
+      - Publish machine-readable level definitions and result schema.
+      - Port shared mock, OpenClaw, Firstmate, and Hermes runs into deterministic/no-spend Arena fixtures.
+      - Add expiry and regression rules for upstream upgrades and unsupported claims.
+    evidenceExpected: [conformance specification, scenario fixtures, signed result bundles, compatibility matrix]
+    humanGates: [paid-service-or-spend, external-publication]
 
   - id: ECO-060
     epic: E06
@@ -1125,7 +1259,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-062, ECO-070, ECO-112]
+    dependsOn: [ECO-058, ECO-062, ECO-070, ECO-076, ECO-112]
     ownerRole: Linux packaging lead
     outcome: Versioned services install independently of QML with narrow APIs, no embedded secrets, provenance, update, rollback, and uninstall.
     acceptance:
@@ -1225,6 +1359,28 @@ nodes:
       - Triage findings and publish accurate alpha notes.
     evidenceExpected: [signed release, three trial reports, release decision]
     humanGates: [production-release, external-publication, upstream-contact]
+
+  - id: ECO-076
+    epic: E07
+    type: issue
+    title: Select and package only conformance-passing runtime adapters
+    milestone: M4
+    targetRepo: omarchy-pack
+    githubProjection: tracker
+    status: blocked
+    priority: P0
+    dependsOn: [ECO-049, ECO-057, ECO-058, ECO-070]
+    ownerRole: runtime packaging lead
+    outcome: Quattro and Reddi Pack install optional, replaceable runtime integrations without embedding protocol, signer, or personal-memory authority in the cockpit.
+    acceptance:
+      - Package manifest pins adapter/runtime versions, conformance level, service identity, filesystem/network/secrets policy, health, update, rollback, disable, uninstall, and data ownership.
+      - Clean-machine tests prove at least one general runtime works while absent, failed, or disabled optional runtimes do not break RAP, Arena, or Buzz services.
+    subtasks:
+      - Define adapter package manifest and compatibility-lock format.
+      - Package conformance-passing OpenClaw first; add Firstmate and Hermes only after their independent gates pass.
+      - Add upgrade-candidate smoke tests, rollback, and support-window documentation.
+    evidenceExpected: [package manifests, compatibility lock, VM lifecycle tests, rollback evidence]
+    humanGates: [production-release, signing-or-custody]
 
   - id: ECO-080
     epic: E08

@@ -93,6 +93,30 @@ repositories:
       - Buzz Nostr workspace and relay implementation
     integrationPolicy: sidecar-first; upstream-generic-extension-second; fork-only-by-decision
 
+  - id: openclaw-upstream
+    url: https://github.com/openclaw/openclaw
+    state: external-upstream
+    visibility: public
+    canonicalFor:
+      - OpenClaw Gateway, sessions, subagents, tools, skills, plugins, channels, and harness integrations
+    integrationPolicy: public-plugin-and-adapter-first; pinned-release conformance; no core fork
+
+  - id: firstmate-upstream
+    url: https://github.com/kunchenguid/firstmate
+    state: external-upstream
+    visibility: public
+    canonicalFor:
+      - Firstmate crew supervision, worktree task execution, and delivery state conventions
+    integrationPolicy: pinned-revision adapter and engineering pilot; no copied orchestration semantics
+
+  - id: hermes-upstream
+    url: https://github.com/NousResearch/hermes-agent
+    state: external-upstream
+    visibility: public
+    canonicalFor:
+      - Hermes profiles, Bot Mode, memory, skills, gateways, subagents, and learning loops
+    integrationPolicy: public-plugin-or-gateway-adapter-first; pinned-release conformance; isolated test homes
+
   - id: omarchy-upstream
     url: https://github.com/omacom/omarchy
     previousUrl: https://github.com/basecamp/omarchy

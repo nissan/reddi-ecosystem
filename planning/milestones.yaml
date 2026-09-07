@@ -42,6 +42,7 @@ milestones:
       - x402, MPP, AP2, and conventional-rail semantics are compared as fixtures and later adapters without displacing the Solana/AUDD obligation path.
       - At least one non-Solana or conventional-rail fixture is planned and contract-tested after the Solana/AUDD acceptance pack so neutrality is proven without making later standards the first implementation.
       - An Agent Bill of Materials/dependency view can be generated from an ADL definition and its deployment projection.
+      - Runtime adapter contract and deterministic mock cover dispatch through recovery; OpenClaw, Firstmate, and Hermes results use pinned versions and published Arena conformance levels.
     prohibitedShortcuts:
       - claiming the gate without the SPL account-layout work and the re-audit that layout change invalidates
       - re-baselining the gate by narrowing the Solana/AUDD implementation scope instead of by a recorded date decision
@@ -117,4 +118,3 @@ milestones:
       - Each chain, asset, and rail has an explicit production support state and operator runbook.
       - Mainnet/live activation is a recorded human decision; marketing claims link to evidence.
       - Revenue demonstrates a credible path to fund maintenance and staffing beyond grants.
-

@@ -3,6 +3,39 @@
 This log records material divergence between the canonical programme graph and its
 GitHub execution projections. Newest entries appear first.
 
+## 2026-09-07 — Complete runtime roadmap candidate for independent review
+
+- Resolved immutable audit baselines directly from upstream git: OpenClaw
+  `v2026.7.1-2@0790d9f593ad30c940ed93b5872a8cf6d6f3cf8c`, Firstmate
+  `main@6d396da7c43f03315873332b2591119a8c780a97`, Hermes
+  `v2026.8.31@29112bef099274229cadff79cdff7bf7b99c4b77`, and Buzz Desktop
+  `desktop-v0.5.22@9ceb1f79bbc21785a0a075c40aecb3c058b1ea15`.
+- Added the runtime integration audit, system-role/capability matrix, evidence lineage,
+  compatibility levels, negative tests, and explicit `none` current support levels.
+- Added ECO-036, ECO-048, ECO-049, ECO-057, ECO-058, and ECO-076 so ADL projection, RAP
+  adapter/mock, named runtime proofs, Arena conformance, and Quattro packaging are sequenced.
+- Registered external upstream repository boundaries and a read-only independent-review prompt.
+- ECO-026 remains `in-progress`: the roadmap candidate is complete, but repository policy
+  requires an independent audit before the node can be marked done or ADR-0003 accepted.
+- Graph validation reports 12 epics and 80 nodes; registries, deterministic projections,
+  whitespace checks, and all eight unit tests pass.
+
+## 2026-09-06 — Name and bound runtime interoperability work
+
+- Repository audit found that Buzz had an explicit M3 integration path, while OpenClaw,
+  Firstmate, and Hermes appeared only under generic multi-runtime/provider language or not at all.
+- Added ECO-026 to own a primary-source integration-seam audit and made ECO-024 depend on it
+  before publishing a compatibility matrix.
+- Proposed ADR-0003: external runtimes execute work while ADL owns portable declarations, RAP
+  owns economic lifecycle/evidence/receipts, and Arena owns conformance.
+- Registered upstream OpenClaw, Hermes, and Firstmate sources and documented that no named
+  compatibility claim is valid until an exact version/revision passes conformance.
+- No GitHub issues, upstream contacts, component-repository changes, runtime installations, or
+  compatibility claims were made in this loop. Canonical follow-up issues remain an ECO-026 output.
+- Local graph, research registry, generated-projection, whitespace, and eight unit-test checks
+  passed. `pytest` was unavailable and is not a declared project dependency; the documented
+  `unittest` suite passed.
+
 ## 2026-09-01 — ECO-001 replacement publication path
 
 - Claimed graph node `ECO-001` only. Expected footprint: public GitHub evidence under

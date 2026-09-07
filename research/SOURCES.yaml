@@ -1,6 +1,6 @@
 schemaVersion: 2
 curatedAt: 2026-08-26
-lastAmendedAt: 2026-09-01
+lastAmendedAt: 2026-09-06
 dateSemantics:
   curatedAt: date of the last full sweep across every source entry.
   lastAmendedAt: date of the most recent amendment to individual entries; entries re-verified
@@ -258,6 +258,8 @@ sources:
     kind: source-repository
     published: unknown
     url: https://github.com/block/buzz
+    auditedRevision: desktop-v0.5.22@9ceb1f79bbc21785a0a075c40aecb3c058b1ea15
+    checkedAt: 2026-09-07
     relevance: Canonical upstream for the Nostr-based workspace and the proposed Arena experience.
 
   - id: buzz-architecture
@@ -273,6 +275,68 @@ sources:
     published: unknown
     url: https://github.com/block/buzz/issues/2426
     relevance: Tracks upstream extension/plugin demand; inspect before choosing a permanent fork.
+
+  - id: openclaw
+    publisher: OpenClaw
+    kind: source-repository
+    published: unknown
+    url: https://github.com/openclaw/openclaw
+    auditedRevision: v2026.7.1-2@0790d9f593ad30c940ed93b5872a8cf6d6f3cf8c
+    checkedAt: 2026-09-07
+    relevance: Canonical upstream for the self-hosted Gateway, agent sessions, subagents, skills, plugins, channels, and runtime integrations targeted by a RAP reference adapter.
+
+  - id: openclaw-capabilities
+    publisher: OpenClaw
+    kind: documentation
+    published: unknown
+    url: https://docs.openclaw.ai/tools
+    relevance: Defines the distinct tool, skill, plugin, and agent-coordination surfaces that ADL projections and RAP runtime adapters must not conflate.
+
+  - id: openclaw-subagents
+    publisher: OpenClaw
+    kind: documentation
+    published: unknown
+    url: https://docs.openclaw.ai/tools/subagents
+    relevance: Defines isolated background sessions, nesting, announcements, and tool restrictions needed for RAP delegation lineage, budgets, recovery, and evidence.
+
+  - id: openclaw-plugin-bundles
+    publisher: OpenClaw
+    kind: documentation
+    published: unknown
+    url: https://docs.openclaw.ai/plugins/bundles
+    relevance: Provides a distribution seam for a vendor-neutral RAP plugin bundle and mappings from Codex, Claude, Cursor, and Agent Plugins packages.
+
+  - id: openclaw-codex-harness
+    publisher: OpenClaw
+    kind: documentation
+    published: unknown
+    url: https://docs.openclaw.ai/plugins/codex-harness
+    relevance: Splits session ownership between OpenClaw and Codex, requiring evidence provenance to identify Gateway, harness, agent, subagent, and tool layers.
+
+  - id: hermes-agent
+    publisher: Nous Research
+    kind: source-repository
+    published: unknown
+    url: https://github.com/NousResearch/hermes-agent
+    auditedRevision: v2026.8.31@29112bef099274229cadff79cdff7bf7b99c4b77
+    checkedAt: 2026-09-07
+    relevance: Canonical upstream for persistent learning agents, profiles, memory, skills, gateways, and messaging integrations targeted by a RAP runtime adapter.
+
+  - id: hermes-profiles
+    publisher: Nous Research
+    kind: documentation
+    published: unknown
+    url: https://hermes-agent.nousresearch.com/docs/user-guide/profiles
+    relevance: Defines per-agent configuration, memory, skill, session, credential, and gateway boundaries while warning that profiles are not filesystem sandboxes.
+
+  - id: firstmate
+    publisher: Kun Chen
+    kind: source-repository
+    published: unknown
+    url: https://github.com/kunchenguid/firstmate
+    auditedRevision: main@6d396da7c43f03315873332b2591119a8c780a97
+    checkedAt: 2026-09-07
+    relevance: Canonical upstream for captain-first-mate crew orchestration, scout/ship task contracts, isolated worktrees, event-driven supervision, recovery, and PR delivery.
 
   - id: omarchy
     publisher: Omacom

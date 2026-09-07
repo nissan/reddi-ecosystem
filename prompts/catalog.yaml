@@ -64,4 +64,7 @@ prompts:
     file: security-release-gate.md
     purpose: Decide whether a release claim is safe, reproducible, and accurately scoped.
     tools: [repository-read, local-test, approved-read-only-environment]
-
+  - id: runtime-roadmap-reviewer
+    file: runtime-roadmap-reviewer.md
+    purpose: Independently review the named-runtime roadmap update and attempt to falsify its compatibility, ownership, and dependency claims.
+    tools: [repository-read, upstream-repository-read, approved-public-web, graph-lint, local-test]

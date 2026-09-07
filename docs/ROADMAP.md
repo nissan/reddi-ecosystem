@@ -70,7 +70,7 @@ are proven by the relevant primary sources and approved human gates.
 |---|---:|---|---|
 | M0 Evidence Recovery and Grant Truth | 11 Sep 2026 | Every May–July commitment, August target, and AUDD gate has governing text, evidence, gap, owner role, and approved disposition | E00 |
 | M1 Programme Baseline and Governance | 25 Sep 2026 | Public control-plane repo, validated graph/projections, research/prompt governance, claim/status views, open-source and community covenants | E01–E02 |
-| M2 ADL/RAP/Arena Contract Convergence | 30 Oct 2026 (un-rebaselined; predates the SPL scope) | Portable ADL projection and Agent BOM, rail-neutral RAP lifecycle/events/receipts, first Solana/AUDD implementation and acceptance pack, then contract-tested MPP/AP2/x402 comparison fixtures, multi-runtime conformance, deterministic Arena replay | E03–E05 |
+| M2 ADL/RAP/Arena Contract Convergence | 30 Oct 2026 (un-rebaselined; predates the SPL scope) | Portable ADL projection and Agent BOM, rail-neutral RAP lifecycle/events/receipts, first Solana/AUDD implementation and acceptance pack, then contract-tested MPP/AP2/x402 comparison fixtures, versioned runtime adapter/mock, pinned OpenClaw/Firstmate/Hermes conformance, deterministic Arena replay | E03–E05 |
 | M3 Reddi Arena for Buzz Proof | 11 Dec 2026 | After Solana/AUDD acceptance evidence is packaged, upstream-compatible sidecar proves no-spend discovery-through-receipt flow with Nostr privacy/trust and usable lifecycle UX | E06 |
 | M4 Reddi Pack for Omarchy Quattro Alpha | 29 Jan 2027 | Signed services and thin keyless QML cockpit install, update, roll back, disable, and uninstall on supported Omarchy | E07 |
 | M5 Reddi Machine Developer Preview | 26 Mar 2027 | Evidence chooses provisioning/image shape; reproducible first boot, identity/wallet boundary, hardware matrix, updates and recovery work | E08 |
@@ -113,6 +113,17 @@ Three branches proceed with explicit join gates:
 
 Only after those branches join and the Solana/AUDD acceptance pack exists does the Buzz branch build the public no-spend sidecar and lifecycle UX. This prevents Buzz/Nostr event shapes, Solana identifiers, MPP/AP2/x402 commerce concepts, or a single model provider from becoming accidental ADL/RAP semantics.
 
+Named runtime work begins with ECO-026 and ECO-024. OpenClaw is the first general-purpose
+reference runtime candidate, Firstmate the coding-crew/worktree candidate, and Hermes the
+durable profile/memory/skills candidate. These are planned adapter targets, not verified
+compatibility claims. Exact upstream versions, capability levels, effective permissions,
+recovery behavior, and conformance evidence must be published before support is claimed.
+
+The executable sequence is ECO-036 (ADL execution profile) -> ECO-048 (RAP adapter/mock) ->
+ECO-049 (OpenClaw proof) -> ECO-057 (Firstmate/Hermes proofs) -> ECO-058 (Arena levels and
+canonical scenarios) -> ECO-076 (conformance-gated Quattro packaging). Buzz remains the M3
+collaboration proof after the M2 execution/evidence join gate.
+
 ## 2027 productization sequence
 
 - Productize the proven services before the Quattro UI; the unsandboxed plugin remains thin.
@@ -138,4 +149,3 @@ Delivery is measured by accepted evidence, not issue count. Portfolio measures i
   exact definitions.
 
 No metric authorizes activity undertaken solely to inflate it.
-
