@@ -17,8 +17,9 @@ GitHub execution projections. Newest entries appear first.
 - Registered external upstream repository boundaries and a read-only independent-review prompt.
 - ECO-026 remains `in-progress`: the roadmap candidate is complete, but repository policy
   requires an independent audit before the node can be marked done or ADR-0003 accepted.
-- Graph validation reports 12 epics and 80 nodes; registries, deterministic projections,
-  whitespace checks, and all eight unit tests pass.
+- Graph validation reports 12 epics and 81 nodes; registries, deterministic projections,
+  non-generated whitespace checks, and all 49 unit tests pass. Generated issue Markdown retains
+  the repository's intentional two-space hard line breaks.
 
 ## 2026-09-06 — Name and bound runtime interoperability work
 

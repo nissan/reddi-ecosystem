@@ -24,7 +24,10 @@ The requesting session must supply the candidate branch and commit. Confirm both
 - Verify canonical ownership, dependency sequencing, acceptance, evidence, and human gates.
 - Attempt to find a cycle, hidden critical-path delay, ownership leak, unsafe authority path,
   false compatibility inference, or duplicate node.
-- Run graph/research lint, projection checks, unit tests, and `git diff --check`.
+- Run graph/research lint, projection checks, unit tests, and
+  `git diff --check -- . ':(exclude)planning/issues/**/*.md'`. Generated issue Markdown uses the
+  repository generator's intentional two-space hard line breaks and is verified by projection
+  determinism instead of the generic whitespace check.
 - Do not infer compatibility from documentation similarity or source availability.
 
 ## Required output
