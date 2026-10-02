@@ -30,8 +30,14 @@ GitHub execution projections. Newest entries appear first.
   retains its older projected title until a separately approved GitHub projection sync;
   no remote issue was changed by this work.
 - The typed HT/EV/EX/AP/RS view is explanatory: existing `dependsOn` and `humanGates`
-  remain the machine-consumed graph fields. No chronology was added as a hard edge.
-  RAP and ADL gap audits may start independently and join only at contract freeze.
+  remain the machine-consumed graph fields. No chronology was added as a hard edge, and no
+  existing edge was removed. The catalog reconciles every listed blocker and unlock to
+  `dependsOn`; the replay join to ECO-046 is shown only as proposed sequencing.
+- Captain-approved audit-only waiver: the read-only gap-audit portions of `ECO-040` and
+  `ECO-030` may start before their unmet `ECO-001` (in-progress) and `ECO-020`
+  (in-progress) dependencies are done. Both edges stay in the graph. The waiver does not
+  cover node completion, contract freeze, acceptance, implementation, or any dependent
+  node; initial audit findings are inputs only.
 - Follow-up join: after the parallel RAP readiness and ADL portability audits, revisit
   the graph once for verified blockers, canonical issue links, and semantic contract
   joins. Medium/low findings remain separate issue-backed maintenance work.

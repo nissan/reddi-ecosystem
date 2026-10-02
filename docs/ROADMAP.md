@@ -26,9 +26,11 @@ Recent component delivery narrows the active plan without completing its accepta
 - Governing AUDD evidence, remediation decisions, actual Solana/AUDD SPL implementation,
   replayable acceptance evidence, and human/partner approvals remain incomplete.
 
-Phase 0 runs three bounded streams in parallel: this roadmap/BDD applicability refresh,
-RAP readiness/leakage audit, and ADL authority/portability audit. The audits can start
-against current component authority; their final contract findings join later. Gmail tool
+Phase 0 runs three bounded streams in parallel: this roadmap/BDD applicability refresh
+and the read-only gap-audit portions of ECO-040 (RAP readiness/leakage) and ECO-030 (ADL
+authority/portability). A bounded Captain waiver lets those audits start before their unmet
+ECO-001 and ECO-020 dependencies are done. It does not complete either node, freeze a
+contract, or start anything they unlock; their findings join later. Gmail tool
 selection remains queued/deferred, and no email connection is required for these public
 repository audits. Controlled-live preparation remains separate from execution, and neither
 is authorized by this plan.
