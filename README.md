@@ -29,7 +29,7 @@ Known starting points on 2026-08-26, amended by the ECO-001 public GitHub snapsh
 | Repository | Canonical responsibility | Audited starting observation |
 |---|---|---|
 | [nissan/reddiagent-lab](https://github.com/nissan/reddiagent-lab) | ADL v0.2 and companion open specifications | Public; ADL v0.2 is canonical here; implementation findings flow back through its intake |
-| [nissan/reddi-agent-protocol](https://github.com/nissan/reddi-agent-protocol) | RAP implementation, receipts, payment/trust adapters, Solana/Quasar proofs | Public; large active product and grant backlog; live/mainnet paths remain approval-gated |
+| [nissan/reddi-agent-protocol](https://github.com/nissan/reddi-agent-protocol) | RAP implementation, receipts, payment/trust adapters, Solana proofs and historical Quasar evidence | Public; large active product and grant backlog; live/mainnet paths remain approval-gated |
 | [nissan/reddi-arena](https://github.com/nissan/reddi-arena) | Arena proof, conformance pressure, competitive environment | Public; at least 72 tests and a 42-node graph were evidenced in merged PRs by 2026-08-16 |
 | [block/buzz](https://github.com/block/buzz) | Upstream Nostr workspace used by the proposed Buzz integration | External Apache-2.0 upstream; integration strategy must minimise permanent fork tax |
 | [omacom/omarchy](https://github.com/omacom/omarchy) | Upstream Linux distribution and Quattro shell | External MIT upstream; `basecamp/omarchy` resolves as historical/redirect context; Quattro plugins are an optional cockpit, not the RAP runtime |
