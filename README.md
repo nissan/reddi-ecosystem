@@ -48,6 +48,7 @@ Known starting points on 2026-08-26, amended by the ECO-001 public GitHub snapsh
 ## How work is organised
 
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) is the human-readable end-to-end roadmap and critical path.
+- [`docs/ROADMAP-BDD-APPLICABILITY.md`](docs/ROADMAP-BDD-APPLICABILITY.md) classifies delivered, human-accepted, historical/superseded, and proposed behavior with stable story/scenario traceability.
 - `planning/graph.yaml` is the canonical cross-repository execution graph.
 - `planning/milestones.yaml` defines outcome gates and planning targets.
 - `planning/repositories.yaml` records canonical ownership and synchronisation rules.

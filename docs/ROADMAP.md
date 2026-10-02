@@ -1,8 +1,37 @@
 # End-to-end programme roadmap
 
-Planning baseline: 2026-08-26; sequencing refresh: 2026-08-31. Dates are planning targets, not grantor-approved deadline
+Planning baseline: 2026-08-26; sequencing refresh: 2026-08-31; applicability refresh: 2026-10-02. Dates are planning targets, not grantor-approved deadline
 changes or public delivery promises. The canonical milestone gates are in
 `planning/milestones.yaml`; the canonical executable backlog is `planning/graph.yaml`.
+[`ROADMAP-BDD-APPLICABILITY.md`](ROADMAP-BDD-APPLICABILITY.md) is the current behavior,
+typed-prerequisite, swimlane, and issue-traceability view. It does not replace the graph.
+
+## Current applicability and immediate execution
+
+Recent component delivery narrows the active plan without completing its acceptance gates:
+
+- RAP claim remediation, default-off browser preflight, the bounded Anchor v2 pilot, and
+  the Quasar experimental freeze landed in
+  [PR 654](https://github.com/nissan/reddi-agent-protocol/pull/654),
+  [PR 663](https://github.com/nissan/reddi-agent-protocol/pull/663),
+  [PR 671](https://github.com/nissan/reddi-agent-protocol/pull/671), and
+  [PR 674](https://github.com/nissan/reddi-agent-protocol/pull/674).
+- Arena's default-off Devnet Assurance preview landed in
+  [PR 96](https://github.com/nissan/reddi-arena/pull/96). Its exact merge commit is
+  `2eb85056b643b6ee55c0be603ed73f9becee20b4`; it is fixture-backed preview evidence,
+  not live, partner-accepted, or production evidence.
+- Quasar is historical experimental evidence and is no longer on a product, production,
+  deployment, audit, or mainnet critical path. Its retained deployment registry and
+  regression surfaces remain relevant to identity/provenance reconciliation only.
+- Governing AUDD evidence, remediation decisions, actual Solana/AUDD SPL implementation,
+  replayable acceptance evidence, and human/partner approvals remain incomplete.
+
+Phase 0 runs three bounded streams in parallel: this roadmap/BDD applicability refresh,
+RAP readiness/leakage audit, and ADL authority/portability audit. The audits can start
+against current component authority; their final contract findings join later. Gmail tool
+selection remains queued/deferred, and no email connection is required for these public
+repository audits. Controlled-live preparation remains separate from execution, and neither
+is authorized by this plan.
 
 ## Critical path
 
@@ -31,7 +60,7 @@ The accepted strategy remains portable: ADL and RAP core contracts are rail-neut
 
 Executable order:
 
-1. **Recover M0 truth:** ECO-000 through ECO-004 recover governing grant text, repository/release/deployment snapshots, Solana/Quasar identities, adoption/volume definitions, and AUDD issue 615-630 gaps. ECO-005 prepares human-approved remediation and grant communication decisions.
+1. **Recover M0 truth:** ECO-000 through ECO-004 recover governing grant text, repository/release/deployment snapshots, current Solana identities and historical/superseded Quasar provenance, adoption/volume definitions, and AUDD issue 615-630 gaps. ECO-005 prepares human-approved remediation and grant communication decisions.
 2. **Constrain RAP readiness:** ECO-040 imports current RAP readiness findings, including any evidence that mainnet/live paths are not ready, and isolates Solana, AUDD, x402, MPP/AP2, Nostr, provider, and custody assumptions behind adapters.
 3. **Freeze the adapter contract:** ECO-041 versions quote, authorize, submit, observe, settle, refund-or-reverse, reconcile, and redact semantics with explicit custody, finality, fee, refund, chargeback, idempotency, redaction, and offline-verification capabilities.
 4. **Implement Solana/AUDD first:** ECO-042 maps current RAP middleware/programs to Solana/AUDD adapter behavior, scopes and lands the SPL mint/token-account/PDA-layout work the SOL-only escrow lacks before the audit that must cover it, adds canonical AUDD/devnet/test fixtures, produces receipts and rail observations, and proves negative cases without live spend. This is on-chain program work, not adapter configuration, and it is why the first implementation is not a quick step.
@@ -78,7 +107,11 @@ are proven by the relevant primary sources and approved human gates.
 | M7 Community Season Zero and Builder Beta | 25 Jun 2027 | Safe contributor journeys, reciprocal upstream work, recurring build programme, independent contributors and conformance implementations | E10 |
 | M8 Production and Economic Readiness | 24 Sep 2027 | Independent review, incident/refund/recovery drills, privacy/supply-chain evidence, support matrix, and explicit production decisions | E11 |
 
-## First 30 days: recover and make the programme legible
+## Historical first-30-day plan: recover and make the programme legible
+
+This section preserves the 2026-08-31 planning snapshot. It is historical sequencing,
+not a current calendar commitment; use the applicability catalog and canonical graph for
+current status.
 
 ### Days 1–5
 
