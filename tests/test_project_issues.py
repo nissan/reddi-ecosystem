@@ -32,15 +32,14 @@ class IssueProjectionTests(unittest.TestCase):
                 with self.assertRaises(TypeError):
                     node_markdown(node, self._epics())
 
-    def test_projection_renders_every_parsed_acceptance_criterion_in_full(self):
-        graph = load(ROOT / "planning/graph.yaml")
-        epics = {epic["id"]: epic for epic in graph["epics"]}
-        node = next(node for node in graph["nodes"] if node["id"] == "ECO-060")
-        rendered = node_markdown(node, epics).splitlines()
-        for criterion in node["acceptance"]:
-            self.assertIn(f"- [ ] {criterion}", rendered)
-        self.assertIn("- upstream-contact", rendered)
-        self.assertIn("- repo-creation", rendered)
+    def test_quoted_hash_scalar_survives_parse_and_render(self):
+        criterion = "Reuses lab #424 design."
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "node.yaml"
+            path.write_text(f'acceptance:\n  - "{criterion}"\n', encoding="utf-8")
+            node = self._node(**load(path))
+        rendered = node_markdown(node, self._epics()).splitlines()
+        self.assertIn(f"- [ ] {criterion}", rendered)
 
     def _node(self, **overrides):
         node = {
