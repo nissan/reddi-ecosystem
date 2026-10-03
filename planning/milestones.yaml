@@ -1,7 +1,9 @@
 schemaVersion: 2
 timezone: Australia/Sydney
 planningAsOf: 2026-08-26
-sequencingRevisedAt: 2026-08-31
+sequencingRevisedAt: 2026-10-03
+dateSemantics:
+  targetDate: Historical planning provenance only. Every target is unconfirmed until an evidence-backed maintainer re-estimate; elapsed targets are overdue, not silently replaced.
 milestones:
   - id: M0
     name: Evidence Recovery and Grant Truth
@@ -10,9 +12,10 @@ milestones:
     exitCriteria:
       - Every owned Reddi repository has an evidence-backed role, health, open-issue, release, and deployment snapshot.
       - Conflicting Solana program IDs and environment claims are reconciled against canonical config and read-only chain evidence.
-      - AUDD issues 615-630 and the earlier May-July grant plan have promise/evidence/gap/owner/status rows.
+      - AUDD issues 615-630, evidence-packet issues 632-635, and the earlier May-July grant plan have promise/evidence/gap/owner/status rows.
       - npm releases, integrations, workshops, users, transaction volume, and mainnet claims are measured, not inferred.
       - A maintainer-approved remediation and grant-communication decision exists for every overdue or uncertain commitment.
+      - A human-readable M0 evidence guide names its audience, source of truth, prerequisites, examples, owner, and freshness trigger.
     prohibitedShortcuts:
       - closing grant work because code exists without release evidence
       - live/mainnet transactions undertaken merely to satisfy the audit
@@ -27,6 +30,8 @@ milestones:
       - Open-source covenant, commercial boundary, upstream policy, security policy, and contributor journey are public.
       - One current roadmap replaces conflicting portfolio narratives without replacing component canonical artifacts.
       - A public status page distinguishes verified, partial, planned, blocked, superseded, and unknown claims.
+      - Early security/trust-boundary, privacy/evidence/public-claim, and dependency/supply-chain baselines are reviewed before their M2-M7 consumers begin.
+      - The portfolio glossary, component ownership map, contributor entry points, and documentation freshness rules are readable by humans and link canonical component sources.
 
   - id: M2
     name: ADL, RAP, and Arena Contract Convergence
@@ -42,6 +47,8 @@ milestones:
       - x402, MPP, AP2, and conventional-rail semantics are compared as fixtures and later adapters without displacing the Solana/AUDD obligation path.
       - At least one non-Solana or conventional-rail fixture is planned and contract-tested after the Solana/AUDD acceptance pack so neutrality is proven without making later standards the first implementation.
       - An Agent Bill of Materials/dependency view can be generated from an ADL definition and its deployment projection.
+      - Technical Solana/AUDD implementation and evidence-packet readiness are recorded separately from partner/grant acceptance; unresolved external acceptance remains blocked and does not prevent bounded no-spend contract testing.
+      - Canonical ADL and RAP contract, migration, receipt/authority/replay, and conformance documentation names audience, prerequisites, runnable examples, owner, and freshness triggers.
     prohibitedShortcuts:
       - claiming the gate without the SPL account-layout work and the re-audit that layout change invalidates
       - re-baselining the gate by narrowing the Solana/AUDD implementation scope instead of by a recorded date decision
@@ -58,6 +65,8 @@ milestones:
       - Payment truth is reconciled outside Nostr; sensitive terms have an explicit encryption/privacy policy.
       - Upstream discussions and generally useful patches are filed before a permanent fork decision.
       - A public no-spend walkthrough and contributor setup are reproducible.
+      - Lab Buzz issues 419-433 are mapped to E06 and canonical ADL/RAP ownership so accepted historical design is reused without being represented as live delivery.
+      - Buzz integration, privacy/trust, operator, and contributor documentation passes an owner and clean-reader freshness review.
 
   - id: M4
     name: Reddi Pack for Omarchy Quattro Alpha
@@ -70,6 +79,7 @@ milestones:
       - Plugin cannot access signer keys; install, update, rollback, disable, and uninstall paths are tested.
       - A threat model covers unsandboxed QML, package supply chain, local APIs, agent execution, and payment authority.
       - Useful Omarchy fixes/docs are contributed upstream and branding does not imply endorsement.
+      - Install, update, rollback, key-authority, threat-boundary, and troubleshooting documentation is validated on the supported clean-machine matrix.
 
   - id: M5
     name: Reddi Machine Developer Preview
@@ -82,6 +92,7 @@ milestones:
       - Nostr identity, agent identities, wallet binding, spend policy, relay mode, and recovery are explainable and testable.
       - SBOM, signatures, provenance, update channel, rollback, and incident path are documented.
       - Custom ISO versus stock Omarchy plus provisioning is resolved by evidence, not branding preference.
+      - First-boot, identity/wallet boundary, backup, recovery, update, and incident documentation passes clean-reader and owner review.
 
   - id: M6
     name: Lighthouse Hosted Services Alpha
@@ -94,6 +105,7 @@ milestones:
       - Pricing and unit economics are based on measured workloads.
       - OSS parity review proves no hosted dependency in the first local success path.
       - Custody and regulated-payment functions remain excluded unless separately approved.
+      - Tenant, export/deletion, self-host parity, SLO, incident, support, and operator documentation is reviewed against the released interfaces and measured service behavior.
 
   - id: M7
     name: Community Season Zero and Builder Beta
@@ -105,6 +117,7 @@ milestones:
       - Season Zero runs with deterministic/no-spend and optional approved paid tracks clearly separated.
       - At least three independent contributors complete reviewed changes and at least two external implementations submit conformance evidence.
       - Community health measures include retention, review latency, upstream acceptance, documentation success, and contributor diversity.
+      - Contributor journeys, workshop materials, moderation/safety guidance, and canonical component indexes are tested with their intended audiences and have named freshness triggers.
 
   - id: M8
     name: Production and Economic Readiness
@@ -117,4 +130,5 @@ milestones:
       - Each chain, asset, and rail has an explicit production support state and operator runbook.
       - Mainnet/live activation is a recorded human decision; marketing claims link to evidence.
       - Revenue demonstrates a credible path to fund maintenance and staffing beyond grants.
+      - Production support matrices, runbooks, recovery, privacy, audit, payment/receipt interpretation, and public-claim documentation match the approved readiness scope and evidence.
 

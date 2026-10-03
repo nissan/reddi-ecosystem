@@ -46,6 +46,15 @@ class GraphLintTests(unittest.TestCase):
         errors = self._lint_with_graph(graph)
         self.assertTrue(any("unknown dependency" in error for error in errors))
 
+    def test_earlier_milestone_cannot_depend_on_later_milestone(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-071"]["dependsOn"].append("ECO-112")
+        errors = self._lint_with_graph(graph)
+        self.assertIn(
+            "ECO-071: milestone M4 cannot depend on later ECO-112 in M8", errors
+        )
+
     def test_unknown_gate_is_rejected(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         graph["nodes"][0]["humanGates"] = ["agent-decides"]
@@ -68,12 +77,28 @@ class GraphLintTests(unittest.TestCase):
             any("humanGates must contain only strings" in error for error in errors)
         )
 
-    def test_solana_audd_sequence_is_required_before_cross_standard_proof(self):
+    def test_solana_audd_technical_evidence_is_required_before_cross_standard_fixture(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
         nodes["ECO-043"]["dependsOn"] = ["ECO-041"]
         errors = lint_obligation_sequence(nodes)
-        self.assertIn("ECO-043: missing required dependency ECO-047", errors)
+        self.assertIn("ECO-043: missing required dependency ECO-046", errors)
+
+    def test_public_buzz_sidecar_still_requires_external_acceptance_gate(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-062"]["dependsOn"].remove("ECO-047")
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-062: missing required dependency ECO-047", errors)
+
+    def test_early_baselines_precede_consuming_milestones(self):
+        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+        nodes = {node["id"]: node for node in graph["nodes"]}
+        nodes["ECO-071"]["dependsOn"].remove("ECO-018")
+        nodes["ECO-092"]["dependsOn"].remove("ECO-017")
+        errors = lint_obligation_sequence(nodes)
+        self.assertIn("ECO-071: missing required dependency ECO-018", errors)
+        self.assertIn("ECO-092: missing required dependency ECO-017", errors)
 
     def test_solana_audd_implementation_requires_m0_obligation_reconciliation(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
@@ -162,7 +187,7 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-043: comparisonStandards must include x402", errors)
 
-    def test_any_comparison_fixture_must_follow_the_acceptance_pack(self):
+    def test_any_comparison_fixture_must_follow_the_technical_evidence_pack(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
         self.assertNotIn("ECO-999", nodes)
@@ -173,7 +198,7 @@ class GraphLintTests(unittest.TestCase):
             "dependsOn": ["ECO-041"],
         }
         errors = lint_obligation_sequence(nodes)
-        self.assertIn("ECO-999: missing required dependency ECO-047", errors)
+        self.assertIn("ECO-999: missing required dependency ECO-046", errors)
 
     def test_first_rail_profile_requires_the_first_implementation_role(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))

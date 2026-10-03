@@ -98,7 +98,10 @@ REQUIRED_ADAPTER_METHODS = (
 def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
     """Enforce captain-approved Solana/AUDD-first sequencing."""
     errors: list[str] = []
-    for node_id in ("ECO-041", "ECO-042", "ECO-043", "ECO-046", "ECO-047"):
+    for node_id in (
+        "ECO-016", "ECO-017", "ECO-018", "ECO-041", "ECO-042", "ECO-043",
+        "ECO-046", "ECO-047", "ECO-060", "ECO-062",
+    ):
         if node_id not in nodes:
             errors.append(f"missing required planning node {node_id}")
     if errors:
@@ -111,9 +114,24 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
     require_dependency(errors, nodes, "ECO-047", "ECO-046")
     for node_id, node in sorted(nodes.items()):
         if node.get("railRole") == "comparison-fixture":
-            require_dependency(errors, nodes, node_id, "ECO-047")
-    if "ECO-060" in nodes:
-        require_dependency(errors, nodes, "ECO-060", "ECO-047")
+            require_dependency(errors, nodes, node_id, "ECO-046")
+    require_dependency(errors, nodes, "ECO-060", "ECO-046")
+    require_dependency(errors, nodes, "ECO-062", "ECO-047")
+
+    early_baselines = {
+        "ECO-070": "ECO-016",
+        "ECO-071": "ECO-018",
+        "ECO-075": "ECO-017",
+        "ECO-084": "ECO-018",
+        "ECO-085": "ECO-017",
+        "ECO-091": "ECO-016",
+        "ECO-092": "ECO-017",
+        "ECO-093": "ECO-016",
+        "ECO-095": "ECO-017",
+        "ECO-103": "ECO-017",
+    }
+    for node_id, baseline_id in early_baselines.items():
+        require_dependency(errors, nodes, node_id, baseline_id)
 
     adapter_methods = nodes["ECO-041"].get("adapterMethods")
     if not isinstance(adapter_methods, list):
@@ -174,7 +192,12 @@ def lint(root: Path = ROOT) -> list[str]:
         if registry.get("schemaVersion") != expected:
             errors.append(f"{relative}: schemaVersion must be {expected}")
 
-    milestones = {item.get("id") for item in milestones_data.get("milestones", [])}
+    milestone_items = milestones_data.get("milestones", [])
+    milestones = {item.get("id") for item in milestone_items}
+    milestone_order = {
+        item.get("id"): index for index, item in enumerate(milestone_items)
+        if item.get("id")
+    }
     repositories = {
         item.get("id") for item in repositories_data.get("repositories", [])
     } | {
@@ -265,6 +288,19 @@ def lint(root: Path = ROOT) -> list[str]:
                     errors.append(f"{node_id}: self dependency")
                 elif dependency not in nodes:
                     errors.append(f"{node_id}: unknown dependency {dependency}")
+                else:
+                    dependency_milestone = nodes[dependency].get("milestone")
+                    node_milestone = node.get("milestone")
+                    if (
+                        dependency_milestone in milestone_order
+                        and node_milestone in milestone_order
+                        and milestone_order[dependency_milestone]
+                        > milestone_order[node_milestone]
+                    ):
+                        errors.append(
+                            f"{node_id}: milestone {node_milestone} cannot depend on "
+                            f"later {dependency} in {dependency_milestone}"
+                        )
         gates = node.get("humanGates", [])
         if not isinstance(gates, list):
             errors.append(f"{node_id}: humanGates must be a list")

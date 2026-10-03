@@ -1,6 +1,6 @@
 schemaVersion: 2
 asOf: 2026-08-26
-lastAmendedAt: 2026-10-02
+lastAmendedAt: 2026-10-03
 dateSemantics:
   asOf: date of the last full sweep across every repository entry.
   lastAmendedAt: date of the most recent amendment to individual entries; evidence
@@ -131,4 +131,6 @@ synchronisation:
     - Ecosystem nodes link to existing issues rather than duplicating them.
     - New cross-repository work begins here and is moved or linked when the execution repository is known.
     - Status imported from GitHub never overwrites a human decision gate automatically.
+    - Cross-repository schedule visibility uses milestone:M0 through milestone:M8 labels; GitHub milestone dates are not fabricated from unconfirmed planning targets.
+    - Issue comments, notes, assignees, and other collaboration state are preserved when canonical projection fields are reconciled.
     - Every merged component PR triggers a dependency and milestone review here.

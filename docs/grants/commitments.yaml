@@ -1,7 +1,7 @@
 schemaVersion: 2
 auditAsOf: 2026-08-26
-lastAmendedAt: 2026-09-01
-ledgerRevisedAt: 2026-09-01
+lastAmendedAt: 2026-10-03
+ledgerRevisedAt: 2026-10-03
 dateSemantics:
   auditAsOf: date of the last full audit sweep across every commitment.
   lastAmendedAt: date of the most recent amendment to individual commitments; evidence
@@ -166,6 +166,18 @@ commitments:
     acceptanceArtifacts: [canonical public package names, official registry weekly-downloads export, exact weekly date window]
     ownerRole: release manager
 
+  - id: ADL-GRANT-2026-01
+    source: https://github.com/nissan/reddiagent-lab/issues/406
+    promise: Complete the Superteam Australia tranche 2 public ADL v0.2.0-beta release and acceptance steps described by the canonical issue.
+    due: unknown
+    status: unknown
+    evidence:
+      - Issue 406 records technical preparation and maintainer-only release, visibility, and submission steps; issue state is not acceptance evidence.
+    gaps: [governing grant text, current release and repository-visibility evidence, fresh secret-scan evidence before any visibility change, maintainer release decision, tranche submission and acceptance authority record]
+    acceptanceArtifacts: [governing-text re-read, canonical release and tag evidence, current visibility and secret-scan evidence, maintainer decision record, approved tranche submission record, acceptance authority decision]
+    humanGate: external-publication-and-grant-communication
+    ownerRole: ADL release and grant lead
+
   - id: AUDD-2026-M1
     source: https://github.com/nissan/reddi-agent-protocol/issues/616
     promise: AUDD initial-integration release gate for 2,500 AUDD.
@@ -176,8 +188,9 @@ commitments:
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issue 615 as open at 2026-08-31; issues 620-622 fall
         outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
       - Issue 616 governing text re-read at 2026-09-01: the x402 challenge/response obligation stands, and the evidence package must include transaction signature(s), non-secret wallet authority metadata, x402 challenge/response transcript, Langfuse trace refs, and an operator runbook, with mock/devnet/controlled-live/mainnet state distinguished.
+      - https://github.com/nissan/reddi-agent-protocol/issues/632 is the unresolved M1 evidence-packet obligation; its open issue does not prove technical completion or acceptance.
     gaps: [bounded authority, Solana/AUDD quote-authorize-submit-observe-settle-refund-or-reverse-reconcile-redact evidence, AUDD x402 proof as recorded in the governing text, approved end-to-end evidence package, Langfuse audit trail and trace refs, transaction signatures and non-secret wallet authority metadata, operator runbook]
-    acceptanceArtifacts: [RAP issue/PR links, issue 616 governing-text re-read record, Solana/AUDD fixture-devnet evidence, transaction signature(s), non-secret wallet authority metadata, x402 challenge/response transcript, Langfuse trace refs and audit trail, operator runbook, mock/devnet/controlled-live/mainnet state declaration, receipt and reconciliation export, refund-or-reversal evidence where applicable, redaction review, acceptance authority decision]
+    acceptanceArtifacts: [RAP issue/PR links, issue 616 governing-text re-read record, issue 632 technical evidence packet with explicit gaps, Solana/AUDD fixture-devnet evidence, transaction signature(s), non-secret wallet authority metadata, x402 challenge/response transcript, Langfuse trace refs and audit trail, operator runbook, mock/devnet/controlled-live/mainnet state declaration, receipt and reconciliation export, refund-or-reversal evidence where applicable, redaction review, acceptance authority decision]
     humanGate: live-payment-if-required
     ownerRole: RAP payments lead
 
@@ -191,8 +204,9 @@ commitments:
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615 and 625 as open at 2026-08-31; issues 623-624
         fall outside that snapshot's captured issue page and remain carried forward from the 2026-08-26 row.
       - Issue 617 governing text re-read at 2026-09-01: volume counts only through x402 integration, and the evidence pack must prove volume, cycle count, settlement, escrow release, and refund behavior without exposing secrets or private user data.
+      - https://github.com/nissan/reddi-agent-protocol/issues/633 is the unresolved M2 evidence-packet obligation; its open issue does not prove eligible volume, live settlement, or acceptance.
     gaps: [eligible 10000 AUDD volume verified through x402 integration, 50 completed autonomous payment cycles, live settlement/escrow-release/refund evidence, application-event to on-chain settlement reconciliation, operator approval for any real spend or mainnet activity]
-    acceptanceArtifacts: [eligible-activity definition, primary rail records, volume verifier reconciliation of application events to on-chain AUDD settlement records, completed-cycle count evidence, settlement and escrow-release evidence, receipt/reconciliation export, refund-or-reversal evidence where applicable, exclusion log for synthetic or owned demo activity]
+    acceptanceArtifacts: [issue 633 technical evidence packet with explicit gaps, acceptance-authority eligible-activity and environment definition, primary rail records, volume verifier reconciliation of application events to on-chain AUDD settlement records, completed-cycle count evidence, settlement and escrow-release evidence, receipt/reconciliation export, refund-or-reversal evidence where applicable, exclusion log for synthetic or owned demo activity]
     humanGate: live-payment-and-grant-eligibility
     ownerRole: RAP payments lead
 
@@ -205,8 +219,9 @@ commitments:
       - RAP issues 626-628 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615, 626, 627, and 628 as open at 2026-08-31.
       - Issue 618 governing text re-read at 2026-09-01: activation metrics must be deduplicated, auditable, privacy-aware, and dashboard-visible, with a data export sufficient for a milestone report.
+      - https://github.com/nissan/reddi-agent-protocol/issues/634 is the unresolved M3 evidence-packet obligation; its open issue does not prove eligible users or acceptance.
     gaps: [250 eligible users, identity-safe deduplication, participation linkage to payment/workflow events, dashboard and milestone-report export, consent/privacy basis and exclusion of synthetic users]
-    acceptanceArtifacts: [eligible-user definition, identity-safe deduplication record, privacy-safe participation evidence linking activation to payment/workflow events, dashboard export, milestone-report data export, redaction review, acceptance authority decision]
+    acceptanceArtifacts: [issue 634 technical evidence packet with explicit gaps, acceptance-authority eligible-user definition, identity-safe deduplication record, privacy-safe participation evidence linking activation to payment/workflow events, dashboard export, milestone-report data export, redaction review, acceptance authority decision]
     humanGate: privacy-and-publication
     ownerRole: product analytics lead
 
@@ -219,7 +234,8 @@ commitments:
       - RAP issues 629-630 were open at 2026-08-26.
       - evidence/github/ECO-001-2026-08-31.md (this repository) records RAP issues 615, 629, and 630 as open at 2026-08-31.
       - Issue 619 governing text re-read at 2026-09-01: activation-pool mechanics need explicit caps, allocation records, user/workflow linkage, refund/expiry behavior, and non-secret audit logs, and non-coding outreach stays outside the GitHub scope.
+      - https://github.com/nissan/reddi-agent-protocol/issues/635 is the unresolved activation evidence-packet obligation; its open issue does not prove funding, communication, activity, or acceptance.
     gaps: [activation-pool caps and allocation records, refund/expiry behavior, non-secret audit logs, workshop/demo-safe mode without uncontrolled spend or key exposure, approved non-coding activation plan, Superteam Australia communication and funding approvals]
-    acceptanceArtifacts: [activation-pool caps and allocation records, user/workflow linkage, refund/expiry behavior evidence, non-secret audit logs, workshop/evidence plan, exported activation metrics for event and case-study reporting, approved communication record, funding/spend approval if used]
+    acceptanceArtifacts: [issue 635 technical evidence packet with explicit gaps, activation-pool caps and allocation records, user/workflow linkage, refund/expiry behavior evidence, non-secret audit logs, workshop/evidence plan, exported activation metrics for event and case-study reporting, approved communication record, funding/spend approval if used]
     humanGate: funding-outreach-and-event-approval
     ownerRole: programme lead
