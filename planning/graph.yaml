@@ -1,7 +1,7 @@
 schemaVersion: 2
 programme: Reddi Ecosystem
 asOf: 2026-08-26
-lastAmendedAt: 2026-09-01
+lastAmendedAt: 2026-10-02
 sequencingRevisedAt: 2026-08-31
 dateSemantics:
   asOf: date of the last full sweep across every node.
@@ -167,7 +167,7 @@ nodes:
   - id: ECO-003
     epic: E00
     type: issue
-    title: Reconcile Solana and Quasar deployment identities and environment claims
+    title: Reconcile current Solana and historical Quasar deployment identities and environment claims
     milestone: M0
     targetRepo: rap
     githubProjection: tracker
@@ -175,13 +175,14 @@ nodes:
     priority: P0
     dependsOn: [ECO-001]
     ownerRole: Solana integration lead
-    outcome: One canonical deployment registry explains active, legacy, devnet, test, and any approved mainnet programs.
+    outcome: One canonical deployment registry separates current Stable Anchor authority from legacy, devnet, test, frozen Quasar, and any separately approved mainnet records.
     acceptance:
-      - Program IDs, source revisions, networks, upgrade authorities, deployment dates, and proof claims reconcile.
-      - MagicBlock PER, Quasar, legacy Anchor, and mainnet claims cannot be confused in docs or evidence exports.
+      - Program IDs, source revisions, networks, upgrade authorities, deployment dates, support status, and proof claims reconcile.
+      - Stable Anchor authority, frozen Quasar historical evidence, MagicBlock PER, legacy deployment records, and mainnet claims cannot be confused in docs or evidence exports.
+      - Quasar provenance is retained without placing Quasar on a product, deployment, audit, production, or mainnet critical path.
     subtasks:
       - Validate canonical config against repository history and read-only chain observations.
-      - Classify every discovered program ID and remove or annotate stale documentation.
+      - Classify every discovered program ID and annotate stale or superseded documentation without deleting historical evidence.
       - Add a machine-checkable deployment registry test in RAP.
     evidenceExpected: [RAP issue or PR, deployment registry, read-only verification log]
     humanGates: [mainnet]
@@ -328,7 +329,7 @@ nodes:
     milestone: M1
     targetRepo: ecosystem
     githubProjection: implementation
-    status: planned
+    status: in-progress
     priority: P1
     dependsOn: [ECO-004, ECO-012, ECO-013]
     ownerRole: programme product lead

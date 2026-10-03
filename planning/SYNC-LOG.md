@@ -3,6 +3,48 @@
 This log records material divergence between the canonical programme graph and its
 GitHub execution projections. Newest entries appear first.
 
+## 2026-10-02 — ECO-014 roadmap and BDD applicability refresh
+
+- Claimed executable node `ECO-014` only. Expected footprint: `README.md`,
+  `docs/ROADMAP.md`, a proportionate behavior/applicability catalog under `docs/`,
+  current authority/evidence annotations in `planning/repositories.yaml`, the stale
+  Quasar identity wording in `planning/graph.yaml`, generated issue projections, and
+  this Sync Log entry.
+- Captain-approved execution waives ECO-014's incomplete ECO-004/ECO-012/ECO-013
+  prerequisites only for this bounded applicability reconciliation. The refresh does
+  not claim ECO-014 complete, publish a status service, or bypass those dependencies
+  for later acceptance.
+- Current `gh-axi` evidence confirmed RAP pull requests
+  [654](https://github.com/nissan/reddi-agent-protocol/pull/654),
+  [663](https://github.com/nissan/reddi-agent-protocol/pull/663),
+  [671](https://github.com/nissan/reddi-agent-protocol/pull/671), and
+  [674](https://github.com/nissan/reddi-agent-protocol/pull/674) merged to `main` at
+  their recorded 40-character merge commits. Arena pull request
+  [96](https://github.com/nissan/reddi-arena/pull/96) merged at exact commit
+  `2eb85056b643b6ee55c0be603ed73f9becee20b4`; an interim longer SHA was rejected.
+- `ECO-003` now preserves frozen Quasar deployment/provenance evidence while removing
+  the stale implication that Quasar remains on a product, deployment, audit,
+  production, or mainnet progression path. This changes portfolio applicability only;
+  RAP remains the authority for implementation and deployment registry semantics.
+  Existing [ecosystem issue 7](https://github.com/nissan/reddi-ecosystem/issues/7)
+  retains its older projected title until a separately approved GitHub projection sync;
+  no remote issue was changed by this work.
+- The typed HT/EV/EX/AP/RS view is explanatory: existing `dependsOn` and `humanGates`
+  remain the machine-consumed graph fields. No chronology was added as a hard edge, and no
+  existing edge was removed. The catalog reconciles every listed blocker and unlock to
+  `dependsOn`; the replay join to ECO-046 is shown only as proposed sequencing.
+- Captain-approved audit-only waiver: the read-only gap-audit portions of `ECO-040` and
+  `ECO-030` may start before their unmet `ECO-001` (in-progress) and `ECO-020`
+  (in-progress) dependencies are done. Both edges stay in the graph. The waiver does not
+  cover node completion, contract freeze, acceptance, implementation, or any dependent
+  node; initial audit findings are inputs only.
+- Follow-up join: after the parallel RAP readiness and ADL portability audits, revisit
+  the graph once for verified blockers, canonical issue links, and semantic contract
+  joins. Medium/low findings remain separate issue-backed maintenance work.
+- No email connection, partner contact, publication, package release, deployment,
+  wallet/key operation, signing, transaction, live activation, or grant-acceptance
+  claim occurred.
+
 ## 2026-09-01 — ECO-001 replacement publication path
 
 - Claimed graph node `ECO-001` only. Expected footprint: public GitHub evidence under
