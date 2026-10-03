@@ -3,6 +3,16 @@
 This log records material divergence between the canonical programme graph and its
 GitHub execution projections. Newest entries appear first.
 
+## 2026-10-03 — deferred governance review follow-ups
+
+- Claimed the bounded follow-up represented by ecosystem issues [31](https://github.com/nissan/reddi-ecosystem/issues/31)–[35](https://github.com/nissan/reddi-ecosystem/issues/35), with an expected footprint in the canonical graph, milestone/roadmap/governance/grant prose, generated projections, graph lint/tests, pull-request template, and this Sync Log. No component implementation, dates, graph edges, human gates, live action, eligibility or acceptance decision is changed.
+- Removed the newly introduced strict `prioritySemantics` block and restored only ECO-021 from P1 to its pre-reconciliation P0 label. This preserves historical portfolio labels; it is not a portfolio-wide priority redistribution or a new priority policy.
+- Added the settled Firstmate role to the portfolio glossary. Firstmate is the orchestrator under scoped human delegation, distinct from implementation workers and independent reviewers; its merge authority remains conditional on the canonical unchanged-head validation and independent-review policy in [`GOVERNANCE.md`](../GOVERNANCE.md#delivery-and-merge-policy). No automated enforcement or new authority is claimed.
+- Reconciled M2, roadmap, adapter-boundary and grant-ledger prose with the canonical ECO-046/ECO-047 split. Bounded local no-spend technical comparison may follow ECO-046; eligibility, partner/grant reliance, public promotion and live/value actions remain blocked on ECO-047 and applicable node-level gates. An already approved ECO-005 retirement disposition may be cited, but obtaining one is not an unencoded technical prerequisite for ECO-046; unresolved artifacts remain owned gaps.
+- Replaced the pull-request template's context-dependent relative governance link with the stable public [`main` blob URL](https://github.com/nissan/reddi-ecosystem/blob/main/GOVERNANCE.md#delivery-and-merge-policy), suitable for resolution from a pull-request body.
+- Owner decision for issue 35: the ten early-baseline edges are ordinary canonical data in `planning/graph.yaml`. A second manually synchronized Python map is not justified for this delivery, so that map and its solely dependent focused test were removed. The edges themselves, all other approved sequencing pins, and the generic executable milestone-order validation remain unchanged; tests continue to prove that a later-milestone dependency is rejected and the repository's valid schedule is accepted.
+- Generated projections are refreshed from the canonical graph. Remote issue state and manual collaboration content are not changed by source generation; any reversible projection reconciliation preserves those fields and is performed only after validation.
+
 ## 2026-10-03 — portfolio planning and governance reconciliation
 
 - Claimed one bounded planning increment under `ECO-014`, with expected footprint in

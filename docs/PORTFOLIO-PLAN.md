@@ -24,6 +24,10 @@ an evidence-backed re-estimate.
 | **Technical evidence** | Reproducible implementation, fixtures, tests, replay, provenance and explicit gaps. It can be complete without satisfying a partner, grant, legal or live-value criterion. |
 | **External acceptance** | A decision by a named human, partner, grantor, legal, privacy, operator or publication authority. Code and issue state cannot manufacture it. |
 | **Human gate** | A non-automatable approval for a consequential action. A blocked gate is not waived by schedule pressure. |
+| **Captain** | The human authority who scopes delegation and retains consequential decisions and approvals. |
+| **Firstmate** | The orchestrating agent role acting under the human captain's scoped delegation, distinct from implementation workers and independent reviewers. It has conditional merge authority only after permitted validation is green and fresh permission-respecting independent Claude-family **and** Codex reviewers each return explicit `GO` on the same unchanged full final commit. This definition grants no new authority; [`GOVERNANCE.md`](../GOVERNANCE.md#delivery-and-merge-policy) is the canonical policy. |
+| **Implementation worker** | The agent that authors a change. It validates and reports the work but does not independently approve or merge its own delivery. |
+| **Independent reviewer** | A non-author agent granted read/review permissions for one exact final commit. A reviewer reports `GO` or `NO-GO` but does not merge the change. |
 
 ## Ownership and trust boundaries
 

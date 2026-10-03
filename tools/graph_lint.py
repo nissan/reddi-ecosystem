@@ -118,21 +118,6 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
     require_dependency(errors, nodes, "ECO-060", "ECO-046")
     require_dependency(errors, nodes, "ECO-062", "ECO-047")
 
-    early_baselines = {
-        "ECO-070": "ECO-016",
-        "ECO-071": "ECO-018",
-        "ECO-075": "ECO-017",
-        "ECO-084": "ECO-018",
-        "ECO-085": "ECO-017",
-        "ECO-091": "ECO-016",
-        "ECO-092": "ECO-017",
-        "ECO-093": "ECO-016",
-        "ECO-095": "ECO-017",
-        "ECO-103": "ECO-017",
-    }
-    for node_id, baseline_id in early_baselines.items():
-        require_dependency(errors, nodes, node_id, baseline_id)
-
     adapter_methods = nodes["ECO-041"].get("adapterMethods")
     if not isinstance(adapter_methods, list):
         errors.append("ECO-041: adapterMethods must be a list")

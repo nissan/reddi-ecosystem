@@ -46,7 +46,7 @@ or delayed capture. An adapter declares `escrow`, `partial_refund`, `chargeback`
 
 ## Solana/AUDD-first obligation path
 
-The first concrete adapter implementation and acceptance-evidence pack is Solana rails with AUDD payments. It precedes the no-spend cross-standard public proof because Superteam Australia and AUDD obligations require evidence in that profile; a broader MPP/AP2/x402 demo would be strategically useful but would not satisfy those obligations by itself.
+The first concrete adapter implementation is Solana rails with AUDD payments. Once ECO-046 has produced bounded technical evidence and explicit gaps, no-spend, no-contact cross-standard fixture work may proceed. That technical sequence does not satisfy Superteam Australia or AUDD eligibility and acceptance: ECO-047 still owns partner/grant reliance and public promotion, and every live/value action remains behind ECO-047 and the applicable node-level human gates.
 
 The Solana/AUDD path must produce fixture/devnet evidence before any operator-controlled live progression:
 
@@ -62,7 +62,7 @@ Live payment, signing/custody, deployment, mainnet, spend, publication, and gran
 
 ## Neutrality tests
 
-The base contract stays rail-neutral from the start, but the public cross-standard proof follows the Solana/AUDD acceptance pack. The same RAP fixture then passes through:
+The base contract stays rail-neutral from the start. Bounded local cross-standard fixture work follows ECO-046 technical evidence; public promotion of that proof, partner/grant reliance, and every live/value action remain blocked on ECO-047 and applicable node-level gates. The same RAP fixture then passes through:
 
 - the Solana/AUDD adapter that already produced the obligation evidence;
 - a deterministic fake rail used for negative and replay tests; and

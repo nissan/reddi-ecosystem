@@ -59,7 +59,7 @@ M0 is the only urgent recovery path until the evidence ledger is truthful. The f
 
 ## Captain obligation-driven sequencing
 
-The accepted strategy remains portable: ADL and RAP core contracts are rail-neutral, and x402, MPP, AP2, ACP/UCP, Stripe-style rails, and later chains are comparison fixtures or later adapters. Sequencing is not neutrality. The first implementation and acceptance-evidence profile must satisfy the existing Solana/AUDD obligations before Reddi spends attention on a public cross-standard no-spend proof that would be easier to explain but would not discharge those obligations.
+The accepted strategy remains portable: ADL and RAP core contracts are rail-neutral, and x402, MPP, AP2, ACP/UCP, Stripe-style rails, and later chains are comparison fixtures or later adapters. Sequencing is not neutrality. Solana/AUDD remains the first implementation. Bounded local no-spend comparison work may follow ECO-046 technical evidence, but public promotion, partner/grant reliance, eligibility, and every live/value action remain blocked on ECO-047 and applicable node-level gates; comparison evidence does not discharge Solana/AUDD obligations.
 
 Executable order:
 
@@ -102,8 +102,8 @@ are proven by the relevant primary sources and approved human gates.
 |---|---:|---|---|
 | M0 Evidence Recovery and Grant Truth | 11 Sep 2026 — overdue, unconfirmed | Every May–July commitment, August target, and AUDD gate has governing text, evidence, gap, owner role, and approved disposition | E00 |
 | M1 Programme Baseline and Governance | 25 Sep 2026 — overdue, unconfirmed | Public control-plane repo, validated graph/projections, research/prompt governance, early security/privacy/supply-chain baselines, glossary/ownership map, claim/status views, open-source and community covenants | E01–E02, E12 |
-| M2 ADL/RAP/Arena Contract Convergence | 30 Oct 2026 — unconfirmed; predates the SPL scope | Portable ADL projection and Agent BOM, rail-neutral RAP lifecycle/events/receipts, first Solana/AUDD implementation and acceptance pack, then contract-tested MPP/AP2/x402 comparison fixtures, multi-runtime conformance, deterministic Arena replay | E03–E05 |
-| M3 Reddi Arena for Buzz Proof | 11 Dec 2026 — unconfirmed | After Solana/AUDD acceptance evidence is packaged, upstream-compatible sidecar proves no-spend discovery-through-receipt flow with Nostr privacy/trust and usable lifecycle UX | E06 |
+| M2 ADL/RAP/Arena Contract Convergence | 30 Oct 2026 — unconfirmed; predates the SPL scope | Portable ADL projection and Agent BOM, rail-neutral RAP lifecycle/events/receipts, first Solana/AUDD implementation, ECO-046 technical evidence, then bounded contract-tested MPP/AP2/x402 comparison fixtures, multi-runtime conformance, and deterministic Arena replay; external acceptance remains separate | E03–E05 |
+| M3 Reddi Arena for Buzz Proof | 11 Dec 2026 — unconfirmed | Bounded no-spend architecture work may follow ECO-046; the upstream-compatible public sidecar, promotion, partner reliance, and every live/value path remain blocked on ECO-047 and applicable gates | E06 |
 | M4 Reddi Pack for Omarchy Quattro Alpha | 29 Jan 2027 — unconfirmed | Signed services and thin keyless QML cockpit install, update, roll back, disable, and uninstall on supported Omarchy | E07 |
 | M5 Reddi Machine Developer Preview | 26 Mar 2027 — unconfirmed | Evidence chooses provisioning/image shape; reproducible first boot, identity/wallet boundary, hardware matrix, updates and recovery work | E08 |
 | M6 Lighthouse Hosted Services Alpha | 30 Apr 2027 — unconfirmed | Managed relay/Arena/evidence operations meet isolation/SLO/export/OSS-parity gates and have measured unit economics | E09 |

@@ -43,9 +43,9 @@ milestones:
       - ADL v0.2 import/profile, RAP job/receipt, identity binding, and payment adapter contracts are versioned and tested.
       - Reddi Arena consumes canonical ADL without a local semantic fork and emits structured implementation findings.
       - Dry-run and replay cover discovery through judgment and receipt without wallet or hosted dependencies.
-      - The first concrete payment implementation and acceptance-evidence profile runs on Solana rails with AUDD payments before any broader no-spend cross-standard public proof.
+      - The first concrete payment implementation runs on Solana rails with AUDD payments; bounded no-spend comparison work may follow ECO-046 technical evidence, while public promotion, partner/grant reliance, and live/value actions remain blocked on ECO-047 and their applicable human gates.
       - x402, MPP, AP2, and conventional-rail semantics are compared as fixtures and later adapters without displacing the Solana/AUDD obligation path.
-      - At least one non-Solana or conventional-rail fixture is planned and contract-tested after the Solana/AUDD acceptance pack so neutrality is proven without making later standards the first implementation.
+      - At least one non-Solana or conventional-rail fixture is planned and contract-tested after ECO-046 technical evidence so neutrality is proven without making later standards the first implementation; this does not imply eligibility, partner acceptance, public-promotion approval, or live/value authorization.
       - An Agent Bill of Materials/dependency view can be generated from an ADL definition and its deployment projection.
       - Technical Solana/AUDD implementation and evidence-packet readiness are recorded separately from partner/grant acceptance; unresolved external acceptance remains blocked and does not prevent bounded no-spend contract testing.
       - Canonical ADL and RAP contract, migration, receipt/authority/replay, and conformance documentation names audience, prerequisites, runnable examples, owner, and freshness triggers.

@@ -15,7 +15,7 @@ rules:
   - test or synthetic volume is never grant-eligible volume
   - no recovery task authorizes live spend, outreach, or publication
   - Solana rails with AUDD payments are the first concrete payment implementation and acceptance-evidence profile for Solana Superteam Australia and AUDD obligations
-  - x402, MPP, AP2, ACP/UCP, Stripe-style, and other standards remain comparison fixtures or later adapters until the Solana/AUDD acceptance pack is reviewed, except where a recorded grantor obligation requires specific evidence from one of them
+  - x402, MPP, AP2, ACP/UCP, Stripe-style, and other standards remain comparison fixtures or later adapters; bounded local no-spend fixture work may follow ECO-046 technical evidence, but public promotion, partner/grant reliance, eligibility, and every live/value action remain blocked on ECO-047 and applicable node-level gates, except where a recorded grantor obligation requires specific technical evidence from one of them
   - programme sequencing rules never retire or soften a recorded grantor obligation; retiring or softening an obligation row requires a re-read of its governing text recorded as evidence, while adding a gap, control, or acceptance artifact does not
 
 commitments:
