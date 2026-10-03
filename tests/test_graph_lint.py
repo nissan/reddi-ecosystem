@@ -91,6 +91,57 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-062: missing required dependency ECO-047", errors)
 
+    def test_technical_split_nodes_keep_their_human_gates(self):
+        for node_id, gate in (
+            ("ECO-043", "live-payment"),
+            ("ECO-046", "signing-or-custody"),
+            ("ECO-060", "upstream-contact"),
+            ("ECO-060", "repo-creation"),
+        ):
+            with self.subTest(node_id=node_id, gate=gate):
+                graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
+                nodes = {node["id"]: node for node in graph["nodes"]}
+                nodes[node_id]["humanGates"].remove(gate)
+                errors = lint_obligation_sequence(nodes)
+                self.assertIn(
+                    f"{node_id}: missing required human gate {gate}", errors
+                )
+
+    def test_comment_truncated_criterion_is_rejected(self):
+        graph_text = (ROOT / "planning/graph.yaml").read_text(encoding="utf-8")
+        graph = load_yaml(ROOT / "planning/graph.yaml")
+        criterion = next(
+            node for node in graph["nodes"] if node["id"] == "ECO-060"
+        )["acceptance"][1]
+        unquoted = criterion.replace("lab issues 424-427", "lab #424-#427")
+        self.assertIn(f"- {criterion}\n", graph_text)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "planning").mkdir()
+            for name in ("milestones.yaml", "repositories.yaml"):
+                (root / "planning" / name).write_text(
+                    (ROOT / "planning" / name).read_text(encoding="utf-8"),
+                    encoding="utf-8",
+                )
+            (root / "planning/graph.yaml").write_text(
+                graph_text.replace(f"- {criterion}\n", f"- {unquoted}\n"),
+                encoding="utf-8",
+            )
+            errors = lint(root)
+        self.assertIn(
+            "ECO-060: acceptance entries must be complete sentences ending with a period",
+            errors,
+        )
+
+    def test_buzz_reuse_criterion_keeps_its_scope_and_never_live_guard(self):
+        graph = load_yaml(ROOT / "planning/graph.yaml")
+        node = next(node for node in graph["nodes"] if node["id"] == "ECO-060")
+        reuse = [item for item in node["acceptance"] if "424-427" in item]
+        self.assertEqual(1, len(reuse))
+        scope, _, guard = reuse[0].partition(";")
+        self.assertIn("reused only at its evidenced plan/spec or implementation scope", scope)
+        self.assertIn("never represented as a live integration", guard)
+
     def test_early_baselines_precede_consuming_milestones(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}

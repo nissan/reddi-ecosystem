@@ -99,7 +99,10 @@ issues [632](https://github.com/nissan/reddi-agent-protocol/issues/632)–[635](
 remain unresolved obligations, not satisfied claims. ECO-047 separately owns eligibility,
 partner/grant acceptance, live evidence, communication and publication approvals. The
 no-spend comparison fixture may follow technical evidence, while the public Buzz sidecar
-still requires ECO-047. No blanket dependency waiver is created.
+still requires ECO-047. No blanket dependency waiver is created. ECO-043, ECO-046 and
+ECO-060 keep their human gates: only local static, fixture and localnet no-spend/no-contact
+work proceeds without approval, while devnet signing, live promotion, upstream contact and
+repository creation each need the gate listed on the node.
 
 The RAP v0.1 no-new-SPL-program decision versus proposed SPL mint, token-account and
 account-layout work remains unresolved. ECO-040 requires a bounded canonical RAP ADR or

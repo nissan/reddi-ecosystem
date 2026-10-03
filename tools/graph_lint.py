@@ -81,6 +81,29 @@ def require_dependency(
         errors.append(f"{node_id}: missing required dependency {dependency}")
 
 
+def require_human_gates(
+    errors: list[str], nodes: dict[str, dict[str, Any]], node_id: str, gates: tuple[str, ...]
+) -> None:
+    declared = nodes[node_id].get("humanGates")
+    if not isinstance(declared, list):
+        return
+    for gate in gates:
+        if gate not in declared:
+            errors.append(f"{node_id}: missing required human gate {gate}")
+
+
+TECHNICAL_SPLIT_HUMAN_GATES = {
+    "ECO-043": (
+        "legal-or-grantor-communication", "privacy-publication", "live-payment",
+        "paid-service-or-spend", "external-publication",
+    ),
+    "ECO-046": (
+        "live-payment", "mainnet", "signing-or-custody", "privacy-publication",
+        "legal-or-grantor-communication", "paid-service-or-spend",
+        "production-release", "external-publication",
+    ),
+    "ECO-060": ("upstream-contact", "repo-creation"),
+}
 REQUIRED_COMPARISON_STANDARDS = ("mpp", "ap2", "x402")
 REQUIRED_FIRST_RAIL_PROFILE = "solana-audd"
 REQUIRED_ADAPTER_METHODS = (
@@ -117,6 +140,8 @@ def lint_obligation_sequence(nodes: dict[str, dict[str, Any]]) -> list[str]:
             require_dependency(errors, nodes, node_id, "ECO-046")
     require_dependency(errors, nodes, "ECO-060", "ECO-046")
     require_dependency(errors, nodes, "ECO-062", "ECO-047")
+    for node_id, gates in TECHNICAL_SPLIT_HUMAN_GATES.items():
+        require_human_gates(errors, nodes, node_id, gates)
 
     early_baselines = {
         "ECO-070": "ECO-016",
@@ -270,6 +295,13 @@ def lint(root: Path = ROOT) -> list[str]:
                 errors.append(f"{node_id}: {list_field} must contain at least {minimum} items")
             elif any(not isinstance(item, str) for item in value):
                 errors.append(f"{node_id}: {list_field} must contain only strings")
+            elif list_field != "evidenceExpected" and any(
+                not item.rstrip().endswith(".") for item in value
+            ):
+                errors.append(
+                    f"{node_id}: {list_field} entries must be complete sentences "
+                    "ending with a period"
+                )
         for optional_list_field in ("evidenceProduced",):
             if optional_list_field in node:
                 value = node.get(optional_list_field)

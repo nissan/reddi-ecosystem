@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.project_issues import ROOT, bullets, generate, node_markdown
+from tools.project_issues import ROOT, bullets, generate, load, node_markdown
 
 
 class IssueProjectionTests(unittest.TestCase):
@@ -31,6 +31,16 @@ class IssueProjectionTests(unittest.TestCase):
                 node = self._node(humanGates=value)
                 with self.assertRaises(TypeError):
                     node_markdown(node, self._epics())
+
+    def test_projection_renders_every_parsed_acceptance_criterion_in_full(self):
+        graph = load(ROOT / "planning/graph.yaml")
+        epics = {epic["id"]: epic for epic in graph["epics"]}
+        node = next(node for node in graph["nodes"] if node["id"] == "ECO-060")
+        rendered = node_markdown(node, epics).splitlines()
+        for criterion in node["acceptance"]:
+            self.assertIn(f"- [ ] {criterion}", rendered)
+        self.assertIn("- upstream-contact", rendered)
+        self.assertIn("- repo-creation", rendered)
 
     def _node(self, **overrides):
         node = {

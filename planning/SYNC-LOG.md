@@ -29,7 +29,11 @@ GitHub execution projections. Newest entries appear first.
   ECO-047 separately owns eligibility, partner/grant acceptance, communication, live and
   publication gates. ECO-043 and the E06 architecture mapping may follow ECO-046, while
   the public Buzz sidecar ECO-062 still depends on ECO-047. This is technical no-spend
-  decoupling, not a grant or live-action waiver.
+  decoupling, not a grant or live-action waiver. ECO-043, ECO-046, and ECO-060 keep their
+  original human gates: local static, fixture, and localnet no-spend/no-contact work may
+  proceed, while devnet signing, live promotion, upstream contact, repository creation, and
+  every other gated action still require the listed approvals. Graph lint rejects removal
+  of those gates and any acceptance or subtask entry that is not a complete sentence.
 - The RAP v0.1 no-new-SPL-program decision versus proposed SPL mint/token-account/PDA
   layout work remains unresolved. ECO-040 now requires a bounded canonical RAP ADR or
   semantic disposition; this increment does not invent the answer.
