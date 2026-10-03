@@ -21,7 +21,7 @@ Graph node:
 
 ## Review evidence and deferred findings
 
-Canonical policy: [`GOVERNANCE.md`](../GOVERNANCE.md#delivery-and-merge-policy).
+Canonical policy: [`GOVERNANCE.md`](https://github.com/nissan/reddi-ecosystem/blob/main/GOVERNANCE.md#delivery-and-merge-policy).
 
 Claude-family GO:
 

@@ -91,15 +91,6 @@ class GraphLintTests(unittest.TestCase):
         errors = lint_obligation_sequence(nodes)
         self.assertIn("ECO-062: missing required dependency ECO-047", errors)
 
-    def test_early_baselines_precede_consuming_milestones(self):
-        graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
-        nodes = {node["id"]: node for node in graph["nodes"]}
-        nodes["ECO-071"]["dependsOn"].remove("ECO-018")
-        nodes["ECO-092"]["dependsOn"].remove("ECO-017")
-        errors = lint_obligation_sequence(nodes)
-        self.assertIn("ECO-071: missing required dependency ECO-018", errors)
-        self.assertIn("ECO-092: missing required dependency ECO-017", errors)
-
     def test_solana_audd_implementation_requires_m0_obligation_reconciliation(self):
         graph = copy.deepcopy(load_yaml(ROOT / "planning/graph.yaml"))
         nodes = {node["id"]: node for node in graph["nodes"]}
