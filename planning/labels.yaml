@@ -7,6 +7,15 @@ labels:
   - {name: "type:decision", color: "d93f0b", description: "Human or architecture decision"}
   - {name: "type:upstream", color: "0366d6", description: "External upstream coordination"}
   - {name: "type:grant", color: "fbca04", description: "Grant promise/evidence/remediation"}
+  - {name: "milestone:M0", color: "0e8a16", description: "Evidence Recovery and Grant Truth"}
+  - {name: "milestone:M1", color: "1d76db", description: "Programme Baseline and Governance"}
+  - {name: "milestone:M2", color: "5319e7", description: "ADL, RAP, and Arena Contract Convergence"}
+  - {name: "milestone:M3", color: "7057ff", description: "Reddi Arena for Buzz Proof"}
+  - {name: "milestone:M4", color: "006b75", description: "Reddi Pack for Omarchy Quattro Alpha"}
+  - {name: "milestone:M5", color: "0e8a16", description: "Reddi Machine Developer Preview"}
+  - {name: "milestone:M6", color: "0052cc", description: "Lighthouse Hosted Services Alpha"}
+  - {name: "milestone:M7", color: "d93f0b", description: "Community Season Zero and Builder Beta"}
+  - {name: "milestone:M8", color: "b60205", description: "Production and Economic Readiness"}
   - {name: "status:backlog", color: "ededed", description: "Not yet ready"}
   - {name: "status:ready", color: "c2e0c6", description: "Dependencies satisfied"}
   - {name: "status:claimed", color: "bfdadc", description: "Owner and footprint reserved"}

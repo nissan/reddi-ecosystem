@@ -3,6 +3,72 @@
 This log records material divergence between the canonical programme graph and its
 GitHub execution projections. Newest entries appear first.
 
+## 2026-10-03 — portfolio planning and governance reconciliation
+
+- Claimed one bounded planning increment under `ECO-014`, with expected footprint in
+  `planning/`, the roadmap/portfolio/grant documentation, generated projections,
+  governance/contributor/PR-template surfaces, tests, and sanitized synchronization
+  evidence. No component implementation, repository setting, branch-protection, live,
+  payment, signing, deployment, release, partner-contact, or issue-close/reopen action is
+  in scope.
+- Baseline verified: this branch began at merged ecosystem
+  [`bc1f5acc80b459f4bf770c759290d208638d73f2`](https://github.com/nissan/reddi-ecosystem/commit/bc1f5acc80b459f4bf770c759290d208638d73f2),
+  the squash merge of [ecosystem PR 25](https://github.com/nissan/reddi-ecosystem/pull/25).
+- The 623-row independent issue evaluation was treated as issue-body evidence, not as a
+  source-code correctness review. Its final coverage and hypothesis corrections supersede
+  interim severity. No stale epic was automatically classified as a High defect and no
+  close/reopen proposal was executed.
+- Implemented approved direction: E12 and ECO-016–019 add planned M1 security/trust,
+  privacy/evidence, supply-chain, glossary/ownership, and documentation baselines. M4–M7
+  consumers now depend on the relevant early baseline rather than M8 production-readiness
+  nodes. ECO-110–115 retain deeper enforcement, drills, independent audit, and production
+  decisions; no baseline is marked complete. Graph lint now rejects any node whose milestone
+  depends on a node in a later milestone, preventing the inversion from returning.
+- ECO-046 now owns bounded technical Solana/AUDD evidence for RAP issues 620–630 and
+  evidence packets [632](https://github.com/nissan/reddi-agent-protocol/issues/632)–[635](https://github.com/nissan/reddi-agent-protocol/issues/635).
+  ECO-047 separately owns eligibility, partner/grant acceptance, communication, live and
+  publication gates. ECO-043 and the E06 architecture mapping may follow ECO-046, while
+  the public Buzz sidecar ECO-062 still depends on ECO-047. This is technical no-spend
+  decoupling, not a grant or live-action waiver. ECO-043, ECO-046, and ECO-060 keep their
+  original human gates: local static, fixture, and localnet no-spend/no-contact work may
+  proceed, while devnet signing, live promotion, upstream contact, repository creation, and
+  every other gated action still require the listed approvals.
+- The RAP v0.1 no-new-SPL-program decision versus proposed SPL mint/token-account/PDA
+  layout work remains unresolved. ECO-040 now requires a bounded canonical RAP ADR or
+  semantic disposition; this increment does not invent the answer.
+- Lab Buzz issues [419](https://github.com/nissan/reddiagent-lab/issues/419)–[433](https://github.com/nissan/reddiagent-lab/issues/433)
+  map into E06 for reuse and ownership classification. Closed design work is preserved at
+  its evidenced plan/spec or implementation scope and is not declared live.
+- [`GOVERNANCE.md`](../GOVERNANCE.md#delivery-and-merge-policy) is the one canonical
+  delivery policy: permitted green validation plus two fresh independent Claude-family
+  and Codex explicit `GO` verdicts on one unchanged full SHA; non-author,
+  permission-respecting review; stale-verdict invalidation; critical/high current-cycle
+  fixes; deduplicated issue-backed medium/low deferrals acknowledged by reviewers; and a
+  no-progress checkpoint/escalation rule. It records process, not asserted settings or
+  automated enforcement. Firstmate alone has conditional merge authority.
+- Task routing now distinguishes deterministic scripts, lowest-adequate narrow work,
+  moderate substantive work, and high-reasoning risk/ambiguity work. Dispatch checks
+  current provenance, short-window and weekly quota/pace/reset/runway, reserves review
+  capacity, respects the three-active-per-provider-family cap, and treats unknown quota as
+  uncertainty. No scheduler or control plane was added.
+- Historical milestone dates remain present for provenance. Every date is visibly
+  unconfirmed; M0 and M1 are overdue pending evidence-backed re-estimation. No fabricated
+  GitHub milestone date was created.
+- Documentation is a cross-cutting milestone gate and ECO-019 is the minimal portfolio
+  owner task. [`docs/PORTFOLIO-PLAN.md`](../docs/PORTFOLIO-PLAN.md) supplies the glossary,
+  ownership/trust-boundary and technical-versus-external Mermaid diagrams plus textual
+  explanations. RAP [issue 679](https://github.com/nissan/reddi-agent-protocol/issues/679)
+  owns the receipt/authority/refusal/replay guide; existing lab
+  [issue 206](https://github.com/nissan/reddiagent-lab/issues/206) and Buzz issues 419–433
+  were reused rather than duplicated for ADL/Buzz indexes and component guidance.
+- Dependency semantics reuse supported fields: HT/EV use `dependsOn`, EX uses
+  `externalIssue`, AP uses `humanGates`, and RS stays milestone/prose sequencing. The graph
+  and linter do not add an unconsumed per-edge field.
+- Grant ledger references lab [issue 406](https://github.com/nissan/reddiagent-lab/issues/406)
+  and RAP issues 632–635 as unresolved obligations. Issue or packet existence is not
+  release, visibility, submission, eligible activity, partner acceptance, or grant
+  acceptance.
+
 ## 2026-10-02 — ECO-014 roadmap and BDD applicability refresh
 
 - Claimed executable node `ECO-014` only. Expected footprint: `README.md`,

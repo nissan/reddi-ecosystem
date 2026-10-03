@@ -1,19 +1,25 @@
 schemaVersion: 2
 programme: Reddi Ecosystem
 asOf: 2026-08-26
-lastAmendedAt: 2026-10-02
-sequencingRevisedAt: 2026-08-31
+lastAmendedAt: 2026-10-03
+sequencingRevisedAt: 2026-10-03
 dateSemantics:
   asOf: date of the last full sweep across every node.
   lastAmendedAt: date of the most recent amendment to individual nodes; nodes amended
     after asOf carry their own inline evidence dates.
 canonicalRule: This file owns cross-repository dependencies; component repositories own their implementation.
 dependencyEdgeTypes:
-  dependsOn: completion prerequisite between graph nodes
-  externalIssue: canonical component implementation or pre-existing work link
-  humanGates: non-automatable approval or external-authority prerequisite
+  dependsOn: completion prerequisite between graph nodes; use for HT hard-technical and EV evidence prerequisites only
+  externalIssue: EX canonical component implementation or pre-existing work link
+  humanGates: AP non-automatable approval or external-authority prerequisite
+  sequencing: RS recommended order belongs in milestone/prose views and never creates a dependsOn edge
+prioritySemantics:
+  P0: blocks the next incomplete milestone gate or a current governing obligation
+  P1: important planned delivery after its prerequisites, but not the present critical-path blocker
+  P2: normal follow-up or maintenance
+  P3: later improvement
 railFieldTypes:
-  railRole: side of the rail-neutrality boundary a node sits on; ECO-042 is the captain-approved first-implementation node and the only node that may declare first-implementation, while every comparison-fixture node must depend on the ECO-047 acceptance pack
+  railRole: side of the rail-neutrality boundary a node sits on; ECO-042 is the approved first-implementation node and the only node that may declare first-implementation, while every comparison-fixture node must depend on ECO-046 technical evidence and any public promotion or partner reliance remains gated by ECO-047
   railProfile: concrete rail the node implements; requires an explicit railRole and solana-audd is reserved for the single first-implementation node
   comparisonStandards: rails a node contract-tests as comparison fixtures; requires an explicit railRole and never lists the first-implementation profile
   adapterMethods: normalized payment adapter operations; ECO-041 must declare the complete supported vocabulary structurally rather than relying on prose mentions
@@ -49,6 +55,11 @@ epics:
     milestone: M1
     targetRepo: ecosystem
     outcome: Research becomes evaluated prompts, agents, tools, experiments, and decisions through a reproducible improvement loop.
+  - id: E12
+    title: Early security, privacy, supply-chain, and documentation baseline
+    milestone: M1
+    targetRepo: ecosystem
+    outcome: Every later product milestone inherits minimum trust-boundary, data, artifact, and human-documentation requirements before implementation starts.
   - id: E03
     title: ADL portability and Agent Bill of Materials
     milestone: M2
@@ -202,8 +213,9 @@ nodes:
     outcome: Every commitment has a reviewed promise/evidence/gap/owner/status row and no outcome is inferred from backlog existence.
     acceptance:
       - "docs/grants/commitments.yaml is complete against recovered governing sources."
-      - RAP issues 615-630 are linked to, not duplicated, and their release evidence is evaluated separately.
+      - RAP issues 615-630 and evidence-packet issues 632-635 are linked to, not duplicated, and technical evidence is evaluated separately from external acceptance.
       - Each AUDD release obligation, including the AUDD-2026-M1 x402 proof, is confirmed or recorded as retired against its governing issue text rather than against programme sequencing preference.
+      - The commitments ledger records which mock, localnet, devnet, controlled-live, or mainnet evidence can be eligible only after the governing authority decides; undefined eligibility remains unknown and never becomes synthetic grant evidence.
     subtasks:
       - Run the grant-auditor prompt per commitment.
       - Re-read the AUDD issue 615-619 governing text and record each obligation's current standing as evidence.
@@ -366,6 +378,98 @@ nodes:
     evidenceExpected: [review checklist, trial records, updated graph]
     humanGates: []
 
+  - id: ECO-016
+    epic: E12
+    type: issue
+    title: Establish the early security and trust-boundary baseline
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-011, ECO-013]
+    ownerRole: security architect
+    outcome: Product work starts from a reviewed portfolio threat inventory, minimum authority controls, and incident ownership without claiming production readiness.
+    acceptance:
+      - Baseline identifies assets, actors, trust boundaries, consequential actions, abuse cases, minimum controls, owner roles, and escalation paths for every consuming milestone.
+      - Baseline explicitly covers prompt/content-to-tool, tool-to-signer, UI-to-local-service, tenant-to-tenant, update-to-host, and event-to-financial-claim paths and links deeper component threat models.
+      - Review records distinguish an early design prerequisite from M8 independent audit, exercised incident response, and production risk acceptance.
+    subtasks:
+      - Consolidate current component threat-model links and unresolved security findings without copying component semantics.
+      - Define minimum fail-closed authority, secret-handling, logging, rollback, and incident-intake requirements for M2 through M7.
+      - Record freshness triggers for architecture, dependency, authority, data-flow, or environment changes.
+    evidenceExpected: [baseline threat and trust-boundary register, independent security review record, linked component follow-ups]
+    humanGates: [privacy-publication]
+
+  - id: ECO-017
+    epic: E12
+    type: issue
+    title: Establish the early privacy, evidence, and public-claim baseline
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-002, ECO-013]
+    ownerRole: privacy and evidence lead
+    outcome: Collection and publication designs declare purpose, minimization, consent, retention, deletion, redaction, and claim provenance before gathering participant or payment evidence.
+    acceptance:
+      - Baseline data inventory covers grant evidence, payment observations, traces, prompts, identities, Nostr events, community metrics, and support data with source, purpose, sensitivity, access, retention, deletion, export, and owner.
+      - Every M2 through M7 node that collects or publishes data links the applicable baseline and preserves privacy, legal, participant, and external-publication approvals.
+      - Baseline is explicitly not participant consent, legal approval, partner acceptance, or the exercised M8 production privacy gate.
+    subtasks:
+      - Define minimum data and claim fields plus redaction classes using only public-safe derived facts.
+      - Map affected graph nodes and canonical component policies to the baseline.
+      - Record freshness triggers for new data, audiences, environments, metrics, partners, or retention behavior.
+    evidenceExpected: [baseline data and claim register, affected-node map, privacy review record]
+    humanGates: [privacy-publication, external-publication]
+
+  - id: ECO-018
+    epic: E12
+    type: issue
+    title: Establish the early dependency and supply-chain baseline
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P0
+    dependsOn: [ECO-011]
+    ownerRole: supply-chain security lead
+    outcome: Packaging and deployment designs declare dependency, provenance, secret-scan, SBOM, build, signing, update, rollback, and vulnerability requirements before artifacts are produced.
+    acceptance:
+      - Baseline defines artifact classes and minimum controls for source, packages, containers, plugins, prompts, generated assets, and machine images.
+      - M4 through M7 consumers link reproducibility, provenance, SBOM, signing-authority, update, rollback, vulnerability, and license requirements before implementation.
+      - Baseline does not claim reproducible builds, signed releases, audit completion, or production release approval before their evidence exists.
+    subtasks:
+      - Inventory current component build, dependency, provenance, and release-policy authorities.
+      - Define risk-proportionate minimum evidence and prohibited mutable or secret-bearing inputs.
+      - Record freshness triggers for dependency, builder, signer, channel, artifact, or licensing changes.
+    evidenceExpected: [supply-chain baseline, artifact control matrix, independent review record]
+    humanGates: []
+
+  - id: ECO-019
+    epic: E12
+    type: issue
+    title: Maintain portfolio glossary, ownership map, and documentation acceptance
+    milestone: M1
+    targetRepo: ecosystem
+    githubProjection: implementation
+    status: planned
+    priority: P1
+    dependsOn: [ECO-013, ECO-014]
+    ownerRole: documentation steward
+    outcome: Humans can identify each component, term, authority boundary, prerequisite, and evidence state, while detailed semantics remain in their canonical repositories.
+    acceptance:
+      - Portfolio glossary and ownership/trust-boundary map name audience, learning or task goal, source of truth, scope, prerequisites, examples, owner, and freshness trigger.
+      - Every milestone gate requires affected human documentation, runnable examples where applicable, accessible diagrams only where they clarify structure, and a clean-reader or owner review.
+      - RAP receipt/authority/replay guidance, ADL and Buzz indexes, and component runbooks remain explicit owner-repository follow-ups and never document unfrozen proposed semantics as implemented.
+    subtasks:
+      - Publish the portfolio glossary and editable Mermaid ownership/trust-boundary diagram with a textual explanation.
+      - Map existing documentation issues before filing owner-bound gaps in canonical repositories.
+      - Add documentation and freshness checks to milestone and pull-request review surfaces.
+    evidenceExpected: [portfolio glossary, ownership map, documentation gap register, clean-reader review]
+    humanGates: [external-publication]
+
   - id: ECO-020
     epic: E02
     type: issue
@@ -396,7 +500,7 @@ nodes:
     targetRepo: ecosystem
     githubProjection: implementation
     status: planned
-    priority: P0
+    priority: P1
     dependsOn: [ECO-020]
     ownerRole: evaluation lead
     outcome: Prompts are versioned, reproducible, privacy-safe artifacts with locked evaluation and rollback rules.
@@ -651,7 +755,8 @@ nodes:
       - Map core states, public types, packages, fixtures, docs, receipt fields, and readiness issues.
       - Add architecture-boundary tests for prohibited imports/fields and unapproved signing/live/mainnet paths.
       - Create canonical RAP child issues for confirmed leakage and readiness gaps, including one for the SPL account-layout work that no existing AUDD issue 615-630 covers.
-    evidenceExpected: [RAP audit report, readiness finding import, boundary tests, linked issues]
+      - Record a bounded RAP ADR or semantic disposition for the v0.1 no-new-SPL-program decision in issue 392 versus the proposed SPL mint, token-account, and account-layout scope; this graph does not decide that contract question.
+    evidenceExpected: [RAP audit report, readiness finding import, boundary tests, linked issues, RAP ADR or semantic disposition for the no-SPL versus SPL question]
     humanGates: []
 
   - id: ECO-041
@@ -713,27 +818,28 @@ nodes:
   - id: ECO-043
     epic: E04
     type: issue
-    title: After Solana/AUDD acceptance, prove rail neutrality with a materially different fixture
+    title: After Solana/AUDD technical evidence, prove rail neutrality with a materially different fixture
     milestone: M2
     targetRepo: rap
     githubProjection: tracker
     status: planned
     priority: P0
-    dependsOn: [ECO-047]
+    dependsOn: [ECO-046]
     ownerRole: payments portability lead
     railRole: comparison-fixture
     comparisonStandards: [mpp, ap2, x402, stripe-style, second-chain]
-    outcome: A later no-spend MPP/AP2/x402/Stripe-style or second-chain fixture proves that on-chain finality, wallet identity, mandates, payment challenges, and escrow are optional capabilities rather than RAP assumptions.
+    outcome: A later no-spend MPP/AP2/x402/Stripe-style or second-chain fixture proves that on-chain finality, wallet identity, mandates, payment challenges, and escrow are optional capabilities rather than RAP assumptions, without claiming partner acceptance.
     acceptance:
       - MPP/AP2/x402/Stripe-style fake provider or second-chain fixture completes the same job/receipt lifecycle without live account, production account, live charge, or grant-eligible volume claim.
       - Capture/chargeback, mandate, challenge/response, refund, or alternative finality differences are expressed through capabilities and normalized observations.
       - The comparison repeats Solana/AUDD contract tests and proves no later standard displaced the first obligation-driven implementation.
-      - Any core, adapter-contract, or receipt change forced by the comparison re-runs the Solana/AUDD suite and re-stamps the ECO-047 acceptance binder against the new contract and receipt version before that binder or any grantor communication derived from it is relied upon again.
+      - Any core, adapter-contract, or receipt change forced by the comparison re-runs the Solana/AUDD technical suite; if an ECO-047 binder exists, it is invalidated and re-stamped before partner reliance or public promotion.
+      - Deterministic fake or local no-spend, no-contact fixture work may follow ECO-046 technical evidence without a human gate, but public promotion, partner reliance, grantor communication, paid service, and every live/value action remain blocked on ECO-047 and on the specific approval for each human gate listed on this node.
     subtasks:
-      - Select fixture by maximum semantic difference, standards relevance, and minimum external dependency after ECO-047 evidence is packaged.
+      - Select fixture by maximum semantic difference, standards relevance, and minimum external dependency after ECO-046 technical evidence is complete.
       - Implement adapter and shared contract tests with deterministic fake or sandbox inputs only.
       - Record core changes forced by the comparison, repeat the Solana/AUDD suite, and re-stamp or reopen the ECO-047 binder when contract or receipt semantics change.
-    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR, repeated Solana/AUDD suite, ECO-047 binder re-stamp or reopen record]
+    evidenceExpected: [second adapter fixture, shared conformance report, neutrality ADR, repeated Solana/AUDD suite, ECO-047 binder re-stamp or reopen record when a binder exists]
     humanGates: [legal-or-grantor-communication, privacy-publication, live-payment, paid-service-or-spend, external-publication]
 
   - id: ECO-044
@@ -784,28 +890,30 @@ nodes:
   - id: ECO-046
     epic: E04
     type: issue
-    title: Deliver AUDD issues 615-630 through evidence-gated Solana/AUDD implementation
+    title: Complete technical Solana/AUDD implementation and evidence packets
     milestone: M2
     targetRepo: rap
     githubProjection: tracker
-    status: blocked
+    status: planned
     priority: P0
-    dependsOn: [ECO-004, ECO-005, ECO-041, ECO-042, ECO-045]
+    dependsOn: [ECO-004, ECO-041, ECO-042, ECO-045]
     externalIssue: https://github.com/nissan/reddi-agent-protocol/issues/615
     ownerRole: AUDD delivery lead
-    outcome: Existing RAP AUDD release nodes are implemented on the Solana/AUDD-first path and audited without duplicating, inflating, or bypassing their eligibility gates.
+    outcome: Existing RAP AUDD technical nodes and evidence-packet structures are implemented on the Solana/AUDD-first path without duplicating, inflating, or bypassing external eligibility gates.
     acceptance:
-      - Technical issues 620-630 pass their tests and evidence requirements in declared fixture/devnet or separately approved live environments.
-      - Eligible M1/M2/M3/activation evidence is evaluated separately from implementation completion and approved by the acceptance authority before grant claims or communication.
+      - Technical issues 620-630 pass their no-spend fixture/localnet or separately approved devnet tests and produce environment-labelled evidence without requiring eligible volume, users, partner acceptance, or a live action.
+      - Evidence-packet issues 632-635 have technically reproducible schemas, provenance, exclusion logs, and explicit gaps; their existence or technical completeness is not partner or grant acceptance.
+      - Eligible M1/M2/M3/activation evidence is evaluated only in ECO-047 and approved by the acceptance authority before grant claims or communication.
       - No synthetic activity, owned demo traffic, unsupported mainnet claim, or unapproved live payment is counted as Superteam Australia or AUDD acceptance evidence.
-      - Standards evidence that ECO-004 confirmed a governing text still requires, such as the AUDD-2026-M1 x402 proof, is produced here as no-spend fixture/devnet evidence or cited as retired by the ECO-005 disposition, so no AUDD obligation reaches ECO-047 without an owner.
-      - Each release gate's evidence package contains every artifact its governing issue names in the commitments ledger acceptanceArtifacts row, including observability and audit-trail references, transaction signatures, non-secret authority metadata, and operator runbooks, or records each missing artifact as a gap with a named owner.
+      - Standards evidence that ECO-004 confirmed a governing text still requires, such as the AUDD-2026-M1 x402 proof, is produced here as no-spend fixture/localnet or separately approved devnet evidence, or cited as retired by the ECO-005 disposition, so no AUDD obligation reaches ECO-047 without an owner.
+      - Each release gate's technical packet contains every no-spend or separately approved devnet artifact its governing issue names in the commitments ledger, or records each missing/live/external artifact as a gap owned by ECO-047 rather than fabricating completion.
+      - Local static, fixture, and localnet no-spend, no-contact work may proceed without a human gate; devnet signing requires its specific signing-or-custody approval, and every live payment, mainnet, spend, production release, publication, or legal/grantor communication stays behind the human gates listed on this node and is routed to ECO-047.
     subtasks:
-      - Reconcile each existing issue with new adapter/event/receipt contracts, RAP readiness findings, and commitment-led evidence rows.
+      - Reconcile RAP issues 620-630 and evidence-packet issues 632-635 with new adapter/event/receipt contracts, RAP readiness findings, and commitment-led evidence rows.
       - Deliver or cite the retirement of any obligation-required standards evidence confirmed by ECO-004 and ECO-005 before the acceptance binder is packaged.
-      - Execute safe fixture/devnet work, receipt/reconciliation exports, redaction checks, and independent audits first.
-      - Request explicit approval for any live evidence run, participant activity, funding, signing, custody, deployment, publication, or report.
-    evidenceExpected: [linked RAP PRs/issues, audit packs, receipt and reconciliation exports, observability and audit-trail references, operator runbooks, grant acceptance records]
+      - Execute safe fixture/localnet work, receipt/reconciliation exports, redaction checks, and independent audits first; route any devnet execution through its specific approval.
+      - Stop and route any live evidence run, participant activity, funding, signing, custody, deployment, publication, report, or acceptance request to ECO-047 and its explicit approvals.
+    evidenceExpected: [linked RAP PRs/issues 620-630 and 632-635, technical audit packs, receipt and reconciliation fixtures, observability and audit-trail references, operator runbooks, owned gap register]
     humanGates: [live-payment, mainnet, signing-or-custody, privacy-publication, legal-or-grantor-communication, paid-service-or-spend, production-release, external-publication]
 
   - id: ECO-047
@@ -817,11 +925,11 @@ nodes:
     githubProjection: implementation
     status: blocked
     priority: P0
-    dependsOn: [ECO-005, ECO-046, ECO-052]
+    dependsOn: [ECO-005, ECO-046, ECO-052, ECO-017]
     ownerRole: grant evidence lead
     outcome: Privacy-safe acceptance artifacts for Superteam Australia and AUDD obligations are reviewed before broader MPP/AP2/x402 or no-spend public demonstrations can be promoted.
     acceptance:
-      - Evidence pack maps each Superteam Australia and AUDD obligation to governing text, RAP issue/PR, environment, adapter-contract and receipt version, quote/authorize/submit/observe/settle/refund-or-reverse/reconcile/redact evidence, receipt, Arena conformance result, audit finding, gap, and owner.
+      - Evidence pack maps each Superteam Australia and AUDD obligation, including RAP evidence-packet issues 632-635, to governing text, RAP issue/PR, environment, adapter-contract and receipt version, quote/authorize/submit/observe/settle/refund-or-reverse/reconcile/redact evidence, receipt, Arena conformance result, audit finding, gap, and owner.
       - Live, mainnet, volume, user, workshop, funding, signing, custody, deployment, publication, and grantor-communication claims are either backed by approved primary evidence or explicitly remain blocked/unknown, and every obligation left blocked/unknown names the node that owns closing it and its approved disposition.
       - Legal/grantor communication drafts separate completed implementation evidence, devnet/test evidence, limitations, remediation forecasts, and pending human gates.
     subtasks:
@@ -966,21 +1074,23 @@ nodes:
   - id: ECO-060
     epic: E06
     type: issue
-    title: Decide Buzz integration path through an upstream-aware architecture spike
+    title: Reconcile and decide the Buzz integration path through an upstream-aware architecture spike
     milestone: M3
     targetRepo: ecosystem
     githubProjection: implementation
     status: planned
     priority: P0
-    dependsOn: [ECO-030, ECO-040, ECO-047, ECO-050]
+    dependsOn: [ECO-030, ECO-040, ECO-046, ECO-050]
     ownerRole: Buzz integration lead
-    outcome: Maintainers select sidecar, generic extension, or fork using a tested seam and maintenance evidence after the Solana/AUDD obligation evidence path is packaged.
+    outcome: Maintainers reuse and classify the approved lab Buzz design, then select sidecar, generic extension, or fork using a tested seam after Solana/AUDD technical evidence exists; partner acceptance remains a separate gate.
     acceptance:
-      - Spike maps Buzz architecture, relay/community model, Nostr job events, extension issue 2426, release cadence, license, marks, and patch burden.
-      - Sidecar-first prototype proves or falsifies the minimum no-spend flow before any fork decision and does not precede or replace Superteam Australia/AUDD acceptance evidence.
+      - Spike maps Buzz architecture, relay/community model, Nostr job events, extension issue 2426, release cadence, license, marks, patch burden, and lab issues 419-433 to E06 ownership as adopted, canonical elsewhere, superseded, or still proposed.
+      - Existing lab issues 424-427 design/exporter work is reused only at its evidenced plan/spec or implementation scope; it is not reimplemented and is never represented as a live integration.
+      - Local static, no-contact analysis, seam mapping, and drafting may proceed without a human gate; contacting upstream Buzz maintainers or posting the upstream discussion draft requires upstream-contact approval, and creating any repository requires repo-creation approval.
+      - Sidecar-first prototype proves or falsifies the minimum no-spend flow before any fork decision; technical work may follow ECO-046, but public promotion and every live/value path remain blocked on ECO-047.
     subtasks:
       - Reproduce an upstream Buzz development environment at a pinned revision.
-      - Trace persona/job/event/storage/UI extension seams and missing hooks.
+      - Trace persona/job/event/storage/UI extension seams and missing hooks against lab issues 419-433 and canonical RAP/ADL ownership.
       - Write ADR with upstream discussion draft, rebase cost, and exit conditions.
     evidenceExpected: [spike code, seam map, ADR, upstream draft]
     humanGates: [upstream-contact, repo-creation]
@@ -1016,7 +1126,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-010, ECO-032, ECO-060, ECO-061]
+    dependsOn: [ECO-010, ECO-032, ECO-047, ECO-060, ECO-061]
     ownerRole: Buzz integration maintainer
     outcome: A pinned upstream Buzz can discover projected ADL agents and run the RAP no-spend lifecycle through a public sidecar.
     acceptance:
@@ -1104,7 +1214,7 @@ nodes:
     githubProjection: implementation
     status: planned
     priority: P0
-    dependsOn: [ECO-060]
+    dependsOn: [ECO-016, ECO-060]
     ownerRole: Linux security lead
     outcome: The package boundary assumes unsandboxed UI and prevents presentation code or agents from acquiring signing and host authority.
     acceptance:
@@ -1126,7 +1236,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-062, ECO-070, ECO-112]
+    dependsOn: [ECO-018, ECO-062, ECO-070]
     ownerRole: Linux packaging lead
     outcome: Versioned services install independently of QML with narrow APIs, no embedded secrets, provenance, update, rollback, and uninstall.
     acceptance:
@@ -1214,7 +1324,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P1
-    dependsOn: [ECO-073, ECO-074, ECO-113]
+    dependsOn: [ECO-017, ECO-073, ECO-074]
     ownerRole: Reddi Pack release manager
     outcome: A signed alpha is reproducible, clearly unofficial, supportable, safe by default, and usable by external hackers.
     acceptance:
@@ -1324,7 +1434,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-081, ECO-112, ECO-114]
+    dependsOn: [ECO-016, ECO-018, ECO-081]
     ownerRole: distribution security lead
     outcome: Machine components can be updated or rolled back safely and their source/build chain can be verified.
     acceptance:
@@ -1346,7 +1456,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P1
-    dependsOn: [ECO-083, ECO-084, ECO-113]
+    dependsOn: [ECO-017, ECO-083, ECO-084]
     ownerRole: distribution release manager
     outcome: External hackers can install, inspect, build agents, run Arena/Buzz, update, and recover on supported machines.
     acceptance:
@@ -1390,7 +1500,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-062, ECO-090, ECO-110]
+    dependsOn: [ECO-016, ECO-062, ECO-090]
     ownerRole: Lighthouse platform lead
     outcome: A tenant can operate a managed Buzz-compatible community and Arena without granting Lighthouse wallet custody.
     acceptance:
@@ -1412,7 +1522,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-045, ECO-090, ECO-113]
+    dependsOn: [ECO-017, ECO-045, ECO-090]
     ownerRole: Lighthouse evidence lead
     outcome: Customers can retain, find, verify, export, and delete permitted evidence without turning Lighthouse observations into payment truth.
     acceptance:
@@ -1434,7 +1544,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-091, ECO-092, ECO-114]
+    dependsOn: [ECO-016, ECO-091, ECO-092]
     ownerRole: Lighthouse reliability lead
     outcome: Operators know tenant impact, cost, agent/tool behavior, evidence freshness, and safe intervention during failure.
     acceptance:
@@ -1478,7 +1588,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P1
-    dependsOn: [ECO-090, ECO-093, ECO-094, ECO-113]
+    dependsOn: [ECO-017, ECO-090, ECO-093, ECO-094]
     ownerRole: Lighthouse release manager
     outcome: Approved alpha tenants receive reliable managed operations with clear limits, data exit, support, and no custody.
     acceptance:
@@ -1566,7 +1676,7 @@ nodes:
     githubProjection: tracker
     status: blocked
     priority: P0
-    dependsOn: [ECO-052, ECO-053, ECO-063, ECO-101, ECO-113]
+    dependsOn: [ECO-017, ECO-052, ECO-053, ECO-063, ECO-101]
     ownerRole: Arena community lead
     outcome: Builders operate agents and judges under transparent rules, reproduce results, and submit at least two independent conformance implementations.
     acceptance:
@@ -1632,7 +1742,7 @@ nodes:
     githubProjection: implementation
     status: planned
     priority: P0
-    dependsOn: [ECO-013, ECO-034, ECO-040]
+    dependsOn: [ECO-013, ECO-016, ECO-034, ECO-040]
     ownerRole: security architect
     outcome: Threats across agent, tool, model, data, Nostr, Buzz, OS, package, hosted, identity, and payment planes have owners and testable controls.
     acceptance:
@@ -1676,7 +1786,7 @@ nodes:
     githubProjection: implementation
     status: planned
     priority: P0
-    dependsOn: [ECO-011, ECO-031, ECO-110]
+    dependsOn: [ECO-011, ECO-018, ECO-031, ECO-110]
     ownerRole: supply-chain security lead
     outcome: Source, packages, containers, plugins, machine artifacts, prompts, and Agent BOMs can be traced and verified before use.
     acceptance:
@@ -1698,7 +1808,7 @@ nodes:
     githubProjection: implementation
     status: planned
     priority: P0
-    dependsOn: [ECO-013, ECO-061, ECO-110]
+    dependsOn: [ECO-013, ECO-017, ECO-061, ECO-110]
     ownerRole: privacy and evidence lead
     outcome: Traces, prompts, events, identities, payments, community metrics, and grant evidence are minimized and used for declared purposes.
     acceptance:

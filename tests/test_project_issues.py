@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.project_issues import ROOT, bullets, generate, node_markdown
+from tools.project_issues import ROOT, bullets, generate, load, node_markdown
 
 
 class IssueProjectionTests(unittest.TestCase):
@@ -31,6 +31,15 @@ class IssueProjectionTests(unittest.TestCase):
                 node = self._node(humanGates=value)
                 with self.assertRaises(TypeError):
                     node_markdown(node, self._epics())
+
+    def test_quoted_hash_scalar_survives_parse_and_render(self):
+        criterion = "Reuses lab #424 design."
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "node.yaml"
+            path.write_text(f'acceptance:\n  - "{criterion}"\n', encoding="utf-8")
+            node = self._node(**load(path))
+        rendered = node_markdown(node, self._epics()).splitlines()
+        self.assertIn(f"- [ ] {criterion}", rendered)
 
     def _node(self, **overrides):
         node = {

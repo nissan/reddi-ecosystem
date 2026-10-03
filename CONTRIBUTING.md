@@ -22,6 +22,10 @@ Thank you for helping build portable, trustworthy agent infrastructure.
 
 ## Pull requests
 
+The canonical merge gate, reviewer independence, exact-head, severity/deferral, and
+anti-loop rules are in [`GOVERNANCE.md`](GOVERNANCE.md#delivery-and-merge-policy).
+Repository checks or approvals do not replace that gate.
+
 Every PR should include:
 
 - linked issue/graph node and acceptance criteria;
@@ -30,7 +34,9 @@ Every PR should include:
 - compatibility, security, payment, and data impacts;
 - screenshots/video/trace for user-facing changes;
 - upstream status when external projects are affected;
-- newly discovered work and a concise retrospective.
+- newly discovered work and a concise retrospective;
+- the unchanged full head SHA reviewed by both independent reviewers;
+- exact URLs for deduplicated medium/low deferrals and each reviewer's explicit acknowledgement.
 
 Do not include secrets, wallet material, personal data, or unverifiable public claims.
 

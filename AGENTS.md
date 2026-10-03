@@ -19,6 +19,10 @@ decisions. Agents research, propose, implement, test, audit, document, and surfa
 
 `frame -> inspect -> plan -> execute -> verify -> independent audit -> integrate -> retrospect`
 
+[`GOVERNANCE.md`](GOVERNANCE.md#delivery-and-merge-policy) is the canonical delivery,
+two-reviewer, finding-triage, anti-loop, and task/model/effort-routing policy. Follow it
+without treating process policy as evidence of branch-protection or automated enforcement.
+
 Each loop must leave:
 
 - an anchor issue or graph node;

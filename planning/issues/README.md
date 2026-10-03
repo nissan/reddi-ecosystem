@@ -4,14 +4,15 @@ These files are deterministic projections of `planning/graph.yaml`. The graph is
 Do not edit generated files by hand.
 
 - Graph schema version: 2
-- 12 epics
-- 74 issues
+- 13 epics
+- 78 issues
 
 ## Epics
 
 - [E00 — Evidence recovery and grant truth](epics/E00.md)
 - [E01 — Programme control plane and governance](epics/E01.md)
 - [E02 — Research intelligence and prompt foundry](epics/E02.md)
+- [E12 — Early security, privacy, supply-chain, and documentation baseline](epics/E12.md)
 - [E03 — ADL portability and Agent Bill of Materials](epics/E03.md)
 - [E04 — RAP lifecycle, events, and rail neutrality](epics/E04.md)
 - [E05 — Arena conformance, evaluation, and learning loops](epics/E05.md)
