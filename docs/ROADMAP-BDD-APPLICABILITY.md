@@ -1,6 +1,6 @@
 # Roadmap and BDD applicability catalog
 
-**Applicability snapshot:** 2026-10-03 UTC
+**Applicability snapshot:** 2026-10-03 UTC  
 **Authority:** `planning/graph.yaml` remains canonical for cross-repository completion dependencies. Component repositories remain canonical for their semantics and implementation. This catalog is a human-readable applicability, typed-dependency, and behavior view; it does not create a second execution graph. [`PORTFOLIO-PLAN.md`](PORTFOLIO-PLAN.md) explains ownership, the dependency legend, early baselines, and the technical-versus-external acceptance split.
 
 ## How to read this catalog
